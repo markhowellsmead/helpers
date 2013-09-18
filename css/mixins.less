@@ -1,0 +1,45 @@
+/*
+Helper mixins in LESS syntax for use in helping to compile CSS
+Created by Mark Howells-Mead, http://mhm.li/
+With partial assistance from !frappant Webfactory http://frappant.ch/
+
+This code is provided as-is under the GPL GNU General Public Licence v3
+and may be freely used, adapted and built upon. No guarantee is provided or implied.
+http://www.gnu.org/licenses/gpl.html
+*/
+
+.media-object(@element-small,@element-large){
+	/*
+		CSS media object
+		Based on concept and idea by Nicole Sullivan
+		http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+
+		Usage in HTML:
+			<div class="mo formfield">
+				<label>Name</label>
+				<input type="text" name="yourname">
+			</div>
+			<div class="mo formfield">
+				<label>Email address</label>
+				<input type="email" name="youremail">
+			</div>
+			<div class="mo formfield">
+				<label>Your comment</label>
+				<textarea rows="40" cols="6" name="yourcomment"></textarea>
+			</div>
+		
+		Usage in LESS:
+			.mo.formfield {
+				.media-object(~'label',~'input,textarea');
+			}
+	
+	*/
+
+	overflow:hidden; _overflow:visible; zoom:1;
+
+	@{element-small} {float:left; margin-right:5%}
+	@{element-small},@{element-large} {overflow:hidden; _overflow:visible; zoom:1}
+	@{element-small} img	{display:block}
+
+	&.right @{element-small} {float:right; margin-right:0; margin-left:1em;}
+}
