@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<script src="//maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title>Class-based Google Maps implementation</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<p>For full options and a full list of controls, see <code>class.googlemaps.js</code>. The minified file <code>class.googlemaps.min.js</code> is the one which is actually used.</p>
+<div id="googlemap1" class="google map"></div>
+
+<script src="class.googlemaps.min.js"></script>
+
+<script>
+var my_locations = [
+	{
+		title: "Notre Dame",
+		labelContent: "Notre Dame",
+		markerContent: "Nice cathedral. (You can also press [Esc] to close this window.)",
+		longitude: "48.853101",
+		latitude: "2.349668",
+		icon: "pin_default.png"
+	},
+	{
+		title: "Eiffel Tower",
+		labelContent: "Eiffel Tower",
+		markerContent: "Nice tower. (You can also press [Esc] to close this window.)",
+		longitude: "48.85830",
+		latitude: "2.29451",
+		icon: "pin_default.png"
+	}
+];
+
+(function($){
+	$(window).load(function(){
+
+		// Set centre as Paris. (Default is the centre of Switzerland.)
+		googlemaps.options.lat_default = 48.85661;
+		googlemaps.options.lon_default = 2.35194;
+
+		googlemaps.options.zoomlevel_default 	= 14;
+		googlemaps.options.zoomlevel_near 		= 18;
+
+		googlemaps.options.showLabels = true;
+		
+		googlemaps.options.mapTypeID = google.maps.MapTypeId.ROADMAP;
+		googlemaps.options.fitToBounds = true;
+		
+		googlemaps.controls.resetbutton = false;
+
+		googlemaps.locations = my_locations;
+
+		googlemaps.makeMap('googlemap1');
+
+	});
+})(jQuery);
+</script>
+
+
+</body>
+</html>
