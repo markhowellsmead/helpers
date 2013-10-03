@@ -17,11 +17,6 @@
 
 class View_CalendarMonth {
 
-	function dump($var,$die=false){
-		echo '<pre>' .print_r($var,1). '</pre>';
-		if($die){die();}
-	}//dump
-	
 	var $className, $monthName, $daysInMonth, 
 		$currentDay = 0, $currentMonth = 0, $currentYear = 0, 
 		$dayFirst = 1, $dayLast = 31, $weekdayFirst = 1, $weekdayLast = 7;
