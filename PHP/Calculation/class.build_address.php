@@ -9,7 +9,7 @@ class AddressHelpers {
 			Build a HTML string for displaying an address on the website
 			Conditionals built-in to determine line-breaks etc.
 			
-			WARNING: requires functions force_attributes and encode_email to be defined!
+			WARNING: requires functions force_attributes, valid_email_address, valid_url and encode_email to be defined!
 			
 			Usage: 
 			
@@ -58,9 +58,9 @@ class AddressHelpers {
 			$this->viewData['address'][] = $data[$keys['postcode']] . (!empty($data[$keys['postcode']]) && !empty($data[$keys['town']]) ? ' ' : '') . $data[$keys['town']];
 		}
 	
-		if(!empty($data[$keys['telephone']])){$this->viewData['address'][] = $this->pi_getLL('tx_frpveranstaltungen_veranstaltung.telefon').': '.$data[$keys['telephone']];}
-		if(!empty($data[$keys['fax']])){$this->viewData['address'][] = $this->pi_getLL('tx_frpveranstaltungen_veranstaltung.fax').': '.$data[$keys['fax']];}
-		if(!empty($data[$keys['mobile']])){$this->viewData['address'][] = $this->pi_getLL('tx_frpveranstaltungen_veranstaltung.mobile').': '.$data[$keys['mobile']];}
+		if(!empty($data[$keys['telephone']])){$this->viewData['address'][] = 'Tel.: '.$data[$keys['telephone']];}
+		if(!empty($data[$keys['fax']])){$this->viewData['address'][] = 'Fax: '.$data[$keys['fax']];}
+		if(!empty($data[$keys['mobile']])){$this->viewData['address'][] = 'Mobile: '.$data[$keys['mobile']];}
 	
 		if($this->valid_email_address($data[$keys['email']])){
 			$this->encode_email($data[$keys['email']]);
