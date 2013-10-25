@@ -2,8 +2,8 @@
 
 require_once('class.View_CalendarMonth.php');
 
-$month 	= 6;
-$year 	= 2013;
+$month 	= date('n');
+$year 	= date('Y');
 
 $calendar = new View_CalendarMonth($month,$year);
 
@@ -27,15 +27,16 @@ $monthname = strftime('%B %Y',strtotime('1.' .$month. '.'.$year));
     	}
 	    
 	    table {border-collapse: collapse}
-	    td {
-		    padding:1em;background:#eee;
+	    td,th {
+		    padding:1em 1%;background:#eee;
 		    border:1px solid #999;
 		    text-align:center;
+		    width:12.28571428571429%;
 	    }
 	    
-	    td.empty 	{background-color:#f9f9f9}
-	    td.weekend 	{color:#bbb}
-	    td.today 	{background-color:#f0fff0}
+	    td.empty,th.empty 	{background-color:#f9f9f9}
+	    td.weekend,th.weekend 	{color:#bbb}
+	    td.today,th.today 	{background-color:#f0fff0}
 	    
     </style>
 

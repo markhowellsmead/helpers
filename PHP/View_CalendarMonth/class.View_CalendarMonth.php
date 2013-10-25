@@ -17,23 +17,31 @@
 
 class View_CalendarMonth {
 
+	function dump($var,$die=false){
+		echo '<pre>' .print_r($var,1). '</pre>';
+		if($die){die();}
+	}//dump
+	
 	var $className, $monthName, $daysInMonth, 
 		$currentDay = 0, $currentMonth = 0, $currentYear = 0, 
 		$dayFirst = 1, $dayLast = 31, $weekdayFirst = 1, $weekdayLast = 7;
 
-	var $days = array(), $grid = array(),
+	var $days = array(), $grid = array(), $weekdays = array(),
 		$dayDefault = array('dayNumber' => null,'weekdayNumber' => null,'weekend' => 0, 'today' => 0, 'empty' => 0),
 		$dayEmpty = array('dayNumber' => null,'weekdayNumber' => null,'weekend' => 0, 'today' => 0, 'empty' => 1),
-		$viewData = '';
+		$viewData = array();
 	
 	////////////////////////////////////////////////////////////
 	
-	function __construct($month,$year){
+	function __construct($month,$year,$showWeekDays=true){
 		
 		$this->className = get_class();
 	
 		$this->year 	= $year;
 		$this->month 	= $month;
+
+		$this->showWeekDays 	= (bool)$showWeekDays;
+		$this->showWeekDays 	= (bool)$showWeekDays;
 
 		$this->setCurrentDate();
 		$this->setRange();
@@ -148,21 +156,48 @@ class View_CalendarMonth {
 	}//isWeekend
 	
 	////////////////////////////////////////////////////////////
+
+	function addWeekDays(){
+		$lastSunday = strtotime('last Sunday');
+		if($this->showWeekDays){
+			foreach($this->grid[0] as $day){
+				$this->weekdays[$day['weekdayNumber']] = strftime('%A',strtotime('+'.$day['weekdayNumber'].' day', $lastSunday)); // http://stackoverflow.com/a/4742382/1750646
+			}
+		}
+	}//addWeekDays
+	
+//////////////////////////////////////////////////
+	
+	function addWeekDaysHTML(){
+		$this->addWeekDays();
+		$row='';
+		foreach($this->weekdays as $dayNumber => $weekday){
+			$row.='<th class="' .($this->isWeekend($dayNumber)?'weekend':'weekday'). '">' .$weekday. '</th>';
+		}
+		array_unshift($this->viewData, '<thead><tr>' .$row. '</tr></thead>');
+	}//addWeekDays
+	
+//////////////////////////////////////////////////
 	
 	function buildHTML(){
-	
-		$html = '';
 
-		foreach($this->grid as $week){
-			$html .= '<tr>';
-			foreach($week as $day){
-				$html.='<td data-dayNumber="' .$day['dayNumber']. '" class="' .($day['weekend']?'weekend':'weekday').($day['empty']?' empty':'').($day['today']?' today':''). '">' .($day['empty']?'&nbsp;':$day['dayNumber']). '</td>';	
+		if(count($this->grid)){
+			$this->viewData[]='<tbody>';
+			foreach($this->grid as $week){
+				$row = '';
+				foreach($week as $day){
+					$row.='<td data-dayNumber="' .($day['dayNumber']?$day['dayNumber']:'-1'). '" class="' .($day['weekend']?'weekend':'weekday').($day['empty']?' empty':'').($day['today']?' today':''). '">' .($day['empty']?'&nbsp;':$day['dayNumber']). '</td>';	
+				}
+				$this->viewData[]= '<tr>' .$row. '</tr>';
 			}
-			$html .= '</tr>';
+			$this->viewData[]='</tbody>';
 		}
 
-		if($html!==''){
-			$this->viewData = '<table class="calendar">' .$html. '</table>';
+		if(count($this->viewData)>0){
+			$this->addWeekDaysHTML();
+			$this->viewData = '<table class="calendar">' .implode('',$this->viewData). '</table>';
+		}else{
+			$this->viewData = '';
 		}
 	}
 	
