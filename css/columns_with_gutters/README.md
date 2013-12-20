@@ -1,7 +1,7 @@
 Percentage-based CSS column layouts
 ===================================
 
-Does what it says on the tin. Full explanation and theory at 
+Does what it says on the tin. Full explanation and theory at http://permanenttourist.ch/2013/12/percentage-based-css-column-layouts/
 
 Author
 -----
