@@ -1,0 +1,55 @@
+/* all layouts */
+	.row {
+		clear: both;
+		margin-bottom:1.5em;
+	}
+
+/* clearfix */
+	.row:before, .row:after {content: "\0020"; display: block; height: 0; overflow: hidden;}
+	.row:after {clear:both;}
+
+	.row .column {
+		float: left;
+		margin-left: 2.66666666666667%;
+		background-color: #e7edc9;
+	}
+
+/* two column layout */
+	.row.twocolumn .column {
+		width: 48.666666666666665%;
+	}
+
+	.row.twocolumn .column:nth-of-type(2n+1){
+		clear:both;
+		margin-left:0;
+	}
+
+
+
+
+/* three column layout */
+	.row.threecolumn .column {
+		width: 31.55555555555555%;
+	}
+
+	.row.threecolumn .column:nth-of-type(3n+1){
+		clear:both;
+		margin-left:0;
+	}
+
+
+/* four column layout*/
+	.row.fourcolumn .column {
+		width: 23%;
+	}
+
+	/* force every fourth element onto a new line, and remvoe the left-hand margin */
+	.row.fourcolumn .column:nth-of-type(4n+1){
+		clear:both;
+		margin-left:0;
+	}
+
+
+
+
+
