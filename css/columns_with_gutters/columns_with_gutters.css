@@ -39,7 +39,6 @@
 		width: 23%;
 	}
 
-	/* force every fourth element onto a new line, and remvoe the left-hand margin */
 	.row.fourcolumn .column:nth-of-type(4n+1){
 		clear:both;
 		margin-left:0;
