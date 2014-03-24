@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title>SVG icons with fallback</title>
+    
+    <style>
+	    body {
+	    	font-family: arial,sans-serif;
+	    	line-height: 21px;
+	    }
+	    
+	    a.pdf {
+	    	display: inline-block;
+	    	background-position: left center;
+	    	background-repeat: no-repeat;
+	    	background-size: 20px 21px;
+	    	padding-left: 20px;
+			background-image: url('acrobat.png');
+			background-image: url('acrobat.svg'), none;
+	    }
+    </style>
+</head>
+<body>
+
+<p>It's a coincidence that web browsers which support multiple backgrounds also support SVG graphics. You can use this to create a fallback to an alternative PNG version of the image.</p>
+<p>This is a fake link… but the CSS is real: <a href="#" class="pdf">download a PDF</a>.</p>
+<p>Hat tip: <a href="http://css-tricks.com/using-svg/">css-tricks.com</a></p>
+
+<pre>
+a.pdf {
+	background-image: url('acrobat.png');
+	background-image: url('acrobat.svg'), none;
+}
+</pre>
+
+</body>
+</html>
