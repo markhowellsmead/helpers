@@ -7,6 +7,8 @@ We can use this to our advantage when allowing the browser to decide whether to 
 Example code: see index.html. Note that IE8 and older doesn't support background-size correctly
 so make sure that you create your PNG images in the exact size in which you want them to appear.
 
+Hat tip: http://css-tricks.com/using-svg/
+
 Author
 -----
 Mark Howells-Mead | mhm.li
