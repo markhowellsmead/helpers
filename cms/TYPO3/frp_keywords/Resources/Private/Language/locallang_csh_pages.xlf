@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-04-22T17:44:41Z" product-name="frp_keywords">
+		<header/>
+		<body>
+
+			<trans-unit id="frp_keywords_keyword.description">
+				<source>frp_keywords_keyword</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
