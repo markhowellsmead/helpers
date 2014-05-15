@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title>Save form values to localSotrage</title>
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+	
+	<style>
+		
+		div.people {
+			background:#f6f6f6;
+			padding:.5em;
+		}
+		
+	</style>
+</head>
+<body>
+
+<h1>Storing serialized form values to localStorage</h1>
+<p>This example stores all of the values contained in forms within the grey <tt>&lt;div&gt;</tt> in localStorage, on every instance of the <tt>keyup</tt> event.</p>
+<p>(The stored JSON string is output to the textarea for demonstration purposes.)</p>
+<noscript>As with all <tt>localStorage</tt> features, this needs JavaScript!.</noscript>
+
+<div class="people">
+
+	<div class="person">
+		<form>
+			<label><span>First name:</span><input type="text" name="forename" value=""/></label>
+			<label><span>Last name:</span><input type="text" name="surname" value=""/></label>
+			<label><span>E-Mail:</span><input type="email" name="mail" value=""/></label>
+		</form>
+	</div>
+
+	<div class="person">
+		<form>
+			<label><span>First name:</span><input type="text" name="forename" value=""/></label>
+			<label><span>Last name:</span><input type="text" name="surname" value=""/></label>
+			<label><span>E-Mail:</span><input type="email" name="mail" value=""/></label>
+		</form>
+	</div>
+	
+	<textarea id="code" rows="10" cols="80"></textarea>
+
+</div>
+
+<script src="store.js"></script>
+
+</body>
+</html>
