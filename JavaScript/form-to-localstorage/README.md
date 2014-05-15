@@ -7,8 +7,13 @@ This example stores all of the values contained in forms within the grey <tt>&lt
 
 As with all <tt>localStorage</tt> features, this needs JavaScript!.
 
+Demo
+----
+
+http://stuff.mhm.li/form-to-localstorage/
+
 Author
------
+------
 Mark Howells-Mead | mhm.li
 
 Restrictions
