@@ -1,5 +1,5 @@
-Storing serialized form values to localStorage
-==============================================
+Storing serialized form values in client localStorage using JavaScript and jQuery
+=================================================================================
 
 This example stores all of the values contained in forms within the grey <tt>&lt;div&gt;</tt> in localStorage, on every instance of the keyup event within the grey <tt>&lt;div&gt;</tt>.
 
