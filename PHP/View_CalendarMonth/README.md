@@ -12,8 +12,13 @@ Usage
     $calendar  = new View_CalendarMonth(10,2013);
     echo $calendar->viewData;
 
+Demo
+----
+
+http://stuff.mhm.li/View_CalendarMonth/
+
 Author
------
+------
 Mark Howells-Mead | mhm.li
 
 Restrictions
