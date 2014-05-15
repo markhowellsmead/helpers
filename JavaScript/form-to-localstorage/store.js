@@ -1,3 +1,5 @@
+// This file is part of https://github.com/mhmli/helpers/tree/master/JavaScript/form-to-localstorage
+
 var frp_offlineapp = function(){
 
 	'use strict';
