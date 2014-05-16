@@ -6,8 +6,6 @@ Install this extension and the table `tx_news_domain_model_news` will be extende
 
 This extension does not include an output module but the new value should be available in your Fluid template as `{newsItem.newField}` (within an individual article).
 
-Hat tip: http://keinerweiss.de/525-die-extbase-extension-news-um-ein-feld-erweitern.html
-
 ###CamelCase
 
 Don't forget to use CamelCase correctly when using variable names with underlines:
@@ -37,6 +35,9 @@ Author
 -------
 
 Mark Howells-Mead | mhm.li
+
+Hat tip: http://keinerweiss.de/525-die-extbase-extension-news-um-ein-feld-erweitern.html
+
 
 Restrictions
 ------------
