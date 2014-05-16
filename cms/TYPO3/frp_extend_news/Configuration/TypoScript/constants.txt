@@ -1,0 +1,7 @@
+plugin.tx_news {
+	view {
+		templateRootPath = EXT:frp_extend_news/Resources/Private/Templates/
+		partialRootPath = EXT:frp_extend_news/Resources/Private/Partials/
+		layoutRootPath = EXT:frp_extend_news/Resources/Private/Layout/
+	}
+}

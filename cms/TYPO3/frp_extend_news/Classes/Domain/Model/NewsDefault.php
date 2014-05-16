@@ -1,29 +1,30 @@
 <?php
-class Tx_FrpExtendNews_Domain_Model_NewsDefault 
-    extends Tx_News_Domain_Model_NewsDefault
-{
+class Tx_FrpExtendNews_Domain_Model_NewsDefault extends Tx_News_Domain_Model_News {
+
 	/**
 	 * the new field
 	 * @var string
 	 */
-	protected $frpextendnewsNewField;
+	protected $newField;
 	
 	/**
 	 * Returns an array of orderings created from a given demand object.
 	 *
-	 * @param string $frpextendnewsNewField
+	 * @param string $newField
 	 * @return void
 	 */
-	public function setFrpextendnewsNewField($value) {
-	        $this->frpextendnewsNewField = $value;
+	public function setNewField($value) {
+		$this->newField = $value;
 	}
+
 	/**
 	 * Get new field
 	 *
 	 * @return string
 	 */
-	public function getFrpextendnewsNewField() {
-		return $this->frpextendnewsNewField;
+	public function getNewField() {
+		return $this->newField;
 	}
+
 }
 ?>

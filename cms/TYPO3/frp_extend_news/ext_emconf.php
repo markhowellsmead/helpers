@@ -13,7 +13,7 @@
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'News extender',
 	'description' => '',
-	'category' => 'plugin',
+	'category' => 'be',
 	'author' => 'Mark Howells-Mead',
 	'author_email' => 'm@mhm.li',
 	'author_company' => '',
