@@ -1,4 +1,7 @@
 <?php
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Extend News');
+
 $tempColumns = Array (
 	"new_field" => Array (
 		"exclude" => 1,
