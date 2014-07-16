@@ -1,5 +1,5 @@
 #Object-oriented JavaScript#
-m.howells-mead@frappant.ch | February 2014 | v1.0
+m@mhm.li | February 2014 | v1.0
 
 How to use [objectfactory](https://github.com/greenish/js-objectfactory) to implement PHP-style OOP coding to JavaScript.
 
