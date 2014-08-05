@@ -19,12 +19,12 @@ var dataForStorage = {
 
 // store regularly
 if(window.clientstorage.isAvailable){
-	window.clientstorage.sessionStore('frp:myUniqueKey', dataForStorage);
+	window.clientstorage.sessionStore('myUniqueKey', dataForStorage);
 }
 
 // store using expiry timestamp
 if(window.clientstorage.isAvailable){
-	window.clientstorage.sessionStore('frp:myUniqueKey', dataForStorage, window.clientstorage.timestamp(60));
+	window.clientstorage.sessionStore('myUniqueKey', dataForStorage, window.clientstorage.timestamp(60));
 }
 ```
 
