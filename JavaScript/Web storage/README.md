@@ -1,7 +1,7 @@
 Wrapper class for HTML5 web storage
 ===================================
 
-General wrapper class for saving and retrieving data with browser's localStorage or sessionStorage using JavaScript.
+General wrapper class for saving and retrieving data with browser's localStorage or sessionStorage using JavaScript. For a fuller explanation of web storage, see [Dive Into HTML5](http://diveintohtml5.info/storage.html).
 
 Automatically converts the data for storage using `JSON.stringify()` and automatically converts it back using `JSON.parse()`.
 
