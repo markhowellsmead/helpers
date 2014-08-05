@@ -11,8 +11,6 @@ window.clientstorage = new function(){
 	
 	'use strict';
 
-	this.key = 'clientstorage';
-	
 	this.available = function() {
 		try {return 'localStorage' in window && window['localStorage'] !== null;}
 		catch (e) {return false;}
@@ -20,7 +18,7 @@ window.clientstorage = new function(){
 	this.isAvailable = this.available();
 
 	this.timestamp = function(addSeconds){
-		return (Math.floor(Date.now()/1000))+addSeconds;
+		return Math.floor(Date.now()/1000)+addSeconds;
 	};
 
 	/////////////////////////////////////////////
