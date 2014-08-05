@@ -19,6 +19,10 @@ window.clientstorage = new function(){
 	};
 	this.isAvailable = this.available();
 
+	this.timestamp = function(addSeconds){
+		return (Math.floor(Date.now()/1000))+addSeconds;
+	};
+
 	/////////////////////////////////////////////
 	
 	this.localStore = function(key,value,expires){
