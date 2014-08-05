@@ -21,7 +21,7 @@ var dataForStorage = {
 window.clientstorage.sessionStore('myUniqueKey', dataForStorage);
 
 // store using expiry timestamp
-window.clientstorage.sessionStore('myUniqueKey', dataForStorage, window.clientstorage.timestamp(60));
+window.clientstorage.sessionStore('myUniqueKey', dataForStorage, 60);
 
 // retrieve from sessionStorage
 if(storedData = window.clientstorage.sessionFetch('myUniqueKey')){

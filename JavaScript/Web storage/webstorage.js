@@ -108,7 +108,7 @@ window.clientstorage = new function(){
 		// get expiry date for entry. if it is passed, then delete it and the relevant entry
 		if(this.isAvailable){
 			var expiry = sessionStorage.getItem(key+':x');
-			if(expiry!==null && expiry < Math.floor((Date.now())/1000)){
+			if(expiry!==null && expiry < this.timestamp()){
 				this.sessionRemove(key);
 			};
 		}
@@ -117,7 +117,7 @@ window.clientstorage = new function(){
 	this.sessionSetExpiry = function(key,expires){
 		// set expiry date for entry
 		if(this.isAvailable){
-			sessionStorage.setItem(key, expires);
+			sessionStorage.setItem(key, this.timestamp(expires));
 		}
 	};
 
