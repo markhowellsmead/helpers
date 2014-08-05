@@ -8,7 +8,7 @@ Automatically converts the data for storage using `JSON.stringify()` and automat
 If the additional third parameter is set as a valid integer when calling `localStore` or `sessionStore` (number of seconds from current time), an additional entry will be made	as a “flag” using the key and suffix `:x`. When using `localFetch` or `sessionFetch`, the function will always check to see if there is an expiry flag set. If it is set and is in the past, both storage entries will be deleted and the fetch function will return false.
 
 Usage:
-Check for the availability of localStorage or sessionStorage first by accessing the boolean `window.clientstorage.isAvailable`.
+You can manually check for the availability of localStorage or sessionStorage by accessing the boolean `window.clientstorage.isAvailable`. This is built into all functions.
 
 ```
 var dataForStorage = {
@@ -18,17 +18,13 @@ var dataForStorage = {
 };
 
 // store regularly
-if(window.clientstorage.isAvailable){
-	window.clientstorage.sessionStore('myUniqueKey', dataForStorage);
-}
+window.clientstorage.sessionStore('myUniqueKey', dataForStorage);
 
 // store using expiry timestamp
-if(window.clientstorage.isAvailable){
-	window.clientstorage.sessionStore('myUniqueKey', dataForStorage, window.clientstorage.timestamp(60));
-}
+window.clientstorage.sessionStore('myUniqueKey', dataForStorage, window.clientstorage.timestamp(60));
 
-// retrieve from localStorage
-if(window.clientstorage.isAvailable && (storedData = window.clientstorage.localFetch('myUniqueKey'))){
+// retrieve from sessionStorage
+if(storedData = window.clientstorage.sessionFetch('myUniqueKey')){
 	alert('The ' +storedData.c+ ' ate the ' +storedData.a+ '.'); // » "The caterpillar ate the apple."
 }else{
 	// unable to get stored data
