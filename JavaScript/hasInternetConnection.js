@@ -15,7 +15,7 @@
 	thanks http://remysharp.com/2011/04/19/broken-offline-support/
 	thanks http://www.javascriptkit.com/javatutors/trycatch.shtml
 
-	https://github.com/permanenttourist
+	https://github.com/mhmli
 	v1.0 15.5.2012
 */
 
