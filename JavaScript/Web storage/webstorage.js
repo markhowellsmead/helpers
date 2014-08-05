@@ -2,7 +2,7 @@
 	General wrapper class for saving and retrieving data with browser's localStorage or sessionStorage using JavaScript.
 	See README for usage.
 	
-	v1.0 - 5.8.2014 - mark@permanenttourist.ch
+	v1.0 - 5.8.2014 - mark@permanenttourist.ch - https://github.com/mhmli/helpers/tree/master/JavaScript/Web%20storage
 */
 
 if (!Date.now){Date.now = function(){return new Date().getTime();};}
