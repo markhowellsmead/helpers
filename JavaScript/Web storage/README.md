@@ -12,9 +12,9 @@ Check for the availability of localStorage or sessionStorage first by accessing 
 
 ```
 var dataForStorage = {
-	a: 'Apple',
-	b: 'Banana',
-	c: 'Caterpillar'
+	a: 'apple',
+	b: 'banana',
+	c: 'caterpillar'
 };
 
 // store regularly
@@ -26,6 +26,14 @@ if(window.clientstorage.isAvailable){
 if(window.clientstorage.isAvailable){
 	window.clientstorage.sessionStore('myUniqueKey', dataForStorage, window.clientstorage.timestamp(60));
 }
+
+// retrieve from localStorage
+if(window.clientstorage.isAvailable && (storedData = window.clientstorage.localFetch('myUniqueKey'))){
+	alert('The ' +storedData.c+ ' ate the ' +storedData.a+ '.'); // » "The caterpillar ate the apple."
+}else{
+	// unable to get stored data
+}
+
 ```
 
 Browser support
