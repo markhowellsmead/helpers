@@ -4,6 +4,7 @@
 	* Add click event handler to an element / multiple elements
 	* which pings Google Analytics when the element is clicked.
 	* Requires jQuery.
+	* Google reference: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
 	* 
 	* Mark Howells-Mead / permanenttourist.ch
 	* @since 	24/03/16
