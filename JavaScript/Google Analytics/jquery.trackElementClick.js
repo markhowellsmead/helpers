@@ -7,7 +7,7 @@
 	* Google reference: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
 	* 
 	* Mark Howells-Mead / permanenttourist.ch
-	* @since 	24/03/16
+	* Since 24/03/16
 	*/
 
 	$.fn.extend({
