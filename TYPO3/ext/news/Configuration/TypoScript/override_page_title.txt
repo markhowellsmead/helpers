@@ -1,0 +1,22 @@
+# Rewrite page <title> for single view pages to include article title
+# Applies only to the news detail page defined in the TS constants as config.pages.news_detail
+
+[PIDinRootline = {$config.pages.news_detail}]
+
+	config.sys_language_overlay = 1
+
+	temp.newsTitle = RECORDS
+	temp.newsTitle {
+		dontCheckPid = 1
+		tables = tx_news_domain_model_news
+		source.data = GP:tx_news_pi1|news
+		source.intval = 1
+		conf.tx_news_domain_model_news = TEXT
+		conf.tx_news_domain_model_news {
+			field = title
+			htmlSpecialChars = 1
+		}
+	}
+	lib.pageTitle.override.cObject < temp.newsTitle
+
+[end]

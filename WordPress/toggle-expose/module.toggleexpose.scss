@@ -1,0 +1,10 @@
+.mod.toggle-expose {
+	display: flex;
+	flex-wrap: wrap;
+	.image {
+		flex: 0 1 50%;
+		height: 0;
+		padding-bottom: (853 / 1280) * 50%;
+		background: #f0f0f0 center/cover no-repeat;
+	}
+}
