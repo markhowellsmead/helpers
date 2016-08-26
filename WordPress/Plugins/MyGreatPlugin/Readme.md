@@ -9,4 +9,5 @@ on how to implement namespaces and class autoloading for use in WordPress.
 Mark Howells-Mead | www.permanenttourist.ch | Since August 2016
 
 #License
+Provision of this code provides and implies no guarantee.
 Attribution please! https://creativecommons.org/licenses/by/4.0/
