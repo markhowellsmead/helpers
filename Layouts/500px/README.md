@@ -7,7 +7,7 @@ Why is this version without JavaScript and Angular? Because if the page is deliv
 Check out the source code of this PHP file to see how easy it is. The true magic lies in the CSS Flexbox code.
 
 ##Author
-Mark Howells-Mead | www.permanenttourist.ch | Since 30.08.2016 | Original: [xieranmaya](https://github.com/xieranmaya/blog/issues/6)
+Mark Howells-Mead | www.permanenttourist.ch | Since 31.08.2016 | Original: [xieranmaya](https://github.com/xieranmaya/blog/issues/6)
 
 ##License
 See https://github.com/xieranmaya/blog/issues/6. Credit where credit is due.
