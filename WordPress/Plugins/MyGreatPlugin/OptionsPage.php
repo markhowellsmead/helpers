@@ -1,21 +1,20 @@
 <?php
-/*
-    Add a plugin options page to the WordPress backend. 
-    Uses PHP namespaces, so compatible with PHP 5.3+ only!
-
-    Use this file in your plugin and include it using the following code,
-    placed in the __construct function of the main class. Make sure that 
-    the PHP namespace in this file is the same as the PHP namespace in the
-    main class file!
-
-    if (is_admin()) {
-        require_once 'OptionsPage.php';
-        new OptionsPage();
-    }
-
-    Author: Mark Howells-Mead, permanenttourist.ch, August 2016
-    License: https://creativecommons.org/licenses/by/4.0/
-
+/**
+ * Add a plugin options page to the WordPress backend. 
+ * Uses PHP namespaces, so compatible with PHP 5.3+ only!
+ *
+ * Use this file in your plugin and include it using the following code,
+ * placed in the __construct function of the main class. Make sure that 
+ * the PHP namespace in this file is the same as the PHP namespace in the 
+ * main class file!
+ *
+ * if (is_admin()) {
+ *   require_once 'OptionsPage.php';
+ *   new OptionsPage();
+ * }
+ *
+ * Author: Mark Howells-Mead, permanenttourist.ch, August 2016
+ * License: https://creativecommons.org/licenses/by/4.0/
  */
 
 namespace MHM\MyGreatPlugin;
