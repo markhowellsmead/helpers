@@ -42,3 +42,9 @@ order: 999999999;
   height: 0;
   margin: 0;
 }
+
+.fav-list::after {
+  content: '';
+  flex-grow: 1000;
+  min-width: 20%;
+}

@@ -309,7 +309,7 @@ foreach ($photos as $image) {
     );
 }
 
-echo str_repeat('<div class="placeholder"></div>', 10);
+//echo str_repeat('<div class="placeholder"></div>', 10);
 ?>
   </div>
 </body>
