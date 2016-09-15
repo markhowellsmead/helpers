@@ -1,11 +1,11 @@
 <?php
 /**
- * Add a plugin options page to the WordPress backend. 
+ * Add a plugin options page to the WordPress backend.
  * Uses PHP namespaces, so compatible with PHP 5.3+ only!
  *
  * Use this file in your plugin and include it using the following code,
- * placed in the __construct function of the main class. Make sure that 
- * the PHP namespace in this file is the same as the PHP namespace in the 
+ * placed in the __construct function of the main class. Make sure that
+ * the PHP namespace in this file is the same as the PHP namespace in the
  * main class file!
  *
  * if (is_admin()) {
@@ -44,7 +44,7 @@ class OptionsPage
     public function registerPluginSettings()
     {
         //register our settings
-        register_setting($this->key.'-settings-contact', 'contact_email');
+        register_setting($this->key, $this->key);
     }
 
     public function settingsPage()
@@ -54,8 +54,8 @@ class OptionsPage
             <form method="post" action="options.php">
             ';
 
-        settings_fields($this->key.'-settings-contact');
-        do_settings_sections($this->key.'-settings-contact');
+        settings_fields($this->key);
+        $options = get_option($this->key);
 
         echo '<table class="form-table">
         <tr>
@@ -63,7 +63,7 @@ class OptionsPage
             <tr valign="top">
                 <th scope="row">'.__('Email address for contact requests', $this->key).'</th>
                 <td>
-                    <input id="contact_email" type="email" name="contact_email" value="'.esc_attr(get_option('contact_email')).'" class="regular-text ltr" />
+                    <input id="contact_email" type="email" name="'.$this->key.'[contact_email]" value="'.esc_attr($options['contact_email']).'" class="regular-text ltr" />
                     <p class="description" id="contact_email-description">'.__('This email address will be used for functions which allow the website visitor to contact the owner of the website.', $this->key).'</p>
                 </td>
             </tr>
