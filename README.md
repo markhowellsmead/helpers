@@ -8,3 +8,7 @@ All code within this repository is provided as-is under the GPL GNU General Publ
 Please submit questions, tips, corrections and general excitement and praise via mark@permanenttourist.ch.
 
 Enjoy!
+
+Wiki
+~~~~~
+See https://github.com/mhmli/helpers/wiki for a Wiki, which was started in September 2016.
