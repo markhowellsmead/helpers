@@ -10,5 +10,5 @@ Please submit questions, tips, corrections and general excitement and praise via
 Enjoy!
 
 Wiki
-~~~~~
+----
 See https://github.com/mhmli/helpers/wiki for a Wiki, which was started in September 2016.
