@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: frp_clear_temporary_files\n"
+"POT-Creation-Date: 2015-04-16 11:01+0100\n"
+"PO-Revision-Date: 2015-04-16 11:06+0100\n"
+"Last-Translator: !frappant Webfactory <support@frappant.ch>\n"
+"Language-Team: !frappant Webfactory <support@frappant.ch>\n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;gettext\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../frp_clear_temporary_files.php:71
+msgid "Once every half-hour"
+msgstr "Halbstündig"
+
+#: ../frp_clear_temporary_files.php:111 ../frp_clear_temporary_files.php:122
+msgid "Clear temporary files"
+msgstr "Temporäre Dateien löschen"
+
+#: ../frp_clear_temporary_files.php:111
+msgid "Clear temp. files"
+msgstr "Temp.-Dateien löschen"
+
+#: ../frp_clear_temporary_files.php:139
+msgid "Options"
+msgstr "Optionen"
+
+#: ../frp_clear_temporary_files.php:146
+msgid "Folder path"
+msgstr "Verzeichnis"
+
+#: ../frp_clear_temporary_files.php:168
+msgid ""
+"The entire contents of this folder (including subfolders) will be "
+"irrevocably deleted when the appropriate cron task is run. The folder itself "
+"will not be deleted."
+msgstr ""
+"Den gesamten Inhalt dieses Verzeichnisses (inklusive Unterverzeichnisse) "
+"wird durch Abruf des Crontasks unwiderruflich gelöscht. Das Verzeichnis "
+"selber aber nicht."

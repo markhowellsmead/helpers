@@ -1,0 +1,474 @@
+<?php
+
+
+class frp_userprofile{
+	var $display_mode='',
+		$profile_page = '',
+		$domain = '',
+		$image_size = 'dyn',
+		$atts=array(),
+		$userdata=array(),
+		$plugin_key = '';
+
+	function __construct(){
+		$this->plugin_key = dirname(plugin_basename(__FILE__));
+	}
+
+
+	function dump($var,$die=false){
+		echo '<pre>'.print_r($var,1).'</pre>';
+		if($die){die();}
+	}//dump
+
+
+	function build($atts){
+		global $cms;
+		$this->atts = $atts;
+
+		$out = '';
+
+		if($this->atts['server']!=''){
+			/*
+			falls server definiert ist, wird überprüft, ob die daten heute bereits mal geholt waren.
+			daten werden per cURL vom entfernter server als json-string geholt und sofort auf den
+			eigenen server (ordner «cache/frp_userprofile» im uploads-ordner abgelagert).
+			falls die datei für ein team oder eine person für heute bereits abgelagert ist, wird
+			diese angewendet.
+			falls eine person die seite als eingeloggte wp-benutzer anfruft, werden cachedateien 
+			nicht gelesen; stattdessen werden die daten immer vom entfernter server geholt und nochmals 
+			lokal gecached. somit kann ein wp-benutzer die gecachten informationen auch mehrmals im 
+			tag aktualisieren.
+			*/
+
+			$wp_upload_dir = wp_upload_dir();
+			$cache_folder = $wp_upload_dir['basedir'].'/cache/'.$this->plugin_key;
+			if(!is_dir($cache_folder)){
+				@mkdir($cache_folder,0777,true);
+			}
+			$server_host = ereg_replace('[^A-Za-z0-9]','', parse_url($this->atts['server'],PHP_URL_HOST) ); // only alphanumeric characters
+
+			$userdata='';
+			
+			if($this->atts['team']!=''){
+				$cache_path = $cache_folder.'/'.$server_host.'.'.date('Ymd').'.'.$this->atts['team'].'.json';
+				if(file_exists($cache_path) && !is_user_logged_in()){ // if user logged in then cache file will be re-generated
+					$userdata = file_get_contents($cache_path);
+					$userdata = json_decode($userdata);
+				}else{
+					$userdata = $this->frp_getremotecontent($this->atts['server'].'/wp-admin/admin-ajax.php?action=frp_userprofile&image_size=user-compact&team='.$this->atts['team']);
+					if($userdata){
+						file_put_contents($cache_path,$userdata);
+						$userdata = json_decode($userdata);
+					}
+				}
+
+			}else{
+				$this->get_username();
+				if($this->atts['userid']!=''){
+					$cache_path = $cache_folder.'/'.$server_host.'.'.date('Ymd').'.'.$this->atts['userid'].'.json';
+					if(file_exists($cache_path) && !is_user_logged_in()){ // if user logged in then cache file will be re-generated
+						$userdata = file_get_contents($cache_path);
+						$userdata = json_decode($userdata);
+					}else{
+						$userdata = $this->frp_getremotecontent($this->atts['server'].'/wp-admin/admin-ajax.php?action=frp_userprofile&name='.$this->atts['userid']);
+						if($userdata){
+							file_put_contents($cache_path,$userdata);
+							$userdata = json_decode($userdata);
+						}
+					}
+				}
+			}
+
+			if($userdata){
+				if($this->atts['team']!=''){
+					if($userdata->status==200){
+						$team_list=array();
+						foreach($userdata->data as $key => $user){
+							$this->userdata = $user;
+							$team_list[] = $this->html_single_user();
+						}
+						return '<div class="frp_userprofile team remote clearfix">'.implode('',$team_list).'</div>';
+					}
+				}else{
+					if($userdata->status==200){
+						$this->userdata = $userdata->data;
+						return $this->html_single_user();
+					}
+				}
+			}
+
+			return $out;
+
+		}elseif($this->atts['team']){
+			switch($this->atts['team']){
+				case '*':
+					return $this->html_users_by_team();
+					break;
+				default:
+					return $this->html_users_by_team($this->atts['team']);
+					break;
+
+			}
+
+		}else{
+			$this->get_userdata_single();
+			return $this->html_single_user();
+		}
+	}//build
+
+
+
+	function db_users_by_team($team=''){
+		if($team!=''):
+			$users = get_users(array(
+				'fields' => 'all_with_meta',
+				'meta_query' => array(
+					array(
+						'key' => 'team',
+						'value' => $team,
+						'compare' => 'LIKE',
+						'order_by' => 'user_nicename'
+					)
+				)
+			));
+
+			$temp=array();
+			foreach($users as &$user){
+				$this->append_usermeta($user->ID,$user);
+			}
+			unset($user);
+
+			/*function cmp($a, $b){
+				if ($a->points == $b->points) {
+					return 0;
+				}
+				return ($a->points > $b->points) ? -1 : 1;
+			}
+			usort($users, 'cmp');*/
+			
+			
+			return $users;
+	 	else:
+	 		return get_users('orderby=nicename');
+		endif;
+	}//db_users_by_team
+
+
+
+	function html_users_by_team($team=''){
+
+		$out='';
+
+		$this->atts['mode'] = 'compact';
+
+	    $team_members = $this->db_users_by_team($team);
+
+	    $this->reindex_team_members($team_members,$team); // sort by manager, then by surname
+
+		$temp=array();
+		foreach($team_members as $member){
+			// generate html output
+			$this->userdata = $member;
+			$this->get_team();
+			$this->get_attachments();
+			$temp[] = $this->html_single_user();
+		}
+
+		$out = '<div class="frp_userprofile team clearfix">'.implode('',$temp).'</div>';
+		return $out;
+
+	}//get_teammembers
+
+
+	function get_username(){
+	
+		if(!$this->atts['userid']){
+		
+			if($this->atts['name']!=''){
+				$this->atts['userid'] = $this->atts['name'];
+
+			}else{
+
+				// get the last bit of the folder path (slug) and use that as the user name
+				$aPathBits = explode('/',$_SERVER['REQUEST_URI']);
+				array_shift($aPathBits);
+				$this->atts['userid'] = $aPathBits[sizeof($aPathBits)-1];
+	
+				if(!$this->atts['userid']){
+					$this->atts['userid'] = $aPathBits[sizeof($aPathBits)-2];
+				}
+			}
+		}
+
+	}//get_username
+
+
+	function append_usermeta($id,$appendto){
+		$meta = get_user_meta($id);
+		foreach($meta as $key => $value){
+			$appendto->$key = $value[0];
+		}
+	}//append_usermeta
+
+
+	function get_userdata_single($id=0){
+
+		if($id!=0){
+			$this->atts['userid'] = $id;
+		}
+
+		$this->get_username();
+
+		if(is_numeric($this->atts['userid'])){
+			$this->userdata = get_user_by('id',$this->atts['userid']);
+		}else{
+			$this->userdata = get_user_by('login',$this->atts['userid']);
+		}
+		if(isset($this->userdata->ID)){
+			$this->append_usermeta($this->userdata->ID,$this->userdata->data);
+		}
+		
+		$this->get_team();
+		$this->get_attachments();
+
+	}//get_userdata_single
+
+
+	function get_attachments(){
+		global $wpdb;
+		$this->userdata->data->attachments = array();
+		$attachments = $wpdb->get_results('SELECT * FROM '.$wpdb->posts.','.$wpdb->postmeta.' WHERE '.$wpdb->posts.'.id = '.$wpdb->postmeta.'.post_id AND '.$wpdb->postmeta.'.meta_key = "user" AND '.$wpdb->postmeta.'.meta_value = "'.$this->userdata->data->ID.'" ORDER BY '.$wpdb->posts.'.menu_order,'.$wpdb->posts.'.ID');
+		foreach($attachments as $attachment){
+			$src = $attachment->guid;
+			array_push($this->userdata->data->attachments,$attachment);
+		}
+	}
+
+	function html_single_user(){
+		if($this->atts['profile_page']==''){
+			global $cms;
+			$this->atts['profile_page'] = $cms->departments[$cms->department]['team_show'];
+		}
+		
+		$permalink = $this->atts['profile_page']!=''? $this->atts['profile_page'] . $this->userdata->data->nickname.'/' : '';
+
+		if($this->atts['domain']!='' && $permalink!=''):
+			$permalink = 'http://'.$this->atts['domain'].$permalink;
+		endif;
+		
+		switch($this->atts['mode']){
+
+			case 'small':
+				$out .= '<div class="vcard small">';
+				$out .= $this->photo($permalink).
+					$this->fullname().
+					$this->jobtitle().
+					$this->contact();
+
+				if($permalink!=''):
+					$out .= '<p><a href="' .$permalink.'" rel="profile">' .__('Show profile',THEME). " »</a></p>\n";
+				endif;
+				$out .= '</div>';
+
+				break;
+			
+			case 'compact':
+
+				$out .= '<div class="vcard compact">'.
+					$this->photo($permalink).
+					'<h1>'.$this->fullname('','').'</h1>'.
+					$this->jobtitle();
+				$out .= '</div>';
+				
+				break;
+
+			default:
+			
+				$out .= '<div class="vcard single">';
+
+				$this->atts['mode'] = 'full';
+				$out .= $this->photo(false).
+					$this->note('<blockquote>«','»</blockquote><hr>').
+					'<h1>'.$this->fullname('','').$this->jobtitle(', ','').'</h1>'.
+					$this->contact();
+
+				$user_teams = '';
+
+				if(count($this->userdata->data->teams)>=1){
+					foreach($this->userdata->data->teams as $key => $atts){
+						$user_teams.='<li><a href="'.$atts->team_list.'">'.$atts->display_name.'</a></li>';
+					}
+				}
+
+				if($user_teams!=''):
+					$out .= '<h5>'.__('Teams',THEME).'</h5><ul>'.$user_teams.'</ul>';
+				endif;
+				$out .= '</div>';
+
+				break;
+		}
+		
+		return $out;
+	}//html_single_user
+
+
+	function fullname($pre='<h1>',$post='</h1>') {
+		return $this->userdata->data->display_name!=''? $pre.$this->userdata->data->display_name.$post : '';
+	}//fullname
+
+
+	function jobtitle($pre='<h2>',$post='</h2>') {
+		return $this->userdata->data->job_title!=''?$pre . $this->userdata->data->job_title . $post:'';
+	}//jobtitle
+
+
+	function note($pre='<p>',$post='</p>') {
+		if (@$this->userdata->data->description) {
+			return $pre . $this->userdata->data->description .$post ;
+		}
+		return '';
+	}//note
+
+
+	function contact($pre='<p>',$post='</p>') {
+
+		global $cms;
+
+		if (@$this->userdata->data->telephone || @$this->userdata->data->user_email) {
+			$out = array();
+
+			if(@$this->userdata->data->telephone):
+				$out[] = __('T',THEME).' '.@$this->userdata->data->telephone;
+			endif;
+
+			if(@$this->userdata->data->user_email):
+				$email_address = antispambot($this->userdata->data->user_email);
+				$out[] = '<a href="mailto:'.$email_address.'">'.$email_address.'</a>';
+			endif;
+
+			$out = join('<br>',$out);
+
+			if($out!=''):
+				return $pre. $out .$post;
+			endif;
+		}
+		return '';
+	}//contact
+
+
+
+	function photo($link=''){
+	
+		if(count($this->userdata->data->attachments)>0){
+		
+			switch($this->atts['mode']){
+				case 'small':
+					$image_size = 'user-small';
+					$attachmentNumber = 0;
+					break;
+
+				case 'compact':
+					$image_size = 'user-compact';
+					$attachmentNumber = 0;
+					break;
+				
+				default:
+					$image_size = 'user-medium';
+					$attachmentNumber = 1;
+					break;
+			}
+
+			if(!empty($this->userdata->data->attachments[$attachmentNumber]) && isset($this->userdata->data->attachments[$attachmentNumber]->guid)){
+				$this->userdata->data->image_url = $this->userdata->data->attachments[$attachmentNumber]->guid;
+				if($image_size!='dyn'){
+					$this->userdata->data->image_url = preg_replace('/\/dyn\//','/'.$image_size.'/',$this->userdata->data->image_url);	
+				}
+			}else{
+				$this->userdata->data->image_url = '/media/dyn/head.png';
+			}
+
+			$imagetag = '<img class="frp_userprofile photo" alt="" src="' .clean_url($this->userdata->data->image_url). '">';
+
+			if($link!=''):
+				$photo = '<a title="' .__('Show profile',THEME). '" href="'.$link.'">' .$imagetag. '</a>';
+			else:
+				$photo = $imagetag;
+			endif;
+			return $photo;
+		}
+		return '';
+	}
+
+
+	function get_team($returnsingle=false) {
+		global $cms;
+		if($this->userdata->data->team!=''){
+			$user_teams = explode(',',$this->userdata->data->team);
+			foreach($cms->departments as $key => $atts):
+				if(in_array($key,$user_teams) && $atts['showinlists']){
+					foreach($atts as $attkey => $attvalue){
+						$this->userdata->data->teams->$key->$attkey = $attvalue;
+					}
+					if($returnsingle):
+						break;
+					endif;
+				}
+			endforeach;
+		}
+
+	}//get_team
+	
+	
+	function reindex_team_members(&$team_members,$team){
+		 // sort by manager, then by surname
+		foreach($team_members as $key => $team_member_data){
+		    if(isset($team_member_data->data->manager) && $team_member_data->data->manager!='' && (strpos($team_member_data->data->manager,$team)!==false)){
+			    $memberlevel='1';
+		    }else{
+			    $memberlevel='10';
+		    }
+		    $team_members['m'.$memberlevel.'-'.$team_member_data->last_name.'-'.$team_member_data->first_name] = $team_member_data;
+		    unset($team_members[$team_member_data->data->ID]);
+		}
+	    ksort($team_members);
+	}
+
+
+
+	function encode_email($e){
+		//http://davidwalsh.name/php-email-encode-prevent-spam
+		for ($i = 0; $i < strlen($e); $i++) { $out .= '&#'.ord($e[$i]).';'; }
+		return $out;
+	}//encode_email
+
+
+	function frp_getremotecontent($url){
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_POST, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$remotecontent = curl_exec($ch);
+		curl_close($ch);
+		return $remotecontent;
+	}
+
+
+	function array_sort_by_column(&$arr, $col, $dir = SORT_ASC){
+		//	http://stackoverflow.com/questions/2699086/php-sort-multidimensional-array-by-value
+		$sort_col = array();
+		foreach ($arr as $key=> $row) {
+			$sort_col->$key = $row->$col;
+		}
+		array_multisort($sort_col, $dir, $arr);
+	}//array_sort_by_column
+
+
+	function objectToArray($object){
+		$array=array();
+		foreach($object as $member=>$data){
+			$array[$member]=$data;
+		}
+		return $array;
+	}//objectToArray
+
+}
