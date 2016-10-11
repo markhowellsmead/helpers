@@ -1,0 +1,54 @@
+@import '/Volumes/web/css-reset/css-reset';
+body {
+    font-size: 1rem;
+}
+
+.container {
+    padding: 2rem .5rem;
+}
+
+.constrain {
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.row {
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 41.6875rem) {
+    .container {
+        padding: 2rem 1rem;
+    }
+    .main {
+        display: flex;
+    }
+    .article {
+        flex-basis: 67%;
+        padding-right: 2rem;
+    }
+    .aside {
+        flex-basis: 33%;
+    }
+    .row {
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: 64rem) {
+    .article {
+        padding-right: 4rem;
+    }
+    .row {
+        margin-bottom: 4rem;
+    }
+}
+
+@media screen and (min-width: 75rem) {
+    .article {
+        padding-right: 6rem;
+    }
+    .row {
+        margin-bottom: 6rem;
+    }
+}

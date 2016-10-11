@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout example using REM</title>
+    <link rel="stylesheet" href="rem.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header class="row">
+            <div class="constrain">
+                <blockquote>
+                    <p>This page uses REM units for layout and for breakpoints. (Columns are made using Flexbox.)</p>
+                    <p><a href="http://caniuse.com/#feat=rem">Browser support</a>. IE9 and IE10 don't support REM units in <code>font</code> shorthand property or on pseudo elements.</p>
+                    <ul>
+                        <li>30rem: 480px</li>
+                        <li>45rem: 640px</li>
+                        <li>41.6875rem: 667px</li>
+                        <li>48rem: 768px</li>
+                        <li>64rem: 1024px</li>
+                        <li>75rem: 1200px</li>
+                    </ul>
+                </blockquote>
+            </div>
+        </header>
+        <main class="main constrain">
+            <article class="article">
+                <div class="csc-default">
+                    <h1>Heading level 1</h1>
+                    <h2>Heading level 2</h2>
+                    <h3>Heading level 3</h3>
+                    <h4>Heading level 4</h4>
+                    <h5>Heading level 5</h5>
+                    <h6>Heading level 6</h6>
+                </div>
+                <div class="csc-default">
+                    <h2>Lorem Ipsum - die Quelle</h2>
+                    <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+                    <p>Glauben oder nicht glauben, Lorem Ipsum ist nicht nur ein zufälliger Text. Er hat Wurzeln aus der Lateinischen Literatur von 45 v. Chr, was ihn über 2000 Jahre alt macht. Richar McClintock, ein Lateinprofessor des Hampden-Sydney College in Virgnia untersuche einige undeutliche Worte, "consectetur", einer Lorem Ipsum Passage und fand eine unwiederlegbare Quelle. Lorem Ipsum komm aus der Sektion 1.10.32 und 1.10.33 des "de Finibus Bonorum et Malorum" (Die Extreme von Gut und Böse) von Cicero, geschrieben 45 v. Chr. Dieses Buch ist Abhandlung der Ethiktheorien, sehr bekannt wärend der Renaissance. Die erste Zeile des Lorem Ipsum, "Lorem ipsum dolor sit amet...", kommt aus einer Zeile der Sektion 1.10.32.</p>
+                </div>
+                <div class="csc-default">
+                    <h3>Heading level 3</h3>
+                    <p>Partially, but it also obeys your commands. The more you tighten your grip, Tarkin<sup>1</sup>, the more star systems will slip through your fingers. In my experience, there is no such thing as luck. <a href="https://www.youtube.com/watch?v=V268Qk6-xsw">Hokey religions and ancient weapons</a> are no match for a good blaster at your side, kid. Dantooine. They're on Dantooine. Obi-Wan is here. The Force is with him.</p>
+                </div>
+                <div class="csc-default">
+                    <h3>Supertext and subtext</h3>
+                    <p>CO<sub>2</sub> isn't breathable. May 4<sup>th</sup> be with you.</p>
+                </div>
+                <div class="csc-default">
+                    <h3>Code block</h3>
+                    <pre>var foo = bar();
+echo(foo);</pre>
+                </div>
+                <div class="csc-default">
+                    <blockquote>
+                        <header>Blockquote element</header>
+                        <p>Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide. I need your help, Luke. She needs your help. I'm getting too old for this sort of thing.</p>
+                    </blockquote>
+                </div>
+                <div class="csc-default">
+                    <h3>Heading level 3</h3>
+                    <p>A tremor in the Force. The last time I felt it was in the presence of <a href="http://starwars.wikia.com/wiki/Obi-Wan_Kenobi">my old master</a>. Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Still, she's got a lot of spirit. I don't know, what do you think? Oh God, my uncle. How am I ever gonna explain this? All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it?</p>
+                    <p>She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time! I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me. Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You don't believe in the Force, do you? The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Hey, Luke! May the Force be with you.</p>
+                </div>
+            </article>
+            <aside class="aside">
+                <div class="csc-default">
+                    <h3>Heading level 3</h3>
+                    <h4>An image</h4>
+                    <div class="image">
+                        <img src="https://farm4.staticflickr.com/3915/15240166495_5275e94f4e_c.jpg" alt="Niesen" />
+                        <p>Image caption</p>
+                    </div>
+                    <h4>Unordered list</h4>
+                    <ul>
+                        <li>What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.</li>
+                        <li>What?!</li>
+                        <li>What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.</li>
+                    </ul>
+                    <h4>Ordered list</h4>
+                    <ol>
+                        <li>What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like… suicide.</li>
+                        <li>No! Alderaan is peaceful. We have no weapons. You can't possibly…</li>
+                        <li>What!?</li>
+                        <li>A tremor in the Force. The last time I felt it was in the presence of my old master.</li>
+                    </ol>
+                </div>
+                <div class="csc-default">
+                    <header>Video</header>
+                    <div class="module video">
+                        <iframe src="//www.youtube.com/embed/Ik8D5c7zaDE" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="csc-default">
+                    <h3>Table</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Colour</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Luke</td>
+                                <td>Male</td>
+                                <td>Orange</td>
+                            </tr>
+                            <tr>
+                                <td>Han</td>
+                                <td>Male</td>
+                                <td>Brown</td>
+                            </tr>
+                            <tr>
+                                <td>Leia</td>
+                                <td>Female</td>
+                                <td>White</td>
+                            </tr>
+                            <tr>
+                                <td>Anakin</td>
+                                <td>Male</td>
+                                <td>Black</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="csc-default">
+                    <h3>Form</h3>
+                    <form class="module">
+                        <fieldset>
+                            <legend>Legend</legend>
+                            <label for="fullname"><span>Name</span>
+                                <input type="text" name="fullname" id="fullname" placeholder="Enter your name" />
+                            </label>
+                            <label for="email"><span>Email</span>
+                                <input type="text" name="email" id="email" placeholder="Enter your email address" />
+                            </label>
+                            <label for="checkbox"><span>Checkbox</span>
+                                <input type="checkbox" name="checkbox" id="checkbox" value="1" />
+                            </label>
+                            <input type="submit" value="Send" />
+                        </fieldset>
+                    </form>
+                </div>
+            </aside>
+        </main>
+    </div>
+    </div>
+</body>
+
+</html>
