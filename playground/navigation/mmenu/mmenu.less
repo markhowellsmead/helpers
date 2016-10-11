@@ -1,0 +1,40 @@
+//////////////////////////////////////////////////
+// styling
+	
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+
+html,body {
+	margin:0;padding:0;
+	font-family:sans-serif;
+	background:#f0f0f0;
+}
+
+.content {
+	max-width:50em;
+	margin:0 auto;
+	padding:1em 2%;
+}
+.mm-menu > .mm-list {
+	padding:0;
+}
+
+.hidden-desktop {
+	display:block;
+	background:#333;
+	color:#fff;
+	text-align:center;
+	text-decoration: none;
+	padding:.5em 0;
+	&:hover {
+		background:#444;
+	}
+	@media screen and (min-width:768px){
+		display:none;
+	}
+}
+
+@media screen and (max-width:768px){
+	nav.mmenu {
+		display:none;
+	}
+}

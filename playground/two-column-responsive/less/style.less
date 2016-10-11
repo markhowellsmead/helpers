@@ -1,0 +1,270 @@
+////////////////////////////////////////////////////////////
+// two column responsive design excluding mobile view
+// june 2013
+// mhm@frappant.ch
+////////////////////////////////////////////////////////////
+
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+@import "/Library/WebServer/webroot/frappant_helpers/less/frappant.less";
+
+@base-colour: 	#6f8e09;
+@font-family: 	"droid sans",helvetica,arial,sans-serif;
+@path-css: 		"../css";
+@path-images: 	"../img";
+
+@breakpoint1:	800px;
+@breakpoint2:	1000px;
+@breakpoint3:	1200px;
+@breakpoint4:	1400px;
+
+////////////////////////////////////////////////////////////
+
+html,body {
+	margin:0;padding:0;
+	text-align:center;line-height:1.5;
+}
+html,body,form,input,select,textarea {
+	font-family: @font-family;
+	font-size: 1em;
+}
+html {
+	background: @base-colour;
+}
+
+body {
+	font-size:.875em;
+	@media screen and (min-width:@breakpoint1){
+	   	font-size:.9375em;
+	}
+	@media screen and (min-width:@breakpoint2){
+	   	font-size:1em;
+	}
+	@media screen and (min-width:@breakpoint3){
+	   	font-size:1.125em;
+	}
+	@media screen and (min-width:@breakpoint4){
+	   	font-size:1.25em;
+	}
+}
+
+a {
+	color: @base-colour;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+h1 {
+	font-size: 2em;
+	margin:0;
+}
+h2 {
+	font-size: 1.5em;
+	margin:0;
+}
+h3 {
+	font-size: 1.25em;
+	margin:0;
+}
+h4 {
+	font-size: 1.125em;
+	margin:0;
+}
+h5 {
+	font-size: 1em;
+	margin:16px 0 0;
+}
+h6 {
+	margin:16px 0 0;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+table,th,td	{
+	vertical-align: top;
+	border:2px solid #fff;
+	border-collapse:collapse;
+}
+table	{margin-bottom:1em}
+th,td	{
+	text-align: left;
+	padding:4px 8px;
+}
+th {background-color: desaturate(lighten(@base-colour,50%),100%);}
+td {background-color: desaturate(lighten(@base-colour,60%),100%);}
+tr.e td {background-color: desaturate(lighten(@base-colour,65%),100%);}
+
+nav {
+	margin:0;padding:0;
+}
+
+////////////////////////////////////////////////////////////
+
+.menu {
+	ul,li {
+		list-style-type: none;
+		margin:0;padding:0;
+		a {
+			display: block;
+			text-decoration: none;
+			&:hover {
+				color: #fff;
+				background-color: @base-colour;
+			}
+		}
+	}
+	li.act > a {
+		color: #fff;
+		background-color: @base-colour;
+	}
+}
+
+.column {
+	.clearfix;
+	width:86.979%;
+	max-width: 1400px;
+	min-width: 718px;
+	margin:0 auto;
+	text-align: left;
+}
+
+.content .column {
+	background: #fff url('@{path-images}/dancer.png') right bottom no-repeat;
+	border-color: #000;
+	border-style: solid;
+	border-width: 0;
+	box-shadow: 0 0 8px darken(@base-colour,10%);
+}
+
+.header{
+	.column {
+		position:relative;
+	}
+	
+	.column:before,.column:after {
+		display:block;
+		content: '.';
+		font-size:0;width:200px;height:200px;
+		background: transparent url('@{path-images}/brush.png') center no-repeat;
+		position:absolute;top:-50px;z-index:-1;
+	}
+	
+	.column:before {
+		left:-25px;
+	}
+	
+	.column:after {
+		right:-25px;
+	}
+	
+	nav {
+		background-color: #fff;
+		border-color: darken(@base-colour,10%);
+		border-style: solid;
+		border-width: 0 0 4px;
+		ul {
+			padding:0 1%;
+			text-align:center;
+		}
+		li {
+			display:inline-block;
+			font-weight: bold;
+		}
+		a {
+			padding:.5em 1.5em;
+			@media screen and (min-width:@breakpoint2){
+				padding:.5em 2em;
+			}
+			@media screen and (min-width:@breakpoint3){
+				padding:.5em 2.25em;
+			}
+			@media screen and (min-width:@breakpoint4){
+				padding:.5em 2.5em;
+			}
+		}
+	}
+
+	nav,ul,li {
+		margin: 0;padding: 0;
+		list-style-type: none;
+	}
+
+	h1 {
+		text-align: right;
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+	
+}
+
+////////////////////////////////////////////////////////////
+
+article {
+	padding:1em 1%;
+	float: left;
+	width:53%;
+}
+
+////////////////////////////////////////////////////////////
+
+nav.sub, aside {
+	float: left;
+	font-size:.875em;
+}
+
+nav.sub {
+	width:15%;
+	a {
+		padding:.5em 10px;
+	}
+	ul.level3 {
+		background-color: desaturate(lighten(@base-colour,60%),100%);
+		a {
+			padding-left: 1.5em;
+		}
+	}
+}
+aside {
+	padding:1em 2% 270px; // bottom specific for dancer image
+	width:21%;
+}
+
+
+
+////////////////////////////////////////////////////////////
+
+.slider {
+	.aspect5to1();
+	box-shadow: 0 -2px 2px darken(@base-colour,10%);
+	//border-top: 1px solid #fff;
+}			
+
+////////////////////////////////////////////////////////////
+
+form.frp {
+	margin:0 0 1em;
+	span {
+		padding:.5em 0;
+	}
+	input,select,textarea {
+		padding:.5em 1%;
+		border: 1px solid transparent;
+		background-color: #f0f0f0;
+		&:hover {
+			background-color: #f6f6f6;
+			outline: none;
+		}
+		&:focus{
+			background-color: #f6f6f6;
+			border-color: @base-colour;
+			outline: none;
+		}
+	}
+	input[type=submit]	{
+		background-color: @base-colour; color:#fff;
+		&:hover	{background-color: #5c7507}
+	}
+}

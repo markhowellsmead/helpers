@@ -1,0 +1,31 @@
+<div class="row grid size3">
+	<div class="inner">
+	
+		<h2>About</h2>
+
+		<div class="cell teaser">
+			<div class="body">
+				<header>Mietwohnung</header>
+				<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine.</p>
+				<p class="more"><a href="#">More</a></p>
+			</div>
+		</div>
+
+		<div class="cell teaser">
+			<div class="body">
+				<header>Mietwohnung</header>
+				<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine.</p>
+				<p class="more"><a href="#">More</a></p>
+			</div>
+		</div>
+
+		<div class="cell teaser">
+			<div class="body">
+				<header>Mietwohnung</header>
+				<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine.</p>
+				<p class="more"><a href="#">More</a></p>
+			</div>
+		</div>
+
+	</div>
+</div>

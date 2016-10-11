@@ -1,0 +1,78 @@
+html, body {
+	margin:0;padding:0;font-family:helvetica,arial,sans-serif;font-weight:300;text-align:center;
+}
+.column {
+	text-align:left;
+	margin:0 auto;
+	width:93.75%;
+	max-width:960px;
+}
+
+.header {
+	min-height: 50px;
+	padding: 1em 0;
+	background: #666;
+	background-attachment: fixed;
+	background-size: cover;
+	box-shadow: inset 0 -2px 1em 0 rgba(0,0,0,.25);
+}
+
+@media screen and (min-width:1024px) and (min-height:768px){
+	.header {
+		font-size:3em;
+		padding: 1em 0;
+	}
+}
+@media screen and (min-width:1200px) and (min-height:1200px){
+	.header {
+		font-size:6em;
+		padding: 2em 0;
+	}
+}
+
+.header h1,.header p {
+	font-weight:300;
+	color: #fff;
+	/*text-shadow: 0 0 20px #194eae;*/
+	margin:0;
+}
+
+.infobar {
+	position:fixed;bottom:0;right:0;left:0;
+	padding:.5em;
+}
+.infobar p,.infobar a {
+	color:#000;margin:0;
+}
+.infobar a {text-decoration: none}
+.infobar:after {content:'';display:block;clear:both}
+
+.cube {
+	float:right;
+	padding:.25em .5em;
+	border-radius:6px;;border:1px solid transparent;
+}
+.cube .hidden {
+	display:none;
+}
+.cube span {
+	vertical-align: middle;
+}
+.cube .icon {
+	display:inline-block;
+	width:64px;height:64px;background:url('http://support.frappant.ch/wp-content/themes/frp_banded/img/frappant_cube_64.png') center no-repeat;
+	background-size:64px;
+	opacity:.5;
+	margin-left:1em;
+}
+.cube:hover .icon {
+	opacity:1;
+}
+@media screen and (min-width:768px){
+	.cube:hover {
+		background-color:rgb(255,255,255);background-color:rgba(255,255,255,.9);border:1px solid #666;
+	}
+	.cube:hover .hidden {
+		display:inline-block;
+	}
+}

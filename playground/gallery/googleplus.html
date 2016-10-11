@@ -1,0 +1,97 @@
+<!--
+
+
+
+http://blog.vjeux.com/2012/image/image-layout-algorithm-google-plus.html
+
+http://blog.vjeux.com/2012/image/image-layout-algorithm-facebook.html
+
+
+
+...and so on...
+
+
+
+--><!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<style>
+	body, html { margin: 0; padding: 0;}
+	img { margin: 2px 3px 3px 2px; }
+	img {
+	  outline: 1px solid rgba(0, 0, 0, .1);
+	  outline-offset: -1px;
+	}
+	</style>
+</head>
+<body>
+
+
+
+<div id="flexgallery"><img src="http://permanenttourist.ch/media/post/recentwork/20130318_MHM_3301-20130318_MHM_3304.jpg" data-width="700" data-height="350"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0058.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0052.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0020.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130223_20130223_MHM_3271-20130223_MHM_3276.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_MHM_3120.jpg" data-width="152" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_20130210_MHM_3111-20130210_MHM_3112.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130209_20130209_MHM_3089-20130209_MHM_3091.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130203_20130203_MHM_2965-20130203_MHM_2969.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_MHM_2929.jpg" data-width="100" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_20130126_MHM_2916-20130126_MHM_2919.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2508.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2474.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2401.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2384.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121223_MHM_2315.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/post/recentwork/20130318_MHM_3301-20130318_MHM_3304.jpg" data-width="700" data-height="350"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0058.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0052.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0020.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130223_20130223_MHM_3271-20130223_MHM_3276.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_MHM_3120.jpg" data-width="152" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_20130210_MHM_3111-20130210_MHM_3112.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130209_20130209_MHM_3089-20130209_MHM_3091.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130203_20130203_MHM_2965-20130203_MHM_2969.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_MHM_2929.jpg" data-width="100" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_20130126_MHM_2916-20130126_MHM_2919.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2508.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2474.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2401.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2384.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121223_MHM_2315.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/post/recentwork/20130318_MHM_3301-20130318_MHM_3304.jpg" data-width="700" data-height="350"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0058.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0052.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0020.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130223_20130223_MHM_3271-20130223_MHM_3276.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_MHM_3120.jpg" data-width="152" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_20130210_MHM_3111-20130210_MHM_3112.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130209_20130209_MHM_3089-20130209_MHM_3091.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130203_20130203_MHM_2965-20130203_MHM_2969.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_MHM_2929.jpg" data-width="100" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_20130126_MHM_2916-20130126_MHM_2919.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2508.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2474.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2401.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2384.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121223_MHM_2315.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/post/recentwork/20130318_MHM_3301-20130318_MHM_3304.jpg" data-width="700" data-height="350"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0058.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0052.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130303_DSCF0020.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130223_20130223_MHM_3271-20130223_MHM_3276.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_MHM_3120.jpg" data-width="152" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130210_20130210_MHM_3111-20130210_MHM_3112.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130209_20130209_MHM_3089-20130209_MHM_3091.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130203_20130203_MHM_2965-20130203_MHM_2969.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_MHM_2929.jpg" data-width="100" data-height="152"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20130126_20130126_MHM_2916-20130126_MHM_2919.jpg" data-width="227" data-height="113"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2508.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121229_MHM_2474.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2401.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121224_MHM_2384.jpg" data-width="227" data-height="150"><img src="http://permanenttourist.ch/media/foldergallery-small/recentwork/20121223_MHM_2315.jpg" data-width="227" data-height="150"></div>
+
+<script>
+// massive kudos to http://blog.vjeux.com/2012/image/image-layout-algorithm-google-plus.html
+// who wrote this algorithm
+
+$container=$('#flexgallery');
+
+$(function () {
+	HEIGHTS = [];
+	function getheight(images, width) {
+		width -= images.length * 5;
+		var h = 0;
+		for (var i = 0; i < images.length; ++i) {
+			h += $(images[i]).data('width') / $(images[i]).data('height');
+		}
+		return width / h;
+	}
+
+	function setheight(images, height) {
+	  HEIGHTS.push(height);
+	  for (var i = 0; i < images.length; ++i) {
+	    $(images[i]).css({
+	      width: height * $(images[i]).data('width') / $(images[i]).data('height'),
+	      height: height
+	    });
+	    $(images[i]).attr('src', $(images[i]).attr('src').replace(/w[0-9]+-h[0-9]+/, 'w' + $(images[i]).width() + '-h' + $(images[i]).height()));
+	  }
+	}
+	
+	function resize(images, width) {
+	  setheight(images, getheight(images, width));
+	}
+	
+	function run(max_height) {
+  var size = $container.width() - 50;
+	
+	  var n = 0;
+	  var images = $('img');
+	  w: while (images.length > 0) {
+	    for (var i = 1; i < images.length + 1; ++i) {
+	      var slice = images.slice(0, i);
+	      var h = getheight(slice, size);
+	      if (h < max_height) {
+	        setheight(slice, h);
+	        n++;
+	        images = images.slice(i);
+	        continue w;
+	      }
+	    }
+	    setheight(slice, Math.min(max_height, h));
+	    n++;
+	    break;
+	  }
+	}
+	window.addEventListener('resize', function(){run(150)});
+	$(function(){run(150);});
+});
+</script>
+
+
+</body>
+</html>

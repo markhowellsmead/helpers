@@ -1,0 +1,10 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 500 500" width="500" height="500" aria-labelledby="title desc">
+
+ <title id="title">Filters SVG</title>
+ <defs>
+ 	<filter id="blur">
+ 		<feGaussianBlur stdDeviation="18"/>
+	</filter>
+ </defs>
+</svg>

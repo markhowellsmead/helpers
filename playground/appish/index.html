@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script>
+		document.documentElement.className+=(document.documentElement.className!==''?' ':'')+'js';
+		document.cookie='resolution='+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';
+	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://raw.githubusercontent.com/mhmli/css-reset/master/css-reset.css" type="text/css" />
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>App-ish layout</title>
+    
+    <style>
+	    
+	    html,body {
+		    margin: 0;
+		    padding: 0;
+	    }
+
+	    html.js {
+		    overflow: hidden;
+	    }
+	    
+	    html.js,html.js body {
+		    height: 100vh;
+	    }
+	    
+	    html {
+		    background-color: #fff;
+	    }
+
+	    body {
+		    background-color: #eef;
+	    }
+
+	    html {
+		    background-color: #fff;
+	    }
+	    
+	    .pane {
+		    position: absolute;
+		    top: 0; left: 0;
+		    bottom: 0; right: 0;
+		    background: #996;
+		    opacity: 0;
+		    -webkit-transition: all 2s;
+		    transition: all 300ms;
+	    }
+	    
+	    .pane.loaded {
+		    opacity: 1;
+		    background: #ffc;
+	    }
+	    
+	    a {
+		    color: black;
+	    }
+	    
+	    a.active {
+		    color: red;
+	    }
+	    
+	    
+	    nav {
+		    position:fixed;
+		    top: 0;
+		    z-index:1;
+	    }
+	    
+	    .cover.bubbles {
+		    height: 100vh;
+		    background: url('https://farm1.staticflickr.com/130/322950968_5b3e160b11_o.jpg') center/cover no-repeat, url('/templates/appish/brienz-low.jpg') center/cover no-repeat;
+	    }
+	    
+	    
+    </style>
+
+</head>
+<body>
+<div class="container">
+	<nav class="noscript">
+		<a data-content="/templates/appish/about.txt" href="/templates/appish/about/">About</a>
+		<a data-content="/templates/appish/contact.txt" href="/templates/appish/contact/">Contact</a>
+		<a data-content="/templates/appish/portfolio.txt" href="/portfolio/">Portfolio</a>
+	</nav>
+</div>
+<h1>App-ish</h1>
+<div class="panes"></div>
+<script>
+
+(function($){
+	
+	appendPane = function(data){
+		var pane = $('<div class="pane">' + data + '</div>');
+		pane.attr('data-url', url);
+		$('.panes').empty().append(pane);
+		pane.addClass('loaded');
+	};
+	
+	$(window).on('popstate', function(e) {
+		// fires AFTER the history state (i.e. URL) has been changed
+		$('.pane').removeClass('loaded');
+		$('nav a').removeClass('active');
+		
+		urlbits = location.href.split(location.host);
+		$('.pane[data-url="'+urlbits[1]+'"]').addClass('loaded');
+		$('nav a[href="'+urlbits[1]+'"]').addClass('active');
+	});
+
+    $links = $('nav a');
+    $links.click(function(e){
+	    e.preventDefault();
+	    url = $(this).attr('href');
+	    navlink = $(this);
+		$.ajax({
+			url: $(this).data('content'),
+			success: function(data, textStatus, XMLHttpRequest){
+				appendPane(data, url);
+				window.history.pushState(null, null, url);
+				navlink.addClass('active');
+			},
+
+			error: function(XMLHttpRequest, errorTypeString){
+			}
+		});
+    });
+    
+})(jQuery);
+
+</script>
+</body>
+</html>

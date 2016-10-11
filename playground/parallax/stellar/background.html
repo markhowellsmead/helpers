@@ -1,0 +1,122 @@
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0">
+	<meta charset="utf-8">
+    <title></title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="stellar.min.js"></script>
+	
+	<style>
+		html, body {
+			margin:0;padding:0;font-family:helvetica,arial,sans-serif;font-weight:300;text-align:center;
+		}
+		.column {
+			text-align:left;
+			margin:0 auto;
+			width:93.75%;
+			max-width:960px;
+		}
+		
+		.header {
+			min-height: 100px;
+			padding: 6em 0 2em;
+			background: #000 url('clouds.jpg') center top no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			box-shadow: inset 0 -2px 1em 0 rgba(0,0,0,.25);
+		}
+		
+		@media screen and (min-width:900px){
+			.header {
+				font-size:4em;
+				padding: 2em 0;
+			}
+		}
+		
+		.content1 {position:relative;}
+		.content1 .cupcake {
+			position:absolute;top:0;right:0;min-height:800px;min-width:400px;
+			background: transparent url('parallax_cupcake.png') left bottom no-repeat;
+			/*background-attachment: fixed;*/
+		}
+		
+		.content2 {
+			background: #fff url('parallax_cookie.png') right bottom no-repeat;
+			/*background-attachment: fixed;*/
+		}
+		
+		.header h1,.header p {
+			font-weight:300;
+			color: #fff;
+			text-shadow: 0 0 20px #194eae;
+			margin:0;
+		}
+		
+		.infobar {
+			position:fixed;top:0;left:0;right:0;z-index:20;
+			background: rgb(177,22,65);
+			padding:1em;
+		}
+		.infobar p {
+			color:#fff;margin:0;
+		}
+	
+	</style>
+
+</head>
+<body>
+<div class="infobar">
+	<div class="column">
+		<p>Langsam nach unten scrollen…</p>
+	</div>
+</div>
+
+<div class="header" data-stellar-background-ratio="0.25">
+	<h1>Parallax-Effekt</h1>
+	<p>Bewegende Hintergrundbilder</p>
+</div>
+
+<div class="content1">
+	<div class="cupcake" data-stellar-background-ratio="1.5"></div>
+	<div class="column">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit consequat congue. Maecenas interdum lorem et odio pellentesque rutrum fringilla neque auctor. Sed non tortor ullamcorper magna commodo imperdiet. In hac habitasse platea dictumst. Nulla facilisi. Aliquam non libero orci, id lobortis lorem. Mauris rhoncus molestie justo, et auctor sapien vehicula eget. Mauris a nisl risus, nec euismod libero. Nam euismod nisi mauris.</p>
+		<p>Quisque nibh dolor, adipiscing id consectetur eget, euismod id justo. Ut eget massa eget lectus dapibus viverra eu feugiat felis. Suspendisse eget lacinia ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut fermentum ligula ac est condimentum et tempus lorem sagittis. Aliquam commodo dolor eget lorem congue scelerisque. Proin vel lacus justo, et tempus metus. Nam a tortor ipsum.</p>
+		<p>Cras dictum viverra mi, nec blandit enim lobortis eu. Maecenas fringilla ornare quam sed viverra. Pellentesque nec commodo risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam at venenatis ipsum. Donec feugiat purus sed sapien mollis eget dignissim dui tincidunt. Nam tempor lacinia mi, quis tincidunt massa elementum id.</p>
+		<p>Ut a nunc id purus laoreet cursus. In ut rutrum velit. Vestibulum diam diam, auctor a sollicitudin at, suscipit a odio. Aliquam ligula massa, ultrices eu dapibus id, ultricies et augue. Aenean metus metus, porttitor eget consectetur et, gravida sit amet nisi. Cras venenatis, magna nec auctor molestie, augue orci sagittis purus, at euismod nisi arcu ut nibh. Sed sed leo orci. Proin porta neque in augue varius fringilla. Duis tristique dui eu dolor feugiat sollicitudin.</p>
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit consequat congue. Maecenas interdum lorem et odio pellentesque rutrum fringilla neque auctor. Sed non tortor ullamcorper magna commodo imperdiet. In hac habitasse platea dictumst. Nulla facilisi. Aliquam non libero orci, id lobortis lorem. Mauris rhoncus molestie justo, et auctor sapien vehicula eget. Mauris a nisl risus, nec euismod libero. Nam euismod nisi mauris.</p>
+		<p>Ut a nunc id purus laoreet cursus. In ut rutrum velit. Vestibulum diam diam, auctor a sollicitudin at, suscipit a odio. Aliquam ligula massa, ultrices eu dapibus id, ultricies et augue. Aenean metus metus, porttitor eget consectetur et, gravida sit amet nisi. Cras venenatis, magna nec auctor molestie, augue orci sagittis purus, at euismod nisi arcu ut nibh. Sed sed leo orci. Proin porta neque in augue varius fringilla. Duis tristique dui eu dolor feugiat sollicitudin.</p>
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+</div>
+<div class="content2" data-stellar-background-ratio="2.4">
+	<div class="column">
+		<p>Ut a nunc id purus laoreet cursus. In ut rutrum velit. Vestibulum diam diam, auctor a sollicitudin at, suscipit a odio. Aliquam ligula massa, ultrices eu dapibus id, ultricies et augue. Aenean metus metus, porttitor eget consectetur et, gravida sit amet nisi. Cras venenatis, magna nec auctor molestie, augue orci sagittis purus, at euismod nisi arcu ut nibh. Sed sed leo orci. Proin porta neque in augue varius fringilla. Duis tristique dui eu dolor feugiat sollicitudin.</p>
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+		<p>Ut a nunc id purus laoreet cursus. In ut rutrum velit. Vestibulum diam diam, auctor a sollicitudin at, suscipit a odio. Aliquam ligula massa, ultrices eu dapibus id, ultricies et augue. Aenean metus metus, porttitor eget consectetur et, gravida sit amet nisi. Cras venenatis, magna nec auctor molestie, augue orci sagittis purus, at euismod nisi arcu ut nibh. Sed sed leo orci. Proin porta neque in augue varius fringilla. Duis tristique dui eu dolor feugiat sollicitudin.</p>
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit consequat congue. Maecenas interdum lorem et odio pellentesque rutrum fringilla neque auctor. Sed non tortor ullamcorper magna commodo imperdiet. In hac habitasse platea dictumst. Nulla facilisi. Aliquam non libero orci, id lobortis lorem. Mauris rhoncus molestie justo, et auctor sapien vehicula eget. Mauris a nisl risus, nec euismod libero. Nam euismod nisi mauris.</p>
+		<p>Quisque nibh dolor, adipiscing id consectetur eget, euismod id justo. Ut eget massa eget lectus dapibus viverra eu feugiat felis. Suspendisse eget lacinia ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut fermentum ligula ac est condimentum et tempus lorem sagittis. Aliquam commodo dolor eget lorem congue scelerisque. Proin vel lacus justo, et tempus metus. Nam a tortor ipsum.</p>
+		<p>Cras dictum viverra mi, nec blandit enim lobortis eu. Maecenas fringilla ornare quam sed viverra. Pellentesque nec commodo risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam at venenatis ipsum. Donec feugiat purus sed sapien mollis eget dignissim dui tincidunt. Nam tempor lacinia mi, quis tincidunt massa elementum id.</p>
+		<p>Ut a nunc id purus laoreet cursus. In ut rutrum velit. Vestibulum diam diam, auctor a sollicitudin at, suscipit a odio. Aliquam ligula massa, ultrices eu dapibus id, ultricies et augue. Aenean metus metus, porttitor eget consectetur et, gravida sit amet nisi. Cras venenatis, magna nec auctor molestie, augue orci sagittis purus, at euismod nisi arcu ut nibh. Sed sed leo orci. Proin porta neque in augue varius fringilla. Duis tristique dui eu dolor feugiat sollicitudin.</p>
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+</div>
+<script>
+$(function(){
+	$.stellar({
+		horizontalScrolling: false,
+		verticalScrolling: true,
+		horizontalOffset: 0,
+		verticalOffset: 0,
+		scrollProperty: 'scroll',
+		responsive: true
+	});
+});
+</script>
+</body>
+</html>

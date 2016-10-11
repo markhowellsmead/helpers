@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Fixed aspect scalable ratio content boxes</title>
+	<style>
+	
+		/*
+			first definition just to constrain box
+			width cannot be set fixed to the holder div
+			as otherwise, the proportional padding is broken. 
+		*/
+			.aspect {
+				max-width:600px;
+				margin-bottom:1em;
+			}
+			
+		/*now real definitions*/
+			.aspect .holder {
+				position: relative;
+				height: 0;
+				padding-bottom:100%;
+			}
+			.aspect .inner, .aspect embed, .aspect object, .aspect iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #889;	
+			}
+			
+			.aspect4by3 .holder {
+				padding-bottom: 75%;
+			}
+			
+			.aspect16to9 .holder {
+				padding-bottom: 56.25%;
+			}
+			.aspect2to1 .holder {
+				padding-bottom: 50%;
+			}
+
+			.aspect3to1 .holder {
+				padding-bottom: 33.3333%;
+			}
+			
+			.aspect .chrome25 {
+				padding-top: 25px; /* fixed height toolbar e.g. youtube */
+			}
+			
+			
+	</style>	
+</head>
+<body>
+
+<p>The boxes on this page will retain their proportions, as long as the content of the absolute inner element does not exceed the boundaries of the proportional box. For more information, read <a href="http://alistapart.com/articles/creating-intrinsic-ratios-for-video/">this article</a> at A List Apart.</p>
+<p>(Resize the browser window to see the effect.)</p>
+
+<div class="aspect">
+	<div class="holder">
+		<div class="inner">
+			<h1>This box is 1:1 format (square) as no other aspect ratio is defined</h1>
+		</div>
+	</div>
+</div>
+
+<div class="aspect aspect4by3">
+	<div class="holder">
+		<div class="inner">
+			<h1>This box is 4:3 format</h1>
+		</div>
+	</div>
+</div>
+
+<div class="aspect aspect16to9">
+	<div class="holder">
+		<div class="inner">
+			<h1>This box is 16:9 format</h1>
+		</div>
+	</div>
+</div>
+
+<div class="aspect aspect2to1">
+	<div class="holder">
+		<div class="inner">
+			<h1>This box is 2:1 format</h1>
+		</div>
+	</div>
+</div>
+
+<div class="aspect aspect2to1">
+	<div class="holder chrome25">
+		<div class="inner">
+			<h1>This box is 2:1 format, PLUS 25px for a YouTube toolbar.</h1>
+		</div>
+	</div>
+</div>
+
+<div class="aspect aspect3to1">
+	<div class="holder">
+		<div class="inner">
+			<h1>This box is 3:1 format</h1>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+/*$font-size: 26px;
+$line-height: 1.4;
+$lines-to-show: 3;*/
+
+p {
+	display: block; /* Fallback for non-webkit */
+	display: -webkit-box;
+	max-width: 400px;
+	height: 4.5em; /* $font-size*$line-height*$lines-to-show - Fallback for non-webkit */
+	font-size: 1em;
+	line-height: 1.5;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

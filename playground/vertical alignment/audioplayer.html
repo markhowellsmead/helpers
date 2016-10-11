@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertically centered sub element</title>
+    
+    <style>
+      
+      .wrap {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .ce-audioplayer {
+        
+      }
+      
+      .ce-audioplayer iframe {
+        float: left;
+        width: 324px;
+        height: 166px;
+        margin-right: 2%;
+      }
+
+    </style>
+    
+    
+    <script>
+      
+      $(document).on('ready', function(){
+        
+        
+        var embedcode = '<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/237825192&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>';//window.prompt('Embed-Code bitte');
+
+        if(embedcode){
+          var regex = /<iframe.*?src="(.*?)"/;
+          var src = regex.exec(embedcode);
+          if(src && src[1]){
+            $('.wrap').text('[soundcloud url="' +src[1]+ '"]');
+          }else{
+            window.alert('Bitte überprüfen Sie die Eingabe. Kein Player-URL gefunden.');
+          }
+        }
+
+      });
+      
+    </script>
+    
+    
+    
+    
+</head>
+<body>
+  
+  <div class="wrap">
+<!--
+      <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/237825192&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+    -->
+
+    </div>
+  </div>
+
+</body>
+</html>

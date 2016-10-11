@@ -1,0 +1,20 @@
+.btwgradient(@fallback: #F5F5F5, @start: rgba(255,255,255,0), @middle: rgba(255,255,255,.5), @stop: rgba(255,255,255,1), @offsetStart:0%, @offsetMiddle:50%, @offsetEnd:100%){
+	background: linear-gradient(to top,red,green,blue);
+	background: -webkit-gradient(linear,to top,color-stop(0%,red),color-stop(50%,green),color-stop(100%,blue));
+	background: -webkit-linear-gradient(to top,red,green,blue);
+	background: -moz-linear-gradient(to top,red,green,blue);
+	background: -o-linear-gradient(to top,red,green,blue);
+	background: -ms-linear-gradient(to top,red,green,blue);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#FF0000, endColorstr=#00FF00); 
+}
+	
+//////////////////////////////////////////////////
+	
+html,body {
+	min-height:100%;
+	background:#000;
+}
+div {
+	.btwgradient;
+	border:1px solid #fff;
+}

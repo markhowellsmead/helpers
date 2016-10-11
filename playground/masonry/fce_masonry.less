@@ -1,0 +1,174 @@
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+
+@blue: #0098d4;
+
+@colour-sticker: 		#c00;
+@colour-more-background:#c00;
+@colour-more-text:		#fff;
+@colour-time-text:		#999;
+@fce-background: 		#fff;
+@fce-background-highlight: #fff;
+@fce-border: 			transparent;
+@fce-border-hover:		@blue;
+
+.whiteshadow(@offset:33%,@firststep:.95){
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,@firststep) @offset, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(@offset,rgba(255,255,255,@firststep)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,@firststep) @offset,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,@firststep) @offset,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,@firststep) @offset,rgba(255,255,255,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,@firststep) @offset,rgba(255,255,255,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+@path-css:'';
+
+@import "http://fonts.googleapis.com/css?family=Lato";
+
+section,article,details,header,footer,nav,aside,hgroup,figure	{display:block;margin:0;padding:0}
+
+
+html,body {
+    margin:0;padding:0;min-height:100%;height:100%;
+    font-family:'Lato',sans-serif;
+    text-align: left;
+	.clearfix;
+}
+html {
+	.gradient(#f5f9fb, #f5f9fb, #d2eaf7);
+	background-attachment: fixed;
+}
+body {
+	background:transparent none;
+}
+img {border:none}
+.info {
+	padding:0 1%;
+}
+
+a {
+	color:@blue;text-decoration: none;
+}
+
+.container_12 {
+    margin:0 auto;
+    max-width:1200px;
+}
+.row.teasers {
+	.clearfix;
+	margin:0;
+	padding:4em 0;
+	
+	div.fce {
+		margin:0 0 1em;
+		background:@fce-background;
+		//.drop-shadow(0,0,2em,.25,17,138,211);
+		.drop-shadow(0,0,1em,.15);
+		overflow: hidden;
+		position: relative;
+		
+		&.highlight {
+			z-index:1;
+			background:rgba(255,255,255,1);
+			.drop-shadow(0,0,4em,.5);
+		}
+		
+		&:hover {
+			//background-color: @fce-background-highlight;
+		}
+
+		img {
+			max-width:100%;
+			height:auto;
+		}
+		
+		> div {
+			padding:1em;
+		}
+		
+		a.fce {
+			display:block;position:absolute;top:0;left:0;right:0;bottom:0;
+			z-index:10;
+		}
+		
+		h1 		{margin:0;padding:0;font-size:1.5em;color:@blue}
+		h2 		{margin:0 0 .5em;padding:0;font-size:1em;color:@blue}
+		p.time 	{color:@colour-time-text}
+
+		.more {
+			display:inline-block;
+			margin-top:2.5em;
+			padding:.25em 2em .25em .25em;
+			background:@colour-more-background;
+			//background:fade(@colour-more-background,75%);
+			color:@colour-more-text;text-decoration: none;
+			&:hover {
+				background:@colour-more-background;
+			}
+		}
+		
+		.video {
+			max-width:100%;
+			.aspect169;
+		}
+		
+		span.sticker {
+			position:absolute;
+			top:2em;right:-3em;width:8em;
+			display:inline-block;
+			text-align:center;
+			padding:.25em 2em;
+			.rotate(45deg);
+			background:@colour-sticker;
+			//background:fade(@colour-sticker,75%);
+			color:@colour-more-text;text-decoration: none;
+			&:hover {
+				background:@colour-sticker;
+			}
+		}
+		
+		@media screen and (min-width:768px){
+			float:left;
+			width:23%;
+			margin:0 1% 1em;
+
+			footer {
+				position:absolute;bottom:0;left:0;right:0;height:5em;
+				.whiteshadow;
+			}
+
+			&.w2 {
+				width:48%;
+			}
+			
+			&.video {
+				overflow:hidden;
+				height:31.25em;
+				footer {
+					bottom:21.25em;
+					.gradient(#fff, rgba(255,255,255,0), rgba(255,255,255,1),50%);
+				}
+			}
+	
+			&.event {
+				overflow:hidden;
+				height:31.25em;
+			}
+	
+			&.helper {
+				overflow:hidden;
+				height:12em;
+				footer {
+					height:2em;
+					.gradient(#fff, rgba(255,255,255,0), rgba(255,255,255,1),100%);
+				}
+			}
+	
+			&.news {
+				overflow:hidden;
+				height:44.25em;
+			}
+	
+		}
+	}
+}

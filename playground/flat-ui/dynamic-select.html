@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title></title>
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+<!--
+	<script src="bootstrap.min.js"></script>
+	<link rel="stylesheet" href="bootstrap.css">
+-->
+	<link rel="stylesheet" href="flat.css">
+</head>
+<body>
+<h1>Local test code for <a href="http://designmodo.github.io/Flat-UI/">Flat UI kit</a>.</h1>
+<form class="frp_form dynamic" method="GET">
+<select name="hero" value="0" class="select-block">
+	<option value="0" selected>Choose hero</option>
+	<option value="1">Spider Man</option>
+	<option value="2">Wolverine</option>
+	<option value="3">Captain America</option>
+	<option value="X-Men">X-Men</option>
+	<option value="Crocodile">Crocodile</option>
+</select>
+<input type="submit" class="btn btn-primary btn-large"><input type="reset" class="btn btn-large">
+</form>
+
+        <div class="span8 demo-video">
+          <!--[if !IE]> -->
+            <video controls
+              preload="none" width="620" height="349" poster="http://designmodo.github.io/Flat-UI/images/video/poster.jpg" data-setup="{}">
+              <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.mp4" type="video/mp4">
+              <source src="http://iurevych.github.com/Flat-UI-videos/big_buck_bunny.webm" type="video/webm">
+            </video>
+          <!-- <![endif]-->
+
+          <!--[if IE]>
+            <video class="video-js" controls
+              preload="auto" width="620" height="256" poster="http://video-js.zencoder.com/oceans-clip.jpg" data-setup="{}">
+              <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4'/>
+              <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'/>
+            </video>
+          <![endif]-->
+        </div> <!-- /video -->
+      </div>
+
+<script src="dynamic-select.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Multiline text ellipsis</title>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/mhmli/css-reset/master/css-reset.css" type="text/css" />
+    <link rel="stylesheet" href="text-ellipsis.css" type="text/css" />
+    <style type="text/css" media="screen">
+    	.container {
+	    	width: 50%;
+	    	margin: 0 auto;
+    	}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<p class="ellipsis-container clamped clamped-2">
+		    <span class="ellipsis">
+		        There's a bit of text here. Enough to trigger the effect? Probably not.
+		    </span>
+		</p>
+		<p class="ellipsis-container clamped clamped-3">
+		    <span class="ellipsis">
+		        But more text here (the same markup structure though): if the text overflows from the clamped paragraph's height, the ellipse will show. You may have to resize the browser window (or this paragraph's container) to see the effect in action.
+		    </span>
+		</p>
+	</div>
+</body>
+</html>

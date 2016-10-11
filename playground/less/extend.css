@@ -1,0 +1,9 @@
+.inline,
+nav ul,
+aside ul {
+  color: red;
+}
+nav ul,
+aside ul {
+  background: blue;
+}

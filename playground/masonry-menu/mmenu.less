@@ -1,0 +1,123 @@
+//////////////////////////////////////////////////
+// styling
+	
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+
+html,body {
+	margin:0;padding:0;
+	font-family:sans-serif;
+	background:#f0f0f0;
+}
+
+.content {
+	clear:both;
+	max-width:50em;
+	margin:0 auto;
+	padding:1em 2%;
+}
+.mm-menu > .mm-list {
+	padding:0;
+}
+
+.hidden-desktop {
+	display:block;
+	background:#333;
+	color:#fff;
+	text-align:center;
+	text-decoration: none;
+	padding:.5em 0;
+	&:hover {
+		background:#444;
+	}
+	@media screen and (min-width:768px){
+		display:none;
+	}
+}
+
+@media screen and (max-width:767px){
+	nav.mmenu {
+		display:none;
+	}
+}
+	
+//////////////////////////////////////////////////
+// rules for inline horizontal menu from here on
+
+@dark: 	#333;
+@mid: 	#999;
+@light: #fff;
+	
+@media screen and (min-width:768px){
+	nav.mmenu {
+		.clearfix;
+		background:@light;
+		
+		ul {
+			.clearfix;
+		}
+		
+		margin-bottom:2em;
+		position:relative;
+
+		> ul {
+			.inline-menu;
+			width:100%;
+			> li {
+				float:left;
+				width:20%;
+				background:@dark;
+				a {
+					color:@light;
+				}
+				> ul {
+					//background:@light;
+					width:100%;
+					position:absolute !important;
+					left:0;
+					z-index:20;
+					.clearfix;
+					> li {
+						//background:@light;
+						float:left;
+						a {
+							color:@dark;
+						}
+					}
+					visibility:hidden;
+					.transition(.5s, linear, all);
+					opacity:0;
+					z-index:0;
+				}
+				&:hover,&:active,&:focus,&.act,&.hover_effect {
+					background:@mid;
+					> ul {
+						display:block;
+						opacity:1;
+						.transition(.1s, linear, all);
+						visibility:visible;
+					}
+				}
+				&:hover,&:active,&:focus,&.hover_effect {
+					background:orange;
+					> ul {
+						background:orange;
+						z-index:1000;
+					}
+				}
+			}
+		}
+		
+		a {
+			text-decoration: none;
+			text-align: center;
+			padding:.5em;
+			line-height:2em;
+			display:block;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		
+		
+	}
+}

@@ -1,0 +1,111 @@
+#menu,
+#main,
+#sidebar{
+	transition: .25s all ease;
+	width: 90%;
+	padding: 0 5%;
+}
+
+.js {
+	.container {
+		width: 100%;
+		overflow: hidden;
+	}
+	#menu {	
+		margin-left: -100%;
+		float: left;
+	}
+	#main {
+		margin-left: 0;
+		float: left;
+	}
+	#sidebar {	
+		margin-right: -200%;
+		float: left;		
+	}
+}
+
+.active-nav {
+	#menu{
+		margin-left: 0;	
+		width: 70%;
+	}
+	#main{
+		margin-right: -100%;
+	}
+	#sidebar{
+		margin-right: -100%;
+		float: right;		
+	}
+}
+
+.active-sidebar{
+	#menu{
+		margin-left: -100%;
+	}
+	#main{
+		margin-left: -80%;
+	}
+	#sidebar{
+		margin-left: 0;
+		width: 70%;	
+	}
+}
+
+
+@media all and (min-width: 600px) {	
+	.js{
+		#menu{
+			width: 20%;	
+			margin-left: 0;
+		}
+		#main{
+			width: 60%;
+			float: left;
+		}
+		#sidebar{
+			width: 20%;
+		}
+	}
+	.active-sidebar{
+		#menu{
+			margin-left: -100%;
+		}
+		#main{
+			margin-left: 0;
+			width: 60%;
+		}
+		#sidebar{
+			margin-right: -80%;
+			width: 20%;
+		}
+	}
+}
+
+@media all and (min-width: 800px) {	
+	.js {
+	
+		.off-canvas-navigation {
+			display: none;
+		}
+	
+		#menu{
+			width: 19%;	
+			margin-left: 0;
+			float: left;
+			padding: 0 3%;
+		}
+	
+		#main{
+			width: 44%;
+			padding: 0 3%;
+		}
+	
+		#sidebar{
+			width: 19%;	
+			padding: 0 3%;
+			margin-right: 0;
+			float: right;
+		}
+	}
+}

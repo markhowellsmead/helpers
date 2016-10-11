@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<base href="http://permanenttourist.ch/" />
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Masonry layout with Flexbox</title>
+	<style>
+		
+		html,body {
+			margin: 0;
+			padding: 0;
+		}
+
+		img, iframe {
+			max-width: 100%;
+			height: auto;
+			display: inline-block;
+			margin: 0 auto;
+			vertical-align: middle;
+		}
+		
+		.container {
+		    margin: 0 auto;
+		    background: #444;
+		    min-height: 100vh;
+		}
+		
+		.masonry {
+			transition: all 300ms ease-in-out;
+		    -moz-column-gap: 0;
+		    -webkit-column-gap: 0;
+		    column-gap: 0;
+		    max-width: 1328px;
+		}
+		.item {
+			vertical-align: middle;
+		    display: inline-block;
+		    text-align: center;
+		    background: #fff;
+		    padding: 1px;
+		    width: 100%;
+		    -moz-box-sizing: border-box;
+		    -webkit-box-sizing: border-box;
+		    box-sizing: border-box;
+		}
+
+		@media only screen and (min-width: 400px) {
+		    .masonry {
+		        -moz-column-count: 2;
+		        -webkit-column-count: 2;
+		        column-count: 2;
+		    }
+		}
+		
+		@media only screen and (min-width: 768px) {
+		    .masonry {
+		        -moz-column-count: 3;
+		        -webkit-column-count: 3;
+		        column-count: 3;
+		    }
+		}
+		
+		@media only screen and (min-width: 1100px) {
+		    .masonry {
+		        -moz-column-count: 4;
+		        -webkit-column-count: 4;
+		        column-count: 4;
+		    }
+		}
+
+/*
+		@media only screen and (min-width: 1300px) {
+		    .masonry {
+		        -moz-column-count: 5;
+		        -webkit-column-count: 5;
+		        column-count: 5;
+		    }
+		}
+*/
+
+/*
+		@media only screen and (min-width: 1500px) {
+		    .masonry {
+		        -moz-column-count: 6;
+		        -webkit-column-count: 6;
+		        column-count: 6;
+		    }
+		}
+
+		@media only screen and (min-width: 1800px) {
+		    .masonry {
+		        -moz-column-count: 7;
+		        -webkit-column-count: 7;
+		        column-count: 7;
+		    }
+		}
+
+		@media only screen and (min-width: 2000px) {
+		    .masonry {
+		        -moz-column-count: 8;
+		        -webkit-column-count: 8;
+		        column-count: 8;
+		    }
+		}
+*/
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="masonry">
+		<span class="item nr1"><img class="nr1" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_01.jpg" alt=""></span>
+		<span class="item nr2"><img class="nr2" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_02.jpg" alt=""></span>
+		<span class="item nr3"><img class="nr3" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_03.jpg" alt=""></span>
+		<span class="item nr4"><img class="nr4" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_04.jpg" alt=""></span>
+		<span class="item nr5"><img class="nr5" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_05.jpg" alt=""></span>
+		<span class="item nr6"><img class="nr6" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_06.jpg" alt=""></span>
+		<span class="item nr7"><img class="nr7" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_07.jpg" alt=""></span>
+		<span class="item nr8"><img class="nr8" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_08.jpg" alt=""></span>
+		<span class="item nr9"><img class="nr9" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_09.jpg" alt=""></span>
+		<span class="item nr10"><img class="nr10" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_10.jpg" alt=""></span>
+		<span class="item nr11"><img class="nr11" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_11.jpg" alt=""></span>
+		<span class="item nr12"><img class="nr12" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_12.jpg" alt=""></span>
+		<span class="item nr13"><img class="nr13" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_13.jpg" alt=""></span>
+		<span class="item nr1"><img class="nr1" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_01.jpg" alt=""></span>
+		<span class="item nr2"><img class="nr2" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_02.jpg" alt=""></span>
+		<span class="item nr3"><img class="nr3" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_03.jpg" alt=""></span>
+		<span class="item nr4"><img class="nr4" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_04.jpg" alt=""></span>
+		<span class="item nr5"><img class="nr5" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_05.jpg" alt=""></span>
+		<span class="item nr6"><img class="nr6" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_06.jpg" alt=""></span>
+		<span class="item nr7"><img class="nr7" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_07.jpg" alt=""></span>
+		<span class="item nr8"><img class="nr8" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_08.jpg" alt=""></span>
+		<span class="item nr9"><img class="nr9" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_09.jpg" alt=""></span>
+		<span class="item nr10"><img class="nr10" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_10.jpg" alt=""></span>
+		<span class="item nr11"><img class="nr11" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_11.jpg" alt=""></span>
+		<span class="item nr12"><img class="nr12" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_12.jpg" alt=""></span>
+		<span class="item nr13"><img class="nr13" src="/wp-content/uploads/switzerland/be/gerzenseetokiesen/gerzenseetokiesen_13.jpg" alt=""></span>
+	</div>
+</div>
+</body>
+</html>

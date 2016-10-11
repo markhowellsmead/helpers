@@ -1,0 +1,51 @@
+html.js {
+	
+	.module {
+		
+		&.message {
+		
+			.inner {
+				position: relative;
+			}
+			
+			.close {
+
+				display: inline-block;
+				position: absolute;
+				right: 0; 
+				top: 50%;
+				transform: translateY(-50%);
+				width: 1em;
+				height: 1em;
+				margin: .5em 0;
+
+				&:before,&:after {
+					cursor: pointer;
+					content: ' ';
+					display: block;
+					width:1em;height:1em;
+					border-top: 1px solid #000;
+					border-right: 1px solid #000;
+					position: absolute;
+					right: 0; top: 0;
+				}
+				&:before {
+				    -ms-transform: rotate(-135deg); /* IE 9 */
+				    -webkit-transform: rotate(-135deg); /* Chrome, Safari, Opera */
+				    transform: rotate(-135deg);
+				}
+				&:after {
+				    -ms-transform: rotate(45deg); /* IE 9 */
+				    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+				    transform: rotate(45deg);
+				    right:1em;
+				}
+				
+			}
+			
+		}
+		
+		
+	}
+	
+}

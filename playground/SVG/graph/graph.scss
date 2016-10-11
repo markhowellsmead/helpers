@@ -1,0 +1,71 @@
+.mod.stakeholder-graph {
+
+    .graph-svg {
+
+        font-family: inherit;
+        max-width: 100%;
+        width: 580px;
+        height: 580px;
+
+        .area {
+            opacity: .5;
+            width: 50%;
+            height: 50%;
+            fill: none;
+        }
+        
+        .area-inner {
+            fill: none;
+            width: 250px;
+            height: 250px;
+            stroke-width: 0;
+            opacity: .35;
+        }
+        
+        .area-outer {
+            stroke-width: 1;
+            stroke: #aaa;
+        }
+        
+        .area-tr, .area-bl {
+            fill: #ccc;
+        }
+
+        .axis-line, .axis-line-arrow {
+            stroke: #aaa;
+        }
+
+        .axis-label {
+            fill: #6e6e6e;
+        }
+        
+        .inner-group {
+            fill: none;
+            stroke-width: 0;
+        }
+        
+        .point {
+            fill: #333;
+        }
+        
+        .label {
+            font-family: inherit;
+            font-size: 18px;
+            fill: #333;
+            stroke: #00f;
+            transform: translate(.5em, .35em);
+        }
+
+    }
+    
+    &.privigen .graph-svg {
+        .area-tr {
+            fill: #c3d36b;
+        }
+        
+        .area-bl {
+            fill: #e4b8b8;
+        }
+    }
+    
+}

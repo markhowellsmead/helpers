@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>Affecting a toolbar on scroll</title>
+    
+    <style>
+	    
+	    html, body {
+		    margin: 0; padding: 0;
+		    font-family: helvetica;
+	    }
+	    
+	    .toolbar {
+		    position: fixed;
+		    top: 0; left: 0; right: 0;
+		    min-height: 10em; overflow: hidden;
+		    background: transparent url('https://farm4.staticflickr.com/3719/10359329146_28af17efcd_o.jpg') center/cover no-repeat;
+		    -webkit-transition: all 1s ease-in-out;
+		    transition: all 300ms ease-in-out;
+	    }
+	    
+	    .mask {
+		    position: absolute;
+		    top: -10%; left: 0%; bottom: -10%; right: 0%;
+		    background: transparent url('https://farm4.staticflickr.com/3719/10359329146_28af17efcd_o.jpg') center/cover no-repeat;
+		    opacity: 0;
+		    -webkit-filter: url('filters.svg#blur');
+		    filter: url('filters.svg#blur');
+	    }
+	    
+	    .head {
+		    position: absolute;
+		    top: 50%; left: 50%;
+		    -webkit-transform: translate(-50%,-50%);
+		    transform: translateY(-50%,-50%);
+		    width: 100%;
+		    margin: 0;
+		    font-size: 4em;
+		    color: white;
+		    text-shadow: 0 0 1em black;
+	    }
+
+	    .toolbar.shrunk {
+		    min-height: 4em;
+	    }
+
+	    .toolbar.shrunk .head {
+		    font-size: 2em;
+	    }
+	    
+	    .toolbar .anchor {
+		    display: none;
+	    }
+	    
+
+	    .toolbar.shrunk .anchor {
+		    display: inline-block;
+	    }
+	    
+
+	    .inner {
+		    max-width: 760px;
+		    margin: 0 auto;
+	    }
+	    
+	    
+	    .jumbotron {
+		    margin-top: 11em;
+	    }
+	    
+
+   </style>
+
+</head>
+<body>
+		
+	<div class="toolbar">
+		<div class="mask"></div>
+		<div class="inner head">
+			<p>Hello World</p>
+		</div>
+		<a class="anchor" href="#top">Top</a>
+	</div>
+	
+	<div class="jumbotron">
+
+		<div class="inner">
+		
+						
+            <div class="csc-default">
+				<h1>Heading level 1</h1>
+				<h2>Heading level 2</h2>
+				<h3>Heading level 3</h3>
+				<h4>Heading level 4</h4>
+				<h5>Heading level 5</h5>
+				<h6>Heading level 6</h6>
+			</div>
+
+            <div class="csc-default">
+				<h2>Heading level 2</h2>
+				<p>Hey, Luke! May the Force be with you. In my experience, there is no such thing as luck. Oh God, my uncle. How am I ever gonna explain this?</p>
+            </div>
+            <div class="csc-default">
+				<h3>Heading level 3</h3>
+				<p>Partially, but it also obeys your commands. The more you tighten your grip, Tarkin<sup>1</sup>, the more star systems will slip through your fingers. In my experience, there is no such thing as luck. <a href="https://www.youtube.com/watch?v=V268Qk6-xsw">Hokey religions and ancient weapons</a> are no match for a good blaster at your side, kid. Dantooine. They're on Dantooine. Obi-Wan is here. The Force is with him.</p>
+            </div>
+            <div class="csc-default">
+				<h3>Supertext and subtext</h3>
+				<p>CO<sub>2</sub> isn't breathable. May 4<sup>th</sup> be with you.</p>
+            </div>
+            <div class="csc-default">
+				<h3>Code block</h3>
+				<pre>var foo = bar();
+	echo(foo);</pre>
+            </div>
+            <div class="csc-default">
+				<blockquote>
+					<header>Blockquote element</header>
+					<p>Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. I need your help, Luke. She needs your help. I'm getting too old for this sort of thing. What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide. I need your help, Luke. She needs your help. I'm getting too old for this sort of thing.</p>
+				</blockquote>
+            </div>
+            <div class="csc-default">
+				<h3>Heading level 3</h3>
+				<p>A tremor in the Force. The last time I felt it was in the presence of <a href="http://starwars.wikia.com/wiki/Obi-Wan_Kenobi">my old master</a>. Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Still, she's got a lot of spirit. I don't know, what do you think? Oh God, my uncle. How am I ever gonna explain this? All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it?</p>
+				<p>She must have hidden the plans in the escape pod. Send a detachment down to retrieve them, and see to it personally, Commander. There'll be no one to stop us this time! I want to come with you to Alderaan. There's nothing for me here now. I want to learn the ways of the Force and be a Jedi, like my father before me. Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You don't believe in the Force, do you? The more you tighten your grip, Tarkin, the more star systems will slip through your fingers. Hey, Luke! May the Force be with you.</p>
+            </div>
+            <div class="csc-default">
+				<h3>Heading level 3</h3>
+				<h4>An image</h4>
+				<div class="image">
+					<img src="https://farm4.staticflickr.com/3915/15240166495_5275e94f4e_c.jpg" alt="Niesen" />
+					<p>Image caption</p>
+				</div>
+				<h4>Unordered list</h4>
+				<ul>
+					<li>What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.</li>
+					<li>What?!</li>
+					<li>What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide.</li>
+				</ul>
+				<h4>Ordered list</h4>
+				<ol>
+					<li>What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like… suicide.</li>
+					<li>No! Alderaan is peaceful. We have no weapons. You can't possibly…</li>
+					<li>What!?</li>
+					<li>A tremor in the Force. The last time I felt it was in the presence of my old master.</li>
+				</ol>
+            </div>
+            <div class="csc-default">
+				<header>Video</header>
+				<div class="module video"><iframe src="//www.youtube.com/embed/Ik8D5c7zaDE" allowfullscreen></iframe></div>
+            </div>
+            <div class="csc-default">
+				<h3>Table</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Gender</th>
+							<th>Colour</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Luke</td>
+							<td>Male</td>
+							<td>Orange</td>
+						</tr>
+						<tr>
+							<td>Han</td>
+							<td>Male</td>
+							<td>Brown</td>
+						</tr>
+						<tr>
+							<td>Leia</td>
+							<td>Female</td>
+							<td>White</td>
+						</tr>
+						<tr>
+							<td>Anakin</td>
+							<td>Male</td>
+							<td>Black</td>
+						</tr>
+					</tbody>
+				</table>
+            </div>
+            <div class="csc-default">
+				<h3>Form</h3>
+				<form class="module">
+					<fieldset>
+						<legend>Legend</legend>
+						<label for="fullname"><span>Name</span><input type="text" name="fullname" id="fullname" placeholder="Enter your name"/></label>
+						<label for="email"><span>Email</span><input type="text" name="email" id="email" placeholder="Enter your email address" /></label>
+						<label for="checkbox"><span>Checkbox</span><input type="checkbox" name="checkbox" id="checkbox" value="1" /></label>
+						<input type="submit" value="Send" />
+					</fieldset>
+				</form>
+            </div>
+
+		</div>
+		
+	</div>
+
+    <script>
+		(function($){
+		
+			var toolbar = $('.toolbar');
+			var toolbarmask = $('.toolbar .mask');
+		
+			$(window).scroll(function() {
+				
+				var scrollTop = $(this).scrollTop();
+				
+				var alpha = Math.min(12, scrollTop*.1)/100;
+				toolbar.css({opacity: 1-alpha});
+
+				var maskalpha = Math.min(94, scrollTop)/100;
+				toolbarmask.css({opacity: maskalpha});
+				
+				if(scrollTop>100){
+					toolbar.addClass('shrunk');
+				}else{
+					toolbar.removeClass('shrunk');
+				}
+
+			});
+		
+		})(jQuery);
+    </script>
+
+</body>
+</html>

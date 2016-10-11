@@ -1,0 +1,42 @@
+<?php
+/*
+	Place this file in the root folder of your WordPress installation
+	and then rename the file to .maintenance. If the die() is active
+	in the PHP code below, nothing else of the requested page will 
+	be displayed to the user.
+	
+	mhm/8.3.2013
+*/
+
+if(false):
+
+	header('Content-Type: text/html; charset=utf-8');
+	
+	?><!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<link rel="stylesheet" href="//frp.li/comingsoon/style.css">
+</head>
+<body>
+<div class="scrollable">
+	<div class="wrap">
+		<div id="main">
+			<a href="/"><img src="//frp.li/comingsoon/frappant_cube_256.png" alt=""></a>
+			<h1>Hier wird gearbeitet</h1>
+			<p>Wir führen hurtig einen Update aus und sind gleich für Sie wieder da.</p>
+			<p>Schön, wenn Sie bald nochmal vorbeischauen.</p>
+			<p><code><?=$_SERVER['HTTP_HOST']?></code></p>
+		</div>
+	</div>
+</div>
+<script>
+window.onload=function(){window.scrollTo(0,1);};
+</script>
+</body>
+</html><?php
+	die();
+
+endif; // true oder false
+?>

@@ -1,0 +1,15 @@
+* {line-height: 1;vertical-align: middle}
+label 		{display:block;clear:both;position:relative;padding-right:40px}
+label span 	{float:left;width:150px}
+label input	{float:left;width:300px;border:1px solid #ccc;padding:4px;margin:0}
+input.error {border-color: rgb(255,0,0);outline:none}
+label input[type=submit],label input[type=reset] {width:auto}
+span.error 	{background:red;text-indent:-3000px;border-radius:0.5em;width:1em;font-size:inherit;overflow:hidden;float:left;margin-left:4px}
+
+form.wait {background:yellow}
+form.wait input[type=submit],form.wait input[type=reset] {
+	display: none;
+}
+
+.progressmessage {display:none}
+.wait .progressmessage {display:block}

@@ -1,0 +1,48 @@
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+@import "/Library/WebServer/webroot/frappant_helpers/less/columns.less";
+
+html,body {
+	margin:0;padding:0;
+}
+
+@media (min-width:768px){
+	.group {
+		.clearfix;
+		overflow: hidden;
+	}
+	
+	.group > .column {
+		padding-left:1%;
+		padding-right:1%;
+	}
+	
+	.column > .column {
+		padding-left:1%;
+	}
+	.column > .column{
+		&:first-child,&.alpha {
+			padding-left:0;
+		}
+		&:last-child,&.omega {
+			padding-right:0;
+		}
+	}
+	
+	.column1of2 {
+		.column1of2;
+	}
+	.column1of3 {
+		.column1of3;
+	}
+	.column1of4 {
+		.column1of4;
+	}
+
+}
+
+.teaser {
+	.aspect3to2;
+	overflow: hidden;
+	background:#f0f0f0 url('http://permanenttourist.ch/media/post/2010/11/20070930_DSC_5847.jpg') center no-repeat;
+	background-size: cover;
+}

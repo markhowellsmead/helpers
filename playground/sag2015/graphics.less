@@ -1,0 +1,16 @@
+.background-cover(){
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.background-fixed(){
+	background-attachment: fixed;
+}
+
+.module.img {
+	.background-cover;
+	&.fixed {
+		.background-fixed;
+	}
+}

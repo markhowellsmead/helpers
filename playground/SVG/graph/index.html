@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graph using SVG</title>
+    <link rel="stylesheet" href="graph.css" />
+</head>
+<body>
+
+<div class="inner">
+    
+    <div class="mod fce stakeholder-graph privigen" data-text-edit="Modify this element">
+    
+        <header class="ce-header">
+            <h2 class="ce-title">Stakeholder Analysis</h2>
+        </header>
+
+        <figure class="graph">
+            <svg class="graph-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="580" height="580" preserveAspectRatio="xMidYMid meet" viewBox="0 0 580 580">
+                <g>
+                    <line class="axis-line" x1="80" y1="540.5" x2="580" y2="540.5"/>
+                    <polygon class="axis-line-arrow" points="580,540.5 574,536.5 576,540.5 574,544.5"/>
+                    <text class="axis-label axis-label-x" transform="translate(80 560)">The X axis, which would be a great place for a party</text>
+                </g>
+                <g>
+                    <line class="axis-line" x1="40.5" y1="0" x2="40.5" y2="500" />
+                    <polygon class="axis-line-arrow" points="40.5,0 36.5,6 40.5,4 44.5,6"/>
+                    <text class="axis-label axis-label-y" transform="translate(30 500) rotate(-90)">The Y axis, which would be a great place to go climbing</text>
+                </g>
+                
+                <svg class="inner-group" x="80" y="0" width="500" height="500" preserveAspectRatio="xMidYMid meet">
+                    <rect class="area-outer" width="500" height="500"/>
+                    <rect class="area-inner area-tl" x="0"/>
+                    <rect class="area-inner area-tr" x="250"/>
+                    <rect class="area-inner area-bl" x="0" y="250"/>
+                    <rect class="area-inner area-br" x="250" y="250"/>
+
+                    <g>
+                        <circle class="point" r="4" cx="35%" cy="50%" />
+                        <text class="label" x="35%" y="50%">Nurse</text>
+                    </g>
+
+                    <g>
+                        <circle class="point" r="4" cx="75%" cy="38%" />
+                        <text class="label" x="75%" y="38%">Doctor</text>
+                    </g>
+
+                </svg>
+            </svg>
+        </figure>
+
+        <div class="ce-bodytext">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+    </div>
+    
+    
+    <script>
+        
+        (function($, undefined){
+        
+        	$(function(){
+        		// Mark Howells-Mead 16/03/16
+        		$('.fce.stakeholder').addClass('dynamic');
+        	});
+        	
+        
+        })(jQuery);
+        
+        
+        
+    </script>
+    
+</div>
+</body>
+</html>

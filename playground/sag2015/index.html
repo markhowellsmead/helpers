@@ -1,0 +1,324 @@
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Grid layout with filter options</title>
+	<link rel="stylesheet" href="https://raw.githubusercontent.com/mhmli/cssreset/master/css-reset.css" type="text/css" />
+	<link rel="stylesheet" href="filtered-grid.css" type="text/css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script>
+		document.documentElement.className = document.documentElement.className.replace("no-js","js");
+	</script>
+</head>
+<body>
+
+<!--div class="module message ok">
+	<div class="inner constrain">
+		<a class="close"></a>
+		<p>All is well! Nothing to report.</p>
+	</div>
+</div-->
+
+<div class="module row dark">
+	<h2>Erste Zeile</h2>
+	<a class="icon search toggler" href="#search">Suche</a>
+</div>
+
+<div class="module search js-hide branded" id="search">
+	<h2>…SUCHFORMULAR…</h2>
+</div>
+
+<!--div class="module row branded monster">
+	<div class="inner constrain vm">
+		<h2>Monster</h2>
+	</div>
+</div-->
+
+<div class="module row monster img" style="background-image:url('http://www.satzartag.ch/media/slide//2014/08/Neue-Mitarbeiter.jpg')">
+	<div class="inner constrain vm">
+		<h2>Willkommen Anja, Melanie,  Henning und Remo</h2>
+		<h3>Neue Gesichter bringen frischen Wind</h3>
+	</div>
+</div>
+
+<div class="module row size4">
+	<div class="module teaser">
+		<img src="http://www.frappant.ch/files/2014/04/biketowork14_480x360.jpg" />
+		<h2>Bike To Work</h2>
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+		<a href="#"></a>
+	</div>
+	<div class="module teaser">
+		<img src="http://www.frappant.ch/files/2011/10/sbahnbern_480x360.jpg" />
+		<h2>S-Bahn Bern</h2>
+		<p>It was every day an increasing wonder to Passepartout, who read in Aouda’s eyes the depths of her gratitude to his master. Phileas Fogg, though brave and gallant, must be, he thought, quite heartless.</p>
+	</div>
+	<div class="module teaser">
+		<img src="http://www.satzart.ch/files/2013/12/DSC2998-480x360.jpg" />
+		<h2>CURAVIVA Schweiz</h2>
+		<p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
+		<a href="#"></a>
+	</div>
+	<div class="module teaser">
+		<img src="http://www.satzart.ch/files/2012/06/bls_arbeitgeber_01-480x360.jpg" />
+		<h2>BLS AG</h2>
+		<p>Such was the situation between Fix and Passepartout. Meanwhile Phileas Fogg moved about above them in the most majestic and unconscious indifference. He was passing methodically in his orbit around the world, regardless of the lesser stars which gravitated around him. Yet there was near by what the astronomers would call a disturbing star, which might have produced an agitation in this gentleman’s heart. But no! the charms of Aouda failed to act, to Passepartout’s great surprise; and the disturbances, if they existed, would have been more difficult to calculate than those of Uranus which led to the discovery of Neptune.</p>
+	</div>
+</div>
+
+<div class="module row size2 dark">
+	<h2>2-spaltig dunkel</h2>
+	<div class="module text pad">
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. </p>
+	</div>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+</div>
+
+<div class="module row size3 branded">
+	<div class="module text pad">
+		<h2>3-spaltig «gebrandet»</h2>
+		<p>Ut diam ligula, pulvinar a dignissim non, congue eget sapien. Integer dictum, libero in sodales malesuada, nisi diam tempor purus, non rhoncus elit est eu nisi. Curabitur a nulla urna. </p>
+	</div>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+	<div class="module teaser">
+		<img src="http://www.satzart.ch/files/2013/12/DSC2998-480x360.jpg" />
+	</div>
+</div>
+
+<div class="module row size6">
+	<h2>6-spaltig</h2>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+	<div class="module text pad">
+		<p>Morbi tortor urna, porttitor quis accumsan nec, auctor vitae leo. Sed tellus elit, feugiat sed pretium et, dignissim sit amet est. Aenean vulputate vulputate nunc, non dignissim tellus adipiscing at. Proin dapibus elementum felis, nec porttitor nisl elementum id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque tincidunt faucibus lorem, ac tristique nulla volutpat nec. Integer sed nisi augue. Ut fermentum sapien sit amet arcu ornare sed placerat mauris vulputate. Ut placerat gravida eros, non consequat turpis porta nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec lacinia felis et felis condimentum id vulputate nisi ullamcorper. Mauris id justo nec eros iaculis adipiscing nec vitae elit. </p>
+	</div>
+</div>
+
+<!--div class="module row filtered-grid grid16 portfolio">
+
+	<ul class="inline navbar">
+		<li><a href="#all" data-filter="">All</a></li>
+		<li><a href="#premedia" data-filter="premedia">Premedia</a></li>
+		<li><a href="#frappant" data-filter="frappant">!frappant</a></li>
+	</ul>
+
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Alpha</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="frappant" style="background-image:url('http://www.frappant.ch/files/2011/10/vcs_480x360.jpg')">
+		<div class="inner">
+			<h2>Website Alpha</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Beta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Gamma</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Delta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="frappant" style="background-image:url('http://www.frappant.ch/files/2014/04/biketowork14_480x360.jpg')">
+		<div class="inner">
+			<h2>Website Beta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="frappant" style="background-image:url('http://www.frappant.ch/files/2014/04/biketowork14_480x360.jpg')">
+		<div class="inner">
+			<h2>Website Gamma</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Epsilon</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="frappant" style="background-image:url('http://www.frappant.ch/files/2014/04/biketowork14_480x360.jpg')">
+		<div class="inner">
+			<h2>Website Delta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="frappant" style="background-image:url('http://www.frappant.ch/files/2014/04/biketowork14_480x360.jpg')">
+		<div class="inner">
+			<h2>Website Epsilon</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Zeta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Eta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Theta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="frappant" style="background-image:url('http://www.frappant.ch/files/2014/04/biketowork14_480x360.jpg')">
+		<div class="inner">
+			<h2>Website Zeta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="premedia">
+		<div class="inner">
+			<h2>Broschure Iota</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+	<div class="module element" data-type="frappant" style="background-image:url('http://www.frappant.ch/files/2014/04/biketowork14_480x360.jpg')">
+		<div class="inner">
+			<h2>Website Eta</h2>
+			<p>Lorem Ipsum, dolor sit amet.</p>
+			<a href="#">Mehr dazu</a>
+		</div>
+	</div>
+</div-->
+
+<div class="module map">
+	<div id="map-canvas"></div>
+	<script>
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(46.959279,7.446977),
+          zoom: 18,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        
+        //map.set('styles', stylers: []);
+
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+</div>
+
+
+<script>
+
+	(function($){
+		
+		$.extend($.fn, {
+			filtergrid: function(filtername, callback){
+				$(this).removeClass('frappant premedia').addClass(filtername);
+				if (typeof callback == 'function') {
+					callback.call(this);
+				}
+				return this;
+			},
+	
+			anchorAnimate: function(slide) {
+				return this.each(function(){
+					var caller = this;
+					if($(caller).hasClass('toggler')){
+						$(caller).click(function (event) {
+							event.preventDefault()
+							var locationHref = window.location.href;
+							var elementClick = $(caller).attr("href");
+							if(slide){
+								var destination = $(elementClick).offset().top;
+								$("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination}, 500, function() {
+									//window.location.hash = elementClick
+									$(elementClick).slideDown();
+								});
+							}else{
+								$(elementClick).slideToggle();
+							}
+						  	return false;
+						})
+					}
+				})
+			}
+
+		});
+	})(jQuery);
+
+	filteredgrid = $('.filtered-grid');
+	$('.navbar a', filteredgrid).click(function(e){
+		e.preventDefault();
+		filter = $(this).data('filter');
+		filteredgrid.fadeOut(1, function(){
+			$(this).filtergrid(filter, function(){
+				$(this).fadeIn(500);
+			});
+		});
+	});
+	
+	$('.message a.close').click(function(e){
+		e.preventDefault();
+		$(this).closest('.message').slideUp('fast');
+	});
+	
+	$('a.icon.search').anchorAnimate(false);
+
+</script>
+</body>
+</html>

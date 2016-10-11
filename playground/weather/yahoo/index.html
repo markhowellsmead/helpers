@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Get weather from Yahoo</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <style>
+	    
+	    .is-hidden { display: none; }
+	    
+	    .weather {
+		    max-width: 200px;
+	    }
+	    
+	    dt, dd {float: left; margin: 0; padding: 0;}
+	    dt {clear: left; width: 75%;}
+	    dd {text-align: right; width: 25%}
+	    
+    </style>
+    
+</head>
+<body>
+<div class="weather is-hidden">
+	<header class="place-name"></header>
+	<dl>
+		<dt>Aktuell</dt>
+		<dd class="current">…</dd>
+		<dt>Höchsttemperatur</dt>
+		<dd class="high">…</dd>
+		<dt>Tieftsttemperatur</dt>
+		<dd class="low">…</dd>
+		<dt>Aaretemperatur</dt>
+		<dd class="aare">…</dd>
+	</dl>
+</div>
+
+<script src="yahooweather.js"></script>
+
+<script>
+
+	    /*
+		    781788		bern
+		    782412		faulensee
+		    20103046 	melchsee
+	    */
+
+	(function($){
+	
+		$.fn.getYahooWeather({
+			woeID: '20103046'}
+		,function(data, textStatus, jqXHR){
+
+			console.log(data);
+			
+			try {
+				var specifics = data.query.results.channel.item;
+				
+				$('.place-name').html(specifics.title);
+				
+				$('.weather .current').text(specifics.condition.temp+'°C');
+				$('.weather .high').text(specifics.forecast[0].high+'°C');
+				$('.weather .low').text(specifics.forecast[0].low+'°C');
+				$('.weather').removeClass('is-hidden');
+				
+			}catch(e){
+				$('.weather').html('Weather information currently unavailable');
+			}
+			
+		});
+	
+	})(jQuery);
+	
+	
+	
+</script>
+
+
+</body>
+</html>

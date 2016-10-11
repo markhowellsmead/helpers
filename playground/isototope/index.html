@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title></title>
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery.isotope.min.js"></script>
+	<style>
+		html,body,div {
+			margin:0;
+			padding:0;
+			text-align: center;
+		}
+		ul {
+			text-align: left;
+		}
+		#container {
+			background:#eee;
+			padding:1em 0;
+		}
+		.element {padding:2em;border:1px solid #fff;background:silver;margin:0 auto}
+		
+	</style>
+
+</head>
+<body>
+<div id="container">
+  <div class="element transition metal">transition metal</div>
+  <div class="element post-transition metal">post-transition metal</div>
+  <div class="element alkali metal">alkali metal</div>
+  <div class="element transition metal">transition metal</div>
+  <div class="element lanthanoid metal inner-transition">lanthanoid metal inner-transition</div> 
+  <div class="element halogen nonmetal">halogen nonmetal</div> 
+  <div class="element alkaline-earth metal">alkaline-earth metal</div>
+</div>
+<ul id="filters">
+  <li><a href="#" data-filter="*">show all</a></li>
+  <li><a href="#" data-filter=".metal">metal</a></li>
+  <li><a href="#" data-filter=".transition">transition</a></li>
+  <li><a href="#" data-filter=".alkali, .alkaline-earth">alkali and alkaline-earth</a></li>
+  <li><a href="#" data-filter=":not(.transition)">not transition</a></li>
+  <li><a href="#" data-filter=".metal:not(.transition)">metal but not transition</a></li>
+</ul>
+<p><a href="http://isotope.metafizzy.co/">Source</a></p>
+<script>
+
+var $container = $('#container');
+// initialize isotope
+$container.isotope({
+	masonry: {
+		columnWidth: $(document).width()/7
+	}
+});
+
+$('#filters a').click(function(e){
+	e.preventDefault();
+	var selector = $(this).attr('data-filter');
+	$container.isotope({ filter: selector });
+});
+
+</script>
+</body>
+</html>

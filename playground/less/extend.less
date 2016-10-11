@@ -1,0 +1,13 @@
+.inline {
+  color: red;
+}
+
+nav ul {
+  &:extend(.inline);
+  background: blue;
+}
+
+
+aside ul {
+  &:extend(nav ul);
+}

@@ -1,0 +1,29 @@
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+@import "/Library/WebServer/webroot/frappant_helpers/less/frappant.less";
+
+@path-css: "/templates/effects";
+
+div {
+	width:600px;
+	padding:1em;
+	margin:2em auto;
+	.bordered;
+}
+
+.shadow {
+	background: #f5f5f5;
+	.drop-shadow(0, 10px, 10px, .5);
+}
+
+.shadow-hex {
+	background: #f5f5f5;
+	.drop-shadow-hex(0, 0, 10px, #f00);
+}
+
+.gradient {
+	.gradient(#ff0,#f00,#ff0);
+}
+
+.radial {
+	.gradient-radial(#f00,#ff0);
+}

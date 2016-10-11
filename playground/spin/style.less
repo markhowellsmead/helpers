@@ -1,0 +1,40 @@
+//@import '/Library/WebServer/webroot/frappant_helpers/less/basics';
+
+.spin(@seconds:5s){
+	@-moz-keyframes spinAround {
+		._spinAround;
+	}
+	@-webkit-keyframes spinAround {
+		._spinAround;
+	}
+	@keyframes spinAround {
+		._spinAround;
+	}
+    -webkit-animation: spinAround @seconds cubic-bezier(0, .5, .25, .75) infinite;
+    animation: spinAround @seconds cubic-bezier(0, .5, .25, .75) infinite;
+    
+}
+
+._spinAround() {
+	from {
+		-webkit-transform:rotate(0deg);
+		transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(360deg);
+		transform:rotate(360deg);
+	}
+}
+
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+h1 {
+
+	position: relative; top: 45%;
+
+	text-align: center;
+	.spin(1s);
+}

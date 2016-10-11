@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Using CSS :after on an image</title>
+    
+    <style type="text/css" media="screen">
+    	picture {
+	    	position: relative;
+	    	display: inline-block;
+	    	vertical-align: middle;
+	    }
+    	picture:after {
+	    	display: block;
+	    	content: ' ';
+	    	position: absolute;
+	    	background: rgba(255,0,0,.5);
+	    	top: 0; left: 0;
+	    	bottom: 0; right: 0;
+	    	width: 100%;
+	    	height: 100%;
+    	}
+    </style>
+    
+    
+</head>
+<body>
+	<p>Using CSS <code>:after</code> on a picture element</p>
+	<picture>
+		<source src="test.jpg" />
+		<img src="test.jpg" alt="This picture loads on non-supporting browsers.">
+	</picture>
+</body>
+</html>

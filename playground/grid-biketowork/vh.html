@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title></title>
+    <style>
+	    
+	    html,body {font-family:sans-serif;margin:0;padding:0;overflow:hidden;line-height:1.5}
+
+	    figure {display:block}
+	    
+	    .vh-grid figure {
+	    	margin:0;padding:0;
+	    	text-align: center;
+	    	font-size: 1.5em;
+		    float:left;
+		    vertical-align: baseline;
+		    width:25vw;
+		    height:33.33333333vh;
+		    background: #666 none center;
+		    font-weight: bold;
+		    background-size: cover;
+		    background-image: url('DSC_4652_e.jpg');
+	    }
+	    
+	    a {
+		    color: #fff;
+		    text-decoration: none;
+	    }
+	    
+	    .vh-grid figure > a, .vh-grid figure > span {
+		    display: block;
+		    width:100%;
+		    height:100%;
+			background: rgba(0,0,0,.65);
+	    	line-height:33.33333333vh;
+	    	color: rgba(255,255,255,.65);
+	    }
+	    
+	    .vh-grid figure > a:hover {
+			background: rgba(0,0,0,.05);
+	    	color: #f0f0f0;
+			text-shadow: 0 0 .75em #000, 0 0 6px #000;
+	    }
+	    
+	    .vh-grid figure.fig1 {
+		    background-image: none;
+		    background-size: auto;
+	    }
+
+		.vh-grid figure.list {
+			background-image: none;
+		}
+	    
+    </style>
+
+</head>
+<body>
+<div class="vh-grid">
+	<figure class="fig1"><span>One</span></figure>
+	<figure class="fig2"><a href="#2">Two</a></figure>
+	<figure class="fig3"><a href="#3">Buckle my shoe</a></figure>
+	<figure class="fig4"><a href="#4">Three</a></figure>
+	<figure class="fig5"><a href="#5">Four</a></figure>
+	<figure class="fig6"><a href="#6">Here's some more</a></figure>
+	<figure class="fig7"><a href="#7">Five</a></figure>
+	<figure class="fig8"><a href="#8">Six</a></figure>
+	<figure class="fig9"><a href="#9">Pick up sticks</a></figure>
+	<figure class="fig10"><a href="#10">Seven</a></figure>
+	<figure class="fig11"><a href="#11">Eight</a></figure>
+	<figure class="blog list">
+		<ul>
+			<li><a href="#b1">List item 1</a></li>
+			<li><a href="#b2">List item 2</a></li>
+			<li><a href="#b3">List item 3</a></li>
+			<li><a href="#b4">List item 4</a></li>
+			<li><a href="#b5">List item 5</a></li>
+			<li><a href="#b6">List item 6</a></li>
+			<li><a href="#b7">List item 7</a></li>
+			<li><a href="#b8">List item 8</a></li>
+		</ul>
+	</figure>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grade.js</title>
+	<style>
+		.gradient-wrap {
+			padding: 5rem;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+<!--the gradients will be applied to these outer divs, as background-images-->
+<div class="gradient-wrap">
+    <img src="1.jpg" alt="" />
+</div>
+<div class="gradient-wrap">
+    <img src="2.jpg" alt="" />
+</div>
+<div class="gradient-wrap">
+    <img src="3.jpg" alt="" />
+</div>
+<script src="grade.js"></script>
+<script>
+    window.addEventListener('load', function(){
+		Grade(document.querySelectorAll('.gradient-wrap'))
+    })
+</script>
+</body>
+</html>

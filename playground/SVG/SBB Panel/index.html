@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SBB Panel</title>
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <style>
+
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        background: url('bg.jpg') top left no-repeat;
+    }
+
+    .sbb-panel {
+        width: 100%;
+        max-width: 50%;
+        min-width: 188px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .svg-wrap {
+        width: 100%;
+        height: 0;
+        padding-bottom: 18.045112781955%;
+        position: relative;
+    }
+
+    .svg {
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    .colour-polygon {
+        mix-blend-mode: multiply;
+        fill: rgb(235,0,0);
+        background-color: rgb(235,0,0);
+        background-blend-mode: multiply;
+    }
+
+    .panel-content {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 66.428571428571%;
+    }
+
+    .panel-content .polygon {
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        display: block;
+        content: '';
+    }
+
+    .whitemask-polygon {
+        opacity:0.7;
+        fill:#fff;
+        background-color: #fff;
+    }
+
+    .text {
+        box-sizing: border-box;
+        color: #FFFFFF;
+        padding: 0 4%;
+        line-height: 1.25;
+        width: 100%;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+
+    .ce-title {
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+    .ce-subtitle {
+        font-weight: 300;
+        font-size: 1rem;
+        display: none;
+    }
+
+    @media screen and (min-width: 375px){
+        .ce-title {
+            font-size: 1.15rem;
+        }
+    }
+
+    @media screen and (min-width: 667px){
+        .ce-title {
+            font-size: 1.66666667rem;
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        .ce-title {
+            font-size: 2rem;
+        }
+        .ce-subtitle {
+            font-size: 1.33333333rem;
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        .ce-title {
+            font-size: 2.5rem;
+        }
+        .ce-subtitle {
+            font-size: 1.33333333rem;
+        }
+    }
+
+    @media screen and (min-width: 1200px){
+        .ce-title {
+            font-size: 3rem;
+        }
+        .ce-subtitle {
+            font-size: 2rem;
+        }
+    }
+
+    @media screen and (min-width: 1400px){
+        .ce-title {
+            font-size: 3.5rem;
+        }
+        .ce-subtitle {
+            font-size: 2rem;
+        }
+    }
+
+    .mix-blend-mode-no .colour-polygon {
+        fill: rgba(250,0,0,.65);
+        mix-blend-mode: normal;
+    }
+    .mix-blend-mode-no .whitemask-polygon {
+        fill: rgba(50,50,50,.5);
+    }
+
+    .background-blend-mode-no .colour-polygon {
+        background-color: rgba(250,0,0,.65);
+        background-blend-mode: normal;
+    }
+    .background-blend-mode-no .whitemask-polygon {
+        background-color: rgba(50,50,50,.5);
+    }
+    .mix-blend-mode-no .panel-content, .background-blend-mode-no .panel-content {
+        margin-top: 0;
+    }
+
+    .text.medium, .text.large {
+        display: none;
+    }
+
+    @media (min-width: 768px){
+        .text.small {
+            display: none;
+        }
+        .text.medium {
+            display: block;
+        }
+    }
+
+    @media (min-width: 1024px){
+        .text.medium {
+            display: none;
+        }
+        .text.large {
+            display: block;
+        }
+    }
+
+    @media (min-width: 1400px){
+        .sbb-panel {
+            max-width: 700px;
+        }
+    }
+
+    .inner-wrap {
+        position: relative;
+    }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="sbb-panel">
+
+        <div class="inner-wrap">
+            <div class="svg-wrap">
+                <svg class="svg" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 48" preserveAspectRatio="xMidYMin slice">
+                    <polygon points="0,0 0,48 266,48 0,0" class="whitemask-polygon"/>
+                    <polygon points="0,0 0,48 266,48 0,0" class="colour-polygon"/>
+                </svg>
+            </div>
+
+            <div class="panel-content">
+                <div class="polygon whitemask-polygon">&nbsp;</div>
+                <div class="polygon colour-polygon text">&nbsp;</div>
+                <div class="polygon text small">
+                    <h1 class="ce-title">RCS – Verkehrs&shy;­management für Europas dichtestes Bahnnetz.</h1>
+                    <p class="ce-subtitle">Steuern und Leiten mit Schweizer Präzision.</p>
+                </div>
+                <div class="polygon text medium">
+                    <h1 class="ce-title">RCS – Verkehrs­management für Europas dichtestes Bahnnetz.</h1>
+                    <p class="ce-subtitle">Steuern und Leiten mit Schweizer Präzision.</p>
+                </div>
+                <div class="polygon text large">
+                    <h1 class="ce-title">Rail Control System – Verkehrs&shy;­management für Europas dichtestes Bahnnetz.</h1>
+                    <p class="ce-subtitle">Steuern und Leiten mit Schweizer Präzision.</p>
+                </div>
+            </div>
+
+            <div class="svg-wrap">
+                <svg class="svg" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 49" preserveAspectRatio="xMidYMin slice">
+                    <polygon points="0,0 265,0 0,49" class="whitemask-polygon"/>
+                    <polygon points="0,0 265,0 0,49" class="colour-polygon"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+<script>
+if(typeof window.getComputedStyle(document.body).backgroundBlendMode == 'undefined') {
+     document.documentElement.className += " background-blend-mode-no";
+}
+if(typeof window.getComputedStyle(document.body).mixBlendMode == 'undefined') {
+     document.documentElement.className += " mix-blend-mode-no";
+}
+</script>
+
+</body>
+</html>

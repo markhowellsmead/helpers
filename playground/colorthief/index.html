@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Foundation</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="color-thief.min.js"></script>
+		<style>
+    		
+    		.multimedia {
+        		background: #222;
+        		padding: 1rem;
+        		text-align: center;
+        		position: relative;
+    		}
+    		
+    		.multimedia:after {}
+    		
+    		.imageholder {
+        		background: #222 center no-repeat;
+    		}
+    		
+		</style>
+	</head>
+	<body>
+	
+		<div class="multimedia">
+    		<img class="imageholder" src="webcam.jpg" />
+		</div>
+
+		<div class="multimedia">
+    		<img class="imageholder" src="testimage.png" />
+		</div>
+
+		<div class="multimedia">
+    		<img class="imageholder" src="testimage.jpg" />
+		</div>
+
+		<div class="multimedia">
+    		<img class="imageholder" src="testimage2.jpg" />
+		</div>
+
+		<div class="multimedia">
+    		<img class="imageholder" src="testimage3.jpg" />
+		</div>
+
+		<script>
+    		
+    		$(window).on('load', function(){
+    			// Mark Howells-Mead 30/11/15
+    			$('.multimedia').each(function(){
+                    var colorThief = new ColorThief();
+                    var rgbColour = colorThief.getColor($('.imageholder', this)[0]);
+        			$(this).css({
+            			'backgroundColor': 'rgb('+rgbColour[0]+','+rgbColour[1]+','+rgbColour[2]+')'
+                    });
+                });
+    		});
+    		
+    		
+    		
+    		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,9 @@
+
+@import '/Library/WebServer/webroot/frappant_helpers/scss/flexbox/grid-auto';
+
+.flexbox-grid {
+    @include flexbox-grid-auto();
+    .cell {
+        background: silver;
+    }
+}

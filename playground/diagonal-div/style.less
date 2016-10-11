@@ -1,0 +1,86 @@
+@import '/Library/WebServer/webroot/frappant_helpers/less/basics';
+
+//////////////////////////////////////////////////
+
+@colour-background-light: 	#fff;
+@colour-background-dark: 	#666;
+@colour-background-red: 	rgb(177,22,65);
+
+//////////////////////////////////////////////////
+// mixin
+
+.diagonalAfter(@rotation: 0deg){
+	position: relative;
+	background-color: inherit;
+	&:after {
+		display: block;
+		content: ' ';
+		width: 300%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 100%;
+		background-color: inherit;
+		.rotate(@rotation); // frappant_helpers » less » transformation.less
+		.transform-origin(top left);
+	}
+}
+
+//////////////////////////////////////////////////
+// basics
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 100%;
+	//overflow-x: hidden;
+}
+
+//////////////////////////////////////////////////
+// styling
+
+.row {
+	.clearfix;
+	.border-box;
+	margin: 0;
+	padding: 0;
+	background-color: @colour-background-light;
+	.inner {
+		max-width: 768px;
+		margin: 0 auto;
+		padding: 1em 0;
+		.border-box;
+	}
+	&.dark {
+		background-color: @colour-background-dark;
+	}
+	&.red {
+		background-color: @colour-background-red;
+	}
+	&.bg {
+		background: @colour-background-light url('bg.jpg') center no-repeat;
+		background-size: cover;
+		min-height: 20vh;
+	}
+}
+
+@media screen and (min-width: 768px){
+	.row {
+		&.light.withdiagonal {
+			background-color: @colour-background-light;
+		}
+
+		&.dark.withdiagonal {
+			background-color: @colour-background-dark;
+		}
+
+		&.withdiagonal {
+			.inner {
+				.diagonalAfter(@rotation: -4deg);
+			}
+		}
+	}
+}

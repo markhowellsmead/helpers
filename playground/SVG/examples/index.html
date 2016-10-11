@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title>SVG-Grafiken</title>
+    <style>
+		hr	{border:0;border-top:1px solid #ccc;margin:1em 0;height:1px;color:transparent;background-color:transparent}
+	    .mitpng {
+	    	width:30px;height:26px;
+		    background:transparent url('icon.png') center no-repeat;
+		    background-size:30px 26px;
+	    }
+	    .mitpng.mitpng200 {
+		    background-image:url('icon_2x.png');
+	    }
+	    .mitpng.mitpng300 {
+	    	width:300px;height:260px;
+		    background-image:url('icon_2x.png');
+		    background-size:300px 260px;
+	    }
+	    .mitsvg {
+	    	width:30px;height:26px;
+		    background:transparent url('icon.svg') center no-repeat;
+		    background-size:30px 26px;
+	    }
+	    .mitsvg.mitsvg300 {
+	    	width:300px;height:260px;
+		    background-size:300px 260px;
+	    }
+	    .mitsvg.mitsvg3000 {
+	    	width:3000px;height:2600px;
+		    background-size:3000px 2600px;
+	    }
+	    .tigerpng {
+	    	width:600px;height:600px;
+		    background:transparent url('awesome_tiger.png') center no-repeat;
+		    background-size:600px 600px;
+	    }
+	    .tigersvg {
+	    	width:2400px;height:2400px;
+		    background:transparent url('awesome_tiger.svg') center no-repeat;
+		    background-size:2400px;
+	    }
+	    .tigersvgz {
+	    	width:100%;height:200px;
+		    background:transparent url('awesome_tiger.svgz') center no-repeat;
+		    background-size:cover;
+	    }
+    </style>
+
+</head>
+<body>
+
+<h1>PNG</h1>
+<p>Bildgrösse 1:1. Dateigrösse 111 bytes</p>
+<div class="mitpng mitpng100"></div>
+<hr>
+<h1>PNG als Retina-Icon</h1>
+<p>Bildgrösse 200%, auf 50% durch Browser eingeschränkt. Dateigrösse 142 bytes</p>
+<div class="mitpng mitpng200"></div>
+<hr>
+<h1>PNG bei 300px</h1>
+<p>Bildgrösse 200%, auf 500% durch Browser vergrössert. Dateigrösse 142 bytes</p>
+<div class="mitpng mitpng300"></div>
+<hr>
+<h1>SVG</h1>
+<p>Dateigrösse 1.1 Kb (durch GZIP komprimiert)</p>
+<div class="mitsvg"></div>
+<hr>
+<h1>Tier als PNG bei 600px</h1>
+<p>Dateigrösse 78 Kb… und noch nicht Retinaauflösung…</p>
+<div class="tigerpng"></div>
+
+<h1>Tier als SVG bei 1200px</h1>
+<p>Dateigrösse 86 Kb: Auflösung unlimitiert!</p>
+<div class="tigersvg"></div>
+
+<h1>Tier als SVGZ bei 1200px</h1>
+<p>Dateigrösse 21 Kb: komprimiert und Auflösung unlimitiert!</p>
+<div class="tigersvgz"></div>
+
+</body>
+</html>

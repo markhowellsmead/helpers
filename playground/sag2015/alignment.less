@@ -1,0 +1,27 @@
+.module {
+	
+	.inner {
+		&.vt {
+			// top
+		}
+	}
+
+	.inner {
+		&.vm {
+			// middle
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	.inner {
+		&.vb {
+			// bottom
+			position: absolute;
+			top: 100%;
+			transform: translateY(-100%);
+		}
+	}
+
+}

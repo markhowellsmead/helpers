@@ -1,0 +1,52 @@
+html, body, .container {
+	position: relative;
+	height: 100vh;
+	background: #404040;
+	font-family: helvetica;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.cards {
+	width: 100%;
+}
+
+[class*='card'] {
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+	width: 400px;
+	perspective: 500px;
+	.inner {
+		padding: 1em;
+		width: 100%;
+		height: 100%;
+		color: rgba(255,255,255,.5);
+		background: rgba(255,255,255,.1);
+		text-align: center;
+		font-size: 2em;
+		transform: rotateX(55deg);
+		transition: all 300ms;
+	}
+	
+	&:hover {
+		.inner {
+		transition: all 500ms;
+			color: #fff;
+			transform: rotateX(0) rotateY(0);
+		}
+	}
+	
+}
+
+.card-1 {
+	left: 25%;
+	transform: translate(-25%,-50%);
+	perspective-origin: 200% 0;
+}
+
+.card-2 {
+	left: 65%;
+	transform: translate(-75%,-50%);
+	perspective-origin: -200% 0;
+}

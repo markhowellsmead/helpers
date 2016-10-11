@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blurred overlay using CSS3</title>
+    <style>
+	    
+	    body {
+		    font-family: sans-serif;
+	    }
+	    
+/*
+	    .image {
+		    
+		    width: 1000px;
+		    height: 500px;
+		    
+		    background: no-repeat left center;
+		    background-size: cover;
+		    
+		    position: relative;
+		    
+	    }
+	    
+	    .image:before,.image:after {
+		    display: block;
+		    content: ' ';
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 50%;
+		    height: 100%;
+		    overflow: hidden;
+	    }
+
+	    .image:after {
+		    z-index: 0;
+		    background: no-repeat left center;
+		    background-image: inherit;
+		    background-size: cover;
+	    }
+	    .image:before {
+		    z-index: 1;
+		    border-right: 1px solid rgba(255,255,255,.25);
+	    }
+
+	    .image figcaption {
+		    display: block;
+		    text-align: center;
+		    position: absolute;
+		    top: 50%;
+		    left: 25%;
+		    width: 50%;
+		    -webkit-transform: translate(-50%,-50%);
+		    transform: translate(-50%,-50%);
+		    overflow: hidden;
+		    z-index: 1;
+		    font-size: 3em;
+		    color: #fff;
+	    }
+	    
+	    .image.city:after {
+ 			-webkit-filter: url('./filters.svg#blurDos')  url('./filters.svg#sepiatone');
+ 			filter: url('./filters.svg#blurDos')  url('./filters.svg#sepiatone');
+	    }
+
+	    .image.nature:after {
+ 			-webkit-filter: url('./filters.svg#blurDos');
+ 			filter: url('./filters.svg#blurDos');
+	    }
+	   
+*/
+
+        .mod.multimedia.image {
+            position: relative;
+            background: 1000rem 1000rem no-repeat;
+            text-align: center;
+            padding: 1rem 0;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+	    
+	    .mod.multimedia.image:after {
+    	    display: block;
+    	    content: '';
+    	    position: absolute; z-index: 0;
+    	    top: -10%; left: -10%;
+    	    width: 120%;
+    	    height: 120%;
+    	    opacity: .2;
+    	    background: inherit;
+    	    background-position: center;
+    	    background-size: cover;
+ 			-webkit-filter: url('./filters.svg#blurDos');
+ 			filter: url('./filters.svg#blurDos');
+	    }
+
+        .mod.multimedia.image .image {
+    	    position: relative;
+    	    z-index: 1;
+    	    max-width: 720px;
+	    }
+
+
+    </style>
+</head>
+<body>
+	<h1>Overlay blur and brightness using SVG Filters</h1>
+	<p>Warning: <a href="http://caniuse.com/#feat=svg-filters">browser support</a> not 100%</p>
+	
+	<div class="mod multimedia image" style="background-image: url('biscuits.jpg')">
+    	<img class="image" src="biscuits.jpg" alt="Florence" />
+	</div>
+
+	<div class="mod multimedia image" style="background-image: url('florence.jpg')">
+    	<img class="image" src="florence.jpg" alt="Florence" />
+	</div>
+	
+	
+<!--
+	<figure class="image city" style="background-image:url('florence.jpg')">
+		<figcaption>Florence</figcaption>
+	</figure>
+	<figure class="image nature" style="background-image:url('flowers.jpg')">
+		<figcaption>Flowers</figcaption>
+	</figure>
+-->
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Styled checkboxes</title>
+
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery.flat_checkboxes.js"></script>
+
+    <style type="text/css" media="screen">
+
+		label.checkbox-flat input[type="checkbox"] {
+			visibility: hidden;
+			font-size: 0;
+		}
+    	label.checkbox-flat span {
+	    	cursor: pointer;
+	    	content: '';
+	    	display: block;
+	    	width:1.5em;
+	    	height:1.5em;
+	    	border-radius: 50%;
+	    	border: 1px solid transparent;
+			-webkit-transition: all .25s ease-in-out;
+			-moz-transition: all .25s ease-in-out;
+			transition: all .25s ease-in-out;
+    	}
+		label.checkbox-flat.red span {
+			background-color: rgb(255,150,150);
+		}
+		label.checkbox-flat.act span {
+			width:2.5em;
+			height:2.5em;
+		}
+		label.checkbox-flat.act span {
+			background-color: rgb(255,0,0);
+		}
+
+
+    </style>
+</head>
+<body>
+
+<div class="wp-contactform7">
+	<input type="checkbox" name="red" value="red" />
+	<input type="checkbox" name="blue" value="blue" />
+</div>
+
+<script>
+	
+	$('.wp-contactform7 input[name="red"]').flat_checkboxes();
+	
+</script>
+
+</body>
+</html>

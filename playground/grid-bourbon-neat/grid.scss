@@ -1,0 +1,56 @@
+@function rem ($font-size, $base-font-size: $base-font-size){
+	@return 1rem * ($font-size / $base-font-size);
+}
+
+// define your variables BEFORE importing Neat
+$base-font-size: 18px;
+$max-width: rem(1000px);
+$column: 6.5%;
+$gutter: 2%;
+
+// for debugging
+/*
+$visual-grid: true;
+$visual-grid-color: rgba(255,255,0,.3);
+$visual-grid-index: front;
+*/
+
+//////////////////////////////////////////////////
+
+@import "bourbon", "neat";
+
+//////////////////////////////////////////////////
+
+html {
+	font: normal $base-font-size sans-serif;
+}
+
+
+.grid {
+// 	background: #f0f0f0;
+}
+
+.row {
+  @include outer-container();
+}
+
+.grid {
+	.elm {
+		@include span-columns(6);
+		.body {
+			@include span-columns(3 of 6); // to ensure that the gutter in nested elements is the same as the top-level gutter
+		}
+		.small {
+			@include span-columns(2 of 6); // to ensure that the gutter in nested elements is the same as the top-level gutter
+		}
+	}
+	.elm-large {
+		@include span-columns(9);
+		.body {
+			@include span-columns(6 of 9); // to ensure that the gutter in nested elements is the same as the top-level gutter
+		}
+		.small {
+			@include span-columns(3 of 9); // to ensure that the gutter in nested elements is the same as the top-level gutter
+		}
+	}
+}

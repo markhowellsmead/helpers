@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flexbox vertical align (test case)</title>
+	<style>
+	.wrapper {
+		height: 50vh;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: yellow;
+	}
+	.inner {
+		background: silver;
+		outline: 1px solid red;
+	}
+	.inner:last-child {
+		margin-left: auto;
+	}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="inner">Inner DIV 1</div>
+	<div class="inner">Inner DIV 2</div>
+</div>
+</body>
+</html>

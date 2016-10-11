@@ -1,0 +1,142 @@
+@import "/Library/Webserver/webroot/frappant_helpers/less/basics.less";
+@import "/Library/Webserver/webroot/frappant_helpers/less/columns.less";
+
+@import "alignment.less";
+@import "colours.less";
+@import "graphics.less";
+@import "modules.less";
+@import "javascript.less";
+@import "typography.less";
+
+
+@path-css: '';
+@path-img: 'img';
+
+@colour-SAG: rgb(177,22,65);
+@colour-button-background: @colour-SAG;
+@colour-button-text: rgb(255,255,255);
+
+@box-radius: 3px;
+
+/////////////////////////////////////////////
+	
+.button(@color:#fff, @text: #000){
+	display: inline-block;
+	padding: 3px 8px;
+	color: @text;
+	text-decoration: none;
+	background: @color;
+	.rounded(@box-radius);
+	&:hover {
+		background: lighten(@color,5%);
+	}
+}
+
+.overlay-pseudo {
+	position: absolute;
+	content: '';
+	display: block;
+	left: 0; top: 0; bottom: 0; right: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+.overlay-panel(@background-color: rgba(255,255,255,0)){
+	&:before {
+		.overlay-pseudo;
+		background-color: @background-color;
+	}
+}
+
+.overlay-mask(@background-color: rgba(255,255,255,0)){
+	.overlay-panel(@background-color);
+	&:after {
+		.overlay-pseudo;
+		background-image: url('@{path-img}/mask.svg');
+		background-size: 6px 6px;
+		opacity: .1;
+	}
+}
+
+/////////////////////////////////////////////
+	
+html,body {
+	margin:0;
+	color: rgba(0,0,0,.8);
+}
+
+ul,nav {
+	&.inline {
+		.inline-menu;
+	}
+}
+
+.navbar {
+	text-align: center;
+	line-height: 2em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+
+
+/////////////////////////////////////////////
+
+.filtered-grid {
+
+	position: relative;
+
+	&.portfolio {
+		.element {
+			//.overlay-panel;
+			background-color: #eee;
+			background-cover: cover;
+			.inner {
+				background: rgba(255,255,255,.9);
+			}
+		}
+	}
+
+	.element {
+		h2 {
+			font-size: 1em;
+		}
+		a {
+			.button(#fff, @colour-SAG);
+			.drop-shadow(0,0,12px);
+		}
+	}
+
+	padding-top: 4vh;
+
+	.navbar {
+		padding: .5vh 0;
+		a {
+			.button(@colour-button-background, @colour-button-text);
+		}
+	}
+
+	&.frappant {
+		.element[data-type="premedia"] {
+			width: 0;
+			height: 0;
+			opacity: 0;
+		}
+	}
+
+	&.premedia {
+		.element[data-type="frappant"] {
+			width: 0;
+			height: 0;
+			opacity: 0;
+		}
+	}
+
+}
+
+
+
+

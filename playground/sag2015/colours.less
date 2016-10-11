@@ -1,0 +1,13 @@
+@colour-negative-text: rgb(255,255,255);
+
+h1,h2,h3,h4,h5,h6,header {
+	color: rgba(0,0,0,.75);
+}
+
+.module {
+	&.branded, &.dark {
+		h1,h2,h3,h4,h5,h6,div,p,li,th,td,dt,dd,legend,select,input,textarea {
+			color: @colour-negative-text;
+		}
+	}
+}

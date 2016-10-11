@@ -1,0 +1,8 @@
+{
+  "name": "mhm-expanding-grid",
+  "version": "1.0.0",
+  "description": "SASS/CSS/JS for a grid containing expandable sub content",
+  "main": "gulpfile.js",
+  "author": "mark@permanenttourist.ch",
+  "license": "ISC"
+}

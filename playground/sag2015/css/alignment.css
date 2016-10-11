@@ -1,0 +1,8 @@
+.module .vm {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.module .vb {
+  top: 100%;
+  transform: translateY(-100%);
+}

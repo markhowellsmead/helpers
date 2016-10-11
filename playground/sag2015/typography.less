@@ -1,0 +1,80 @@
+@import 'http://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin';
+@import 'http://fonts.googleapis.com/css?family=Playfair+Display:400&subset=latin';
+
+body {
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: .9375em;
+	font-weight: 400;
+}
+
+h1,h2,h3,h4,h5,h6,header {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-weight: 400;
+	width: 100%;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+h5 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+h6 {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.module {
+	
+	h2 {
+		
+	}
+	
+	&.banner {
+		h2 {
+			font-size: 2em;
+			font-weight: 300;
+		}
+		h3 {
+			font-size: 3em;
+			font-weight: 300;
+		}
+	}
+	
+	&.teaser {
+		h2 {
+			font-size: 2em;
+			//font-weight: 300;
+		}
+	}
+	
+	
+}
+
+.icon.search {
+	text-decoration: none;
+	color: #fff;
+	background: @colour-SAG;
+	display: block;
+	padding: .5em 1em;
+	position: absolute;
+	top:50%;right:.5em;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}

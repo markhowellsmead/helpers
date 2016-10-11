@@ -1,0 +1,255 @@
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+@import "/Library/WebServer/webroot/frappant_helpers/less/frappant.less";
+
+
+////////////////////
+
+@grey: lighten(#000,28%);
+@lightgrey: lighten(#000,60%);
+@superlightgrey: lighten(#000,76%);
+@ultralightgrey: lighten(#000,95%);
+@green: #d0e26d;
+@lightgreen: #e9f1ba;
+@blue: #2a478b;
+
+////////////////////
+
+body {
+	font-family: "Helvetica Neue",HelveticaNeue,Helvetica,Arial,sans-serif;
+	font-size: .8125em;
+	line-height: 140%;
+	color: @grey;
+	text-align: center;
+	margin: 0;padding: 0;
+}
+
+// typo
+	div,article,section,td,th,dd,dt,dl,p,ul,li {
+		font-size: 1em;
+	}
+	
+	h1,h2,h3,h4,h5,h6,header {
+		line-height: 1em;
+		padding: 0;
+		margin:1em 0;
+	}
+	
+	h1 {font-size: 2em;margin:0 0 1em}
+	h2 {font-size: 1.75em}
+	h3 {font-size: 1.5em}
+	h4 {font-size: 1.16667em}
+	h5 {font-size: 1em}
+	h6 {font-size: 1em; margin:0; font-weight: normal}
+	
+	a {
+		color: @blue;
+		text-decoration: none;
+	}
+	
+	ul,ol {
+		padding-left: 2em;
+	}
+
+// layout
+	#wrapper {
+		text-align:left;
+		width:93.75%;
+		max-width:1024px;
+		margin:0 auto;
+		.clearfix;
+	}
+	
+	header {
+		.mobilemenu {
+			.visible-phone;
+			float:left;
+			padding:.25em 1em;
+			background-color: @lightgrey;
+			color: #fff;
+			text-decoration: none;
+			&:hover {
+				background-color: @grey;
+			}
+		}
+		nav {
+			.clearfix;
+			font-size: .916667em;
+			margin-bottom: 1em;
+			padding: .25em .5em;
+			background-color: @ultralightgrey;
+			li {
+				padding: .25em 0;
+				font-weight: bold;
+			}
+			a {
+				text-decoration: underline;
+				font-weight: normal;
+			}
+			ul {
+				float: right;
+				.nolist;
+				.nomargin;
+				.nopad;
+				li {
+					display: inline-block;
+					&:before {
+						content: ' |  ';
+					}
+					&:first-child:before {
+						content: '';
+					}
+				}
+			}
+		}
+	}
+	
+	article {
+		a {
+			text-decoration: underline;
+		}
+		
+		.csc-default {
+			margin-bottom: 1em;
+			&.mediacontainer {
+				.aspect169;
+			}
+		}
+	}
+	
+	aside {
+		font-size:.875em;
+		border-top: 1px solid @superlightgrey;
+		padding-top:1em;
+		margin-top:1em;
+	}
+	
+	footer {
+		clear: both;
+		margin-top: 3em;
+		padding: 1em 0;
+		border-top: .5em solid @ultralightgrey;
+		font-size: .916667em;
+		a {
+			text-decoration: none;
+		}
+		address, p {.css-hyphens(none);}
+		address {
+			font-style: normal;
+		}
+		p {
+			text-align: right;
+			text-transform: lowercase;
+			color: @superlightgrey;
+			a {
+				color: @superlightgrey;
+			}
+		}
+	}
+	
+	nav.main {
+		.hidden-phone;
+		margin-bottom:2em;
+		ul {
+			.nolist;
+			.nomargin;
+			.nopad;
+			a {
+				display: block;
+				color: #fff;
+				background-color: @grey;
+				border-bottom: 2px solid #fff;
+				padding: .5em 1em;
+				&:hover {
+					color: @grey;
+					background-color: @lightgrey;
+				}
+			}
+			ul {
+				margin-bottom: 1em;
+				li a {
+					margin-left: 1em;
+					background-color: @lightgrey;
+					color: #fff;
+				}
+				li.act a {
+					background-color: @lightgrey;
+				}
+			}
+			li.act > a {
+				font-weight: bold;
+				color: #fff;
+				background-color: @lightgrey;
+			}
+		}
+	}
+
+// responsive
+	
+	@media screen and (min-width:640px){
+		body {
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (min-width:768px){
+	
+		.content, nav.main {
+			float:left;
+		}
+	
+		.content {
+			.clearfix;
+			width: 74.808%;
+			margin-left: 4.840%;
+			
+		}
+		
+		nav.main {
+			width: 20.352%;
+		}
+	
+		footer {
+			address, p {
+				float: left;
+			}
+			address {
+				width: 79.758%;
+			}
+			p {
+				width: 20.242%;
+			}
+		}
+
+	}
+	
+	@media screen and (min-width:980px){
+
+		body {
+			font-size: .75em;
+		}
+		
+		article,aside {
+			float:left;
+		}
+		article {
+			width: 62.0589%;
+		}
+		aside {
+			width: 27.0588%;
+			margin-left: 10.88%;
+			border: none;
+			padding-top: 0;
+			margin-top: 0;
+		}
+	}
+
+
+/*
+185 | 44 | 422 | 74 | 725/ = 909
+
+20.352%
+ 4.840%
+46.425%
+ 8.141%
+20.242%
+*/

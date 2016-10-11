@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script></script>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bricks.js</title>
+    <script src="bricks.min.js"></script>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/mhmli/css-reset/master/css-reset.css" type="text/css" />
+    <style>
+        
+        .grid {
+            width: 960px;
+            margin: 0 auto;
+        }
+        .grid-item {
+            background: rgba(0,0,0,.1);
+            width: 25%;
+            box-sizing: border-box;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    
+<section class="grid" >
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+    
+    
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+    <div class="grid-item">lorem ipsum</div>
+
+</section>
+
+
+<script>
+    (function(){
+        
+        	
+        var sizes = [
+          { columns: 2, gutter: 4 },                   // assumed to be mobile, because of the missing mq property
+          { mq: '768px', columns: 3, gutter: 2 },
+          { mq: '1024px', columns: 4, gutter: 2 }
+        ]
+        
+        // create an instance
+        
+        var instance = Bricks({
+          container: '.grid',
+          packed:    'data-packed',
+          sizes:     sizes
+        })
+        
+        // bind callbacks
+        
+        instance
+          .on('pack',   () => console.log('ALL grid items packed.'))
+          .on('update', () => console.log('NEW grid items packed.'))
+          .on('resize', size => console.log('The grid has be re-packed to accommodate a new BREAKPOINT.'))
+        
+        // start it up, when the DOM is ready
+        // note that if images are in the grid, you may need to wait for document.readyState === 'complete'
+        
+        document.addEventListener('DOMContentLoaded', event => {
+          instance
+            .resize()     // bind resize handler
+            .pack()       // pack initial items
+        })
+    
+    
+    })();
+    
+</script>
+</body>
+</html>

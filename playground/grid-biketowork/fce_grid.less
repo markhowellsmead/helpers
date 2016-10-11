@@ -1,0 +1,88 @@
+@import "/Library/WebServer/webroot/frappant_helpers/less/basics.less";
+
+@colour-sticker: 		#c00;
+@colour-more-background:#c00;
+@colour-more-text:		#fff;
+@fce-background: 		#f9f9f9;
+@fce-background-highlight: #fff;
+@fce-border: 			transparent;
+@fce-border-hover:		#0098d4;
+
+@path-css:'';
+
+html {
+	.gradient(#f5f9fb, #f5f9fb, #d2eaf7);
+	background-attachment: fixed;
+}
+
+.row.teasers {
+	.clearfix;
+	padding:1em 0;
+	position:relative;
+	
+	div.fce {
+		background:@fce-background;
+		.drop-shadow(0,0,2em,.25);
+		outline:1px solid @fce-border;
+		overflow: hidden;
+		position: relative;
+		z-index: 0;
+		
+		&.highlight {
+			z-index:1;
+			background:rgba(255,255,255,1);
+			.drop-shadow(0,0,6em,.5);
+		}
+		
+		&:hover {
+			outline-color:@fce-border-hover;
+			background-color: @fce-background-highlight;
+		}
+
+		img {
+			max-width:100%;
+			height:auto;
+		}
+		
+		> div {
+			padding:8px;
+		}
+		
+		a.fce {
+			display:block;position:absolute;top:0;left:0;right:0;bottom:0;
+			z-index:10;
+		}
+		
+		span.more {
+			display:inline-block;
+			padding:.25em 2em .25em .25em;
+			margin-left:-8px;
+			background:@colour-more-background;
+			//background:fade(@colour-more-background,75%);
+			color:@colour-more-text;text-decoration: none;
+			&:hover {
+				background:@colour-more-background;
+			}
+		}
+		
+		.video {
+			max-width:100%;
+			.aspect169;
+		}
+		
+		span.sticker {
+			position:absolute;
+			top:2em;right:-3em;width:8em;
+			display:inline-block;
+			text-align:center;
+			padding:.25em 2em;
+			.rotate(45deg);
+			background:@colour-sticker;
+			//background:fade(@colour-sticker,75%);
+			color:@colour-more-text;text-decoration: none;
+			&:hover {
+				background:@colour-sticker;
+			}
+		}
+	}
+}

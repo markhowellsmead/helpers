@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title>Basis Template for "KMU" layout</title>
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+
+<div id="wrapper">
+	<header class="brand">
+		<h1><a href="/">###Website name###</a></h1>
+		<h2>Suspendisse rhoncus scelerisque facilisis</h2>
+		<nav>
+			<a class="mobilemenu" href="#mainmenu">Menü</a>
+			<ul class="lang">
+				<li>Deutsch</li>
+				<li><a href="#">Français</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<nav class="main" id="mainmenu">
+		<ul>
+			<li><a href="#">Menüpunkt 1</a></li>
+			<li><a href="#">Menüpunkt 2 mit etwas längem Text</a></li>
+			<li class="act"><a href="#">Menüpunkt 3</a>
+				<ul>
+					<li><a href="#">Untermenüpunkt 1</a></li>
+					<li><a href="#">Untermenüpunkt 2 mit etwas langem Text</a></li>
+					<li class="act"><a href="#">Untermenüpunkt 3</a></li>
+					<li><a href="#">Menüpunkt 4</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Menüpunkt 4</a></li>
+			<li><a href="#">Menüpunkt 5</a></li>
+		</ul>
+	</nav>
+	
+	<section class="content">
+
+    	<article>
+	        <h1>KMU responsive layout starting point</h1>
+	        <p>This is a starting point responsive template package for the most common layout used by small and medium businesses. A more extensive version of this template is in use at <a href="http://www.biketowork.ch">biketowork.ch</a>.</p>
+	        <p>This layout is <strong>not</strong> intended for use as-is. It is a starting point from which a final template can be created.</p>
+	        <h3>Layout variations</h3>
+	        <ul>
+	        	<li>Mobile (&lt;768px): single flexible column</li>
+	        	<li>Tablet (768px-980px): two flexible columns</li>
+	        	<li>Desktop (980px&gt;): three fixed columns</li>
+	        </ul>
+	        <h3>Break points</h3>
+	        <p>The most common breakpoints are in use in this template, but can of course be modified. The standards are 640px, 768px and 980px. A 1024px break point is not in use, as the maximum width of this basis layout is 1024px. Again, this can be extended as required.</p>
+	        <h3>Typography</h3>
+	        <p>Typography is based on a 13px base font size at mobile resolution, a 16px base font size at tablet resolution and a 12px base font size at desktop resolution. These settings are in order to maintain good legibility and, as near as possible, common line-ending breaks in the various resolutions.</p>
+	        <p>Legibility has been tested on all devices using the standard Helvetica Neue font, with a fallback to Helvetica and Arial. Adjustments may be required for other font faces or other font weights.</p>
+	        <h3>Menu</h3>
+	        <p>The menu is hidden by default in mobile view (&lt;768px). It can be toggled into view by means of a button which is visible at &lt;768px.</p>
+	        <div class="csc-default"><img src="img/image.jpg" alt=""></div>
+	        <p>Pellentesque molestie nisi et mi vehicula sit amet laoreet metus elementum. Proin nec mauris sit amet turpis ultrices aliquam. Ut lacinia commodo leo vitae rhoncus. Sed tempus, enim sed sollicitudin molestie, augue augue rutrum tortor, a dictum est risus nec nulla.</p>
+	        <div class="csc-default"><img src="http://www.swisscofel.ch/uploads/pics/organigramm_de_01.gif"></div>
+	        <h5>Unordered list</h5>
+	        <ul>
+    	        <li>List item 1</li>
+    	        <li>List item 2</li>
+    	        <li>List item 3</li>
+    	        <li>List item 4</li>
+    	        <li>List item 5</li>
+    	    </ul>
+	        <h5>Ordered list</h5>
+	        <ol>
+    	        <li>List item 1</li>
+    	        <li>List item 2</li>
+    	        <li>List item 3</li>
+    	        <li>List item 4</li>
+    	        <li>List item 5</li>
+    	    </ol>
+	        <p>Pellentesque molestie nisi et mi vehicula sit amet laoreet metus elementum. Proin nec mauris sit amet turpis ultrices aliquam. Ut lacinia commodo leo vitae rhoncus. Sed tempus, enim sed sollicitudin molestie, augue augue rutrum tortor, a dictum est risus nec nulla.</p>
+	        <h1>Überschrift 1</h1>
+	        <h2>Überschrift 2</h2>
+	        <h3>Überschrift 3</h3>
+	        <h4>Überschrift 4</h4>
+	        <h5>Überschrift 5</h5>
+	        <h6>Überschrift 6</h6>
+	        <p>Praesent imperdiet, dolor et gravida rhoncus, velit turpis bibendum felis, non adipiscing turpis lectus in eros. Praesent in nisl eu dolor viverra adipiscing. Etiam interdum ligula nunc, vitae bibendum lectus. Ut pulvinar quam at nisi pulvinar eget malesuada dui accumsan. Suspendisse vehicula ultricies turpis, sed varius nulla congue eget. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ultrices placerat justo vitae porttitor. Integer varius, lacus eu ullamcorper posuere, orci odio pulvinar sapien, sed laoreet velit justo eget purus. Nunc ullamcorper elit eget odio dignissim suscipit. Suspendisse eu lectus adipiscing eros ultrices commodo. Etiam sed ante eu urna tincidunt volutpat et sed ipsum. Quisque ullamcorper pretium imperdiet. Curabitur ultricies bibendum malesuada. Duis gravida ullamcorper lorem et sagittis.</p>
+	        
+	        <div class="csc-default mediacontainer"><iframe width="480" height="300" src="http://www.youtube.com/embed/TgOi19ynfsU" frameborder="0" allowfullscreen=""></iframe></div>
+	        
+	        <p>Pellentesque molestie nisi et mi <em>vehicula sit amet</em> laoreet metus elementum. Proin nec mauris sit amet turpis ultrices aliquam. Ut lacinia commodo leo vitae rhoncus. Sed tempus, enim sed sollicitudin molestie, augue augue rutrum tortor, a dictum est risus nec nulla. Praesent imperdiet, dolor et gravida rhoncus, velit turpis bibendum felis, non adipiscing turpis lectus in eros. Praesent in nisl eu dolor viverra adipiscing. Etiam interdum ligula nunc, vitae bibendum lectus. Ut pulvinar quam at nisi pulvinar eget malesuada dui accumsan. Suspendisse vehicula ultricies turpis, sed varius nulla congue eget. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ultrices placerat justo vitae porttitor. Integer varius, lacus eu ullamcorper posuere, orci odio pulvinar sapien, sed laoreet velit justo eget purus. Nunc ullamcorper elit eget odio dignissim suscipit. Suspendisse eu lectus adipiscing eros ultrices commodo. Etiam sed ante eu urna tincidunt volutpat et sed ipsum. Quisque ullamcorper pretium imperdiet. Curabitur ultricies bibendum malesuada. Duis gravida ullamcorper lorem et sagittis.</p>
+    	</article>
+    	
+    	<aside>
+	        <p>Sed tempus, enim sed sollicitudin molestie, augue augue rutrum tortor, a dictum est risus nec nulla. Praesent imperdiet, dolor et gravida rhoncus, velit turpis bibendum felis, non adipiscing turpis lectus in eros.</p>
+	        <ul>
+		        <li>Praesent in nisl eu dolor viverra adipiscing.</li>
+		        <li>Etiam interdum ligula nunc, vitae bibendum lectus. Ut pulvinar quam at nisi pulvinar eget malesuada dui accumsan.</li>
+		        <li>Suspendisse vehicula ultricies turpis, sed varius nulla congue eget.</li>
+		        <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc ultrices placerat justo vitae porttitor.</li>
+		        <li>Integer varius, lacus eu ullamcorper posuere, orci odio pulvinar sapien, sed laoreet velit justo eget purus. Nunc ullamcorper elit eget odio dignissim suscipit. Suspendisse eu lectus adipiscing eros ultrices commodo.</li>
+		        <li>Etiam sed ante eu urna tincidunt volutpat et sed ipsum. Quisque ullamcorper pretium imperdiet. Curabitur ultricies bibendum malesuada. Duis gravida ullamcorper lorem et sagittis.</li>
+	        </ul>
+    	</aside>
+    	
+	</section>
+
+	<footer>
+		<address>###Company name###, Birkenweg 61, 3013 Bern  |  Tel 012 345 67 88  |  Fax 012 345 67 89  |  <a href="#">email@domain.suffix</a></address>
+		<p>Code & Design: <a href="http://www.frappant.ch/">frappant.ch</a></p>
+	</footer>
+
+</div>
+<script src="js/ui.js"></script>
+<script src="js/frp_mobilemenu.js"></script>
+</body>
+</html>
