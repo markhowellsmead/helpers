@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom jQuery events and custom classes</title>
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <script src="class.frp_opinions.js"></script>
+</head>
+<body>
+
+<div id="foo"></div>
+
+<script>
+	(function($){
+
+		$(document).ready(function(){
+			
+			$('#foo').on('frpOpinions.updateResults', function (event){
+				$.Frp.Opinions.update.call($(this), 'Hello world');
+			});
+			$('#foo').trigger('frpOpinions.updateResults');
+
+		});
+
+
+	})(jQuery);
+	
+</script>
+</body>
+</html>

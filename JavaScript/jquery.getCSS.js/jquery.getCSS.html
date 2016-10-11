@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>jquery.getCSS.js</title>
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<script src="jquery.getCSS.js"></script>
+	<script src="CssUtilities.js"></script>
+	<style>
+		#div3 	{border:1px solid red;background:transparent url('photo.jpg') center no-repeat;background-size:contain;-ms-behavior: url('/backgroundsize.min.php');position:relative}
+		#div4 	{border:1px solid red;background:transparent url('photo.jpg') center no-repeat;background-size:24px;-ms-behavior: url('/backgroundsize.min.php');position:relative}
+		.cover 	{background:transparent url('photo.jpg') center no-repeat;background-size:cover;-ms-behavior: url('/backgroundsize.min.php');position:relative}
+		
+		div {height:20em}
+	</style>
+
+</head>
+<body>
+
+<div id="div1" style="background-size:contain">Hello world</div>
+<div id="div2" class="cover">Background size cover</div>
+<div id="div3">Background size contain</div>
+<div id="div4">Just a border</div>
+<hr>
+<script>
+	
+	//$('div').setBackgroundSize();
+	
+</script>
+<hr>
+
+</body>
+</html>

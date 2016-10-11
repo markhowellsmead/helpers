@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]><html lang="de" class="de winie ie7 oldie"><![endif]-->
+<!--[if IE 8 ]><html lang="de" class="de winie ie8 oldie"><![endif]-->
+<!--[if IE 9 ]><html lang="de" class="de winie ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title></title>
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<p><a href="http://www.flickr.com/services/api/flickr.photos.search.html">flickr.photos.search</a></p>
+<div id="container">
+<button name="nearby">Nearby</button>
+<p>Loading data…</p>
+</div>
+
+<script>
+	$.getScript('objectfactory.js',function(){
+		$.getScript('class.js',function(){
+			jsonFetcher = objectfactory(Functionality,Display,geolocation,Flickr);
+			myApp = jsonFetcher();
+		});
+	});
+	
+
+	$('button[name="nearby"]').click(function(e){
+		e.preventDefault();
+
+		myApp.geo_getlocation(function(){
+
+			var coordinates = myApp.geo_getPosition();
+			console.log(coordinates);
+
+			if(coordinates.latitude && coordinates.longitude){
+				myApp.setDataSource('http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&radius=2&lat=' +coordinates.latitude+ '&lon=' +coordinates.longitude+ '&api_key=8703c9741dc1f3294c7e26c8b50eb5af&secret=203d87ac12749d97&user_id=87637435@N00&perpage=500&sort=date-taken-desc&extras=geo&jsoncallback=?');
+	
+				myApp.fetchObjectData(function(){
+				
+					var data = myApp.getObjectData();
+
+					myApp.buildDataHTML();
+					myApp.insertViewDataTo(document.getElementById('container'));
+					
+				});
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

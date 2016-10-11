@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<script></script>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object-based OOP in JavaScript</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #result {
+            padding: 1rem;
+            background: #f9f9f9;
+            border: 1px dotted #999;
+        }
+    </style>
+</head>
+<body>
+<h1>Prototypal Object-Oriented Programming using JavaScript</h1>
+<p>The basis for this example is at <a href="http://alistapart.com/article/prototypal-object-oriented-programming-using-javascript">A List Apart</a>.</p>
+<hr/>
+<div id="result">(Empty by default)</div>
+
+    
+<script>
+    
+    // just in case Object.create isn't available in this browser
+    if (typeof Object.create !== 'function') {
+    	Object.create = function (o) {
+    		function F() {}
+    		F.prototype = o;
+    		return new F();
+    	};
+    }
+
+	//////////////////////////////////////////////////
+  
+    var Result = Object.create(null);
+    Result.linebreak = function(){
+        document.getElementById('result').innerHTML += '<hr />';
+    };
+    Result.results = function(){
+        this.linebreak();
+        document.getElementById('result').innerHTML += '<p>A gorilla lives ' + Gorilla.home + '.</p>';
+        document.getElementById('result').innerHTML += '<p>A mouse lives ' + Mouse.home + '.</p>';
+        document.getElementById('result').innerHTML += '<p>A radge lives ' + Radge.home + '.</p>';
+    };
+
+	//////////////////////////////////////////////////
+  
+    var Animal = Object.create(null); // a completely blank object
+    Animal.name = 'animal'; // applied to all instances of a new Animal.
+    Animal.home = 'in the wild'; // applied to all instances of a new Animal.
+    Animal.dangerous = false;
+    Animal.isFree = false;
+    Animal.setFree = function(){
+        if( this.isFree ){
+            document.getElementById('result').innerHTML += '<p><code>setFree</code> on “' + this.name + '” &rarr; A ' +this.name+ ' has already found its freedom.</p>';
+        }else{
+        
+            if( this.dangerous) {
+                document.getElementById('result').innerHTML += '<p><code>setFree</code> on “' + this.name + '” &rarr; A ' +this.name+ ' cannot be set free. It is too dangerous.</p>';
+            }else{
+                document.getElementById('result').innerHTML += '<p><code>setFree</code> on “' + this.name + '” &rarr; A ' +this.name+ ' was set free.</p>';
+                this.home = 'in freedom';
+                this.isFree = true;
+            }
+        }
+    };
+
+	//////////////////////////////////////////////////
+  
+    var Radge = Object.create(Animal); // make a new Animal object
+    Radge.home = 'in the pub';
+    Radge.name = 'radge';
+    Radge.dangerous = true;
+    Radge.isFree = true;
+
+    var Gorilla = Object.create(Animal); // make a new Animal object
+    Gorilla.home = 'in the zoo';
+    Gorilla.name = 'gorilla';
+    Gorilla.dangerous = true;
+
+    var Mouse = Object.create(Animal); // make a new Animal object
+    Mouse.name = 'mouse';
+    Mouse.home = 'in the cellar'; // this only over-rides the name of the Mouse object, not the Gorilla object.
+
+	//////////////////////////////////////////////////
+  
+    document.getElementById('result').innerHTML = '';
+
+    Result.results();
+
+    Gorilla.setFree();
+    Mouse.setFree();
+    Radge.setFree();
+    
+    Result.results();
+
+    Gorilla.setFree();
+    Mouse.setFree();
+    Radge.setFree();
+    
+    Result.results();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RSS Parser using jQuery</title>
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    
+</head>
+<body>
+
+<div class="rss"></div>
+
+<script>
+
+(function($){
+	
+	$.when(
+
+	    $.getScript( './frp_rss.js' )
+
+	).done(function(){
+
+		var rss_feed = 'http://generator.mgtools.ch/customers/newsradar_publishing/11554/E3B9B2AAC7FCD133DAE0DED380279192.xml';
+
+		$.fn.frp_rss(rss_feed, function(data){
+
+			$.when(
+		
+			    $.getScript( './mustache.js' )
+		
+			).done(function(){
+			
+				console.log(data);
+
+				data.find('item').each(function() {
+			        var $this = $(this),
+			            item = {
+			                title: $this.find("title").text(),
+			                link: $this.find("link").text(),
+			                description: $this.find("description").text(),
+			                pubDate: $this.find("pubDate").text(),
+			                author: $this.find("author").text()
+						};
+	
+			        $('.rss').append(Mustache.render('<p><a href="{{link}}">{{title}}</a> was published on {{pubDate}}</p>', item));
+	
+				});
+
+			});
+
+		});		
+
+	});
+
+})(jQuery);
+
+</script>
+</body>
+</html>

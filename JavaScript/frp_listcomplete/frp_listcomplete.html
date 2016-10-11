@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <script type="text/javascript"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frp_listcomplete</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="frp_listcomplete.css" />
+    
+</head>
+
+<body>
+    <h1>frp_listcomplete</h1>
+    <p>This HTML page contains the basic HTML structure and basic CSS as an example. A working version is in the 2016 version of s-bahn-bern.ch.</p>
+    <p>(The JavaScript is heavily commented.)</p>
+    
+    <nav class="mod nav pages">
+
+        <div class="mod searchform">
+            <input type="search" name="stationsearch-searchfield" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Geben Sie eine Haltestelle ein.">
+        </div>
+        
+        <ul class="list pages">
+            <li class="listitem page" data-name="Affoltern-Weier"><a href="angebot/affoltern-weier/" title="Detailinformation zu Affoltern-Weier">Affoltern-Weier</a><a class="icn pageinfo" href="angebot/affoltern-weier/" title="Detailinformation zu Affoltern-Weier">Affoltern-Weier</a></li>
+            <li class="listitem page" data-name="Avenches"><a href="angebot/avenches/" title="Detailinformation zu Avenches">Avenches</a><a class="icn download" href="fileadmin/user_upload/fahrplaene/hpf_avenches.pdf" title="Fahrplan für Avenches herunterladen" download="">Fahrplan für Avenches herunterladen</a><a class="icn pageinfo" href="angebot/avenches/" title="Detailinformation zu Avenches">Avenches</a></li>
+            <li class="listitem page" data-name="Bätterkinden"><a href="angebot/baetterkinden/" title="Detailinformation zu Bätterkinden">Bätterkinden</a><a class="icn pageinfo" href="angebot/baetterkinden/" title="Detailinformation zu Bätterkinden">Bätterkinden</a></li>
+            <li class="listitem page" data-name="Belp"><a href="angebot/belp/" title="Detailinformation zu Belp">Belp</a><a class="icn pageinfo" href="angebot/belp/" title="Detailinformation zu Belp">Belp</a></li>
+            <li class="listitem page" data-name="Belp Steinbach"><a href="angebot/belp-steinbach/" title="Detailinformation zu Belp Steinbach">Belp Steinbach</a><a class="icn pageinfo" href="angebot/belp-steinbach/" title="Detailinformation zu Belp Steinbach">Belp Steinbach</a></li>
+            <li class="listitem page" data-name="Bern"><a href="angebot/bern/" title="Detailinformation zu Bern">Bern</a><a class="icn pageinfo" href="angebot/bern/" title="Detailinformation zu Bern">Bern</a></li>
+            <li class="listitem page" data-name="Aefligen"><a href="angebot/aefligen/" title="Detailinformation zu Aefligen">Aefligen</a><a class="icn pageinfo" href="angebot/aefligen/" title="Detailinformation zu Aefligen">Aefligen</a></li>
+            <li class="listitem page" data-name="Bern Europaplatz"><a href="angebot/bern-europaplatz/" title="Detailinformation zu Bern Europaplatz">Bern Europaplatz</a><a class="icn pageinfo" href="angebot/bern-europaplatz/" title="Detailinformation zu Bern Europaplatz">Bern Europaplatz</a></li>
+            <li class="listitem page" data-name="Bern Brünnen Westside"><a href="angebot/bern-bruennen-westside/" title="Detailinformation zu Bern Brünnen Westside">Bern Brünnen Westside</a><a class="icn pageinfo" href="angebot/bern-bruennen-westside/" title="Detailinformation zu Bern Brünnen Westside">Bern Brünnen Westside</a></li>
+            <li class="listitem page" data-name="Bern Bümpliz Nord"><a href="angebot/bern-buempliz-nord/" title="Detailinformation zu Bern Bümpliz Nord">Bern Bümpliz Nord</a><a class="icn pageinfo" href="angebot/bern-buempliz-nord/" title="Detailinformation zu Bern Bümpliz Nord">Bern Bümpliz Nord</a></li>
+            <li class="listitem page" data-name="Bern Bümpliz Süd"><a href="angebot/bern-buempliz-sued/" title="Detailinformation zu Bern Bümpliz Süd">Bern Bümpliz Süd</a><a class="icn pageinfo" href="angebot/bern-buempliz-sued/" title="Detailinformation zu Bern Bümpliz Süd">Bern Bümpliz Süd</a></li>
+            <li class="listitem page" data-name="Bern Stöckacker"><a href="angebot/bern-stoeckacker/" title="Detailinformation zu Bern Stöckacker">Bern Stöckacker</a><a class="icn pageinfo" href="angebot/bern-stoeckacker/" title="Detailinformation zu Bern Stöckacker">Bern Stöckacker</a></li>
+            <li class="listitem page" data-name="Bern Wankdorf"><a href="angebot/bern-wankdorf/" title="Detailinformation zu Bern Wankdorf">Bern Wankdorf</a><a class="icn pageinfo" href="angebot/bern-wankdorf/" title="Detailinformation zu Bern Wankdorf">Bern Wankdorf</a></li>
+            <li class="listitem page" data-name="Bern Weissenbühl"><a href="angebot/bern-weissenbuehl/" title="Detailinformation zu Bern Weissenbühl">Bern Weissenbühl</a><a class="icn pageinfo" href="angebot/bern-weissenbuehl/" title="Detailinformation zu Bern Weissenbühl">Bern Weissenbühl</a></li>
+        </ul>
+
+    </nav>
+    
+    <script>
+    
+    $(document).on('ready.frp_listcomplete', function(){
+        if( $.fn.frp_listcomplete ){
+            $('.mod.nav.pages').frp_listcomplete();
+        }
+    });
+    </script>
+
+</body>
+</html>

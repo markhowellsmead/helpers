@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing JS inheritance</title>
+  
+  <script>
+
+		var Animal = function () {};
+		Animal.prototype = (function () {
+		    var me = {}, privateVariable = 42;
+		    me.getPV = function () {
+		        return privateVariable;
+		    };
+		    me.setPV = function (val) {
+		        privateVariable = val;
+		    };
+		    return me;
+		}());
+
+		var monkey = new Animal(),
+				ape = new Animal();
+		    ape.setPV(100);
+		    console.log(monkey.getPV()); // gives 100. Wrong. Should still be 42.
+
+		//////////////////////////////////////////////////
+
+		var Beast = function() {
+		    var me = {}, privateVariable = 42;
+		    me.getPV = function () {
+		        return privateVariable;
+		    };
+		    me.setPV = function (val) {
+		        privateVariable = val;
+		    };
+		    return me;
+		};
+
+
+		var beast1 = new Beast(),
+				beast2 = new Beast();
+		    beast2.setPV(100);
+		    console.log(beast1.getPV()); // gives 42. Correct.
+		    console.log(beast2.getPV()); // gives 100. Correct.
+
+  </script>
+</head>
+<body>
+<p>Using <code>Object.prototype</code> makes every new instance created from the object refer back to the same initial object. So if you change the value of a private variable in one instance of the object, the value is changed in all of the instances.</p>
+<p>Using the <code>function()</code> technique to create every new instance means that you'll create a unique object for every instance. This takes more memory if you're creating a lot of objects. But, if you change the value of a private variable in one instance of the object, the value is only changed for that instance. Not in every instance.</p>
+<p>The output of the tests is in the console.</p>
+</body>
+</html>

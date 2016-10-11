@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+    <title></title>
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+    <style>
+	    .select {display:inline-block;padding:1em 2em;background:#f0f0f0;text-decoration: none}
+	    .act 	{background:#cfc}
+    </style>
+
+</head>
+<body>
+
+<a href="#" class="select multiple" data-nr="1">1</a>
+<a href="#" class="select multiple" data-nr="2">2</a>
+<a href="#" class="select multiple" data-nr="3">3</a>
+<a href="#" class="select multiple" data-nr="4">4</a>
+<a href="#" class="select multiple" data-nr="5">5</a>
+<a href="#" class="select multiple" data-nr="6">6</a>
+<a href="#" class="select multiple" data-nr="7">7</a>
+<a href="#" class="select multiple" data-nr="8">8</a>
+<a href="#" class="select multiple" data-nr="9">9</a>
+<a href="#" class="select multiple" data-nr="10">10</a>
+<a href="#" class="select multiple" data-nr="66">66</a>
+
+<script>
+
+	if(!Array.prototype.indexOf) {
+	    Array.prototype.indexOf = function(needle) {
+	        for(var i = 0; i < this.length; i++) {
+	            if(this[i] === needle) {
+	                return i;
+	            }
+	        }
+	        return -1;
+	    };
+	}
+
+	selection=[];
+	
+	$(document).ready(function(){
+		
+		$('a.select').click(function(e){
+			e.preventDefault();
+			if(e.metaKey){
+				
+			}else{
+				$('a.select').removeClass('act');
+				selection=[];
+				console.log('cleared');
+			}
+			$(this).addClass('act');
+			var nr=$(this).data('nr');
+			if(selection.indexOf(nr)<0){
+				selection.push(nr);
+				selection.sort(function(a,b){return a - b});
+			}
+			console.log(selection);
+		});
+		
+	});
+	
+</script>
+
+</body>
+</html>

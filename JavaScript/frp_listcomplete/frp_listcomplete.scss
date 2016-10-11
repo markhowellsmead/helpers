@@ -1,0 +1,86 @@
+@import 'configuration';
+
+@media screen {
+
+    .mod.ce-stationsearch {
+        
+        .pages {
+            padding: 0;
+        }
+        
+        input.error {
+            color: red;
+            outline-color: red;
+        }
+        
+        .list .page {
+            overflow-x: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .search {
+            margin-bottom: $unit-y;
+            .page {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: $unit-y/2 0;
+                margin: 0;
+                
+                a {
+                    display: inline-block;
+                    margin: 0 $unit-x/2;
+                }
+    
+                >:nth-child(1) {
+                    margin-right: auto;
+                    margin-left: 0;
+                }
+            }
+        }
+        
+        .selectedpages {
+            padding: $unit-y 0;
+            .list.incolumns {
+                columns: 2;
+            }
+        }
+        
+        .searchform {
+            display: none;
+        }
+    }
+    
+    html.js {
+        .mod.ce-stationsearch {
+            .searchform {
+                display: block;
+            }
+            .search {
+                .listitem {
+                    display: none;
+                    &.visible {
+                        display: flex;
+                    }
+                    &.selected {
+                        background-color: rgba($primary-color, .2);
+                    }
+                }
+                .list.pages {
+                    display: none;
+                    border: $input-border;
+                    border-radius: $global-radius;
+                    padding: $unit-y/2 $unit-x/2;
+                    background-color: rgba($white, 90%);
+                    &.visible {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
