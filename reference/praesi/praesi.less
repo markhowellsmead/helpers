@@ -1,0 +1,87 @@
+@import "/Library/Webserver/webroot/frappant_helpers/less/basics.less";
+
+@red: rgb(177,22,65);
+
+html,body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100vh;
+	background: #eceaea;
+	text-align: center;
+	font-family: 'helvetica neue', helvetica, arial, sans-serif;
+	font-size: 1.5em;
+	font-weight: 300;
+	color: #666;
+	letter-spacing: 1px;
+}
+
+del {
+	color: red;
+}
+
+a {
+	color: @red;
+	text-decoration: none;
+	.nice-underline(fade(@red,25%));
+	background-position:0 1.05em;
+}
+
+a:hover {
+	.nice-underline(fade(@red,50%));
+}
+
+.slide {
+	position: absolute;
+	top: 50%;left: 10vw;right: 10vw;
+	z-index: 0;
+	transform: translateY(-50%);
+	height: 75%;
+	opacity: 0;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+	transition: opacity .25s ease-in-out;
+	background: #fff;
+	border-radius: 4px;
+}
+
+.slide.act {
+	opacity: 1;
+	z-index: 1;
+}
+
+.slide .inner {
+	position: absolute;
+	left: 0;right: 0;top: 0; bottom: 0;
+	padding: 1em;
+}
+
+.slide h1, .slide ul, .slide img {
+	margin: 0 auto;
+}
+
+.slide h1 {
+	margin-bottom: 1em;
+	font-size: .75em;
+	font-weight: normal;
+	color: #bbb;
+	text-align: right;
+}
+
+.slide ul {
+	position: absolute;
+	top: 50%; left: 0; right: 0; 
+	width: 100%;
+	margin:0; padding: 0;
+	transform: translateY(-50%);
+	list-style-type: none;
+}
+
+.slide li {
+	margin: 1em 0;
+}
+
+.slide small {
+	font-size: .75em;
+	color: #999;
+}
