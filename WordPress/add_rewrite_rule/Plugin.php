@@ -4,7 +4,7 @@ Plugin Name: Handle file requests
 Plugin URI: https://permanenttourist.ch/2016/10/handling-file-requests-with-the-wordpress-rewrite-api/
 Description: Example plugin code which uses the WordPress Rewrite API to handle file requests. This excample grabs any requests which start with “download” and end in “.jpg”.
 Text Domain: mhm_handle_filerequest
-Author: Makr Howells-Mead
+Author: Mark Howells-Mead
 Version: 0.0.1
 Author URI: https://permanenttourist.ch/
 */
