@@ -5,7 +5,7 @@ Plugin URI: https://permanenttourist.ch/2016/10/handling-file-requests-with-the-
 Description: Example plugin code which uses the WordPress Rewrite API to handle file requests. This excample grabs any requests which start with “download” and end in “.jpg”.
 Text Domain: mhm_handle_filerequest
 Author: Mark Howells-Mead
-Version: 0.0.1
+Version: 0.0.2
 Author URI: https://permanenttourist.ch/
 */
 
@@ -37,10 +37,13 @@ class Plugin
      * Add the rewrite rule. Syntax is the same as it would be in .htaccess.
      * The target must be index.php so that WordPress sees it as a WordPress
      * rule, and not a custom rule, which is applied later in the parsing process.
+     *
+     * The opening ^ and closing $ in this example seem to both be required for
+     * the rule to work correctly.
      */
     public function rewriteRules()
     {
-        add_rewrite_rule('^(download|view)/((.*?).(jpe?g|gif|png|rar|zip|pdf|tar|gz))', 'index.php?mhm_handle_filerequest[mode]=$matches[1]&mhm_handle_filerequest[file]=$matches[2]', 'top');
+        add_rewrite_rule('^(download|view)/((.*?).(jpe?g|gif|png|rar|zip|pdf|tar|gz))$', 'index.php?mhm_handle_filerequest[mode]=$matches[1]&mhm_handle_filerequest[file]=$matches[2]', 'top');
     }
 
     /**
