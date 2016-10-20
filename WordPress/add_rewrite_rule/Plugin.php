@@ -18,8 +18,8 @@ class Plugin
      */
     public function __construct()
     {
-        register_deactivation_hook(array($this, 'flushRewriteRules'));
-        register_activation_hook(array($this, 'flushRewriteRules'));
+        register_deactivation_hook(__FILE__, array($this, 'flushRewriteRules'));
+        register_activation_hook(__FILE__, array($this, 'flushRewriteRules'));
         add_action('after_switch_theme', array($this, 'flushRewriteRules'));
 
         add_action('init', array($this, 'rewriteRules'));
