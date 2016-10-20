@@ -64,7 +64,14 @@ class Plugin
      */
     public function handleDownload($query)
     {
-        var_dump($query->query_vars['mhm_handle_filerequest']);
+        /*
+         * If our variables aren't set, then the regex hasn't matched, so no further action is required here.
+         */
+        if (!isset($query->query_vars['mhm_handle_filerequest'])) {
+            return;
+        }
+
+        var_dump($query->query_vars);
         exit;
     }
 }
