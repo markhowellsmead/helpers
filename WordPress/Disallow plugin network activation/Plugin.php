@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Don't allow this plugin to be activated network-wide
-Plugin URI: https://permanenttourist.ch/
+Plugin URI: https://github.com/mhmli/helpers/blob/master/WordPress/Disallow%20plugin%20network%20activation/Plugin.php
 Description: This code is not intended as a fully-formed plugin!!! This is sample code which shows how to stop this plugin from being activated at network level in a WordPress Multisite installation. This could be relevant, for example, where you need to flush rewrite rules at blog level when the plugin is activated. (That doesn't work reliably in Multisite environments.)
 Author: Mark Howells-Mead
 Version: 1.0
