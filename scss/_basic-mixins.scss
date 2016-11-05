@@ -1,0 +1,191 @@
+@mixin hidetext(){
+    text-indent: -8000px;
+    white-space:  nowrap;
+    overflow: hidden;
+    text-align: left !important;
+    direction: ltr !important;
+    text-decoration: none;
+    outline: none;
+    border: 0;
+    margin: 0;
+}
+
+@mixin hide-text(){
+    @include hidetext();
+}
+
+@mixin boxarrow($direction: 'left', $background-color:#eee, $border-width: 4px, $arrow-size: 8px, $border-color: #ccc, $position: relative){
+    position: $position;
+    background-color: $background-color;
+    border: $border-width solid $border-color;
+    &:after,&:before,&::after,&::before {
+        border:solid transparent;
+        content:" ";
+        height:0;
+        width:0;
+        position:absolute;
+        pointer-events:none;
+        top: 50%;
+//         transform: rotate(-45deg);
+    }
+    &:after,&::after {
+        border-color: transparentize($background-color,0);
+        border-width: $border-width+$arrow-size;
+        margin-top: 0-$arrow-size;
+    }
+    &:before,&::before {
+        border-color: transparentize($border-color,0);
+        margin-top: 0-($border-width+$arrow-size);
+        border-width: $border-width+$arrow-size;
+        transform: rotate(-45deg);
+    }
+
+}
+/*
+.boxarrow(@direction:'left', @background-color:#eee, @border-width: 4px, @arrow-size: 8px, @border-color: #ccc) when (@direction = 'left'){
+    &:after, &::after, &:before, &::before {
+        right: 100%;
+    }
+    &:after, &::after {
+        border-right-color:@background-color;
+        border-width:@border-width+@arrow-size;
+        margin-top:0-(@border-width+@arrow-size);
+    }
+    &:before, &::before {
+        border-right-color:@border-color;
+        border-width:(2.5*@border-width)+@arrow-size;
+        margin-top:0-((2.35*@border-width)+@arrow-size);
+    }
+}
+*/
+
+//////////////////////////////////////////////////
+
+@mixin flex-columns($child: '.col'){
+    /**
+    Usage:
+        
+    [class^="frp-cols"] {
+        @include columns();
+    }
+
+    .frp-cols-2 {
+        .col {
+            width: percentage(1/2);
+        }
+    }
+
+    For IE9, add an extra CSS file using conditional comments.
+    Set the parent to display: block and add a clearfix. Then 
+    add float: left to the children.
+
+    */
+
+    display: flex;
+    margin-bottom: $unit-y;
+    #{$child} {
+        box-sizing: border-box;
+        padding-left: 2*$unit-x;
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+}
+
+//////////////////////////////////////////////////
+
+@mixin flex-supergrid($child){
+
+    #{$child} {
+        flex-basis: (100%/6);
+    }
+
+    #{$child}:first-child:nth-last-child(2),
+    #{$child}:first-child:nth-last-child(2) ~ #{$child} {
+        flex-basis: (100%/2);
+    }
+    
+    #{$child}:first-child:nth-last-child(3),
+    #{$child}:first-child:nth-last-child(3) ~ #{$child} {
+        flex-basis: (100%/3);
+    }
+    
+    #{$child}:first-child:nth-last-child(4),
+    #{$child}:first-child:nth-last-child(4) ~ #{$child} {
+        flex-basis: (100%/4);
+    }
+    
+    #{$child}:first-child:nth-last-child(5),
+    #{$child}:first-child:nth-last-child(5) ~ #{$child} {
+        flex-basis: (100%/5);
+    }
+    
+    #{$child}:first-child:nth-last-child(6),
+    #{$child}:first-child:nth-last-child(6) ~ #{$child} {
+        flex-basis: (100%/6);
+    }
+    
+    #{$child}:first-child:nth-last-child(7),
+    #{$child}:first-child:nth-last-child(7) ~ #{$child} {
+        flex-basis: (100%/4);
+    }
+    
+    #{$child}:first-child:nth-last-child(8),
+    #{$child}:first-child:nth-last-child(8) ~ #{$child} {
+        flex-basis: (100%/4);
+    }
+    
+    #{$child}:first-child:nth-last-child(9),
+    #{$child}:first-child:nth-last-child(9) ~ #{$child} {
+        flex-basis: (100%/5);
+    }
+    
+    #{$child}:first-child:nth-last-child(10),
+    #{$child}:first-child:nth-last-child(10) ~ #{$child} {
+        flex-basis: (100%/5);
+    }
+    
+}
+
+//////////////////////////////////////////////////
+
+@mixin flood($z-index:0){
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $z-index;
+}
+
+//////////////////////////////////////////////////
+
+@mixin image-contain($image){
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url($image);
+    background-size: contain;
+}
+
+@mixin image-cover($image){
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url($image);
+    background-size: cover;
+}
+
+//////////////////////////////////////////////////
+
+@mixin horizontal-centre() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin vertical-centre() {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

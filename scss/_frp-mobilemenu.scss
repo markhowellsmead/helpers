@@ -1,0 +1,41 @@
+@mixin frp-mobilemenu($main, $navigation,  $width: 80%, $transition-speed: 1000ms, $transition: cubic-bezier(.25,.25,0,1), $mask-colour: rgba(0,0,0,.5)){
+
+    #{$main} {
+        position: relative;
+        z-index: 0;
+        transform: translate3d(0, 0, 0) scale(100%);
+        transition: transform $transition-speed $transition;
+    }
+    
+    #{$navigation} {
+        position: absolute;
+        top: 0; left: 0; bottom: 0; width: $width;
+        transition: transform $transition-speed $transition;
+        transform: translate3d(-100%, 0, 0);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .frp-mobilemenu-open, .frp-mobilemenu-open body, .frp-mobilemenu-open #{$main} {
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .frp-mobilemenu-open {
+
+        #{$main} {
+            transform: translate3d($width, 0, 0);
+            &:after {
+                content: '';
+                @include flood();
+                background-color: $mask-colour;
+            }
+        }
+
+        #{$navigation} {
+            transform: translate3d(0, 0, 0);
+        }
+
+    }
+
+}

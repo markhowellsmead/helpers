@@ -1,0 +1,26 @@
+
+@mixin flexbox-grid-auto($margin-x: 10px, $margin-y: 10px, $padding: 10px, $box-min-height: 1rem, $row: '.row', $cell: '.cell'){
+
+    display: flex;            
+    box-orient: vertical;    
+    flex-direction: column;
+    
+    #{$row} {
+        display: flex;            
+    }    
+
+    #{$cell} { margin: 0 10px; }    
+    #{$cell}:first-child{ margin-left: 0; }
+    #{$cell}:last-child{ margin-right: 0; }
+    
+    #{$row} { margin: 10px 0; }    
+    #{$row}:first-child{ margin-top: 0; }
+    #{$row}:last-child{ margin-bottom: 0; }
+
+    #{$cell} {
+      padding: $padding;
+      flex: 1 1 50%;
+      min-height: $box-min-height;
+    }
+
+}

@@ -1,0 +1,102 @@
+/*
+    **************************************************
+    Aspect ratio box helpers
+    mhm 11.10.2013
+    
+    e.g. if you need a video container DIV to be flexible
+    but always retain a 16:9 format ratio
+*/
+
+@mixin aspect() {
+    position: relative;
+    height: 0;
+    padding-bottom:100%;
+    > embed, > object, > iframe, > span, > img, video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+@mixin aspectDSLR() {
+    @include aspect3to2();
+}
+
+@mixin aspect4to3() {
+    @include aspect();
+    padding-bottom: 75%;
+}
+
+@mixin aspect139to100() {
+    @include aspect();
+    padding-bottom: 71.94%;
+}
+
+@mixin aspect169() {
+    @include aspect();
+    padding-bottom: 56.25%;
+}
+
+@mixin aspect1to1() {
+    @include aspect();
+    padding-bottom: 100%;
+}
+
+@mixin aspect2to1() {
+    @include aspect();
+    padding-bottom: 50%;
+}
+
+@mixin aspect3to2() {
+    @include aspect();
+    padding-bottom: 66.666667%;
+}
+
+@mixin aspect25to10() {
+    @include aspect();
+    padding-bottom: 40%;
+}
+
+@mixin aspect3to1() {
+    @include aspect();
+    padding-bottom: 33.3333%;
+}
+
+@mixin aspect4to1() {
+    @include aspect();
+    padding-bottom: 25%;
+}
+
+@mixin aspect5to1() {
+    @include aspect();
+    padding-bottom: 20%;
+}
+
+@mixin aspect6to1() {
+    @include aspect();
+    padding-bottom: 16.666666666667%;
+}
+
+@mixin aspect7to1() {
+    @include aspect();
+    padding-bottom: 14.285714285714%;
+}
+
+@mixin aspect8to1() {
+    @include aspect();
+    padding-bottom: 12.5%;
+}
+
+@mixin aspect9to1() {
+    @include aspect();
+    padding-bottom: 11.11111111111111%;
+}
+
+@mixin aspect10to1() {
+    @include aspect();
+    padding-bottom: 10%;
+}

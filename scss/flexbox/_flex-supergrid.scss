@@ -1,0 +1,52 @@
+@mixin flex-supergrid($child){
+
+    #{$child} {
+        flex-basis: (100%/6);
+    }
+
+    #{$child}:first-child:nth-last-child(2),
+    #{$child}:first-child:nth-last-child(2) ~ #{$child} {
+        flex-basis: (100%/2);
+    }
+    
+    #{$child}:first-child:nth-last-child(3),
+    #{$child}:first-child:nth-last-child(3) ~ #{$child} {
+        flex-basis: (100%/3);
+    }
+    
+    #{$child}:first-child:nth-last-child(4),
+    #{$child}:first-child:nth-last-child(4) ~ #{$child} {
+        flex-basis: (100%/4);
+    }
+    
+    #{$child}:first-child:nth-last-child(5),
+    #{$child}:first-child:nth-last-child(5) ~ #{$child} {
+        flex-basis: (100%/5);
+    }
+    
+    #{$child}:first-child:nth-last-child(6),
+    #{$child}:first-child:nth-last-child(6) ~ #{$child} {
+        flex-basis: (100%/6);
+    }
+    
+    #{$child}:first-child:nth-last-child(7),
+    #{$child}:first-child:nth-last-child(7) ~ #{$child} {
+        flex-basis: (100%/4);
+    }
+    
+    #{$child}:first-child:nth-last-child(8),
+    #{$child}:first-child:nth-last-child(8) ~ #{$child} {
+        flex-basis: (100%/4);
+    }
+    
+    #{$child}:first-child:nth-last-child(9),
+    #{$child}:first-child:nth-last-child(9) ~ #{$child} {
+        flex-basis: (100%/5);
+    }
+    
+    #{$child}:first-child:nth-last-child(10),
+    #{$child}:first-child:nth-last-child(10) ~ #{$child} {
+        flex-basis: (100%/5);
+    }
+    
+}

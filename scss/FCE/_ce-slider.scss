@@ -1,0 +1,40 @@
+@mixin ce-slider($padding-bottom: 100%, $slider-container: '.slider-container', $slide-wrapper: '.is-slider', $slide: '.slide', $slide-image: '.slide-image', $slide-link: '.slide-link') {
+
+    position: relative;
+
+    border-bottom: 1px solid transparent;
+    
+    #{$slider-container} {
+        position: relative;
+    }
+    
+    #{$slide-wrapper} {
+        @extend %listless;
+        @include clearfix();
+        position: relative;
+        z-index: 0;
+        #{$slide} {
+            -webkit-backface-visibility: hidden;
+            position: relative;
+            width: 100%;
+            background: center/cover no-repeat;
+            &:first-child {
+              position: relative;
+              display: block;
+              float: left;
+            }
+        }
+        #{$slide-image} {
+            height: 0;
+            padding-bottom: $padding-bottom;
+            background: center/cover no-repeat;
+        }
+        #{$slide-link} {
+            @include hide-text();            
+            @include flood(3);
+            display: block;
+            background: rgba(255,255,255,.01);
+        }
+    }
+
+}

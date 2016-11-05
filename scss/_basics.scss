@@ -1,0 +1,97 @@
+@import 'aspect';
+@import 'basic-mixins';
+@import 'frp-mobilemenu';
+@import 'gradient';
+@import 'typography';
+
+%background-flood {
+    background: center / cover no-repeat;
+}
+
+%listless {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+//////////////////////////////////////////////////
+
+%bgi {
+    @extend %hidetext;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+@mixin bgi() {
+    @include hidetext();
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+//////////////////////////////////////////////////
+
+@mixin clearfix(){
+    &:before, &:after, {content: "\0020"; display: block; height: 0; overflow: hidden;}
+    &:after {clear: both}
+}
+
+%clear{clear:both}
+%clearfix {
+    &:before, &:after, {content: "\0020"; display: block; height: 0; overflow: hidden;}
+    &:after {@extend %clear;}
+}
+%no-clearfix {
+    zoom: auto;
+    &:before, &:after {
+        clear:none;
+    }
+}
+
+@mixin clearfix (){
+    &:before, &:after, {content: "\0020"; display: block; height: 0; overflow: hidden;}
+    &:after {clear:both;}
+}
+
+%icon-element {
+    @include hide-text();
+    text-indent: 500%;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+//////////////////////////////////////////////////
+
+%hidetext {
+    text-indent:-8000px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align:left !important;
+    direction:ltr !important;
+    text-decoration:none;
+    outline:none;
+    border:0;
+    margin:0;
+}
+
+@mixin hidetext() {
+    text-indent:-8000px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align:left !important;
+    direction:ltr !important;
+    text-decoration:none;
+    outline:none;
+    border:0;
+    margin:0;
+}
+
+//////////////////////////////////////////////////
+
+@function rem ($font-size, $base-font-size: $base-font-size){
+    @return 1rem * ($font-size / $base-font-size);
+}

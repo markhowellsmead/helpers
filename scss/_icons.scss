@@ -1,0 +1,87 @@
+/**
+* Icons and icon animations based 100% on CSS3
+* Make sure that you find out which browsers support these features before implementing them!
+*
+* @since 12.12.14
+*/
+
+
+/**
+* Mobile menu open/close button
+* Based on http://tympanus.net/Tutorials/AnimatedBorderMenus/index2.html
+*
+* @since 12.12.14
+*
+* @param $background    Background colour of the icon
+* @param $colour        The colour of the lines in the button
+* @param $speed         How fast is the animation between states
+* @param $linewidth     Thickness of the line in pixels
+* @param $width         The width of the icon
+* @param $height        The height of the icon
+*/
+
+
+@mixin css-button-menu(
+    $css-button-menu-background:    transparent, 
+    $css-button-menu-colour:        rgb(255,0,0), 
+    $css-button-menu-speed:         300ms, 
+    $css-button-menu-linewidth:     2px, 
+    $css-button-menu-width:         20px, 
+    $css-button-menu-height:        20px
+){
+
+    // Optional: pass in these variables as mixin attributes if you want to customize the icon
+
+    position: relative;
+    display: block;
+    background-color: $css-button-menu-background;
+    width: $css-button-menu-width;
+    height: $css-button-menu-height;
+    cursor: pointer;
+
+    span {
+    	position: absolute;
+    	top: 50%;
+    	left: 0;
+    	display: block;
+    	width: 100%;
+    	height: $css-button-menu-linewidth;
+    	margin-top: 0-$css-button-menu-linewidth;
+    	background-color: $css-button-menu-colour;
+    	font-size: 0;
+    	user-select: none;
+    	transition: background-color $css-button-menu-speed;
+    }
+
+    span:before,
+    span:after {
+    	position: absolute;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    	background: $css-button-menu-colour;
+    	content: '';
+    	transition: transform $css-button-menu-speed;
+    }
+    
+    span:before {
+    	transform: translateY(0 - (($css-button-menu-height/2) - $css-button-menu-linewidth));
+    }
+    
+    span:after {
+    	transform: translateY(($css-button-menu-height/2) - $css-button-menu-linewidth);
+    }
+    
+    html.frp-mobilemenu-open & {
+        span {
+        	background-color: transparent;
+            &:before {
+            	transform: translateY(0) rotate(45deg);
+            }
+            &:after {
+                transform: translateY(0) rotate(-45deg);
+            }
+        }
+    }
+
+}

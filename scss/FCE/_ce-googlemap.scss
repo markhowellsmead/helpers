@@ -1,0 +1,68 @@
+/*
+Since 2.2.2016 mhm    
+Usage in your project:
+    
+@import 'configuration';
+@import '/Library/WebServer/webroot/frappant_helpers/scss/ce/ce-googlemap';
+@include ce-googlemap();
+
+Following variables can be overriden individually in your _configuration.scss file.
+    
+*/
+
+$ce-googlemap-background-color: #f0f0f0 !default;
+$ce-googlemap-marker-background-color: #fff !default;
+$ce-googlemap-marker-textcolour: inherit !default;
+$ce-googlemap-proportion: 75% !default;
+$ce-googlemap-markeroffset: -.5rem;
+$ce-googlemap-html-mapholder: '.map-holder';
+$ce-googlemap-html-mapmarker: '.map-marker';
+$ce-googlemap-html-wrapper: '.mod.googlemap';
+
+@mixin ce-googlemap(){
+    
+    .gm-style {
+        font-size: inherit !important; // over-ride Google's own inline text sizing
+    }
+    
+    #{$ce-googlemap-html-wrapper} {
+        
+        position: relative;
+        
+        &:not(.with-markercontent):after {
+            display: block;
+            content: '';
+            @include flood(1);
+            background-color: rgba(255,255,255,.01);
+        }
+        
+        #{$ce-googlemap-html-mapholder} {
+            background: $ce-googlemap-background-color;
+            position: relative;
+            height: 0;
+            padding-bottom: $ce-googlemap-proportion;
+            font-size: inherit !important;
+        }
+        #{$ce-googlemap-html-mapmarker} {
+        	padding: .5rem;
+        	background-color: $ce-googlemap-marker-background-color;
+       		transform: translateY($ce-googlemap-markeroffset);
+       		font-size: inherit;
+        	&:after{
+        		top: 100%;
+        		left: 50%;
+        		border: solid transparent;
+        		content: " ";
+        		height: 0;
+        		width: 0;
+        		position: absolute;
+        		pointer-events: none;
+        		border-color: rgba(136, 183, 213, 0);
+        		border-top-color: $ce-googlemap-marker-background-color;
+        		border-width: -$ce-googlemap-markeroffset;
+        		margin-left: $ce-googlemap-markeroffset;
+        	}
+        }
+    }
+
+}

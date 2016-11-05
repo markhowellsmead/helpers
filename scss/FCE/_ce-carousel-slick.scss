@@ -1,0 +1,69 @@
+// Default values (override them in your project if necessary):
+$ce-carousel-arrowimage: '../Images/carousel-arrow.svg' !default;
+$ce-carousel-container: '.carousel-container' !default;
+$ce-carousel-button-width: 44px !default;
+$ce-carousel-button-height: 44px !default;
+$ce-carousel-proportion: 66.666666666667% !default;
+$ce-carousel-slide: '.slide' !default;
+$ce-carousel-wrapper: '.is-carousel' !default;
+
+// Common slider rules
+@import 'ce-slider';
+
+// Additional rules for carousel using https://github.com/mhmli/slick
+@import 'ce-slick';
+
+.mod.carousel {
+
+    @include ce-slider($padding-bottom: $ce-carousel-proportion, $slider-container: $ce-carousel-container, $slide-wrapper: $ce-carousel-wrapper, $slide: $ce-carousel-slide);
+
+    .slick-arrow {
+        @extend %icon-element;
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem-calc($ce-carousel-button-width/3) !important;
+        height: rem-calc($ce-carousel-button-height/3) !important;
+        padding: 0;
+        background: transparent url('#{$ce-carousel-arrowimage}') center no-repeat;
+        background-size: rem-calc($ce-carousel-button-width/3) rem-calc($ce-carousel-button-height/3);
+        &.slick-prev {
+            left: 2%;
+            background-position: left center;
+        }
+        &.slick-next {
+            right: 2%;
+            transform: rotate(180deg) translateY(50%);
+        }
+    }
+
+    .slick-dots, .slick-dots li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .tab {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .slick-dots {
+        li {
+            display: inline-block;
+        }
+    }
+
+}
+
+@include breakpoint(tablet){
+    .mod.carousel {
+        .slick-arrow {
+            width: rem-calc($ce-carousel-button-width) !important;
+            height: rem-calc($ce-carousel-button-height) !important;
+            background-size: rem-calc($ce-carousel-button-width) rem-calc($ce-carousel-button-height);
+        }
+    }
+}

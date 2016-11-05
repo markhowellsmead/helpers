@@ -1,0 +1,21 @@
+/**
+* Standard rules for app development
+* @since 	26/11/15
+*/
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;        /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;     /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;          /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-attachment: fixed;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    min-height: calc(100vh - 20px);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}

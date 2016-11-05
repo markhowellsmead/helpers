@@ -1,0 +1,37 @@
+@mixin clamp($rows: 0, $line-height: 0){
+    // limit an element's height and clip text
+    display: block;             // Fallback for non-webkit
+    height: $line-height * $rows; // Fallback for non-webkit
+    line-height: $line-height;
+    display: -webkit-box;
+    -webkit-line-clamp: $rows;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin clamp_fade($height: 0, $background-color: #fff){
+    position: relative;
+    height: $height;
+    &:after {
+        content: '';
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 70%;
+        height: 1.2em;
+        background: linear-gradient(to right, transparent, $background-color 50%);
+    }
+}
+
+/**
+ * Only for a single line.
+ * Tested in IE8, IE9, IE10, IE11, FF 36, Safari 7, Chrome 41,
+ */
+@mixin clamp-one-line(){
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}

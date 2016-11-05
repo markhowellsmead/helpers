@@ -1,0 +1,158 @@
+// Depends on Zurb Foundation 6+
+// Default values (override them in your project if necessary):
+
+$unit-y: 1rem !default;
+$breakpoint_smaller: smartphone_wide !default;
+$breakpoint_larger: tablet !default;
+$breakpoint_largest: tablet_large !default;
+
+.mod {
+
+    &.frp-fce-cols-1-2-3 {
+        .col {
+            margin-bottom: $unit-y;
+        }
+        @include breakpoint($breakpoint_smaller){
+            @include grid-row(12, nest);
+            .col {
+                margin-bottom: 0;
+                @include grid-column(6);
+                &:last-child {
+                    @include grid-column(12);
+                }
+            }
+        }
+        @include breakpoint($breakpoint_larger){
+            display: flex;
+            .col {
+                @include grid-column(4);
+                margin-bottom: 0;
+                &:last-child {
+                    @include grid-column(4);
+                }
+            }
+        }
+    }
+    
+    &.frp-fce-cols-2 {
+        .col {
+            margin-bottom: $unit-y;
+        }
+        @include breakpoint($breakpoint_smaller){
+            display: flex;
+            @include grid-row(12, nest);
+            .col {
+                @include grid-column(6);
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    &.frp-fce-cols-3 {
+        .col {
+            margin-bottom: $unit-y;
+        }
+        @include breakpoint($breakpoint_larger){
+            display: flex;
+            @include grid-row(12, nest);
+            .col {
+                @include grid-column(4);
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    &.frp-fce-cols-4 {
+        .col {
+            margin-bottom: $unit-y;
+        }
+        @include breakpoint($breakpoint_smaller){
+            display: flex;
+            @include grid-row(12, nest);
+            .col {
+                @include grid-column(6);
+                margin-bottom: 0;
+            }
+        }
+        @include breakpoint($breakpoint_larger){
+            .col {
+                @include grid-column(3);
+            }
+        }
+    }
+    
+    &.frp-fce-cols-5 {
+        .col {
+        margin-bottom: $unit-y;
+        }
+        @include breakpoint($breakpoint_smaller){
+            display: flex;
+            @include grid-row(12, nest);
+            @include grid-context(3){
+                .col {
+                    @include grid-column(1);
+                    margin-bottom: 0;
+                }
+            }
+        }
+        @include breakpoint($breakpoint_larger){
+            @include grid-context(5){
+                .col {
+                    @include grid-column(1);
+                }
+            }
+        }
+    }
+    
+    &.frp-fce-cols-6 {
+        .col {
+            margin-bottom: $unit-y;
+        }
+        @include breakpoint($breakpoint_smaller){
+            display: flex;
+            @include grid-row(12, nest);
+            .col {
+                @include grid-column(6);
+                margin-bottom: 0;
+            }
+        }
+        @include breakpoint($breakpoint_larger){
+            display: flex;
+            @include grid-row(12, nest);
+            .col {
+                @include grid-column(4);
+                margin-bottom: 0;
+            }
+        }
+        @include breakpoint($breakpoint_largest){
+            .col {
+                @include grid-column(2);
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    &.frp-fce-cols-12 {
+        .col {
+            margin-bottom: $unit-y;
+        }
+        @include breakpoint(large){
+            display: flex;
+            @include grid-row(12, nest);
+            .col {
+                @include grid-column(1 of 12);
+                margin-bottom: 0;
+            }
+            .col2 {
+                @include grid-column(2 of 12);
+            }
+            .col3 {
+                @include grid-column(3 of 12);
+            }
+            .col4 {
+                @include grid-column(4 of 12);
+            }
+        }
+    }
+
+}
