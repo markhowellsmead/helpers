@@ -20,9 +20,10 @@ var frp_auction_translations;
                     //image : url + '/../Images/frp_auction.png'
                 });
                 ed.addCommand('frp_auction', function() {
-                    ed.execCommand('mceInsertContent', 0, '[frp_auction]');
+                    ed.execCommand('mceInsertContent', 0, '<p>[frp_auction]</p><br>');
                 });
             }
+
         },
 
         /**
@@ -51,12 +52,12 @@ var frp_auction_translations;
                 author : '!frappant',
                 authorurl : 'https://frappant.ch/',
                 infourl : 'https://frappant.ch',
-                version : '1.0'
+                version : '1.6.0'
             };
         }
     });
 
     // Register plugin
-    tinymce.PluginManager.add( 'frp_auction', tinymce.plugins.FrpEditProfile );
+    tinymce.PluginManager.add( 'frp_auction', tinymce.plugins.FrpAuction );
 
 })();
