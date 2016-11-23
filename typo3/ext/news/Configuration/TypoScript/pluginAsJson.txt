@@ -1,0 +1,33 @@
+plugin.tx_news.settings.ajaxPageType = {$plugin.tx_news.settings.ajaxPageType}
+
+[globalVar = GP:type = {$plugin.tx_news.settings.ajaxPageType}]
+plugin.tx_news.settings.format = json
+[global]
+
+// Ajax rendering
+// Example call: http://example.com/index.php?id=71&type=1479807984&recordUid=27
+tx_myext_pi1 = PAGE
+tx_myext_pi1 {
+
+    typeNum = {$plugin.tx_news.settings.ajaxPageType}
+
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        disablePrefixComment = 1
+        debug = 0
+        no_cache = 1
+        additionalHeaders = Content-type:application/json
+    }
+
+    10 = RECORDS
+    10 {
+        source.data = GP:recordUid
+        source.intval = 1
+        tables = tt_content
+        dontCheckPid = 1
+        conf.tt_content =< tt_content.list.20.news_pi1
+    }
+
+}
