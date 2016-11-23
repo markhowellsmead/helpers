@@ -1,0 +1,7 @@
+i.mce-ico.mce-i-frp_auction {
+    font: 400 20px/1 dashicons;
+}
+i.mce-ico.mce-i-frp_auction:before {
+    content: "\f308"; /* Hammer from the Dashicons font */
+    color: #b11640;
+}
