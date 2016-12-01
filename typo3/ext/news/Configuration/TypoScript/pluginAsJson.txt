@@ -1,7 +1,10 @@
+# TYPO3 - Render tx_news plugin as JSON via TypoScript
+# e.g. for use via Ajax. Uses Resources/Private/Templates/News/List.json for rendering.
+
 plugin.tx_news.settings.ajaxPageType = {$plugin.tx_news.settings.ajaxPageType}
 
 [globalVar = GP:type = {$plugin.tx_news.settings.ajaxPageType}]
-plugin.tx_news.settings.format = json
+    plugin.tx_news.settings.format = json
 [global]
 
 // Ajax rendering
