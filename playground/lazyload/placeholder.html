@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Placeholder image in NOSCRIPT tags</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Image Replacement with JavaScript, with fallback</h1>
+    <p>If JavaScript isn't active when this page is loaded, then the image tag in the <code>noscript</code> tag will be loaded.</p>
+    <p>If JavaScript is active, then the image in the <code>noscript</code> won't be fetched unless JavaScript requests it. (This code doesn't load it!)</p>
+    <figure class="image-replacement" data-src="http://brokensquare.com/Code/assets/landscape.jpg" data-width="1400" data-height="933">
+        <noscript><img src="http://brokensquare.com/Code/assets/landscape.jpg" width="1400" height="933" /></noscript>
+    </figure>
+</body>
+
+</html>
