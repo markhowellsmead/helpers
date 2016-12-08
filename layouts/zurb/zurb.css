@@ -1,0 +1,13 @@
+/*
+    CSS for making the code examples nicer.
+    Foundation CSS comes from a CDN.
+ */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    color: #444;
+}
+
+.column, .columns {
+    background: #eeeef6;
+}

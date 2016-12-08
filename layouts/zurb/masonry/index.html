@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example code for a masonry grid using Zurb Foundation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.css">
+    <link rel="stylesheet" href="../zurb.css">
+    <style>
+        .column {
+            padding: 1rem;
+        }
+        .column.text div {
+            background: linear-gradient(#444 75%, #222 100%);
+            color: #eee;
+            padding: 1rem;
+            border-radius: .5rem;
+        }
+        .column.video {
+            background: yellow;
+        }
+        img, iframe {
+            border-radius: .5rem;
+            min-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="expanded row small-up-2 medium-up-4 large-up-6">
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature">
+        </div>
+        <div class="column">
+            <p>This code shows how to implement a Masonry layout using Foundation class names for the grid block width at each breakpoint.</p>
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i2">
+        </div>
+        <div class="column">
+            <img src="http://placehold.it/600x600">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i3">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i4">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i5">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i6">
+        </div>
+        <div class="column">
+            <p>Individual cells can contain anything, really, from an image to a text to a video player.</p>
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i7">
+        </div>
+        <div class="column video">
+            <div class="flex-video widescreen"><iframe width="1024" height="576" src="https://www.youtube.com/embed/XRVD32rnzOw?feature=oembed&amp;hl=en&amp;fs=1&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3&amp;hd=1&amp;vq=hd720&amp;version=3&amp;autohide=1&amp;wmode=opaque&amp;cc=1&amp;hl=en&amp;fs=1&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3&amp;hd=1&amp;vq=hd720&amp;version=3&amp;autohide=1&amp;wmode=opaque&amp;cc=1" frameborder="0" allowfullscreen=""></iframe></div>
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i8">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i9">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/800/900/nature?i10">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/250/100/nature?i11">
+        </div>
+        <div class="column">
+            <img src="http://placehold.it/400x600">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i12">
+        </div>
+        <div class="column text">
+            <div>
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i9">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i1">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/800/384/nature?i6">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i2">
+        </div>
+        <div class="column">
+            <img src="http://placehold.it/400x600">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i4">
+        </div>
+        <div class="column">
+            <img src="http://placehold.it/600x600?i3">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i8">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature?i7">
+        </div>
+        <div class="column">
+            <img src="http://placeimg.com/600/400/nature">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.1.1/masonry.pkgd.min.js"></script>
+    <script>
+    $(window).load(function() {
+
+        $('#container').masonry({
+            itemSelector: '#container > div',
+            stagger: 10
+        });
+
+    });
+    </script>
+</body>
+
+</html>
