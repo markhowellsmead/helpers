@@ -1,0 +1,47 @@
+html,body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.overflow {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.perspective {
+    perspective: 1px;
+    perspective-origin: 50% 0%;
+}
+
+.preserve {
+    transform-style: preserve-3d;
+}
+
+.parallax {
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    height: 4rem;
+}
+
+.parallax-12 {transform: translateX(-50%) translateZ(-1.2px); background-color: rgb(200,200,200)}
+.parallax-10 {transform: translateX(-50%) translateZ(-1.0px); background-color: rgb(180,180,180)}
+.parallax-8 {transform: translateX(-50%) translateZ(-0.8px); background-color: rgb(160,160,160)}
+.parallax-6 {transform: translateX(-50%) translateZ(-0.6px); background-color: rgb(140,140,140)}
+.parallax-4 {transform: translateX(-50%) translateZ(-0.4px); background-color: rgb(120,120,120)}
+.parallax-2 {transform: translateX(-50%) translateZ(-0.2px); background-color: rgb(100,100,100)}
+.parallax-0 {transform: translateX(-50%) translateZ(0px); background-color: rgb(80,80,80)}
+
+.spacer {
+    height: 200vh;
+}
