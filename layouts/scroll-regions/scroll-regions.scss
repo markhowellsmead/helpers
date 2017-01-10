@@ -1,0 +1,51 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.inner {
+    max-width: 50rem;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    background: #aaa;
+    position: relative;
+    overflow: hidden;
+}
+
+.inner .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 60%;
+    height: 100vh;
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    &:hover, &:focus, &:active {
+        overflow-y: auto;
+    }
+}
+
+.inner .aside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 60%;
+    width: 40%;
+    height: 100vh;
+    background: #eee;
+    box-sizing: border-box;
+    overflow: hidden;
+    &:hover, &:focus, &:active {
+        overflow-y: auto;
+    }
+}
+
+.scrollwrap {
+    padding: 1rem;
+}
