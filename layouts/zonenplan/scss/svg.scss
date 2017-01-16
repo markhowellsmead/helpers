@@ -1,0 +1,108 @@
+@function makedarker($value){
+	@return mix($value, #000, 65%);
+}
+
+.tx-frpzonemaplibero {
+
+	position: relative;
+    max-width: 1200px;
+    padding-bottom: 56.5%;
+    margin: 0 auto;
+
+	img, svg, .svg-holder {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    bottom: 0;
+	    right: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+
+	.zones.map {
+	    z-index: 1;
+	}
+
+	.zones.clickable {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.svg-holder {
+		&.act {
+
+			background: #b7b7b7;
+
+			.cls-1, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+				&:not(.act) {
+			 	   //stroke: #b7b7b7;
+				}
+			}
+
+			.cls-1:not(.act){
+				fill: makedarker(#aaadaf);
+			}
+			.cls-5:not(.act){
+				fill: makedarker(#90969f);
+			}
+			.cls-9:not(.act){
+				fill: makedarker(#a99428);
+			}
+
+			.cls-1:not(.act){
+				fill: makedarker(#edf0f4);
+			}
+
+			.cls-2:not(.act){
+				fill: makedarker(#e4e8ef);
+			}
+
+			.cls-3:not(.act){
+				fill: makedarker(#dbe0e9);
+			}
+
+			.cls-4:not(.act){
+				fill: makedarker(#cbd3e0);
+			}
+
+			.cls-5:not(.act){
+				fill: makedarker(#c7cfdd);
+			}
+
+			.cls-6:not(.act){
+				fill: makedarker(#fcf7e0);
+			}
+
+			.cls-7:not(.act){
+				fill: makedarker(#f7eaad);
+			}
+
+			.cls-8:not(.act){
+				fill: makedarker(#f1db6f);
+			}
+
+			.cls-9:not(.act){
+				fill: makedarker(#ebcc32);
+			}
+
+			.cls-10:not(.act){
+				fill: makedarker(#e7c257);
+			}
+
+			.cls-11:not(.act){
+				fill: makedarker(#f7eccb);
+			}
+
+			.cls-12:not(.act){
+				fill: makedarker(#f7eccb);
+			}
+
+			.cls-14:not(.act){
+				fill: makedarker(#fff);
+			}
+
+		}
+	}
+}
