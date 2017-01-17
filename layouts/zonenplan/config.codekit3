@@ -24,15 +24,6 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"\/init.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/init-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
 	"\/jquery.rwdImageMaps.min.js": {
 		"ft": 64,
 		"mi": 1,
@@ -57,6 +48,16 @@
 		"oAP": "\/map\/zones.gif",
 		"oF": 0,
 		"opt": 0
+		},
+	"\/map\/zones.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/map\/zones.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"\/map\/zones_export.png": {
 		"ft": 32768,
@@ -95,7 +96,7 @@
 		"oS": 0
 		},
 	"\/scss\/svg.scss": {
-		"aP": 1,
+		"aP": 0,
 		"bl": 0,
 		"dP": 10,
 		"dS": 0,
@@ -104,7 +105,7 @@
 		"oA": 0,
 		"oAP": "\/scss\/svg.css",
 		"oF": 0,
-		"oS": 3,
+		"oS": 0,
 		"uL": 1
 		}
 	},

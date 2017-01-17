@@ -30,15 +30,9 @@
 
     $('.zoomies').on('click', '.button', function(){
     	if($(this).hasClass('button-in')){
-    		if(zoomStep < 5){
-    			$('.svg-holder').removeClass('step0 step1 step2 step3 step4 step5');
-    			$('.svg-holder').addClass('step' + (++zoomStep));
-    		}
+			$('.svg-holder').addClass('zoomedin');
     	}else if($(this).hasClass('button-out')){
-    		if(zoomStep >0 ){
-    			$('.svg-holder').removeClass('step0 step1 step2 step3 step4 step5');
-    			$('.svg-holder').addClass('step' + (--zoomStep));
-    		}
+            $('.svg-holder').removeClass('zoomedin');
     	}
     });
 
