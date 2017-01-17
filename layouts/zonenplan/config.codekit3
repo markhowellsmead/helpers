@@ -24,6 +24,24 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/init.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/init-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/jquery.panzoom.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/jquery.panzoom.min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/jquery.rwdImageMaps.min.js": {
 		"ft": 64,
 		"mi": 1,
