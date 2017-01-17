@@ -47,6 +47,10 @@
 		pointer-events: auto;
 	}
 
+	[class*="cls-"] {
+		font-family: 'FF Transit W01', sans-serif;
+  	}
+
 	.svg-holder {
 		&.act {
 
