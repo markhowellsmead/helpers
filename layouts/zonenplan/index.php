@@ -15,7 +15,12 @@
     		<?php include 'map/zones_export.svg';?>
     	</div>
 
-        <img class="zones clickable" usemap="#LiberoZoneMap2017_Map" src="map/spacer.gif" width="1200" height="1064" />
+    	<div class="zoomies">
+    		<button class="button button-in">+</button>
+    		<button class="button button-out">-</button>
+    	</div>
+
+<!--         <img class="zones clickable" usemap="#LiberoZoneMap2017_Map" src="map/spacer.gif" width="1200" height="1064" />
         <map name="LiberoZoneMap2017_Map">
             <area shape="poly" alt="" data-type="libero" data-number="100" data-neighbours="101" coords="564,750,531,716,531,673,563,641,609,641,641,675,641,718,624,735,610,750">
             <area shape="poly" alt="" data-type="libero" data-number="101" data-neighbours="100,116,115,114,112,113" coords="539,805,475,741,476,651,539,587,631,587,695,651,694,744,630,806,587,805">
@@ -107,7 +112,7 @@
             <area shape="poly" alt="" data-type="depend" data-number="697" data-neighbours="696,698,177" coords="354,625,291,688,255,650,287,617,342,562,371,590,372,608">
             <area shape="poly" alt="" data-type="libero" data-number="698" data-neighbours="699,697" coords="350,745,321,717,294,692,372,613,371,661,371,747,371,769">
             <area shape="poly" alt="" data-type="libero" data-number="699" data-neighbours="126,112,698" coords="382,895,376,890,375,789,375,651,427,651,427,732,428,792,465,831,392,905">
-        </map>
+        </map> -->
     </div>
 
 

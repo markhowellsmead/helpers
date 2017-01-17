@@ -8,6 +8,12 @@
     max-width: 1200px;
     padding-bottom: 56.5%;
     margin: 0 auto;
+    overflow: hidden;
+
+	.zoomies {
+		position: absolute;
+		z-index: 1;
+	}
 
 	img, svg, .svg-holder {
 	    position: absolute;
@@ -19,15 +25,26 @@
 	    height: 100%;
 	}
 
-	.zones.map {
-	    z-index: 1;
-	}
-
 	.zones.clickable {
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+	}
+
+	.svg-holder {
+		transition: transform 300ms ease-out;
+		&.zoomedin {
+			transform: scale(2);
+		}
+	}
+
+	.svg-holder {
+		pointer-events: none;
+	}
+
+	[id^="zone"] {
+		pointer-events: auto;
 	}
 
 	.svg-holder {
