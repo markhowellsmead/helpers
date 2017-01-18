@@ -1,13 +1,9 @@
 .tx-frpzonemaplibero {
   position: relative;
-  max-width: 1200px;
-  padding-bottom: 56.5%;
+  max-width: 64rem;
   margin: 0 auto;
   overflow: hidden; }
-  .tx-frpzonemaplibero .zoomies {
-    position: absolute;
-    z-index: 1; }
-  .tx-frpzonemaplibero img, .tx-frpzonemaplibero svg, .tx-frpzonemaplibero .svg-holder {
+  .tx-frpzonemaplibero img, .tx-frpzonemaplibero svg {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,7 +17,9 @@
     -ms-user-select: none;
     user-select: none; }
   .tx-frpzonemaplibero .svg-holder {
-    transition: transform 300ms ease-out; }
+    position: relative;
+    transition: transform 300ms ease-out;
+    height: 70vh; }
     .tx-frpzonemaplibero .svg-holder.zoomedin {
       transform: scale(2); }
   .tx-frpzonemaplibero .svg-holder * {

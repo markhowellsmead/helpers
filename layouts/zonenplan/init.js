@@ -1,55 +1,75 @@
-(function($, undefined) {
-    $('img[usemap]').rwdImageMaps();
-})(jQuery);
-
+var svgPanZoom;
 
 (function($, undefined) {
 
-    var zonesSelected = [];
+    var zonesSelected = [], dragFlag = 0;
 
-    // $('svg').on('click', 'polygon, circle, polyline', function(e) {
-    //     e.preventDefault();
-
-    //     var zone = $(this).attr('id');
-
-    //     if(zone){
-    //         this.classList.toggle('act'); // addClass etc doesn't work on SVG
-    //         if (this.classList.contains('act')) {
-    //             zonesSelected['zone'+zone] = zone;
-    //         } else {
-    //             delete zonesSelected['zone'+zone];
-    //         }
-    //         if (Object.keys(zonesSelected).length > 0) {
-    //             $('.svg-holder').addClass('act');
-    //         } else {
-    //             $('.svg-holder').removeClass('act');
-    //         }
-    //     }
-    // });
-
-    $('.zoomies').on('click', '.button', function(){
-    	if($(this).hasClass('button-in')){
-			$('.svg-holder').addClass('zoomedin');
-    	}else if($(this).hasClass('button-out')){
-            $('.svg-holder').removeClass('zoomedin');
-    	}
+    $('svg').on('mousedown', 'polygon, circle, polyline', function() {
+        dragFlag = 0;
     });
 
-    $(document).ready(function() {
+    $('svg').on('mousemove', 'polygon, circle, polyline', function() {
+        dragFlag = 1;
+    });
 
-        var $svg = $('#zonenplan-svg'),
-            $container = $('.tx-frpzonemaplibero');
+    $('svg').on('mouseup', 'polygon, circle, polyline', function() {
+        if (dragFlag === 0) {
+            $(this).trigger('regionClicked');
+        }
+        dragFlag = 0;
+    });
 
-        $svg.panzoom({
-            $zoomIn: $container.find(".zoom-in"),
-            $zoomOut: $container.find(".zoom-out"),
-            $zoomRange: $container.find(".zoom-range"),
-            startTransform: 'scale(1.5)',
-            increment: 0.1,
-            minScale: 1,
-            contain: 'invert'
+    $('svg').on('regionClicked', 'polygon, circle, polyline', function(e) {
+        e.preventDefault();
+
+        var zone = $(this).attr('id');
+
+        if (zone) {
+            this.classList.toggle('act'); // addClass etc doesn't work on SVG elements
+            if (this.classList.contains('act')) {
+                zonesSelected['zone' + zone] = zone;
+            } else {
+                delete zonesSelected['zone' + zone];
+            }
+            if (Object.keys(zonesSelected).length > 0) {
+                $('.svg-holder').addClass('act');
+            } else {
+                $('.svg-holder').removeClass('act');
+            }
+        }
+    });
+
+        var zoneplan = svgPanZoom('#zonenplan-svg', {
+            zoomEnabled: true,
+            controlIconsEnabled: false,
+            fit: true,
+            center: true,
+            dblClickZoomEnabled: false,
+            zoomScaleSensitivity: 1,
+            minZoom: 1,
+            maxZoom: 6,
+            beforePan: function(oldPan, newPan) {
+                var gutterWidth = $(window).width() * 2 / 3,
+                    gutterHeight = $(window).height() * 2 / 3,
+                    sizes = this.getSizes(),
+                    leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
+                    rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom),
+                    topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
+                    bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom);
+
+                var customPan = {};
+                customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x));
+                customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y));
+
+                return customPan;
+            }
         });
 
-    });
+        $('.zoomies').on('click.zoomies', '.zoom-in', function() {
+            zoneplan.zoomIn();
+        });
+        $('.zoomies').on('click.zoomies', '.zoom-out', function() {
+            zoneplan.zoomOut();
+        });
 
 })(jQuery);

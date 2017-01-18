@@ -5,17 +5,11 @@
 .tx-frpzonemaplibero {
 
 	position: relative;
-    max-width: 1200px;
-    padding-bottom: 56.5%;
+    max-width: 64rem;
     margin: 0 auto;
     overflow: hidden;
 
-	.zoomies {
-		position: absolute;
-		z-index: 1;
-	}
-
-	img, svg, .svg-holder {
+	img, svg {
 	    position: absolute;
 	    top: 0;
 	    left: 0;
@@ -33,7 +27,9 @@
 	}
 
 	.svg-holder {
+		position: relative;
 		transition: transform 300ms ease-out;
+		height: 70vh;
 		&.zoomedin {
 			transform: scale(2);
 		}
