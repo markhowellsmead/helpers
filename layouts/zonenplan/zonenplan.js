@@ -29,8 +29,8 @@ var svgPanZoom, Hammer;
         var zone = $(this).attr('id');
 
         if (zone) {
-            this.classList.toggle('act'); // addClass etc doesn't work on SVG elements
-            if (this.classList.contains('act')) {
+            this.classList.toggle('selected'); // addClass etc doesn't work on SVG elements
+            if (this.classList.contains('selected')) {
                 zonesSelected['zone' + zone] = zone;
             } else {
                 delete zonesSelected['zone' + zone];
