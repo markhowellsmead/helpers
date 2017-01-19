@@ -7,14 +7,14 @@
 		"uuidString": "ECE28A39-156E-421F-BD85-25636E2F761E"
 		}
 	],
-"creatorBuild": "25479",
+"creatorBuild": "25504",
 "files": {
 	"\/hammer.min.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 1,
-		"oAP": "\/hammer.min-min.js",
-		"oF": 1,
+		"oA": 0,
+		"oAP": "\/hammer.min.min.js",
+		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
@@ -23,24 +23,6 @@
 		"oA": 2,
 		"oAP": "\/index.php",
 		"oF": 0
-		},
-	"\/init-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/init-min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/init.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/init-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
 		},
 	"\/map\/spacer.gif": {
 		"ft": 4194304,
@@ -120,9 +102,18 @@
 	"\/svg-pan-zoom.min.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 1,
-		"oAP": "\/svg-pan-zoom.min-min.js",
-		"oF": 1,
+		"oA": 0,
+		"oAP": "\/svg-pan-zoom.min.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/zonenplan.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/zonenplan.min.js",
+		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		}
@@ -783,6 +774,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"no-await-in-loop": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-bitwise": {
 			"active": 0,
 			"optionString": "{'allow': ['~'], 'int32Hint': true}"
@@ -1322,6 +1317,10 @@
 		"prefer-const": {
 			"active": 0,
 			"optionString": "{'destructuring': 'any', 'ignoreReadBeforeAssign': false}"
+			},
+		"prefer-destructuring": {
+			"active": 0,
+			"optionString": "{'array': true, 'object': true}, {'enforceForRenamedProperties': false}"
 			},
 		"prefer-numeric-literals": {
 			"active": 0,
@@ -1870,7 +1869,7 @@
 		},
 	"languageDefaultsJS": {
 		"autoOutputAction": 0,
-		"autoOutputPathFilenamePattern": "*-min.js",
+		"autoOutputPathFilenamePattern": "*.min.js",
 		"autoOutputPathRelativePath": "\/min",
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",

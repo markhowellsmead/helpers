@@ -40,7 +40,7 @@
 
     <script src="svg-pan-zoom.min.js"></script>
     <script src="hammer.min.js"></script>
-    <script src="init.js"></script>
+    <script src="zonenplan.js"></script>
 
 </body>
 
