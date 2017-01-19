@@ -17,11 +17,9 @@
 
     #zonenplan-svg {
         width: 100%;
-        height: 100%;
-    }
-
-    .svg-pan-zoom_viewport {
-        transition: transform 300ms ease-in-out;
+        height: auto;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
     }
     </style>
 </head>
@@ -41,6 +39,7 @@
     </div>
 
     <script src="svg-pan-zoom.min.js"></script>
+    <script src="hammer.min.js"></script>
     <script src="init.js"></script>
 
 </body>

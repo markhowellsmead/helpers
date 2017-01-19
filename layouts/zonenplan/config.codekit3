@@ -9,6 +9,15 @@
 	],
 "creatorBuild": "25479",
 "files": {
+	"\/hammer.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/hammer.min-min.js",
+		"oF": 1,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/index.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -29,24 +38,6 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/init-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/jquery.panzoom.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/jquery.panzoom.min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/jquery.rwdImageMaps.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/jquery.rwdImageMaps.min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -125,6 +116,15 @@
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
+		},
+	"\/svg-pan-zoom.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/svg-pan-zoom.min-min.js",
+		"oF": 1,
+		"sC": 1,
+		"tS": 0
 		}
 	},
 "hooks": [
