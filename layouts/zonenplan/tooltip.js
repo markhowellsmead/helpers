@@ -6,7 +6,6 @@
         e.stopPropagation();
         var matches = e.currentTarget.id.match(/zone([0-9]+)/);
         if(matches){
-            var $el = $(e.currentTarget);
             $tooltip.text(replaceMarkers(tooltiptext, { 0: matches[1] })).show();
         }
     }

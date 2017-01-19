@@ -126,13 +126,6 @@ var svgPanZoom, Hammer;
 
     var zonenplan = svgPanZoom('#zonenplan-svg', options);
 
-    // $(window).resize(function(){
-    //     zonenplan.resetZoom();
-    //     zonenplan.resize();
-    //     zonenplan.updateBBox();
-    //     zonenplan.contain();
-    // });
-
     $('.zoomies').on('click.zoomies', '.zoom-in', function() {
         zonenplan.zoomIn();
     });
