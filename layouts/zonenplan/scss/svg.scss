@@ -1,125 +1,133 @@
-@function makedarker($value){
-	@return mix($value, #000, 65%);
+@function makedarker($value) {
+    @return mix($value, #000, 65%);
+}
+
+.container {
+    max-width: 85rem;
+    margin: 0 auto;
+}
+
+.tooltip {
+    position: absolute;
 }
 
 .tx-frpzonemaplibero {
 
-	position: relative;
-    max-width: 64rem;
-    margin: 0 auto;
+    position: relative;
     overflow: hidden;
 
-	img, svg {
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    bottom: 0;
-	    right: 0;
-	    width: 100%;
-	    height: 100%;
-	}
+    img,
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-	.zones.clickable {
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
+    [class*="cls-"] {
+        font-family: 'FF Transit W01', sans-serif;
+    }
 
-	.svg-holder {
-		position: relative;
-		transition: transform 300ms ease-out;
-		height: 70vh;
-		&.zoomedin {
-			transform: scale(2);
-		}
-	}
+    .zones.clickable {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
-	.svg-holder * {
-		pointer-events: none;
-	}
+    #zonenplan-svg {
+        width: 100%;
+        height: 100%;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        :not([id^="zone"]) {
+            pointer-events: none;
+        }
+        [id^="zone"] {
+            pointer-events: auto;
+            cursor: pointer;
+        }
+    }
 
-	[id^="zone"] {
-		pointer-events: auto;
-	}
-
-	[class*="cls-"] {
-		font-family: 'FF Transit W01', sans-serif;
-  	}
-
-	.svg-holder {
-		&.act {
-
-			background: #b7b7b7;
-
-			.cls-1, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
-				&:not(.act) {
-			 	   //stroke: #b7b7b7;
-				}
-			}
-
-			.cls-1:not(.act){
-				fill: makedarker(#aaadaf);
-			}
-			.cls-5:not(.act){
-				fill: makedarker(#90969f);
-			}
-			.cls-9:not(.act){
-				fill: makedarker(#a99428);
-			}
-
-			.cls-1:not(.act){
-				fill: makedarker(#edf0f4);
-			}
-
-			.cls-2:not(.act){
-				fill: makedarker(#e4e8ef);
-			}
-
-			.cls-3:not(.act){
-				fill: makedarker(#dbe0e9);
-			}
-
-			.cls-4:not(.act){
-				fill: makedarker(#cbd3e0);
-			}
-
-			.cls-5:not(.act){
-				fill: makedarker(#c7cfdd);
-			}
-
-			.cls-6:not(.act){
-				fill: makedarker(#fcf7e0);
-			}
-
-			.cls-7:not(.act){
-				fill: makedarker(#f7eaad);
-			}
-
-			.cls-8:not(.act){
-				fill: makedarker(#f1db6f);
-			}
-
-			.cls-9:not(.act){
-				fill: makedarker(#ebcc32);
-			}
-
-			.cls-10:not(.act){
-				fill: makedarker(#e7c257);
-			}
-
-			.cls-11:not(.act){
-				fill: makedarker(#f7eccb);
-			}
-
-			.cls-12:not(.act){
-				fill: makedarker(#f7eccb);
-			}
-
-			.cls-14:not(.act){
-				fill: makedarker(#fff);
-			}
-
-		}
-	}
+    .svg-holder {
+        position: relative;
+        transition: transform 300ms ease-out;
+        height: 0;
+		padding-bottom: 1021/1330 * 100%;
+        // * {
+        //     pointer-events: none;
+        // }
+        &.act {
+            background: #b7b7b7;
+            // .cls-1,
+            // .cls-10,
+            // .cls-11,
+            // .cls-12,
+            // .cls-13,
+            // .cls-14,
+            // .cls-2,
+            // .cls-3,
+            // .cls-4,
+            // .cls-5,
+            // .cls-6,
+            // .cls-7,
+            // .cls-8,
+            // .cls-9 {
+            //     &:not(.act) {
+            //         stroke: #b7b7b7;
+            //     }
+            // }
+            .cls-1:not(.act) {
+                fill: makedarker(#aaadaf);
+            }
+            .cls-5:not(.act) {
+                fill: makedarker(#90969f);
+            }
+            .cls-9:not(.act) {
+                fill: makedarker(#a99428);
+            }
+            .cls-1:not(.act) {
+                fill: makedarker(#edf0f4);
+            }
+            .cls-2:not(.act) {
+                fill: makedarker(#e4e8ef);
+            }
+            .cls-3:not(.act) {
+                fill: makedarker(#dbe0e9);
+            }
+            .cls-4:not(.act) {
+                fill: makedarker(#cbd3e0);
+            }
+            .cls-5:not(.act) {
+                fill: makedarker(#c7cfdd);
+            }
+            .cls-6:not(.act) {
+                fill: makedarker(#fcf7e0);
+            }
+            .cls-7:not(.act) {
+                fill: makedarker(#f7eaad);
+            }
+            .cls-8:not(.act) {
+                fill: makedarker(#f1db6f);
+            }
+            .cls-9:not(.act) {
+                fill: makedarker(#ebcc32);
+            }
+            .cls-10:not(.act) {
+                fill: makedarker(#e7c257);
+            }
+            .cls-11:not(.act) {
+                fill: makedarker(#f7eccb);
+            }
+            .cls-12:not(.act) {
+                fill: makedarker(#f7eccb);
+            }
+            .cls-14:not(.act) {
+                fill: makedarker(#fff);
+            }
+        }
+    }
 }

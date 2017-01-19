@@ -1,3 +1,5 @@
+// @codekit-prepend 'tooltip.js';
+
 var svgPanZoom, Hammer;
 
 (function($, undefined) {
@@ -6,15 +8,15 @@ var svgPanZoom, Hammer;
     	zonesSelected = [],
         dragFlag = 0;
 
-    $map.on('mousedown', 'polygon, circle, polyline', function() {
+    $map.on('mousedown touchstart', 'polygon, circle, polyline', function() {
         dragFlag = 0;
     });
 
-    $map.on('mousemove', 'polygon, circle, polyline', function() {
+    $map.on('mousemove touchmove', 'polygon, circle, polyline', function() {
         dragFlag = 1;
     });
 
-    $map.on('mouseup', 'polygon, circle, polyline', function() {
+    $map.on('mouseup touchend', 'polygon, circle, polyline', function() {
         if (dragFlag === 0) {
             $(this).trigger('regionClicked');
         }
@@ -101,7 +103,7 @@ var svgPanZoom, Hammer;
         fit: true,
         center: true,
         dblClickZoomEnabled: false,
-        zoomScaleSensitivity: 0.1,
+        zoomScaleSensitivity: 0.5,
         minZoom: 1,
         maxZoom: 6,
         customEventsHandler: eventsHandler,
@@ -123,6 +125,13 @@ var svgPanZoom, Hammer;
     };
 
     var zonenplan = svgPanZoom('#zonenplan-svg', options);
+
+    // $(window).resize(function(){
+    //     zonenplan.resetZoom();
+    //     zonenplan.resize();
+    //     zonenplan.updateBBox();
+    //     zonenplan.contain();
+    // });
 
     $('.zoomies').on('click.zoomies', '.zoom-in', function() {
         zonenplan.zoomIn();

@@ -8,24 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="scss/svg.css">
     <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/a456ab86-d739-49a5-9e89-503da5081412.css"/>
-    <style>
-    .svg-holder {
-        max-width: 64rem;
-        margin: 0 auto;
-        height: 70vh;
-    }
-
-    #zonenplan-svg {
-        width: 100%;
-        height: auto;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    </style>
 </head>
 
 <body>
-    <div class="tx-frpzonemaplibero">
+
+<div class="container">
+    <div class="tx-frpzonemaplibero" data-tooltiptext="Klicken um Zone {0} hinzuzufügen.">
 
         <div class="zoomies">
             <button class="zoom-in">Zoom In</button>
@@ -37,10 +25,11 @@
     	</div>
 
     </div>
+</div>
 
-    <script src="svg-pan-zoom.min.js"></script>
-    <script src="hammer.min.js"></script>
-    <script src="zonenplan.js"></script>
+<script src="svg-pan-zoom.min.js"></script>
+<script src="hammer.min.js"></script>
+<script src="zonenplan.min.js"></script>
 
 </body>
 

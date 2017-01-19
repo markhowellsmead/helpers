@@ -24,40 +24,6 @@
 		"oAP": "\/index.php",
 		"oF": 0
 		},
-	"\/map\/spacer.gif": {
-		"ft": 4194304,
-		"iS": 1137,
-		"oA": 0,
-		"oAP": "\/map\/spacer.gif",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/map\/zones.gif": {
-		"ft": 4194304,
-		"iS": 52527,
-		"oA": 0,
-		"oAP": "\/map\/zones.gif",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/map\/zones.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/map\/zones.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/map\/zones_export.png": {
-		"ft": 32768,
-		"iS": 102747,
-		"oA": 0,
-		"oAP": "\/map\/zones_export.png",
-		"oF": 0,
-		"opt": 0
-		},
 	"\/map\/zones_export.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -67,14 +33,6 @@
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
-		},
-	"\/map\/zones_preview.png": {
-		"ft": 32768,
-		"iS": 102747,
-		"oA": 0,
-		"oAP": "\/map\/zones_preview.png",
-		"oF": 0,
-		"opt": 0
 		},
 	"\/scss\/svg.css": {
 		"aP": 0,
@@ -108,11 +66,29 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/tooltip.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/tooltip.min.js",
+		"oF": 1,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/zonenplan.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/zonenplan.min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/zonenplan.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/zonenplan.min.min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
