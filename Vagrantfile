@@ -16,6 +16,9 @@ Vagrant.configure("2") do |config|
     config.vm.define 'helpers' do |node|
         node.vm.hostname = 'helpers.dev'
         node.vm.network :private_network, ip: '192.168.33.254'
+        node.vm.network "public_network"
+        node.hostmanager.aliases = %w(www.helpers.dev helpers.mhm)
+        node.vm.network "forwarded_port", guest: 80, host: 33254
     end
 
     config.vm.provision "shell", inline: <<-SHELL
