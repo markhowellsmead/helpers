@@ -51,25 +51,26 @@
     <script>
     var loader = document.querySelector('#loader');
     if (loader) {
-/**
- * Wait 1 second, then 
- */
-        
+
         var loaderTimeout = setTimeout(function() {
             loader.style.display = 'block';
             window.console && window.console.info('Loader displayed');
         }, 1000);
+
+        var go = function(hypeDocument, element, event) {
+            clearTimeout(loaderTimeout);
+            loader.style.display = 'none';
+            window.console && window.console.info('Playing scene');
+            hypeDocument.showSceneNamed('Unbenannte Szene');
+            return false;
+        };
 
         if ('HYPE_eventListeners' in window === false) {
             window.HYPE_eventListeners = Array();
         }
         window.HYPE_eventListeners.push({
             'type': 'HypeDocumentLoad',
-            'callback': function(hypeDocument, element, event) {
-                clearTimeout(loaderTimeout);
-                loader.style.display = 'none';
-                window.console && window.console.info(event.type + ': loader hidden');
-            }
+            'callback': go
         });
     }
     </script>
