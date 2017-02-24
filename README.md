@@ -11,4 +11,4 @@ Enjoy!
 
 Wiki
 ----
-See https://github.com/mhmli/helpers/wiki for a Wiki, which was started in September 2016.
+See https://github.com/markhowellsmead/helpers/wiki for a Wiki, which was started in September 2016.
