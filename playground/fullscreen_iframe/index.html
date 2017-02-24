@@ -16,6 +16,19 @@
 m=s.getElementsByTagName(o)[0];x.async=1;x.src=g;m.parentNode.insertBefore(x,m);x.onload=a
 })(window,document,'script','https://code.jquery.com/jquery-2.2.4.min.js','jQuery', function(){
 
+	var currentElement;
+
+	// var FShandler = function(){
+	// 	if (currentElement && currentElement.parent() && !(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement)){
+	// 		currentElement.parent().removeClass('act');
+	// 	}
+	// };
+
+	// document.addEventListener("fullscreenchange", FShandler);
+	// document.addEventListener("webkitfullscreenchange", FShandler);
+	// document.addEventListener("mozfullscreenchange", FShandler);
+	// document.addEventListener("MSFullscreenChange", FShandler);
+
 	var launchIntoFullscreen = function(element) {
 		if(element.requestFullscreen) {
 			element.requestFullscreen();
@@ -27,7 +40,6 @@ m=s.getElementsByTagName(o)[0];x.async=1;x.src=g;m.parentNode.insertBefore(x,m);
 			element.msRequestFullscreen();
 		}
 	};
-
 
     $('[data-fullscreeniframe]').on('click.gofullscreen', function(e){
     	e.preventDefault();
