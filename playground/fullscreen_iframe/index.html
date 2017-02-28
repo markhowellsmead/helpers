@@ -16,40 +16,9 @@
 m=s.getElementsByTagName(o)[0];x.async=1;x.src=g;m.parentNode.insertBefore(x,m);x.onload=a
 })(window,document,'script','https://code.jquery.com/jquery-2.2.4.min.js','jQuery', function(){
 
-	var currentElement;
-
-	// var FShandler = function(){
-	// 	if (currentElement && currentElement.parent() && !(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement)){
-	// 		currentElement.parent().removeClass('act');
-	// 	}
-	// };
-
-	// document.addEventListener("fullscreenchange", FShandler);
-	// document.addEventListener("webkitfullscreenchange", FShandler);
-	// document.addEventListener("mozfullscreenchange", FShandler);
-	// document.addEventListener("MSFullscreenChange", FShandler);
-
-	var launchIntoFullscreen = function(element) {
-		if(element.requestFullscreen) {
-			element.requestFullscreen();
-		} else if(element.mozRequestFullScreen) {
-			element.mozRequestFullScreen();
-		} else if(element.webkitRequestFullscreen) {
-			element.webkitRequestFullscreen();
-		} else if(element.msRequestFullscreen) {
-			element.msRequestFullscreen();
-		}
-	};
-
-    $('[data-fullscreeniframe]').on('click.gofullscreen', function(e){
-    	e.preventDefault();
-    	var target = $(this).data('fullscreeniframe');
-    	if(target && $(this).parent().find($(target)).length === 1){
-	    	e.preventDefault();
-    		var currentElement = $(this).parent().find($(target));
-			launchIntoFullscreen(currentElement.get(0));
-    	}
-    });
+	$.getScript('fullscreen-iframe.js', function(){
+		$('[data-fullscreeniframe]').fullScreenIframe();
+	});
 
 });
 </script>
