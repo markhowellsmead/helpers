@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+    <title>Animation Schwingfest test responsive</title>
+    <style>
+    html {
+        height: 100%;
+    }
+    
+    body {
+        background-color: #FDFEFE;
+        margin: 0;
+        height: 100%;
+    }
+    </style>
+    <!-- copy these lines to your document head: -->
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width" />
+    <link href='https://fonts.googleapis.com/css?family=Neuton:300&subset=latin' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Neuton:700&subset=latin' rel='stylesheet' type='text/css'>
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- end copy -->
+</head>
+
+<body>
+    <!-- copy these lines to your document: -->
+    <div id="animationschwingfesttestresponsive_hype_container" style="margin:auto;position:relative;width:100%;height:100%;overflow:hidden;" aria-live="polite">
+        <div id="loader" style="display: none; position : fixed; z-index: -100; background-image : url('loader/loader.gif'); background-color: none; opacity : 0.4; background-repeat : no-repeat; background-position : center; left : 0; bottom : 0; right : 0; top : 0;">
+        </div>
+        <script type="text/javascript" charset="utf-8" src="Animation%20Schwingfest%20test%20responsive.hyperesources/animationschwingfesttestresponsive_hype_generated_script.js?35888"></script>
+    </div>
+    <!-- end copy -->
+    <script>
+    var loader = document.querySelector('#loader');
+    if (loader) {
+
+        var loaderTimeout = setTimeout(function() {
+            loader.style.display = 'block';
+            window.console && window.console.info('Loader displayed');
+        }, 1000);
+
+        var go = function(hypeDocument, element, event) {
+            clearTimeout(loaderTimeout);
+            loader.style.display = 'none';
+            window.console && window.console.info('Playing scene');
+            hypeDocument.showSceneNamed('Unbenannte Szene');
+            return false;
+        };
+
+        if ('HYPE_eventListeners' in window === false) {
+            window.HYPE_eventListeners = Array();
+        }
+        window.HYPE_eventListeners.push({
+            'type': 'HypeDocumentLoad',
+            'callback': go
+        });
+    }
+    </script>
+</body>
+
+</html>
