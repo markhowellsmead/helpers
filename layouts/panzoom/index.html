@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panzoom example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+      .panzoom-parent { border: 2px solid #333; }
+      .panzoom-parent .panzoom { border: 2px dashed #666; }
+    .panzoom-parent {
+        max-width: 64rem;
+        margin: 0 auto;
+        height: 70vh;
+    }
+    
+    .panzoom {
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <section id="inverted-contain">
+        <h1>Inverted containment within the parent element (to hide what's behind)</h1>
+        <div class="panzoom-parent">
+            <img class="panzoom" src="../zonenplan/map/zones_export.svg" width="1024" height="908">
+        </div>
+        <div class="buttons">
+            <button class="zoom-in">Zoom In</button>
+            <button class="zoom-out">Zoom Out</button>
+            <input type="range" class="zoom-range">
+            <button class="reset">Reset</button>
+        </div>
+    </section>
+    <script src="jquery.panzoom.js"></script>
+    <script>
+    (function($, undefined) {
+
+        $('.panzoom').panzoom({
+            $zoomIn: $('.zoom-in'),
+            $zoomOut: $('.zoom-out'),
+            $zoomRange: $('.zoom-range'),
+            $reset: $('.reset'),
+            startTransform: 'scale(1)',
+            minScale: 1,
+            maxScale: 6,
+            contain: 'invert',
+        });
+
+    })(jQuery);
+    </script>
+</body>
+
+</html>
