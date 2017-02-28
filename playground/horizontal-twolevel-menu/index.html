@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2-level horizontal menu</title>
+    <style>
+	.page-navigation {
+		display: block;
+	}
+	.page-navigation ul {
+		margin: 0;
+		padding: 0;
+	}
+	.page-navigation li {
+		display: inline-block;
+		position: relative;
+		margin: 0 0 0 1rem;
+		padding: 0;
+	}
+	.page-navigation li:first-child {
+		margin-left: 0;
+	}
+	.page-navigation .act .lvl-1 {
+		position: absolute;
+		top: 1.5rem;
+		white-space: nowrap;
+		font-size: .8em;
+	}
+
+	a {
+		color: black;
+	}
+
+	.act > a, .cur > a {
+		color: red;
+	}
+    </style>
+</head>
+
+<body>
+    <nav class="mod page-navigation">
+        <ul>
+            <li><a href="/de/home/">Home</a></li>
+            <li><a href="/de/wer/">Über uns</a></li>
+            <li class="act"><a href="/de/systemfamilie/" class="act cur ">RCS-Systemfamilie</a>
+                <ul class="lvl-1">
+                    <li><a href="/de/systemfamilie/rcs-dispo/">RCS dispo</a></li>
+                    <li><a href="/de/systemfamilie/rcs-adl/">RCS adl</a></li>
+                    <li class="cur"><a href="/de/systemfamilie/rcs-hot/">RCS hot</a></li>
+                    <li><a href="/de/systemfamilie/rcs-alea/">RCS alea</a></li>
+                </ul>
+            </li>
+            <li><a href="/de/projekte/">Referenz Projekte</a></li>
+            <li><a href="/de/download/">Download</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>
