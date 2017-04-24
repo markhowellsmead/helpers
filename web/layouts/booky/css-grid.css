@@ -1,0 +1,118 @@
+* {
+    max-width: 100%;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: #555;
+}
+
+body {
+    font-size: 1rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+.icon {
+    display: inline-flex;
+}
+
+.icon .fa {
+    margin-right: .5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+img {
+    height: auto;
+}
+
+figure {
+    margin: 1rem 0;
+}
+
+.container {
+    position: relative;
+    max-width: 90rem;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.nav-main {
+    padding: .5rem 1rem;
+    background: linear-gradient(transparent, #f6f6f6);
+}
+
+@supports (display: grid) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, [row] auto);
+        grid-template-areas: "header-left header-right" "media text";
+    }
+    @media screen and (min-width: 48rem) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            grid-template-rows: auto 1fr;
+            grid-column-gap: 2rem;
+            justify-content: stretch;
+            align-items: flex-start;
+            padding: 0 1rem;
+        }
+        .page-header {
+            grid-area: header-right;
+            margin: 1rem 0;
+            padding: 1rem 0;
+            min-height: 8rem;
+            display: flex;
+            align-items: flex-end;
+        }
+        .page-header .page-title {
+            margin: .3rem 0;
+        }
+        .nav-main {
+            grid-area: header-left;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: 1rem 0;
+            padding: 1rem 0;
+            min-height: 8rem;
+        }
+        .nav-main-inner {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-basis: 100%;
+        }
+        .nav-main-inner > * {
+            margin: 0 1rem;
+        }
+        .nav-main-inner >:first-child {
+            margin-right: auto;
+        }
+        .gallery {
+            grid-area: media;
+        }
+        .text {
+            grid-area: text;
+        }
+    }
+    @media screen and (min-width: 80rem) {
+        .container {
+            grid-column-gap: 4rem;
+        }
+    }
+}

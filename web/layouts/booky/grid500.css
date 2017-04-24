@@ -1,0 +1,114 @@
+/*
+$global-margin: 1rem !default;
+$global-padding: 1rem !default;
+$white: #fafafa !default;
+$black: #1a1a1a !default;
+$small-font-size: .8rem !default;
+
+.mod.grid500 {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    flex-basis: 100%;
+    margin: 0 auto $global-margin;
+    &::after {
+        content: '';
+        flex-grow: 999999999;
+        min-width: 20%;
+        order: 999999999;
+    }
+    .grid-item {
+        margin: .0625rem;
+        background-color: #f0f0f0;
+        position: relative;
+        &:hover .caption {
+            opacity: 1;
+        }
+        @media screen and (min-width: 64rem) {
+            margin: .125rem;
+        }
+    }
+    .uncollapse {
+        // Stop layout collapsing before the images have loaded
+        display: block;
+        background-color: #f0f0f0;
+    }
+    .caption {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        z-index: 1;
+        background: rgba($black, .75);
+        color: $white;
+        padding: $global-padding / 2;
+        font-size: $small-font-size;
+        transition: opacity 200ms ease-in;
+        opacity: 0;
+
+        &:hover & {
+            opacity: 1;
+        }
+    }
+    .image {
+        position: absolute;
+        vertical-align: bottom;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+*/
+
+.mod.grid500 {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  flex-basis: 100%;
+}
+.mod.grid500::after {
+  content: '';
+  flex-grow: 999999999;
+  min-width: 20%;
+  order: 999999999;
+}
+.mod.grid500 .grid-item {
+  margin: .0625rem;
+  background-color: #f0f0f0;
+  position: relative;
+}
+.mod.grid500 .grid-item:hover .caption {
+  opacity: 1;
+}
+@media screen and (min-width: 64rem) {
+  .mod.grid500 .grid-item {
+    margin: .125rem;
+  }
+}
+.mod.grid500 .uncollapse {
+  display: block;
+  background-color: #f0f0f0;
+}
+.mod.grid500 .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(26, 26, 26, 0.75);
+  color: #fafafa;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  transition: opacity 200ms ease-in;
+  opacity: 0;
+}
+.mod.grid500 .caption:hover .mod.grid500 .caption {
+  opacity: 1;
+}
+.mod.grid500 .image {
+  position: absolute;
+  vertical-align: bottom;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
