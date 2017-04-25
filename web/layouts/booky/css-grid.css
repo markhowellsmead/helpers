@@ -57,14 +57,13 @@ figure {
 
 @supports (display: grid) {
     .container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr minmax(1fr, 45rem);
         grid-template-rows: repeat(2, [row] auto);
         grid-template-areas: "header-left header-right" "media text";
     }
     @media screen and (min-width: 48rem) {
         .container {
             display: grid;
-            grid-template-columns: 1fr 1.25fr;
             grid-template-rows: auto 1fr;
             grid-column-gap: 2rem;
             justify-content: stretch;
