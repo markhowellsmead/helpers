@@ -7,6 +7,8 @@
 
     <title>Booky layout with CSS Grid</title>
 
+    <script type='text/javascript' src='https://permanenttourist.ch/wp-includes/js/jquery/jquery.1.12.4.js'></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="css-grid.css" rel="stylesheet">
     <link href="grid500.css" rel="stylesheet">
@@ -45,6 +47,14 @@
                 <img src="https://permanenttourist.ch/wp-content/uploads/2008/12/20081228_DSC_9874-720x482.jpg" alt="Test" class="image" />
                 <figcaption class="caption">A single image</figcaption>
             </figure>
+
+            <div class="media-map">
+                <h5 class="section-title">Geographic information</h5>
+                <div class="content">
+                    <div id="mediaMapSmall" class="atom googlemap small map-small flood-parent" data-map="detail" data-lat="46.719008333333" data-lon="7.7491666666667" data-overlaytext="View this location in Google Earth"></div>
+                </div>
+            </div>
+
             <div class="gallery mod grid500">
                 <figure class="grid-item" data-postid="22862" style="flex-grow:150.62761506276;flex-basis:301.25523012552px;"> <i class="uncollapse" style="padding-bottom:66.388888888889%"></i> <a href="https://permanenttourist.ch/photo/22862"><img class="image" data-original="https://permanenttourist.ch/wp-content/uploads/2013/05/20130523_DSCF1456-720x478.jpg" alt="Loch Rannoch, Scotland" scale="0" src="https://permanenttourist.ch/wp-content/uploads/2013/05/20130523_DSCF1456-720x478.jpg" style="display: block;"><figcaption class="caption">Loch Rannoch, Scotland</figcaption></a> </figure>
                 <figure class="grid-item" data-postid="22860" style="flex-grow:150.62761506276;flex-basis:301.25523012552px;"> <i class="uncollapse" style="padding-bottom:66.388888888889%"></i> <a href="https://permanenttourist.ch/photo/22860"><img class="image" data-original="https://permanenttourist.ch/wp-content/uploads/2013/05/20130511_DSCF0777-720x478.jpg" alt="Loch Linnhe, Scotland" scale="0" src="https://permanenttourist.ch/wp-content/uploads/2013/05/20130511_DSCF0777-720x478.jpg" style="display: block;"><figcaption class="caption">Loch Linnhe, Scotland</figcaption></a> </figure>
@@ -90,6 +100,10 @@
             </div>
         </nav>
     </div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd2xvaomkryB3frWackKfzxkMAukkDJsI"></script>
+    <script type="text/javascript" src="maps.js"></script>
+
 </body>
 
 </html>

@@ -55,6 +55,23 @@ figure {
     background: linear-gradient(transparent, #f6f6f6);
 }
 
+.flood-parent {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+.media-map, .media-map .content {
+    margin: 1rem 0;
+}
+
+.media-map .content {
+    position: relative;
+    height: 0;
+    padding-bottom: 66.66666667%;
+
+}
+
 @supports (display: grid) {
     .container {
         grid-template-columns: 1fr minmax(1fr, 45rem);
