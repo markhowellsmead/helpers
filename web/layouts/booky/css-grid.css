@@ -103,8 +103,12 @@ figure {
         .nav-main-inner >:first-child {
             margin-right: auto;
         }
-        .gallery {
+        .media {
             grid-area: media;
+        }
+        .media .grid500 {
+            margin-left: -0.125rem;
+            margin-right: -0.125rem;
         }
         .text {
             grid-area: text;
