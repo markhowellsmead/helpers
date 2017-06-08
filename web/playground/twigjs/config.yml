@@ -1,0 +1,8 @@
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to distribution folder
+  dist: "dist"  
+
+  copyjavascript:
+    - "bower_components/jquery/dist/jquery.min.js"
+    - "bower_components/twigjs-bower/twig/twig.min.js"
