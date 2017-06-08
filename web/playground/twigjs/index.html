@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twig JS test</title>
+	<script src="http://bankslm.mark.dev.cubetech.ch/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
+	<script src="/bower_components/twigjs-bower/twig/twig.min.js"></script>
+</head>
+<body>
+
+	<p>This code uses TwigJS - a Bower dependency – to render a piece of HTML which is defined in a &lt;script type="text/template"&gt; tag.</p>
+
+	<script id="card_template" type="text/template">
+	  <div class="card">
+	  	<h1 class="card-title">{{ title }}</h1>
+	  	{% for person in persons %}
+		<p>Person number {{ loop.index }} is called {{ person }}.</p>
+	  	{% endfor %}
+	  </div>
+	</script>
+
+	<script>
+	(function($){
+
+		var template = Twig.twig({
+		    id: "card",
+		    data: $('#card_template').html()
+		});
+
+		var output = template.render({
+	    	title: 'Hello World',
+	    	persons: [ 'Pascal', 'Mark', 'Sven' ]
+		});
+
+		$('body').append(output);
+
+
+
+	})(jQuery);
+	</script>
+
+</body>
+</html>
