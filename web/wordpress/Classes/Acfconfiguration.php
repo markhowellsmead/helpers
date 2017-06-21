@@ -10,11 +10,15 @@ namespace AUTHOR_NAMESPACE\PLUGIN_NAMESPACE;
  * mhm 17.6.2017
  *
  * Initial creation:
- * First create the field group in the backend. Then export the configuration as a JSON file.
- * Once the JSON file is created and saved in the correct folder, delete the field group from 
- * the standard ACF interface. Then activate the plugin and use the “synchronization” function
- * to load the configuration from the plugin. From then on, any changes made to the field group 
- * will be saved back to the JSON file in the plugin.
+ * Create the field group manually in the backend. 
+ * Export the configuration as a JSON file. (File name e.g. acf-export-2017-06-21.json)
+ * Delete the field group from the standard ACF interface. 
+ * Activate the plugin and use the ACF “synchronization” function to load the configuration from the plugin.
+ * Save the ACF field group once, so that a group file (e.g. group_594a54b48db20.json) is created in the plugin folder.
+ * Delete the original acf-export-2017-06-21.json file.
+ *
+ * Saving changes back to the group file
+ * Subsequent changes to the field group in the ACF admin tool will be saved back to the correct group file automatically.
  *
  * Usage:
  * Put this file in the subfolder Classes in your plugin.
