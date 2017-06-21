@@ -57,7 +57,7 @@ class Acfconfiguration {
      * Load all ACF JSON file contents from the specified folder.
      */
     private function getAcfConfig(){
-        $files = @scandir($this->acf_json_path);
+        $files = preg_grep('/^([^.])/', @scandir($this->acf_json_path)); // ignore OSX hidden files
         if($files){
             foreach($files as $file){
                 if(is_file(trailingslashit($this->acf_json_path) . $file)){
