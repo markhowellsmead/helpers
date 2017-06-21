@@ -1,5 +1,7 @@
 <?php
 
+namespace AUTHOR_NAMESPACE\PLUGIN_NAMESPACE;
+
 /*
  * Class for implementation in a class-based WordPress plugin
  * Allows ACF to read data from a JSON file in the plugin (subpath Configuration/AcfJson)
@@ -13,6 +15,19 @@
  * the standard ACF interface. Then activate the plugin and use the “synchronization” function
  * to load the configuration from the plugin. From then on, any changes made to the field group 
  * will be saved back to the JSON file in the plugin.
+ *
+ * Usage:
+ * Put this file in the subfolder Classes in your plugin.
+ * Replace the namespace at the top of this file with your own plugin's namespace.
+ * Add the following code to the plugin's run() function.
+ * Replace AUTHOR_NAMESPACE\PLUGIN_NAMESPACE in the following code with the appropriate namespace for your plugin.
+
+@require_once __DIR__ . '/Acfconfiguration.php';
+if(class_exists('AUTHOR_NAMESPACE\PLUGIN_NAMESPACE\Acfconfiguration')){
+    $acfconfiguration = new Acfconfiguration();
+    $acfconfiguration->run();
+}
+
 */
 
 class Acfconfiguration {
