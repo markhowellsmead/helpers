@@ -37,13 +37,15 @@ class Acfconfiguration {
      * Load all ACF JSON file contents from the specified folder.
      */
     private function getAcfConfig(){
-        $files = scandir($this->acf_json_path);
-        foreach($files as $file){
-            if(is_file(trailingslashit($this->acf_json_path) . $file)){
-                $json_contents = @json_decode(file_get_contents(trailingslashit($this->acf_json_path) . $file));
-                if( $json_contents && isset( $json_contents->key ) ){
-                    $this->acf_config[ $json_contents->key ] = $json_contents;
-                    $this->acf_config[ $json_contents->key ]->json_file_path = trailingslashit($this->acf_json_path) . $file;
+        $files = @scandir($this->acf_json_path);
+        if($files){
+            foreach($files as $file){
+                if(is_file(trailingslashit($this->acf_json_path) . $file)){
+                    $json_contents = @json_decode(file_get_contents(trailingslashit($this->acf_json_path) . $file));
+                    if( $json_contents && isset( $json_contents->key ) ){
+                        $this->acf_config[ $json_contents->key ] = $json_contents;
+                        $this->acf_config[ $json_contents->key ]->json_file_path = trailingslashit($this->acf_json_path) . $file;
+                    }
                 }
             }
         }
