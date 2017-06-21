@@ -18,6 +18,7 @@
 class Acfconfiguration {
 
     private $acf_json_path = '';
+    private $acf_config = array();
 
     public function __construct(){
 
