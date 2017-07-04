@@ -28,8 +28,12 @@
 
 			options = $.extend({}, $.fn.ctNewsSlider.defaults, options);
 
+			var sliderWrapper = $('<div class="ct-news-slider"></div>');
+			$(this).before(sliderWrapper);
+			$(this).appendTo(sliderWrapper);
+
 			var destroySlider = function () {
-				$('.slider-control', sliderContainer).remove();
+				$('.slider-control', sliderWrapper).remove();
 				clearTimeout(timeout);
 				$('html').removeClass('news-slider-is--active');
 			};
@@ -40,10 +44,10 @@
 			 */
 			var slide = function (direction) {
 				if (direction === 'next') {
-					nextElement = $('.slider-item.active', sliderContainer).removeClass('active').next('.grid-item');
+					nextElement = $('.slider-item.active', sliderWrapper).removeClass('active').next('.grid-item');
 
 					if (nextElement.length === 0) {
-						$('.slider-item', sliderContainer).first().addClass('active');
+						$('.slider-item', sliderWrapper).first().addClass('active');
 					} else {
 						nextElement.addClass('active');
 					}
@@ -52,39 +56,39 @@
 					nextElement = $('.slider-item.active').removeClass('active').prev('.grid-item');
 
 					if (nextElement.length === 0) {
-						$('.slider-item', sliderContainer).last().addClass('active');
+						$('.slider-item', sliderWrapper).last().addClass('active');
 					} else {
 						nextElement.addClass('active');
 					}
 
 				}
-				$('.counter', sliderContainer).text($('.slider-item.active', sliderContainer).index() + '/' + sliderCount);
-				sliderContainer.height(firstElement.outerHeight());
+				$('.counter', sliderWrapper).text($('.slider-item.active', sliderWrapper).index() + '/' + sliderCount);
+				sliderWrapper.height(firstElement.outerHeight());
 			};
 
 			/**
 			 * Initialize slider
 			 */
 			var initSlider = function () {
-				$('.slider-control', sliderContainer).remove();
+				$('.slider-control', sliderWrapper).remove();
 				firstElement.addClass('active');
 				timeout = setTimeout(function () {
-					sliderContainer.height(firstElement.outerHeight());
+					sliderWrapper.height(firstElement.outerHeight());
 
-					sliderContainer.after('<div class="slider-control"><span class="slider-prev icon-cti-angle-right"></span><span class="counter">1/' + sliderCount + '</span><span class="slider-next icon-cti-angle-right"></span></div>');
+					sliderWrapper.append('<div class="slider-control"><span class="slider-prev icon-cti-angle-right"></span><span class="counter">1/' + sliderCount + '</span><span class="slider-next icon-cti-angle-right"></span></div>');
 
-					$('.slider-prev', sliderContainer).on('click', function () {
+					$('.slider-prev', sliderWrapper).on('click', function () {
 						slide('prev');
 					});
 
-					$('.slider-next', sliderContainer).on('click', function () {
+					$('.slider-next', sliderWrapper).on('click', function () {
 						slide('next');
 					});
 				}, 200);
 
 				if (sliderCount === 1) {
 					slides.addClass('active');
-					sliderContainer.height(firstElement.outerHeight());
+					sliderWrapper.height(firstElement.outerHeight());
 				}
 				$('html').addClass('news-slider-is--active');
 			};
@@ -96,7 +100,7 @@
 				if (($(window).width() !== width || $(window).height() !== height) || initialized === false) {
 					if (sliderCount > 1) {
 						clearTimeout(timeout);
-						if ($(window).width() < keyBreakpoint) {
+						if ($(window).width() < options.keyBreakpoint) {
 							initSlider();
 						} else {
 							destroySlider();
