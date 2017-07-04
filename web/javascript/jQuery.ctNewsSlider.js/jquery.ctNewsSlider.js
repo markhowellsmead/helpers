@@ -3,9 +3,13 @@
 	/**
 	 * Extends the jQuery function object with a news slider
 	 * Usage (on e.g. document ready): 
-	 * $('.builder-partial .js-masonry').ctNewsSlider(); 
+	 * $('.ct-news-slider').ctNewsSlider(); 
 	 * or
-	 * $('.builder-partial .js-masonry').ctNewsSlider({ keyBreakpoint: 640 });
+	 * $('.ct-news-slider').ctNewsSlider({ keyBreakpoint: 640 });
+	 *
+	 * HTML for outer = UL.ct-news-slider
+	 * HTML for individual slide = LI.slider-item
+	 * 
 	 * mhm since 4.7.2017
 	 */
 	$.extend($.fn, {
