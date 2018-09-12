@@ -18,6 +18,7 @@ class Widgets
 	{
 		add_action('widgets_init', [$this, 'unregisterWidgets'], 11);
 	}
+
 	public function unregisterWidgets()
 	{
 		unregister_widget('WP_Widget_Pages');
