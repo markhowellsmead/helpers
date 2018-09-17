@@ -1,12 +1,12 @@
 <?php
 
-namespace Cubetech\Theme\Packages;
+namespace MarkHowellsMead\Theme\Packages;
 
 /**
  * Funky stuff for login and registration process
  * Relies on the ThemeOptions Package and the Members plugin.
  *
- * @author Mark Howells-Mead <mark@cubetech.ch>
+ * @author Mark Howells-Mead <mark@permanenttourist.ch>
  * @version 1.0
  */
 class LoginAndRegistration
