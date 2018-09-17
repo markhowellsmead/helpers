@@ -1,6 +1,6 @@
 <?php
 
-namespace Cubetech\Theme\Widgets;
+namespace MarkHowellsMead\Theme\Widgets;
 
 use Timber\Timber;
 
