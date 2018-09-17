@@ -24,7 +24,7 @@
 
                 var map = new mapboxgl.Map({
                     container: 'mapbox', // DIV id
-                    style: 'mapbox://styles/cubetech/cjhu8o09d0k4y2qmgahp7hmmp',
+                    style: 'mapbox://styles/permanenttourist/cjhu8o09d0k4y2qmgahp7hmmp',
                     scrollZoom: false,
                     zoom: 7,
                     showZoom: true,
