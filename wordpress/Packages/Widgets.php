@@ -1,10 +1,10 @@
 <?php
-namespace Cubetech\Theme\Packages;
+namespace MarkHowellsMead\Theme\Packages;
 
 /**
  * General Widget stuff
  *
- * @author Mark Howells-Mead <mark@cubetech.ch>
+ * @author Mark Howells-Mead <mark@permanenttourist.ch>
  * @version 1.0
  */
 class Widgets
