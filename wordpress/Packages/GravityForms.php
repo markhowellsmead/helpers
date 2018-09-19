@@ -1,6 +1,6 @@
 <?php
 
-namespace Cubetech\Theme\Packages;
+namespace MarkHowellsMead\Theme\Packages;
 
 /**
  * Configuration for Gravity Forms
