@@ -7,7 +7,7 @@
 <button class="primary button with--inline-icon with--add-icon"><i></i><span>Button text</span></button>
 ```
 
-``scss
+```scss
 .button {
 	&.with--inline-icon {
 		display: flex;
