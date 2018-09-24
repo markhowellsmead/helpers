@@ -1,0 +1,67 @@
+/**
+  * https://www.fgruber.ch/
+  */
+
+body {
+  background-color: #eee;
+  width: 100%;
+  overflow: hidden;
+}
+
+@keyframes scrollup {
+    0%   {transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateY(0px);}
+    100% {transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateY(-800px);}
+}
+
+#perspectiveContainer {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateY(-800px);
+    height: 1000px;
+    animation-name: scrollup;
+    animation-timing-function: linear;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.card {
+  background-image: url('https://unsplash.it/275/195');
+  background-color: white;
+  height: 210px;
+  margin: 5px;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 0.2s;
+  box-shadow: -5px 5px 5px 3px rgba(0,0,0,0.3);
+}
+
+.card .thumbnail {
+  transition: all 0.2s;
+  padding: 0px;
+  border: 0px;
+  z-index: 101;
+}
+
+.hoverInfo {
+  transition: all 0.2s;
+  opacity: 0;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgba(244,35,52,0.9);
+}
+
+.card:hover {
+  transform: translateZ(40px) rotateX(-5deg);
+  box-shadow: -50px 50px 30px rgba(0,0,0,0.2);
+  border: 2px solid #f42334;
+}
+
+.card:hover .hoverInfo {
+ opacity: 1;
+}
