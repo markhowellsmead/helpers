@@ -22,9 +22,10 @@ class Plugin
         register_activation_hook(__FILE__, array($this, 'flushRewriteRules'));
         add_action('after_switch_theme', array($this, 'flushRewriteRules'));
 
-        add_action('init', array($this, 'rewriteRules'));
-        add_filter('query_vars', array($this, 'customQueryVariables'));
-        add_action('parse_request', array($this, 'handleDownload'), 10, 1);
+        add_action('init', [$this, 'rewriteRules']);
+		add_filter('query_vars', [$this, 'customQueryVariables'], 10, 1);
+		add_action('parse_query', [$this, 'handleDownload'], 10, 1);
+    
     }
 
     public function flushRewriteRules()
