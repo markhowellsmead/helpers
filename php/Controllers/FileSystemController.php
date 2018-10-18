@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * File system controller
+ * Mainly for use with WordPress
+ * This collection since 18.10.2018
+ */
+
 namespace Mhm\Theme\Controller;
 
 class FileSystemController {
@@ -15,5 +21,13 @@ class FileSystemController {
       exit;
     }
   }
+
+	private static function ensureFolderExists()
+	{
+		self::$folders = wp_upload_dir();
+		if (!is_dir(self::$folders['path'])) {
+			mkdir(self::$folders['path'], 0755, true);
+		}
+	}
 
 }
