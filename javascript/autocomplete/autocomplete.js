@@ -29,13 +29,18 @@ function autocomplete(input_field, field_data) {
 				for (var iterator = 0; iterator < field_data.length; iterator++) {
 
 						/*check if the item starts with the same letters as the text field value:*/
-						if (field_data[iterator].substr(0, field_value.length).toUpperCase() == field_value.toUpperCase()) {
+						/*if (field_data[iterator].substr(0, field_value.length).toUpperCase() == field_value.toUpperCase()) {*/
+
+						/*check if the item contains the input string*/
+						if (field_data[iterator].toUpperCase().indexOf(field_value.toUpperCase()) > -1) {
 
 								/*create a DIV element for each matching element:*/
 								var result_entry = document.createElement('DIV');
 
 								/*make the matching letters bold:*/
-								result_entry.innerHTML = '<strong>' + field_data[iterator].substr(0, field_value.length) + '</strong>';
+								//result_entry.innerHTML = '<strong>' + field_data[iterator].substr(0, field_value.length) + '</strong>';
+
+								result_entry.innerHTML = field_data[iterator].substr(0, field_value.length);
 								result_entry.innerHTML += field_data[iterator].substr(field_value.length);
 
 								/*insert a input field that will hold the current array item's value:*/
