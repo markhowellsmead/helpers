@@ -1,0 +1,14 @@
+html {
+	font-family: var(--font-family);
+	color: var(--body-color);
+	background-color: var(--page-bg);
+}
+
+.toolbar {
+	background-color: var(--toolbar-bg);
+}
+
+figcaption h1 {
+	font-size: 1rem;
+	font-weight: normal;
+}
