@@ -11,29 +11,32 @@
 <form autocomplete="off" action="#">
 	<div class="autocomplete" _style="width:300px;">
 		<input data-autocomplete id="myInput" type="text" name="myCountry" placeholder="Destination">
+		<input data-real id="myCountryID" name="myCountryID" type="text" disabled>
 	</div>
 	<input type="submit">
 </form>
-<script src="autocomplete.js"></script>
+<script src="autocomplete_ajax.js"></script>
 <script>
 	(function($){
 
-		$.ajax({
-			url: 'https://permanenttourist.ch/wp-json/wp/v2/posts',
-			type: 'GET',
-			cache: false,
-			data: {
-				'per_page': 100
-			},
-			dataType: 'json',
-			success: function(response) {
-				var posts = [];
-				for(var i = 0; i < response.length; i++){
-					posts.push(response[i].title.rendered);
-				}
-				autocomplete(document.getElementById('myInput'), posts);
-			}
-		});
+		autocomplete(document.getElementById('myInput'), document.getElementById('myCountryID'));
+
+		// $.ajax({
+		// 	url: 'https://permanenttourist.ch/wp-json/wp/v2/posts',
+		// 	type: 'GET',
+		// 	cache: false,
+		// 	data: {
+		// 		'per_page': 100
+		// 	},
+		// 	dataType: 'json',
+		// 	success: function(response) {
+		// 		var posts = [];
+		// 		for(var i = 0; i < response.length; i++){
+		// 			posts.push(response[i].title.rendered);
+		// 		}
+		// 		autocomplete(document.getElementById('myInput'), posts);
+		// 	}
+		// });
 
 
 	})(jQuery);
