@@ -1,0 +1,9 @@
+:root {
+	--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--body-color: #666;
+	--image-border-color: #fff;
+	--image-bg: #ccc;
+	--page-bg: #f6f6f6;
+	--toolbar-bg: #fff;
+	--width-toolbar: 25%;
+}
