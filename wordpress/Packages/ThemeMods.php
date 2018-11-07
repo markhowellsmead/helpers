@@ -28,7 +28,9 @@ class ThemeMods
 
 	public function acfInit()
 	{
-		acf_update_setting('google_api_key', get_field('google_maps_api_key', 'theme_options'));
+		if (function_exists('get_fields') && function_exists('acf_update_setting')) {
+			acf_update_setting('google_api_key', get_field('google_api_key', 'theme_options'));
+		}
 	}
 
 	/**
@@ -39,8 +41,8 @@ class ThemeMods
 	public function registerOptionsPage()
 	{
 		acf_add_options_page(array(
-			'page_title' => _x('Theme options', 'Theme options page title', 'harris'),
-			'menu_title' => _x('Options', 'Theme options menu label', 'harris'),
+			'page_title' => _x('Theme options', 'Theme options page title', 'THEME_KEY'),
+			'menu_title' => _x('Options', 'Theme options menu label', 'THEME_KEY'),
 			'menu_slug' => 'theme-options',
 			'capability' => 'edit_theme_options',
 			'position' => false,
