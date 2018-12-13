@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temperatures via API</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <ul>
+        <li>Aare, Schönau (<a href="http://aare.schwumm.ch/api/current">Quelle</a>)
+            <ul>
+                <li>Air temperature<span data-bern-air-value></span></li>
+                <li>Water temperature<span data-bern-water-value></span></li>
+            </ul>
+        </li>
+        <li>Tiefenbrunnen, Zürich (<a href="https://tecdottir.herokuapp.com/">Quelle</a>)
+            <ul>
+                <li>Air temperature<span data-zurich-air-value></span></li>
+                <li>Water temperature<span data-zurich-water-value></span></li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+    (function($) {
+        $.ajax({
+            dataType: 'json',
+            url: 'https://tecdottir.herokuapp.com/measurements/tiefenbrunnen',
+            complete: function(obj) {
+                var result = obj.responseJSON.result[obj.responseJSON.result.length - 1];
+                var air = result.values.air_temperature;
+                $('[data-zurich-air-value]').text(': ' + air.value + air.unit);
+                var water = result.values.water_temperature;
+                $('[data-zurich-water-value]').text(': ' + water.value + water.unit);
+            }
+        });
+
+        $.ajax({
+            dataType: 'json',
+            url: 'http://aare.schwumm.ch/api/current',
+            complete: function(obj) {
+                $('[data-bern-air-value]').text(': TBC');
+                $('[data-bern-water-value]').text(': ' + obj.responseJSON.temperature + '°C');
+            }
+        });
+
+    }(jQuery));
+    </script>
+</body>
+
+</html>
