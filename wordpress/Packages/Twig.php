@@ -1,6 +1,6 @@
 <?php
 
-namespace MHM\Theme\Package;
+namespace MarkHowellsMead\Theme\Package;
 
 /**
  * Funky Twig stuff
