@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Maps</title>
+    <!-- API key AIzaSyA9EfNkt6fvNM4aICFLcfHPyAl_Rmxw3-Q is restricted to the helpers.hello domain -->
+    <script type='text/javascript' src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9EfNkt6fvNM4aICFLcfHPyAl_Rmxw3-Q"></script>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+    html, body {
+    	margin: 0;
+    	padding: 0;
+    }
+    .sh__googlemap {
+        display: block;
+        background-color: #000;
+        padding-bottom: 25%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="sh__googlemap" id="sh__googlemap--123456" data-map data-map-lat="43.0412445" data-map-lon="6.1254107" data-map-zoom="10"></div>
+    <script>
+    (function($) {
+
+        var style_desaturated = [{
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "saturation": -85
+            }]
+        }, {
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "saturation": -85
+            }]
+        }, {
+            "elementType": "labels",
+            "stylers": [{
+                "visibility": "simplified"
+            }]
+        }, {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "poi.business",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "poi.park",
+            "elementType": "labels.text",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "road.local",
+            "elementType": "labels",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }];
+
+        $(document).ready(function() {
+
+            $('[data-map]').each(function() {
+
+                var marker_lat = $(this).data('map-lat');
+                var marker_lon = $(this).data('map-lon');
+                var map_zoom = $(this).data('map-zoom') ? $(this).data('map-zoom') : 10;
+
+                if (marker_lat !== false && marker_lon !== false) {
+
+                    var position = new google.maps.LatLng(marker_lat, marker_lon);
+
+                    var map = new google.maps.Map(document.getElementById($(this).attr('id')), {
+                        zoom: map_zoom,
+                        center: position,
+                        disableDefaultUI: true,
+                        scrollwheel: false,
+                        navigationControl: false,
+                        mapTypeControl: false,
+                        scaleControl: false,
+                        draggable: false,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        styles: style_desaturated
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        icon: {
+                            path: google.maps.SymbolPath.CIRCLE,
+                            scale: 14,
+                            strokeColor: '#fff',
+                            strokeWeight: 2,
+                            fillColor: '#c6370e',
+                            fillOpacity: 1
+                        }
+                    });
+
+                    // Set a data attribute, not a data object, so that CSS can see it
+                    $('.overlay', $(this).parent()).addClass('tooltip').attr('data-overlaytext', $(this).data('overlaytext')).attr('title', null);
+                }
+            });
+        });
+
+    })(jQuery);
+    </script>
+</body>
+
+</html>
