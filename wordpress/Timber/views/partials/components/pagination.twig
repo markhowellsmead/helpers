@@ -1,0 +1,56 @@
+{% if posts.pagination.pages is not empty %}
+    <nav class="c-pagination">
+        <ul class="c-pagination__entries">
+            {% if posts.pagination.pages|first and posts.pagination.pages|first.current != true %}
+                <li class="c-pagination__entry c-pagination__entry--first">
+                    <a class="page-navigation" href="{{ posts.pagination.pages|first.link }}"><i class="shticon-chevron-left"></i><i class="shticon-chevron-left"></i><span class="screen-reader-text">{{ _x('First page', 'First page button in post list', 'sht') }}</span></a>
+                </li>
+            {% else %}
+                <li class="c-pagination__entry c-pagination__entry--first is--disabled">
+                    <button disabled><i class="shticon-chevron-left"></i><i class="shticon-chevron-left"></i><span class="screen-reader-text">{{ _x('First page', 'First page button in post list', 'sht') }}</span></button>
+                </li>
+            {% endif %}
+
+            {% if posts.pagination.prev %}
+                <li class="c-pagination__entry c-pagination__entry--prev">
+                    <a class="page-navigation" href="{{ posts.pagination.prev.link }}"><i class="shticon-chevron-left"></i><span class="screen-reader-text">{{ _x('Previous page of posts', 'Previous page button in post list', 'sht') }}</span></a>
+                </li>
+            {% else %}
+                <li class="c-pagination__entry c-pagination__entry--prev btn disabled">
+                    <button disabled>{{ _x('Previous page of posts', 'Previous page button in post list', 'sht') }}</button>
+                </li>
+            {% endif %}
+
+            {% for page in posts.pagination.pages %}
+                {% if page.link %}
+                    <li class="c-pagination__entry">
+                        <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                    </li>
+                {% else %}
+                    <li class="c-pagination__entry c-pagination__entry--current">
+                        <span class="{{ page.class }}">{{ page.title }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if posts.pagination.next %}
+                <li class="c-pagination__entry c-pagination__entry--next">
+                    <a class="page-navigation" href="{{ posts.pagination.next.link }}"><i class="shticon-chevron-right"></i><span class="screen-reader-text">{{ _x('Next page of posts', 'Next page button in post list', 'sht') }}</span></a>
+                </li>
+            {% else %}
+                <li class="c-pagination__entry c-pagination__entry--next disabled">
+                    <button disabled><i class="shticon-chevron-right"></i><span class="screen-reader-text">{{ _x('Next page of posts', 'Next page button in post list', 'sht') }}</span></button>
+                </li>
+            {% endif %}
+            {% if posts.pagination.pages|last and posts.pagination.pages|last.current != true %}
+                <li class="c-pagination__entry c-pagination__entry--last">
+                    <a class="page-navigation" href="{{ posts.pagination.pages|last.link }}"><i class="shticon-chevron-right"></i><i class="shticon-chevron-right"></i><span class="screen-reader-text">{{ _x('Last page of posts', 'Last page button in post list', 'sht') }}</span></a>
+                </li>
+            {% else %}
+                <li class="c-pagination__entry c-pagination__entry--last disabled">
+                    <button disabled><i class="shticon-chevron-right"></i><i class="shticon-chevron-right"></i><span class="screen-reader-text">{{ _x('Last page of posts', 'Last page button in post list', 'sht') }}</span></button>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
