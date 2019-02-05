@@ -1,17 +1,17 @@
-{% set customizer = theme.theme_mod('sht_options') %}
+{% set mods = theme.theme_mod('sht_options') %}
 <address class="c-companyaddress" itemscope itemtype="http://schema.org/LocalBusiness">
   <link itemprop="logo" href="{{ options.custom_logo }}">
   <link itemprop="image" href="{{ options.custom_logo }}">
   <link itemprop="url" href="{{ site.url }}">
-  <div class="c-companyaddress__item" itemprop="name">{{ customizer.company_name }}</div>
+  <div class="c-companyaddress__item" itemprop="name">{{ mods.company_name }}</div>
   <div class="c-companyaddress__item" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-    <div class="c-companyaddress__item" itemprop="streetAddress">{{ customizer.address }}</div>
+    <div class="c-companyaddress__item" itemprop="streetAddress">{{ mods.address }}</div>
     <div class="c-companyaddress__item">
-      <span class="c-companyaddress__iteminline" itemprop="postalCode">{{ customizer.postcode}}</span>
-      <span class="c-companyaddress__iteminline" itemprop="addressLocality">{{ customizer.town }}</span>
+      <span class="c-companyaddress__iteminline" itemprop="postalCode">{{ mods.postcode}}</span>
+      <span class="c-companyaddress__iteminline" itemprop="addressLocality">{{ mods.town }}</span>
     </div>
-    <div class="c-companyaddress__item" itemprop="addressCountry">{{ customizer.country }}</div>
+    <div class="c-companyaddress__item" itemprop="addressCountry">{{ mods.country }}</div>
   </div>
-  <div class="c-companyaddress__item" itemprop="telephone"><a href="{{ customizer.phone|telephone_url }}">{{ customizer.phone }}</a></div>
-  <div class="c-companyaddress__item" itemprop="email"><a href="mailto:{{ customizer.email }}">{{ customizer.email }}</a></div>
+  <div class="c-companyaddress__item" itemprop="telephone"><a href="{{ mods.phone|telephone_url }}">{{ mods.phone }}</a></div>
+  <div class="c-companyaddress__item" itemprop="email"><a href="mailto:{{ mods.email }}">{{ mods.email }}</a></div>
 </address>
