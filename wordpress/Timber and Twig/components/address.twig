@@ -1,17 +1,19 @@
-{% set mods = theme.theme_mod('sht_options') %}
+{# if not yet defined:
+{% set sht_mods = theme.theme_mod('sht_options') %}
+#}
 <address class="c-companyaddress" itemscope itemtype="http://schema.org/LocalBusiness">
   <link itemprop="logo" href="{{ options.custom_logo }}">
   <link itemprop="image" href="{{ options.custom_logo }}">
   <link itemprop="url" href="{{ site.url }}">
-  <div class="c-companyaddress__item" itemprop="name">{{ mods.company_name }}</div>
+  <div class="c-companyaddress__item" itemprop="name">{{ sht_mods.company_name }}</div>
   <div class="c-companyaddress__item" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-    <div class="c-companyaddress__item" itemprop="streetAddress">{{ mods.address }}</div>
+    <div class="c-companyaddress__item" itemprop="streetAddress">{{ sht_mods.address }}</div>
     <div class="c-companyaddress__item">
-      <span class="c-companyaddress__iteminline" itemprop="postalCode">{{ mods.postcode}}</span>
-      <span class="c-companyaddress__iteminline" itemprop="addressLocality">{{ mods.town }}</span>
+      <span class="c-companyaddress__iteminline" itemprop="postalCode">{{ sht_mods.postcode}}</span>
+      <span class="c-companyaddress__iteminline" itemprop="addressLocality">{{ sht_mods.town }}</span>
     </div>
-    <div class="c-companyaddress__item" itemprop="addressCountry">{{ mods.country }}</div>
+    <div class="c-companyaddress__item" itemprop="addressCountry">{{ sht_mods.country }}</div>
   </div>
-  <div class="c-companyaddress__item" itemprop="telephone"><a href="{{ mods.phone|telephone_url }}">{{ mods.phone }}</a></div>
-  <div class="c-companyaddress__item" itemprop="email"><a href="mailto:{{ mods.email }}">{{ mods.email }}</a></div>
+  <div class="c-companyaddress__item" itemprop="telephone"><a href="{{ sht_mods.phone|telephone_url }}">{{ sht_mods.phone }}</a></div>
+  <div class="c-companyaddress__item" itemprop="email"><a href="mailto:{{ sht_mods.email }}">{{ sht_mods.email }}</a></div>
 </address>
