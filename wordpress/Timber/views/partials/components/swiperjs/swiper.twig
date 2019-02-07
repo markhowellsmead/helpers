@@ -1,0 +1,12 @@
+{% if entries is not empty %}
+	<div class="c-swiper">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				{% for entry in entries|slice(0, 6) %}
+					<div class="swiper-slide"><img src="{{ Image(entry).src('original')|resize(386*2, 386*2) }}"></div>
+				{% endfor %}
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+{% endif %}
