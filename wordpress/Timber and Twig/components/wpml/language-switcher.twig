@@ -17,7 +17,7 @@ mark@sayhello.ch 13.2.2019
 					{% if language.active %}
 						<span class="c-menu__entrytext">{{ language.translated_name }}</span>
 					{% else %}
-						<a class="c-menu__link" href="{{ language.url }}">{{ language.translated_name }}</a>
+						<a class="c-menu__link" href="{{ language.url }}">{{ language.native_name }}</a>
 					{% endif %}
 				</li>
 			{% endfor %}
