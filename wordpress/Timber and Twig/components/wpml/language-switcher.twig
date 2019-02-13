@@ -1,8 +1,8 @@
 {# 
-	Language switcher menu for WPML
-	Text view
-	mark@sayhello.ch 13.2.2019
- #}
+Language switcher menu for WPML
+Text view
+mark@sayhello.ch 13.2.2019
+#}
 
 {% import _self as self %}
 
@@ -25,7 +25,3 @@
 	</div>
 
 {% endif %}
-
-{% macro country_flag(language) %}
-	<img src="{{ language.country_flag_url }}" alt="{{ language.translated_name }}" />
-{% endmacro %}
