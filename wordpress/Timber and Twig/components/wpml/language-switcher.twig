@@ -1,0 +1,31 @@
+{# 
+	Language switcher menu for WPML
+	Text view
+	mark@sayhello.ch 13.2.2019
+ #}
+
+{% import _self as self %}
+
+{% set icl_languages = fn('icl_get_languages', 'skip_missing=0') %}
+
+{% if icl_languages|length > 1 %}
+
+	<div class="c-menu--languages">
+		<ul class="c-menu__entries">
+			{% for language in icl_languages %}
+				<li class="c-menu__entry">
+					{% if language.active %}
+						<span class="c-menu__entrytext">{{ language.translated_name }}</span>
+					{% else %}
+						<a class="c-menu__link" href="{{ language.url }}">{{ language.translated_name }}</a>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+{% endif %}
+
+{% macro country_flag(language) %}
+	<img src="{{ language.country_flag_url }}" alt="{{ language.translated_name }}" />
+{% endmacro %}
