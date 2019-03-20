@@ -14,6 +14,23 @@ class GravityForms
 	{
 		add_action('gform_enqueue_scripts_1', [$this, 'dequeueGravityFormsCSS'], 11);
 		add_filter('gform_ajax_spinner_url', [$this, 'replaceGravityFormsSpinner'], 10);
+		add_filter('gform_countries', [$this, 'countries'], 10, 0);
+	}
+	
+	/**
+	 * Provide a custom list of available countries in a dropdown
+	 * This example uses the shipping countries from WooCommerce.
+	 *
+	 * @return array	An array of countries for selection.
+	 */
+	public function countries()
+	{
+		$countries = [];
+		foreach (array_values(WC()->countries->get_shipping_countries()) as $country) {
+			$countries[] = $country;
+		}
+
+		return $countries;
 	}
 
 	public function dequeueGravityFormsCSS()
