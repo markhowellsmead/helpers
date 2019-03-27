@@ -20,7 +20,7 @@ class Yoast
     {
         add_action('admin_init', [$this, 'addYoastCap']);
         add_filter('wpseo_manage_options', [$this, 'defineYoastCap']);
-		add_filter('wpseo_metabox_prio', [$this, 'lowerYoastMetaboxPriority'], 10);
+	add_filter('wpseo_metabox_prio', [$this, 'lowerYoastMetaboxPriority'], 10);
     }
 
     /**
