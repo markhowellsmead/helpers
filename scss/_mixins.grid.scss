@@ -1,0 +1,32 @@
+@mixin grid-row() {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+/*
+	Grid column
+	Usage options:
+	.element {
+		@include grid-column(25%);
+	}
+	.element2 {
+		@include grid-column(1/4);
+	}
+	.element3 {
+		@include grid-column(calc(25% - 1rem));
+	}
+ */
+@mixin grid-column($size) {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+
+	@if type-of($size) == 'number' {
+		flex: 0 0 percentage($size);
+		max-width: percentage($size);
+	} @else {
+		flex: 0 0 $size;
+		max-width: $size;
+	}
+}
