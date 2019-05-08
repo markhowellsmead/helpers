@@ -3,8 +3,8 @@
  * and add the count to all specified HTML on the elements which
  * reference the requested post ID.
  * 
- * HTML: <span data-comment-count data-comment-count-postid="12345"></span>
- * JS: $('[data-comment-count]').sh_get_comment_count();
+ * HTML: <span data-comment-count-postid="12345"></span>
+ * JS: $('[data-comment-count-postid]').sh_get_comment_count();
  *
  * Use wp_localize_script in PHP to add a JavaScript object named shCommentCountAPISettings containing
  * - 'root' => esc_url_raw(rest_url())
@@ -22,7 +22,7 @@
 		var setDefaultOptions = function() {
 			return {
 				postIdAttribute: 'data-comment-count-postid',
-				displayCountElement: '[data-comment-count]'
+				displayCountElement: '[data-comment-count-postid]'
 			}
 		};
 
