@@ -83,7 +83,7 @@
 	};
 
 	if (shCommentCountAPISettings) {
-		$('[data-comment-count]').sh_get_comment_count();
+		$('[data-comment-count-postid]').sh_get_comment_count();
 	} else {
 		window.console.error('No settings object (shCommentCountAPISettings) available');
 	}
