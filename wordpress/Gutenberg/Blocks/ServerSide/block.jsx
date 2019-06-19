@@ -9,7 +9,7 @@ wp.blocks.registerBlockType('sht/contact-banner', {
 	edit(props) {
 		return (
 			<ServerSideRender
-				block="sht/contact-banner" // https://heise-medienportal.hello/wp-json/wp/v2/block-renderer/sht/contact-banner?context=edit&lang=de&_locale=user
+				block="sht/contact-banner" // https://site.hello/wp-json/wp/v2/block-renderer/sht/contact-banner?context=edit&lang=de&_locale=user
 				attributes={props.attributes}
 			/>
 		);
