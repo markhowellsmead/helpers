@@ -33,7 +33,7 @@ class Grid500
 			'render_callback' => function ($block, $content = '', $is_preview = false) {
 				$context = Timber::get_context();
 				$context['block'] = $block;
-				$context['block']['data']['entries'] = get_field('entries', $context['block']['id']);
+				$context['block']['data']['images'] = get_field('images', $context['block']['id']);
 				$context['block']['is_edit_mode'] = $is_preview;
 				Timber::render('blocks/grid500.twig', $context);
 			},
