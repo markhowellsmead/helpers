@@ -1,0 +1,30 @@
+{% if block.data.entries is not empty %}
+
+	{% if images | length > 10 %}
+		{% set target_height = 250 %}
+		{% set image_size = 'medium' %}
+	{% else %}
+		{% set target_height = 300 %}
+		{% set image_size = 'large' %}
+	{% endif %}
+
+	{% set unique = fn('uniqid') %}
+	<!-- Grid layout origin: https://github.com/xieranmaya/blog/issues/6 #wowza -->
+	<section class="wp-block-sht-imagegallery{{ block.align is not empty ? ' align' ~ block.align }}">
+		<ul class="wp-block-sht-imagegallery__entries c-grid500">
+			{% for entry in block.data.entries %}
+				{% set source_image_size = entry.sizes[image_size]
+					? image_size
+					: 'medium' %}
+				<li
+					class="wp-block-sht-imagegallery__entry c-grid500__item"
+					style="flex-grow:{{ entry.sizes[source_image_size ~ '-width'] * 100 / entry.sizes[source_image_size ~ '-height'] }};flex-basis:{{ entry.sizes[source_image_size ~ '-width'] * target_height / entry.sizes[source_image_size ~ '-height'] }}px;">
+					<a class="c-grid500__itemlink" href="{{ block.is_edit_mode ? '#' : TimberImage(entry).src('block_full') }}" data-fancybox="gallery-{{ unique }}" data-caption="{{ entry.caption != '' ? entry.caption : entry.title }}">
+						<i class="c-grid500__uncollapse" style="padding-bottom:{{ entry.sizes[source_image_size ~ '-height'] / entry.sizes[source_image_size ~ '-width'] * 100 }}%"></i>
+						<img class="c-grid500__image" src="{{ entry.sizes[source_image_size] }}" alt="{{ entry.alt }}" srcset="{{ entry.srcset }}">
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+{% endif %}
