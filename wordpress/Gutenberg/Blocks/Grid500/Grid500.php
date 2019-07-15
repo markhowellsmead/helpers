@@ -3,7 +3,6 @@
 namespace SayHello\Theme\Block;
 
 use Timber\Timber;
-use Timber\Post as TimberPost;
 
 /**
  * @author Mark Howells-Mead <mark@sayhello.ch>
