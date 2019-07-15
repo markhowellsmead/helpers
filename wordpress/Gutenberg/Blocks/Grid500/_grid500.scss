@@ -1,0 +1,103 @@
+.c-grid500 {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 100%;
+	flex-basis: 100%;
+
+	&::after {
+		content: '';
+		flex-grow: 999999999;
+		min-width: 20%;
+		order: 999999999;
+	}
+
+	&__item {
+		flex-basis: calc(50% - var(--unit-small));
+		margin: var(--unit-small);
+		background-color: c(gray, light3);
+		position: relative;
+
+		&::before {
+			content: '';
+			display: none;
+		}
+
+		&:hover .c-grid500__caption {
+			opacity: 1;
+		}
+
+		@include for-screen-min(tablet) {
+			flex-basis: calc(33.33333333% - var(--unit));
+		}
+
+		@include for-screen-min(laptop_large) {
+			flex-basis: calc(25% - var(--unit));
+		}
+
+	}
+
+	&__uncollapse {
+		// Stop layout collapsing before the images have loaded
+		display: block;
+		background-color: c(gray, light3);
+		padding-bottom: 100%;
+		position: relative;
+		z-index: 0;
+	}
+
+	&__caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		background: rgba(0, 0, 0, .75);
+		color: c(white);
+		padding: var(--unit-small);
+		font-size: var(--font-size-small);
+		opacity: 0;
+		@include transition;
+
+		&:hover & {
+			opacity: 1;
+		}
+	}
+
+	&__image {
+		position: absolute;
+		z-index: 1;
+		vertical-align: bottom;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__flood {
+		position: relative;
+		display: block;
+
+		&:focus {
+			.c-grid500____hovertext,
+			.c-grid500____uncollapse {
+				outline: none;
+			}
+		}
+
+		&:hover {
+			.c-grid500____hovertext {
+				opacity: 1;
+			}
+		}
+
+		&__hovertext {
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			@include transition;
+		}
+
+	}
+}
