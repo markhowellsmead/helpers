@@ -1,0 +1,10 @@
+/*
+ * Import SCSS from the 'swiper' folder in node_modules
+ * Make sure that the node_modules folder is included in your includePaths for gulp-sass
+ *
+ * .pipe(sass({
+ * 		includePaths: ['./node_modules/']
+ * })
+ */
+
+@import 'swiper/src/swiper.scss';
