@@ -34,6 +34,10 @@ class Twig
 			);
 		}));
 
+		$twig->addFilter(new TwigFilter('telephone_url', function ($number) {
+			return sht_theme()->Package->Helpers->telephoneUrl($number);
+		}));
+
 		return $twig;
 	}
 }
