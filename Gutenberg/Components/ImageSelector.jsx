@@ -2,7 +2,7 @@
  * Media selector for Say Hello components
  * mark@sayhello.ch 26.8.2019
  *
- * Usage: 
+ * Usage:
 	<ImageSelector
 		className="c-block__figure"
 		image={this.props.attributes.image}
@@ -56,15 +56,17 @@ export class ImageSelector extends Component {
 												image.id &&
 												<img class="c-imageselector__image" onClick={open} src={image.org[0]} alt={image.alt}/>
 											}
-											<Button onClick={open} isDefault isLarge>
-												{title}
-											</Button>
-											{
-												image.id &&
-												<Button onClick={() => setAttributes({image: {id: false}})} isLink isDestructive isLarge>
-													{_x('Remove image', 'Admin component button text', 'sha')}
+											<div class="c-imageselector__buttons">
+												<Button onClick={open} isDefault isLarge>
+													{title}
 												</Button>
-											}
+												{
+													image.id &&
+													<Button onClick={() => setAttributes({image: {id: false}})} isLink isDestructive isLarge>
+														{_x('Remove image', 'Admin component button text', 'sha')}
+													</Button>
+												}
+											</div>
 										</figure>
 									</Fragment>
 								);
