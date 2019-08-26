@@ -2,11 +2,17 @@
  * Block Title for Say Hello components
  * mark@sayhello.ch 26.8.2019
  *
- * Usage: <BlockTitle
-			tagName="h2"
-			title={attributes.title}
-			setAttributes={setAttributes}
-			/>
+ * Usage:
+	<BlockTitle
+		title={attributes.title}
+		setAttributes={setAttributes}
+		/>
+ * OR:
+	<BlockTitle
+		tagName="h1"
+		title={attributes.title}
+		setAttributes={setAttributes}
+		/>
  */
 
 const { Component } = wp.element;
