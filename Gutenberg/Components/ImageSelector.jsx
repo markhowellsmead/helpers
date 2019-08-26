@@ -13,10 +13,10 @@
 
 const { Button } = wp.components;
 const { Component, Fragment } = wp.element;
-const { MediaUploadCheck, MediaPlaceholder } = wp.blockEditor;
+const { MediaUploadCheck, MediaUpload } = wp.blockEditor;
 const { _x } = wp.i18n;
 
-import { LazyImage, getLazySrcs } from './LazyImage.jsx';
+import { getLazySrcs } from './LazyImage.jsx';
 
 export class ImageSelector extends Component {
 
@@ -35,30 +35,38 @@ export class ImageSelector extends Component {
 
 		return (
 			<Fragment>
-				{
-					image.id &&
-					<Fragment>
-						<LazyImage className={className} image={image} background={false} admin={true}/>
-						{
-							image.id &&
-							<Button onClick={() => setAttributes({image: {id: false}})} isLink isDestructive isLarge>
-								{ _x('Bild entfernen', 'Admin button text', 'sha') }
-							</Button>
-						}
-					</Fragment>
-				}
-				{
-					!image.id &&
-					<MediaUploadCheck>
-						<MediaPlaceholder
-							onSelect={image => {
-								getLazySrcs(image.id, image_format).then(image => setAttributes({image}));
-							}}
-							allowedTypes={allowed_types}
-							value={image.id}
-						/>
-					</MediaUploadCheck>
-				}
+				<MediaUploadCheck>
+					<MediaUpload
+						onSelect={image => {
+							getLazySrcs(image.id, image_format).then(image => setAttributes({image}));
+						}}
+						allowedTypes={allowed_types}
+						value={image.id}
+						render={({open}) => {
+							let title = _x('Bild auswählen', 'Block button text', 'sha');
+							if (image.id) {
+								title = _x('Replace Image', 'Admin component button text', 'sha');
+							}
+							return (
+								<Fragment>
+									{
+										image.id &&
+										<figure className="c-imageselector__figure"><img class="c-imageselector__image" onClick={open} src={image.org[0]} alt={image.alt}/></figure>
+									}
+									<Button onClick={open} isDefault isLarge>
+										{title}
+									</Button>
+									{
+										image.id &&
+										<Button onClick={() => setAttributes({image: {id: false}})} isLink isDestructive isLarge>
+											{_x('Remove image', 'Admin component button text', 'sha')}
+										</Button>}
+
+								</Fragment>
+							);
+						}}
+					/>
+				</MediaUploadCheck>
 			</Fragment>
 		);
 	}
