@@ -1,3 +1,14 @@
+/**
+ * Block Title for Say Hello components
+ * mark@sayhello.ch 26.8.2019
+ *
+ * Usage: <BlockTitle
+			tagName="h2"
+			title={attributes.title}
+			setAttributes={setAttributes}
+			/>
+ */
+
 const { Component } = wp.element;
 const { RichText } = wp.blockEditor;
 const { _x } = wp.i18n;
@@ -12,6 +23,9 @@ export class BlockTitle extends Component {
 	render() {
 
 		const { tagName, title, setAttributes } = this.props;
+		
+		if(!tagName){
+			tagName = 'h2';
 
 		return (
 			<RichText
