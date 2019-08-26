@@ -1,0 +1,18 @@
+@include context-edit() {
+	.c-imageselector {
+		flex: 0 0 100%;
+
+		&__figure {
+			img {
+				margin-bottom: var(--unit-small);
+			}
+
+			&--noimage {
+				display: flex;
+				justify-content: center;
+				padding: var(--unit-medium);
+				background-color: c(gray, light);
+			}
+		}
+	}
+}
