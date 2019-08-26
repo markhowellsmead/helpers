@@ -2,12 +2,13 @@
  * Media selector for Say Hello components
  * mark@sayhello.ch 26.8.2019
  *
- * Usage: <ImageSelector
-	 className="c-block__figure"
-	 image={this.props.attributes.image}
-	 image_format="full"
-	 allowed_types={['image/jpg', 'image/jpeg', 'image/png']}
-	 setAttributes={this.props.setAttributes}
+ * Usage: 
+	<ImageSelector
+		className="c-block__figure"
+		image={this.props.attributes.image}
+		image_format="full"
+		allowed_types={['image/jpg', 'image/jpeg', 'image/png']}
+		setAttributes={this.props.setAttributes}
  />
  */
 
@@ -35,38 +36,42 @@ export class ImageSelector extends Component {
 
 		return (
 			<Fragment>
-				<MediaUploadCheck>
-					<MediaUpload
-						onSelect={image => {
-							getLazySrcs(image.id, image_format).then(image => setAttributes({image}));
-						}}
-						allowedTypes={allowed_types}
-						value={image.id}
-						render={({open}) => {
-							let title = _x('Bild auswählen', 'Block button text', 'sha');
-							if (image.id) {
-								title = _x('Replace Image', 'Admin component button text', 'sha');
-							}
-							return (
-								<Fragment>
-									{
-										image.id &&
-										<figure className="c-imageselector__figure"><img class="c-imageselector__image" onClick={open} src={image.org[0]} alt={image.alt}/></figure>
-									}
-									<Button onClick={open} isDefault isLarge>
-										{title}
-									</Button>
-									{
-										image.id &&
-										<Button onClick={() => setAttributes({image: {id: false}})} isLink isDestructive isLarge>
-											{_x('Remove image', 'Admin component button text', 'sha')}
-										</Button>}
-
-								</Fragment>
-							);
-						}}
-					/>
-				</MediaUploadCheck>
+				<div class="c-imageselector">
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={image => {
+								getLazySrcs(image.id, image_format).then(image => setAttributes({image}));
+							}}
+							allowedTypes={allowed_types}
+							value={image.id}
+							render={({open}) => {
+								let title = _x('Bild auswählen', 'Block button text', 'sha');
+								if (image.id) {
+									title = _x('Replace Image', 'Admin component button text', 'sha');
+								}
+								return (
+									<Fragment>
+										<figure className={`c-imageselector__figure ${!image.id ? 'c-imageselector__figure--noimage' : ''}`}>
+											{
+												image.id &&
+												<img class="c-imageselector__image" onClick={open} src={image.org[0]} alt={image.alt}/>
+											}
+											<Button onClick={open} isDefault isLarge>
+												{title}
+											</Button>
+											{
+												image.id &&
+												<Button onClick={() => setAttributes({image: {id: false}})} isLink isDestructive isLarge>
+													{_x('Remove image', 'Admin component button text', 'sha')}
+												</Button>
+											}
+										</figure>
+									</Fragment>
+								);
+							}}
+						/>
+					</MediaUploadCheck>
+				</div>
 			</Fragment>
 		);
 	}
