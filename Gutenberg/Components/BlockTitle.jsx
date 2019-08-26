@@ -23,9 +23,10 @@ export class BlockTitle extends Component {
 	render() {
 
 		const { tagName, title, setAttributes } = this.props;
-		
+
 		if(!tagName){
 			tagName = 'h2';
+		}
 
 		return (
 			<RichText
