@@ -30,13 +30,14 @@ export class BlockTitle extends Component {
 
 		const { tagName, title, setAttributes } = this.props;
 
-		if(!tagName){
-			tagName = 'h2';
+		let tag_name = tagName;
+		if(!tag_name){
+			tag_name = 'h2';
 		}
 
 		return (
 			<RichText
-				tagName={tagName}
+				tagName={tag_name}
 				format="string" // don't render as HTML
 				allowedFormats={[]} // turn off bold etc
 				placeholder={_x('Geben Sie ein Titel ein', 'Field placeholder', 'sha')}
