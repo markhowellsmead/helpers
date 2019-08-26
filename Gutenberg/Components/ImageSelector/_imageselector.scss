@@ -2,9 +2,30 @@
 	.c-imageselector {
 		flex: 0 0 100%;
 
-		&__figure {
-			img {
+		&__buttons {
+			@include floodlink;
+			background-color: transparent;
+			opacity: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			button {
+				margin-top: var(--unit-small);
 				margin-bottom: var(--unit-small);
+			}
+		}
+
+		&__figure {
+			position: relative;
+
+			&::after {
+				content: '';
+				@include floodlink;
+				z-index: 0;
+				background-color: c(black);
+				opacity: 0.2;
 			}
 
 			&--noimage {
@@ -12,6 +33,10 @@
 				justify-content: center;
 				padding: var(--unit-medium);
 				background-color: c(gray, light);
+
+				&::after {
+					display: none;
+				}
 			}
 		}
 	}
