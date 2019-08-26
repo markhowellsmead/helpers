@@ -45,10 +45,6 @@ export class ImageSelector extends Component {
 							allowedTypes={allowed_types}
 							value={image.id}
 							render={({open}) => {
-								let title = _x('Bild auswählen', 'Block button text', 'sha');
-								if (image.id) {
-									title = _x('Replace Image', 'Admin component button text', 'sha');
-								}
 								return (
 									<Fragment>
 										<figure className={`c-imageselector__figure ${!image.id ? 'c-imageselector__figure--noimage' : ''}`}>
@@ -57,14 +53,22 @@ export class ImageSelector extends Component {
 												<img class="c-imageselector__image" onClick={open} src={image.org[0]} alt={image.alt}/>
 											}
 											<div class="c-imageselector__buttons">
-												<Button onClick={open} isDefault isLarge>
-													{title}
-												</Button>
+												{
+													!image.id &&
+													<Button onClick={open} isDefault isLarge isPrimary>
+														{_x('Bild auswählen', 'Admin component button text', 'sha')}
+													</Button>
+												}
 												{
 													image.id &&
-													<Button onClick={() => setAttributes({image: {id: false}})} isLink isDestructive isLarge>
-														{_x('Remove image', 'Admin component button text', 'sha')}
-													</Button>
+													<Fragment>
+														<Button onClick={open} isDefault isLarge>
+															{_x('Bild ersetzen', 'Admin component button text', 'sha')}
+														</Button>
+														<Button onClick={() => setAttributes({image: {id: false}})} isDefault isSmall>
+															{_x('Bild entfernen', 'Admin component button text', 'sha')}
+														</Button>
+													</Fragment>
 												}
 											</div>
 										</figure>
