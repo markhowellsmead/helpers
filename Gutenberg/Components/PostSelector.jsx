@@ -9,6 +9,13 @@
 		setAttributes={setAttributes}
 		label={_x( 'Blogpost auswählen', 'Select field label', 'sha' )}
 	/>
+	 * 
+	 * Requires a 'post' attribute on the main block
+		* Post IDs are handled as strings in Gutenberg, not as integers!
+		post: {
+			type: 'string',
+			default: ''
+		}
  */
 
 const { SelectControl } = wp.components;
