@@ -3,13 +3,20 @@
  * mark@sayhello.ch 26.8.2019
  *
  * Usage:
-	<ImageSelector
-		className="c-block__figure"
-		image={this.props.attributes.image}
-		image_format="full"
-		allowed_types={['image/jpg', 'image/jpeg', 'image/png']}
-		setAttributes={this.props.setAttributes}
- />
+<ImageSelector
+	attributes={attributes}
+	image={attributes.image}
+	setAttributes={setAttributes}
+	attributeKey="image"
+	allowedTypes={['image/jpg', 'image/jpeg']}
+	imageFormat="full"
+/>
+ * OR
+<ImageSelector
+	attributes={attributes}
+	image={attributes.image}
+	setAttributes={setAttributes}
+/>
  */
 
 const { Button } = wp.components;
@@ -28,11 +35,11 @@ export class ImageSelector extends Component {
 
 	render() {
 
-		const { image, image_format, allowed_types, setAttributes, className } = this.props;
+		const { allowedTypes, attributes, attributeKey, image, imageFormat, setAttributes } = this.props;
 
-		if(!allowed_types) {
-			allowed_types = ['image/jpg', 'image/jpeg', 'image/png'];
-		}
+		const allowed_types = allowedTypes || ['image/jpg', 'image/jpeg'];
+		const attribute_key = attributeKey || 'image';
+		const image_format = imageFormat || 'full';
 
 		return (
 			<Fragment>
@@ -40,10 +47,10 @@ export class ImageSelector extends Component {
 					<MediaUploadCheck>
 						<MediaUpload
 							onSelect={image => {
-								getLazySrcs(image.id, image_format).then(image => setAttributes({image}));
+								getLazySrcs(image.id, image_format).then(image => setAttributes({[attribute_key]: image}));
 							}}
 							allowedTypes={allowed_types}
-							value={image.id}
+							value={[attribute_key].id}
 							render={({open}) => {
 								return (
 									<Fragment>
