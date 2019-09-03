@@ -2,6 +2,8 @@
 
 namespace SayHello\Theme\Vendor;
 
+use stdClass;
+
 class ACFFieldNavMenu extends \acf_field
 {
 	// vars
@@ -21,8 +23,8 @@ class ACFFieldNavMenu extends \acf_field
 	{
 		// vars
 		$this->name = 'nav_menu';
-		$this->label = __('Nav Menu', 'acf');
-		$this->category = __("Relational", 'acf'); // Basic, Content, Choice, etc
+		$this->label = __('Nav Menu', 'sht');
+		$this->category = __('Relational', 'sht'); // Basic, Content, Choice, etc
 		$this->defaults = array(
 			'save_format' => 'id',
 			'allow_null' => -1,
@@ -57,34 +59,34 @@ class ACFFieldNavMenu extends \acf_field
 	{
 		// Create Field Options HTML
 		acf_render_field_setting($field, array(
-			'label'			=> __('Return Value', 'acf'),
+			'label'			=> __('Return Value', 'sht'),
 			'type'		=>	'radio',
 			'name'		=> 'save_format',
 			'layout'	=>	'horizontal',
 			'choices' 	=>	array(
-				'object'	=>	__("Nav Menu Object", 'acf'),
-				'menu'		=>	__("Nav Menu HTML", 'acf'),
-				'id'		=>	__("Nav Menu ID", 'acf')
+				'object'	=>	__('Nav Menu Object', 'sht'),
+				'menu'		=>	__('Nav Menu HTML', 'sht'),
+				'id'		=>	__('Nav Menu ID', 'sht')
 			)
 		));
 
 		$choices = $this->get_allowed_nav_container_tags();
 		$usingMenu = $field['save_format'] === 'menu' ? '*' : '.';
 		acf_render_field_setting($field, array(
-			'label'			=> __('Menu Container', 'acf'),
-			'instructions'	=> __('What to wrap the Menu\'s ul with.<br />Only used when returning HTML' . $usingMenu, 'acf'),
+			'label'			=> __('Menu Container', 'sht'),
+			'instructions'	=> __('What to wrap the Menu\'s ul with.<br />Only used when returning HTML' . $usingMenu, 'sht'),
 			'type'		=>	'select',
 			'name'		=> 'container',
 			'choices' 	=>	$choices
 		));
 
 		acf_render_field_setting($field, array(
-			'label'			=> __('Allow Null?', 'acf'),
+			'label'			=> __('Allow Null?', 'sht'),
 			'type'	=>	'radio',
 			'name'		=> 'allow_null',
 			'choices'	=>	array(
-				1	=>	__("Yes", 'acf'),
-				0	=>	__("No", 'acf'),
+				1	=>	__('Yes', 'sht'),
+				0	=>	__('No', 'sht'),
 			),
 			'layout'	=>	'horizontal',
 		));
@@ -113,7 +115,10 @@ class ACFFieldNavMenu extends \acf_field
 
 		// null
 		if ($field['allow_null']) {
-			echo '<option value=""> - Select - </option>';
+			printf(
+				'<option value="">%s</option>'
+				__('Select', 'sht')
+			);
 		}
 
 		// Nav Menus
