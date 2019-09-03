@@ -116,7 +116,7 @@ class ACFFieldNavMenu extends \acf_field
 		// null
 		if ($field['allow_null']) {
 			printf(
-				'<option value="">%s</option>'
+				'<option value="">%s</option>',
 				__('Select', 'sht')
 			);
 		}
