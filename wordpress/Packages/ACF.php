@@ -13,6 +13,7 @@ class ACF
 	public function run()
 	{
 		add_action('acf/init', [ $this, 'registerFieldGroups' ]);
+		add_filter('acf/get_post_types', [$this, 'filterPostTypes'], 10, 1);
 	}
 
 	public function registerFieldGroups()
@@ -113,5 +114,16 @@ class ACF
 				]
 			);
 		endif;
+	}
+	
+	/**
+	 * Filter the array of post types in appropriate ACF configuration fields
+	 * e.g. add my_custom_post_type
+	 */
+	public function filterPostTypes($post_types)
+	{
+		return array_merge([
+			'my_custom_post_type'
+		], $post_types);
 	}
 }
