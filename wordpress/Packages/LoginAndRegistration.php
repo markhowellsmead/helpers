@@ -63,18 +63,17 @@ class LoginAndRegistration
 		}
 	}
 
-	public function customLoginURL($login_url)
+	public function customLoginUrl($url, $redirect)
 	{
-		$login_page = ThemeOptions::getOption('login_page');
-		if ($login_page && isset($login_page->ID)) {
-			$login_url = get_permalink($login_page->ID);
-			if (strpos($_SERVER['HTTP_REFERER'], 'wp-login.php?action=lostpassword') !== false) {
-				$login_url = add_query_arg('newpassword', 'requested', $login_url);
-				wp_redirect($login_url);
-				exit;
+		$special_pages = get_field('special_pages', 'options');
+		if (isset($special_pages['profile']) && $special_pages['profile'] instanceof WP_Post) {
+			$url = get_permalink($special_pages['profile']->ID);
+			if (strpos($redirect, get_admin_url()) === false && !empty($redirect)) {
+				$url = add_query_arg('redirect_to', $redirect, $url);
 			}
 		}
-		return $login_url;
+
+		return $url;
 	}
 
 	public static function loginForm()
