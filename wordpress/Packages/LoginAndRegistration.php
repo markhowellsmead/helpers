@@ -23,6 +23,9 @@ class LoginAndRegistration
 		add_filter('login_form_top', [$this, 'checkForFail'], 10, 1);
 		add_filter('login_form_top', [$this, 'checkForRegistered'], 10, 1);
 		add_filter('login_form_top', [$this, 'checkForPasswordRequested'], 10, 1);
+		
+		add_filter('shp_editprofile/form_html', [$this, 'loginFormHTML']); // Requires shp_editprofile plugin
+
 	}
 
 	public function checkForFail($html)
@@ -189,5 +192,38 @@ class LoginAndRegistration
 				exit;
 			}
 		}
+	}
+	
+		/**
+	 * Was: <p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Angemeldet bleiben</label></p>
+	 * Output: <p class="login-remember"><input name="rememberme" type="checkbox" id="rememberme" value="forever"><label for="rememberme">Angemeldet bleiben</label></p>
+	 * @param  string $html Former HTML (complete form)
+	 * @return string       Amended HTML (complete form)
+	 */
+
+	public function loginFormHTML($html)
+	{
+		$domDocument = new DOMDocument();
+		$domDocument->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+
+		$xpath = new DOMXpath($domDocument);
+		$remember = $xpath->query('//p[@class="login-remember"]');
+
+		foreach ($remember as $container) {
+			$old_label = $container->childNodes->item(0);
+			$checkbox = $old_label->childNodes->item(0);
+
+			$new_label = $domDocument->createElement('label');
+			$new_label->textContent = $old_label->textContent;
+			$new_label_for = $domDocument->createAttribute('for');
+			$new_label_for->value = 'rememberme';
+			$new_label->appendChild($new_label_for);
+
+			$container->removeChild($old_label);
+			$container->appendChild($checkbox);
+			$container->appendChild($new_label);
+		}
+
+		return $domDocument->saveHtml();
 	}
 }
