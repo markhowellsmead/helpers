@@ -1,3 +1,18 @@
+/**
+ * Hierarchical Post selector for Say Hello components
+ * Requires the “terms” util.
+ * mark@sayhello.ch 6.11.2019
+ *
+ * Usage:
+ <PostTreeSelect
+ 	postType="sht_proissue"
+ 	orderBy="menu_order"
+ 	attributes={attributes}
+ 	setAttributes={setAttributes}
+ 	label={_x( 'Hauptausgabe auswählen', 'Select field label', 'sha' )}
+ />
+ */
+
 const { Spinner, TreeSelect } = wp.components;
 const { select, withSelect } = wp.data;
 const { Component } = wp.element;
