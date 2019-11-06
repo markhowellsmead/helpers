@@ -20,8 +20,7 @@ class PostSelector extends Component {
 		const { attributes, name, selectOptions, setAttributes, label } = this.props;
 		const { post } = attributes;
 
-		if(!selectO
-			ptions) {
+		if(!selectOptions) {
 			return <Spinner />;
 		} else {
 
