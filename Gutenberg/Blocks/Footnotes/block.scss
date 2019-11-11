@@ -1,0 +1,41 @@
+.b-footnotes {
+	counter-reset: section;
+	font-size: .875rem;
+	padding: var(--unit);
+	background-color: c(gray, xlight);
+	@extend .h-stack;
+
+	p::before {
+		counter-increment: section;
+		content: counter(section) ')\00a0\00a0';
+		opacity: .75;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-size: var(--font-size-bodytext);
+	}
+}
+
+@include context-view {
+	.b-footnotes {
+		padding-top: var(--unit-medium);
+		padding-bottom: var(--unit-medium);
+	}
+
+	@media screen {
+		.b-footnote {
+			&:target {
+				background: c(blue, midnight10);
+				padding-left: .5em;
+				padding-right: .5em;
+				outline: 1px solid c(blue, midnight20);
+				margin-left: -.5em;
+			}
+		}
+	}
+}
