@@ -1,0 +1,43 @@
+{
+  "name": "shp_favourites",
+  "description": "Favourites plugin by Say Hello",
+  "main": "gulpfile.babel.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/sayhellogmbh/shp_favourites.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/sayhellogmbh/shp_favourites/issues"
+  },
+  "homepage": "https://bitbucket.org/sayhellogmbh/shp_favourites/#readme",
+  "dependencies": {
+    "@wordpress/dependency-extraction-webpack-plugin": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "babel-loader": "^8.0.5",
+    "gulp": "^4.0.0",
+    "gulp-filter": "^6.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^2.0.1",
+    "webpack-stream": "^5.2.1"
+  },
+  "author": "Say Hello GmbH - https://sayhello.ch",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "start": "gulp"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/preset-react"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "IE 11"
+  ]
+}
