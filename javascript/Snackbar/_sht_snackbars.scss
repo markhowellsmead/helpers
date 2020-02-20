@@ -1,0 +1,44 @@
+.sht_snackbars {
+	position: fixed;
+	z-index: 1972;
+	bottom: var(--unit-medium);
+	left: 50%;
+	transform: translateX(-50%);
+	width: calc(100% - var(--unit));
+	max-width: var(--constraint-narrow);
+	pointer-events: none;
+	@include tablet {
+		text-align: center;
+		font-size: var(--font-size-large);
+	}
+}
+
+.sht_snackbar {
+	@include transition(all, $snackbar_transition);
+	border-radius: var(--radius);
+	padding: var(--unit-small) var(--unit);
+	background: c(primary);
+	color: c(white);
+
+	@include tablet {
+		padding-left: var(--unit-medium);
+		padding-right: var(--unit-medium);
+	}
+
+	&--hidden {
+		opacity: 0;
+	}
+
+	&__message {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: underline;
+		pointer-events: auto;
+		margin-left: auto;
+		text-align: right;
+	}
+}
