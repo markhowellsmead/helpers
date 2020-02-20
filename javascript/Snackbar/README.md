@@ -19,6 +19,8 @@ The example code handles the integration of Snackbar messaging to a "favourite" 
 
 You trigger a snackbar event (e.g. show or hide) using Custom JavaScript Events. The optional `detail` parameter `overwrite` allows you to specify whether or not the existing snackbars should be removed before the new one is added.
 
+(If you need to support IE11, you'll need to add [a polyfill for the CustomEvent object](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill).)
+
     window.dispatchEvent(new CustomEvent('sht_snackbar/show', {
         detail: {
             html: 'Hello world',
