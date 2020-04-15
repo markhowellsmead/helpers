@@ -24,5 +24,11 @@
         <span class="c-share__entrytext"><?php _ex('Via E-Mail teilen', 'Share link text', 'sht');?></span>
       </a>
     </li>
+			<li class="c-share__entry">
+      <a target="_blank" class="c-share__entrylink" href="whatsapp://send?text=<?php echo urlencode(sprintf('%1$s%2$s%2$s%3$s'), get_the_excerpt(), chr(10), get_permalink());?>">
+        <span class="c-share__entryicon"><?php include get_template_directory().'/partials/svg/share-whatsapp.svg';?></span>
+        <span class="c-share__entrytext"><?php _ex('Via WhatsApp teilen', 'Share link text', 'sht');?></span>
+      </a>
+    </li>
   </ul>
 </div>
