@@ -1,3 +1,8 @@
+/**
+ * Customizes all ACF color picker fields in WordPress Admin
+	* mark@sayhello.ch 16.4.2020
+	*/
+
 import domReady from '@wordpress/dom-ready';
 import { select } from '@wordpress/data';
 
