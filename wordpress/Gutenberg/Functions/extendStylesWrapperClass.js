@@ -1,6 +1,6 @@
 /**
  * Takes the post type and slug from the editor BODY class
- * and adds a custom class name to the .editor-styles-wrapper element
+ * and adds a custom class name to the .block-editor-writing-flow element
  * Usage: import './customWrapperClass/index.js';
  *
  * Don't forget to extend the admin BODY class with the 
@@ -32,8 +32,9 @@ domReady(() => {
 		if (matches) {
 			const post_type = matches[1];
 			const post_name = matches[2];
-			document.querySelector('.editor-styles-wrapper').classList.add('editor-styles-wrapper--' + post_type);
-			document.querySelector('.editor-styles-wrapper').classList.add('editor-styles-wrapper--' + post_type + '-' + post_name);
+			document.querySelector('.block-editor-writing-flow').classList.add('block-editor-writing-flow--' + post_type);
+			document.querySelector('.block-editor-writing-flow').classList.add('block-editor-writing-flow--' + post_type + '-' + post_name);
 		}
 	}
 });
+
