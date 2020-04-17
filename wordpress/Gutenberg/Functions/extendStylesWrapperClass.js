@@ -1,6 +1,7 @@
 /**
  * Takes the post type and slug from the editor BODY class
  * and adds a custom class name to the .editor-styles-wrapper element
+ * Usage: import './customWrapperClass/index.js';
  *
  * Don't forget to extend the admin BODY class with the 
  * admin_body_class hook in PHP.
