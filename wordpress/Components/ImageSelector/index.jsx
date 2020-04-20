@@ -1,7 +1,7 @@
 import { Button } from '@wordpress/components';
-import  { Component, Fragment } from '@wordpress/element';
-import  { MediaUploadCheck, MediaUpload } from '@wordpress/block-editor';
-import  { _x } from '@wordpress/i18n';
+import { Component, Fragment } from '@wordpress/element';
+import { MediaUploadCheck, MediaUpload } from '@wordpress/block-editor';
+import { _x } from '@wordpress/i18n';
 
 export default class extends Component {
 	constructor(props) {
@@ -50,12 +50,12 @@ export default class extends Component {
 												</Fragment>
 											)}
 										</div>
-									</div>{' '}
+									</div>
 								</Fragment>
 							);
 						}}
-					/>{' '}
-				</MediaUploadCheck>{' '}
+					/>
+				</MediaUploadCheck>
 			</div>
 		);
 	}
