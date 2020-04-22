@@ -7,6 +7,10 @@ registered in the PHP file and is prefixed with an underscore to indicate that i
 field, which will therefore not automatically appear in the custom post meta fields which 
 used to appear in the classic editor.
 
+## Preview
+
+![Preview of PostColorSelectorPanel](./PostColorSelectorPanel.jpg)
+
 ## Requirements
 
 * WordPress 5.4
