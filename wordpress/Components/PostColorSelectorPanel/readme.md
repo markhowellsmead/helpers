@@ -9,7 +9,7 @@ used to appear in the classic editor.
 
 ## Preview
 
-![Preview of PostColorSelectorPanel](./PostColorSelectorPanel.jpg|width=250)
+![Preview of PostColorSelectorPanel](./PostColorSelectorPanel.jpg)
 
 ## Requirements
 
