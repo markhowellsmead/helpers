@@ -1,3 +1,13 @@
+/**
+ * Usage: 
+	
+	import NavigationIcon from '../icons/navigation.jsx';
+	<NavigationIcon width={20} height={20} fill={'#f00'}/>
+
+* mark@sayhello.ch 23.4.2020
+ * This example icon is from WordPress Gutenberg
+ */
+
 const Icon = ({
 	fill = 'currentColor',
 	width = '24',
