@@ -28,6 +28,7 @@
 		.c-dropdownmenu {
 			&__entries {
 				position: absolute;
+				z-index: 1;
 				min-width: 100%;
 				top: 100%;
 				left: 50%;
