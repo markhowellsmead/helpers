@@ -4,7 +4,7 @@ namespace SayHello\Theme\Vendor;
 
 use Walker_Nav_Menu;
 
-class PrimaryNavWalker extends Walker_Nav_Menu
+class DropDownNavWalker extends Walker_Nav_Menu
 {
 	public function start_lvl(&$output, $depth = 0, $args = null)
 	{
