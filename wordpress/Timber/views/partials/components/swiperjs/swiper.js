@@ -1,14 +1,22 @@
 /**
  * Based on https://idangero.us/swiper/api/
  * Use npm i swiper -save-dev to install the library dependency
- * Note the import path, which works around problems with gulp-uglify
  * https://github.com/markhowellsmead/helpers/wiki/Swiper
 	*
-	* JS path in the Node Module changed in version 5.
+	* Logic simplified in v6 (July 2020)
+	* so that each component can be loaded separately
  */
 
-import Swiper from 'swiper/js/swiper.js';
+import Swiper, { Pagination } from 'swiper';
+Swiper.use([Pagination]);
 
-new Swiper('.swiper', {
-	…
+new Swiper('.wp-block-sht-carousel .swiper-container', {
+	autoHeight: true,
+	loop: true,
+	simulateTouch: false,
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true
+	},
 });
+
