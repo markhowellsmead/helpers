@@ -1,0 +1,67 @@
+:root {
+	--o-backtotop-arrow-color: var(--color-white);
+	--o-backtotop-background-color: var(--color-red);
+	--o-backtotop-offset: var(--unit);
+	--o-backtotop-width: var(--unit-large);
+	--o-backtotop-height: var(--unit-large);
+}
+
+.o-backtotop {
+	position: fixed;
+	z-index: 1972;
+	bottom: var(--o-backtotop-offset);
+	right: var(--o-backtotop-offset);
+	transform: translateY(200%);
+	width: var(--o-backtotop-width);
+	height: var(--o-backtotop-width);
+	opacity: 0;
+	@include transition(all, slow);
+
+	&__target {
+		position: absolute;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		border-radius: 100%;
+		background-color: var(--o-backtotop-background-color);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+
+	&__svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 50%;
+		height: 50%;
+		transform: translate(-50%,-50%);
+		z-index: 1;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+
+		path {
+			fill: var(--o-backtotop-arrow-color);
+		}
+	}
+
+	html.s-has--scrolloffset & {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
