@@ -1,6 +1,6 @@
 <?php
 
-namespace MarkHowellsMead\Theme\Packages;
+namespace MarkHowellsMead\Theme\Package;
 
 /**
  * Registers a Basic theme options page if ACF is installed.
@@ -40,7 +40,7 @@ class ThemeMods
 	 */
 	public function registerOptionsPage()
 	{
-		acf_add_options_page(array(
+		acf_add_options_page([
 			'page_title' => _x('Theme options', 'Theme options page title', 'THEME_KEY'),
 			'menu_title' => _x('Options', 'Theme options menu label', 'THEME_KEY'),
 			'menu_slug' => 'theme-options',
@@ -51,7 +51,7 @@ class ThemeMods
 			'redirect' => true,
 			'post_id' => 'theme_options',
 			'autoload' => false,
-		));
+		]);
 	}
 
 	/**

@@ -18,21 +18,21 @@ class UserNavigationWidget extends \WP_Widget
 		parent::__construct(
 			'ct_usernavigation_widget',
 			_x('Benutzernavigation', 'UserNavigationWidget title text', 'wptheme-flightregister'),
-			array( 'description' => _x('Dieses Widget bildet die Navigation für angemeldete Benutzer ab.', 'UserNavigationWidget description text', 'wptheme-flightregister'), )
+			[ 'description' => _x('Dieses Widget bildet die Navigation für angemeldete Benutzer ab.', 'UserNavigationWidget description text', 'wptheme-flightregister'), ]
 		);
 	}
 	public function run()
 	{
-		add_action('widgets_init', array($this, 'register_widget'));
+		add_action('widgets_init', [$this, 'register_widget']);
 	}
-	
+
 	//This widget can then be registered in the 'widgets_init' hook:
 	// register Widget widget
 	public function register_widget()
 	{
 		register_widget($this);
 	}
-	
+
 	/**
 	 * Front-end display of widget.
 	 *
@@ -50,7 +50,7 @@ class UserNavigationWidget extends \WP_Widget
 			Timber::render('widgets/user-navigation.twig', $context);
 		}
 	}
-	
+
 	/**
 	 * Back-end widget form.
 	 *
@@ -61,7 +61,7 @@ class UserNavigationWidget extends \WP_Widget
 	public function form($instance)
 	{
 	}
-	
+
 	/**
 	 * Sanitize widget form values as they are saved.
 	 *

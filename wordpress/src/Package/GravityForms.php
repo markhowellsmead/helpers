@@ -1,6 +1,6 @@
 <?php
 
-namespace MarkHowellsMead\Theme\Packages;
+namespace MarkHowellsMead\Theme\Package;
 
 /**
  * Examples of various functionality for Gravity Forms
@@ -16,11 +16,11 @@ class GravityForms
 		add_filter('gform_ajax_spinner_url', [$this, 'replaceGravityFormsSpinner']);
 		add_filter('gform_countries', [$this, 'countries'], 10, 0);
 
-        add_action('gform_field_standard_settings', [$this, 'customFieldAttributes'], 10, 2);
-        add_action('gform_editor_js', [$this, 'editorScript']);
+		add_action('gform_field_standard_settings', [$this, 'customFieldAttributes'], 10, 2);
+		add_action('gform_editor_js', [$this, 'editorScript']);
 		add_filter('gform_tooltips', [$this, 'addTooltips']);
 	}
-	
+
 	/**
 	 * Provide a custom list of available countries in a dropdown
 	 * This example uses the shipping countries from WooCommerce.
@@ -56,7 +56,7 @@ class GravityForms
 		return  'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 	}
 
-    public function customFieldAttributes($position, $form_id)
+	public function customFieldAttributes($position, $form_id)
 	{
 		if ($position == 1550) {
 			?>
@@ -98,7 +98,7 @@ class GravityForms
 		}
 	}
 
-    public function editorScript()
+	public function editorScript()
 	{
 		?>
 		<script>
@@ -118,7 +118,7 @@ class GravityForms
 		</script>
 		<?php
 	}
-	
+
 	public function addTooltips($tooltips)
 	{
 		$tooltips['form_field_is_user_id'] = sprintf(

@@ -140,40 +140,41 @@ class Sidebars
 		if (function_exists('acf_add_local_field_group') && function_exists('acf_add_local_field')) {
 			$prefix = sht_theme()->prefix;
 
-			acf_add_local_field_group(array(
-					'key' => $prefix.'-sidebar-selector',
-					'title' => __('Seitenleiste', 'sht'),
-					'menu_order' => 50,
-					'fields' => [],
-					'position' => 'side',
-					'location' => [[
-						[
-							'param' => 'post_type',
-							'operator' => '==',
-							'value' => 'page',
-						],
-						[
-							"param" => "page_template",
-							"operator" => "!=",
-							"value" => "template-wide.php"
-						],
-						[
-							"param" => "page_template",
-							"operator" => "!=",
-							"value" => "template-manual.php"
-						],
-						[
-							"param" => "page_template",
-							"operator" => "!=",
-							"value" => "template-gallery.php"
-						],
-						[
-							"param" => "page_template",
-							"operator" => "!=",
-							"value" => "template-builder.php"
-						]
-					]]
-			));
+			acf_add_local_field_group([
+				'key' => $prefix.'-sidebar-selector',
+				'title' => __('Seitenleiste', 'sht'),
+				'menu_order' => 50,
+				'fields' => [],
+				'position' => 'side',
+				'location' => [[
+					[
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'page',
+					],
+					[
+						"param" => "page_template",
+						"operator" => "!=",
+						"value" => "template-wide.php"
+					],
+					[
+						"param" => "page_template",
+						"operator" => "!=",
+						"value" => "template-manual.php"
+					],
+					[
+						"param" => "page_template",
+						"operator" => "!=",
+						"value" => "template-gallery.php"
+					],
+					[
+						"param" => "page_template",
+						"operator" => "!=",
+						"value" => "template-builder.php"
+					]
+				]
+				]
+			]);
 
 			$choices = [
 				'' => _x('Keine Seitenleiste', 'sht')
@@ -183,7 +184,7 @@ class Sidebars
 				$choices[$sidebar['id']] = $sidebar['name'];
 			}
 
-			acf_add_local_field(array(
+			acf_add_local_field([
 				'key' => 'field_'.$prefix.'-sidebar-selector-entry',
 				'label' => __('Seitenleiste auswählen', 'sht'),
 				'description' => __('Wählen Sie eine Seitenleiste aus, die Sie unter Design » Widgets befüllt haben.', 'sht'),
@@ -191,7 +192,7 @@ class Sidebars
 				'type' => 'select',
 				'parent' => $prefix.'-sidebar-selector',
 				'choices' => $choices
-			));
+			]);
 		}
 	}
 }

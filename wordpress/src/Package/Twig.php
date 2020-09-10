@@ -24,7 +24,7 @@ class Twig
 			if (empty($link) || !isset($link['url']) || empty($link['url'])) {
 				return $html;
 			}
-			
+
 			return sprintf(
 				'<a href="%1$s"%2$s%3$s>%4$s</a>',
 				$link['url'],

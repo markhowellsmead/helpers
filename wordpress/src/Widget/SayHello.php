@@ -24,7 +24,7 @@ class SayHello extends \WP_Widget
 	{
 		add_action('widgets_init', [$this, 'register_widget']);
 	}
-	
+
 	/**
 	 * Register widget
    */
@@ -32,7 +32,7 @@ class SayHello extends \WP_Widget
 	{
 		register_widget($this);
 	}
-	
+
 	/**
 	 * Front-end display of widget.
 	 *
@@ -50,7 +50,7 @@ class SayHello extends \WP_Widget
 		];
 		Timber::render('widgets/sayhello.twig', $context);
 	}
-	
+
 	/**
 	 * Back-end widget form.
 	 *
@@ -61,7 +61,7 @@ class SayHello extends \WP_Widget
 	public function form($instance)
 	{
 	}
-	
+
 	/**
 	 * Sanitize widget form values as they are saved.
 	 *

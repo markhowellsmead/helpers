@@ -1,5 +1,5 @@
 <?php
-namespace MarkHowellsMead\Theme\Packages;
+namespace MarkHowellsMead\Theme\Package;
 
 /**
  * General Widget stuff

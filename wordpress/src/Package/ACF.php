@@ -115,7 +115,7 @@ class ACF
 			);
 		endif;
 	}
-	
+
 	/**
 	 * Filter the array of post types in appropriate ACF configuration fields
 	 * e.g. add my_custom_post_type

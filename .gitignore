@@ -1,2 +1,8 @@
+node_modules/
+.sass-cache/
 .DS_Store
-/.vagrant
+.env
+*.map
+*.pot~
+*.po~
+.vagrant

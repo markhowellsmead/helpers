@@ -1,6 +1,6 @@
 <?php
 
-namespace MarkHowellsMead\Theme\Packages;
+namespace MarkHowellsMead\Theme\Package;
 
 /**
  * Funky stuff for login and registration process
@@ -23,9 +23,8 @@ class LoginAndRegistration
 		add_filter('login_form_top', [$this, 'checkForFail'], 10, 1);
 		add_filter('login_form_top', [$this, 'checkForRegistered'], 10, 1);
 		add_filter('login_form_top', [$this, 'checkForPasswordRequested'], 10, 1);
-		
-		add_filter('shp_editprofile/form_html', [$this, 'loginFormHTML']); // Requires shp_editprofile plugin
 
+		add_filter('shp_editprofile/form_html', [$this, 'loginFormHTML']); // Requires shp_editprofile plugin
 	}
 
 	public function checkForFail($html)
@@ -169,7 +168,7 @@ class LoginAndRegistration
 				exit;
 			}
 		}
-		
+
 		return $redirect_url;
 	}
 
@@ -193,7 +192,7 @@ class LoginAndRegistration
 			}
 		}
 	}
-	
+
 		/**
 	 * Was: <p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Angemeldet bleiben</label></p>
 	 * Output: <p class="login-remember"><input name="rememberme" type="checkbox" id="rememberme" value="forever"><label for="rememberme">Angemeldet bleiben</label></p>

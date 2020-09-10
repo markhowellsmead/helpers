@@ -19,7 +19,6 @@ class Woocommerce
 		add_action('sht_woocommerce_single_product_sidebar', 'woocommerce_show_product_sale_flash', 10);
 
 		add_filter('woocommerce_ajax_added_to_cart', [$this, 'redirectToCart'], 10);
-
 	}
 
 	public function addThemeSupport()
