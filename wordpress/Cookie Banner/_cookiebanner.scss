@@ -1,0 +1,35 @@
+.c-cookiebanner {
+	position: fixed;
+	z-index: 1972;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: rem-calc(300px);
+	padding: var(--unit);
+	margin: var(--unit-medium) 0;
+	background: var(--color-yellow);
+	opacity: 0;
+	pointer-events: none;
+	@include transition;
+
+	@include tablet {
+		max-width: rem-calc(400px);
+	}
+
+	@include laptop {
+		left: 0;
+		margin-left: var(--unit-medium);
+		transform: translateX(0);
+	}
+
+	&__button {
+		@extend .o-button;
+		cursor: pointer;
+	}
+
+	.s--showcookiebanner & {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
