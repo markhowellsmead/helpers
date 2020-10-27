@@ -7,8 +7,12 @@
 	* so that each component can be loaded separately
  */
 
+// For Swiper JS v6+ (incompatible with IE11!!!)
 import Swiper, { Pagination } from 'swiper';
 Swiper.use([Pagination]);
+
+// OR for Swiper JS v5.x
+// import Swiper from 'swiper/js/swiper.js';
 
 new Swiper('.wp-block-sht-carousel .swiper-container', {
 	autoHeight: true,
