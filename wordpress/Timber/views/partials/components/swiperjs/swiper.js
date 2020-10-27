@@ -5,6 +5,7 @@
 	*
 	* Logic simplified in v6 (July 2020)
 	* so that each component can be loaded separately
+	* Warning: v6 drops IE11 support!
  */
 
 // For Swiper JS v6+ (incompatible with IE11!!!)
