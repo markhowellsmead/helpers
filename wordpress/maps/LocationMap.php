@@ -2,8 +2,6 @@
 
 namespace SayHello\Theme\Block;
 
-use SayHello\Theme\Package\Lazysizes;
-
 /**
  * LocationMap block
  *
