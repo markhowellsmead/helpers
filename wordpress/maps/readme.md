@@ -4,7 +4,7 @@ The code examples here are intended for use as part of a WordPress Theme built w
 
 ## Frontend preview
 
-![Preview Frontend](./location-map-frontend.jpg)
+![Preview Frontend](./location-map-frontend-v2.jpg)
 
 ## Backend preview
 
