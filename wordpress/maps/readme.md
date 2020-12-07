@@ -2,6 +2,14 @@
 
 The code examples here are intended for use as part of a WordPress Theme built with [Hello Roots](https://github.com/SayHelloGmbH/hello-roots).
 
+## Frontend preview
+
+![Preview Frontend](./location-map-frontend.jpg)
+
+## Backend preview
+
+![Preview Frontend](./location-map-backend.jpg)
+
 ## Passing data to JavaScript
 
 Add this code to the Assets Package, ensuring that JavaScript file has the data it needs from WordPress.
