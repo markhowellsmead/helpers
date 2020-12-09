@@ -2,11 +2,12 @@
  * Simple(-ish) example of how to allow editors to convert your
  * custom block to and from another block.
  *
- * Only add CORE blocks to the "to" array.
- * Add a SINGLE instance to the "from" array, otherwise the editor
- * duplicates entires in the "convert to" control
+ * Core reference https://developer.wordpress.org/block-editor/developers/block-api/block-transforms/
  *
- * mark@sayhello.ch Dcember 2020
+ * Only add CORE blocks to the "to" array.
+ * Add a SINGLE entry to the "from" array, otherwise the editor duplicates entires in the "convert to" control
+ *
+ * mark@sayhello.ch December 2020
  */
 
 import { createBlock } from '@wordpress/blocks';
