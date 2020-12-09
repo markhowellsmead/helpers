@@ -1,4 +1,18 @@
+/**
+ * Simple(-ish) example of how to allow editors to convert your
+ * custom block to and from another block.
+ *
+ * Only add CORE blocks to the "to" array.
+ * Add a SINGLE instance to the "from" array, otherwise the editor
+ * duplicates entires in the "convert to" control
+ *
+ * mark@sayhello.ch Dcember 2020
+ */
+
 import { createBlock } from '@wordpress/blocks';
+
+// The name of THIS block.
+const blockName = 'sht/heading-with-subheading';
 
 const transforms = {
     to: [
@@ -13,24 +27,14 @@ const transforms = {
                 });
             },
         },
-        {
-            type: 'block',
-            blocks: ['core/paragraph'], // Block type TO which we can convert
-            transform: ({ content }) => {
-                // What to do when converting
-                return createBlock('core/paragraph', {
-                    content,
-                });
-            },
-        },
     ],
     from: [
         {
             type: 'block',
-            blocks: ['core/heading'], // Block type FROM which we can convert
+            blocks: ['core/heading', 'sht/heading-with-text'], // Block types FROM which we can convert
             transform: attributes => {
                 // What to do when converting
-                return createBlock('sht/heading-with-subheading', attributes);
+                return createBlock(blockName, attributes);
             },
         },
     ],
