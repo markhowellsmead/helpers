@@ -1,0 +1,60 @@
+.c-share {
+    @extend .h-stack;
+    padding: 0 var(--unit-small);
+
+    &__entry {
+        margin: 0;
+        padding: 0 var(--unit-small);
+        line-height: 1;
+
+        &:first-of-type {
+            padding-left: 0;
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+
+    &__entryicon {
+        display: block;
+        line-height: 1;
+    }
+
+    &__entrylink {
+        display: block;
+        color: var(--color-gray-darker);
+        width: var(--unit-medium);
+        height: var(--unit-medium);
+        clip-path: circle(var(--unit-medium) at center);
+        border-radius: 100%;
+        @include transition;
+
+        &:hover {
+            color: var(--color-gray-darker);
+            background-color: var(--color-yellow);
+        }
+    }
+
+    &__entrytext {
+        @extend .screen-reader-text;
+    }
+
+    &__entries {
+        display: flex;
+        list-style: none;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+    }
+
+    &__title {
+        @extend h5;
+    }
+
+    svg {
+        fill: currentColor;
+        width: 100%;
+        height: 100%;
+    }
+}
