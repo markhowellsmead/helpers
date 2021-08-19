@@ -1,12 +1,60 @@
-/*
- * Import SCSS from the 'swiper' folder in node_modules
- * Make sure that the node_modules folder is included in your includePaths for gulp-sass
- *
- * .pipe(sass({
- * 		includePaths: ['./node_modules/']
- * })
+/**
+ * https://github.com/markhowellsmead/helpers/wiki/Swiper
  */
 
 @import 'swiper/swiper.scss';
+@import 'swiper/components/navigation/navigation.scss';
 @import 'swiper/components/pagination/pagination.scss';
-// Other component parts here
+@import 'swiper/components/effect-fade/effect-fade.scss';
+
+body {
+    --swiper-navigation-size: contain;
+    --swiper-navigation-color: inherit;
+    --swiper-pagination-color: var(--wp--preset--color--primary);
+    --swiper-pagination-color-off: var(--wp--preset--color--white);
+    --swiper-pagination-size: #{rem-calc(10px)};
+    --swiper-pagination-opacity: 1;
+    --swiper-button-background-color: var(--wp--preset--color--primary-70);
+    @include breakpoint(laptop) {
+        --swiper-navigation-size: #{rem-calc(40px)};
+    }
+}
+
+.swiper-button {
+    &-next,
+    &-prev {
+        @include transition;
+        width: var(--swiper-navigation-size);
+        height: var(--swiper-navigation-size);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: var(--swiper-navigation-size);
+        background-image: url('../img/icons/carousel-arrow.min.svg');
+        margin-top: 0;
+
+        &::after {
+            width: 100%;
+            height: 100%;
+            content: '';
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0;
+        }
+    }
+
+    &-prev {
+        transform: rotate(180deg);
+    }
+}
+
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-size);
+    height: var(--swiper-pagination-size);
+    background-color: var(--swiper-pagination-color-off);
+    opacity: var(--swiper-pagination-opacity);
+
+    &-active {
+        background-color: var(--swiper-pagination-color);
+    }
+}
