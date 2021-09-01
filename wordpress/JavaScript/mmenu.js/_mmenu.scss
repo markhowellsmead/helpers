@@ -1,23 +1,6 @@
-$mm_menuWidth: 1;
-
 //    Core
-@import 'mmenu-js/src/core/oncanvas/mmenu.oncanvas';
-
-//    Core add-ons
 @import 'mmenu-js/src/core/offcanvas/mmenu.offcanvas';
-@import 'mmenu-js/src/core/screenreader/mmenu.screenreader';
 
-//    Add-ons
-@import 'mmenu-js/src/addons/counters/mmenu.counters';
-@import 'mmenu-js/src/addons/navbars/mmenu.navbars';
-
-//    Extensions
-@import 'mmenu-js/src/extensions/positioning/mmenu.positioning';
-@import 'mmenu-js/src/extensions/themes/mmenu.themes';
-
-//    Wrappers
-@import 'mmenu-js/src/wrappers/bootstrap/mmenu.bootstrap';
-
-.mm-menu_offcanvas {
-    z-index: 2;
+:root {
+    --mm-color-background: var(--wp--preset--color-white);
 }
