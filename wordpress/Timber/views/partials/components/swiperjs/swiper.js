@@ -13,9 +13,7 @@ import Swiper, { Pagination } from 'swiper';
 Swiper.use([Pagination]);
 
 // OR for Swiper JS v5.x
-
-/*
-import Swiper from 'swiper/js/swiper.js';
+// import Swiper from 'swiper/js/swiper.js';
 
 new Swiper('.wp-block-sht-carousel .swiper-container', {
 	autoHeight: true,
@@ -26,4 +24,3 @@ new Swiper('.wp-block-sht-carousel .swiper-container', {
 		clickable: true
 	},
 });
-*/
