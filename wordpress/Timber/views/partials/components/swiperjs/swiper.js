@@ -9,18 +9,35 @@
  */
 
 // For Swiper JS v6+ (incompatible with IE11!!!)
-import Swiper, { Pagination } from 'swiper';
-Swiper.use([Pagination]);
+// Load CSS for all Swiper instances
+import 'swiper/css';
+import 'swiper/css/navigation';
 
-// OR for Swiper JS v5.x
-// import Swiper from 'swiper/js/swiper.js';
+import Swiper, { Navigation } from 'swiper';
+const swipers = document.querySelectorAll('.c-swiper');
 
-new Swiper('.wp-block-sht-carousel .swiper-container', {
-	autoHeight: true,
-	loop: true,
-	simulateTouch: false,
-	pagination: {
-		el: '.swiper-pagination',
-		clickable: true
-	},
-});
+// Handles possible multiple Swipers on the same page
+if (!!swipers.length) {
+    const nudge = this_swiper => {
+        this_swiper.navigation.update();
+        console.log('Swiper nudged');
+    };
+
+    for (let i = 0; i < swipers.length; i++) {
+        swipers[i].classList.add('c-swiper--' + i);
+
+        let this_swiper = new Swiper('.c-swiper--' + i, {
+            autoHeight: false,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            modules: [Navigation],
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Nudge the swiper to make sure that the navigation buttons appear
+        setTimeout(() => nudge(this_swiper), 500);
+    }
+}
