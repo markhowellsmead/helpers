@@ -1,0 +1,15 @@
+.c-imageselector {
+    margin-top: 0.5rem;
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__figure {
+        margin: 0;
+        > * + * {
+            margin-top: 0.5rem;
+        }
+    }
+}

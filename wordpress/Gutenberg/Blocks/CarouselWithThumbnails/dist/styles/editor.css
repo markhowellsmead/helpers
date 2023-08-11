@@ -1,0 +1,10 @@
+.wp-block-sht-carousel .swiper-button-next,
+.wp-block-sht-carousel .swiper-button-prev {
+  pointer-events: none;
+}
+.wp-block-sht-carousel .swiper-thumbs-pagination .swiper-slide {
+  width: 60px;
+}
+.wp-block-sht-carousel .swiper-thumbs-pagination .swiper-wrapper {
+  gap: 10px;
+}

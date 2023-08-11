@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "sht/carousel",
+	"title": "Karussell",
+	"description": "Weiderholte Einträge, jeweils mit Bild und Überschrift.",
+	"category": "text",
+	"icon": "welcome-widgets-menus",
+	"keywords": ["carousel", "slider"],
+	"textdomain": "sht",
+	"attributes": {
+		"content": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"align": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": false
+		},
+		"multiple": true
+	},
+	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"editorStyle": "file:./assets/dist/styles/editor/index.min.css",
+	"style": ["file:./assets/dist/styles/shared/index.min.css"],
+	"render": "file:./render.php"
+}

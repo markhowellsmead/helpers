@@ -1,0 +1,43 @@
+.has-block-margin-top {
+	&--none {
+		margin-top: 0;
+	}
+
+	&--small {
+		margin-top: var(--unit-small);
+	}
+
+	&--medium {
+		margin-top: var(--unit-medium);
+	}
+
+	&--large {
+		margin-top: var(--unit-large);
+	}
+
+	&--xlarge {
+		margin-top: var(--unit-xlarge);
+	}
+}
+
+.has-block-margin-bottom {
+	&--none {
+		margin-bottom: 0;
+	}
+
+	&--small {
+		margin-bottom: var(--unit-small);
+	}
+
+	&--medium {
+		margin-bottom: var(--unit-medium);
+	}
+
+	&--large {
+		margin-bottom: var(--unit-large);
+	}
+
+	&--xlarge {
+		margin-bottom: var(--unit-xlarge);
+	}
+}

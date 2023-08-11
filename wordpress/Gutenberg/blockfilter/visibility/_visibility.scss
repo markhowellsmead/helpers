@@ -1,0 +1,19 @@
+.is-hidden-for {
+    &--mobile {
+        @include breakpoint(phone_wide down) {
+            display: none !important;
+        }
+    }
+    &--tablet {
+        @include for-screen-min(tablet) {
+            @include for-screen-max(tablet_landscape) {
+                display: none !important;
+            }
+        }
+    }
+    &--desktop {
+        @include breakpoint(laptop) {
+            display: none !important;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "sht/page-header",
+	"title": "Header-Bild",
+	"description": "Headerbild mit Überschrift.",
+	"category": "text",
+	"icon": "title",
+	"keywords": ["header", "title", "image"],
+	"textdomain": "sht",
+	"supports": {
+		"align": false,
+		"multiple": false,
+		"color": { "text": false, "background": false, "link": false }
+	},
+	"attributes": {
+		"overlayColor": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"style": ["file:./assets/dist/styles/shared/index.min.css"],
+	"render": "file:./render.php"
+}

@@ -1,0 +1,42 @@
+@charset 'UTF-8';
+@use 'sass:math';
+
+.wp-block-sht-carousel {
+	--swiper-navigation-size: 2.1325rem;
+
+	&__navigation {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		max-width: var(--wp--style--global--wide-size);
+	}
+
+	.swiper-button {
+		display: none;
+		width: var(--swiper-navigation-size);
+		height: var(--swiper-navigation-size);
+		background: url('data:image/svg+xml,<svg data-name="arrow circle left" xmlns="http://www.w3.org/2000/svg" width="34.12" height="35.505" viewBox="0 0 34.12 35.505"><path data-name="Path 44" d="M3.396 17.362a13.362 13.362 0 1 1 13.362 13.362A13.358 13.358 0 0 1 3.396 17.362Zm15.847 4.931 3.822-4.009a.807.807 0 0 0 .134-.2.772.772 0 0 0 .134-.214 1.278 1.278 0 0 0 0-1.016 1.379 1.379 0 0 0-.281-.441L19.043 12.4a1.344 1.344 0 1 0-1.9 1.9l1.737 1.724h-7.467a1.336 1.336 0 1 0 0 2.672h7.563l-1.67 1.75a1.337 1.337 0 0 0 1.937 1.844Z" fill="%23fff"/><path data-name="Path 45" d="M34.12 0H0v35.505h34.12Z" fill="none"/></svg>')
+			center/contain no-repeat;
+
+		@media screen and (min-width: 74.125rem) {
+			display: block;
+		}
+
+		&::after {
+			content: '';
+			display: none;
+		}
+
+		&.swiper-button-disabled {
+			pointer-events: none;
+			opacity: 0;
+		}
+
+		&-prev {
+			transform: rotate(180deg);
+		}
+	}
+}

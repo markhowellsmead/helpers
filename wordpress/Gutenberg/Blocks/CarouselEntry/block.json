@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "sht/carousel-entry",
+	"title": "Karussell-Eintrag",
+	"description": "Eintrag für das Karussell.",
+	"category": "text",
+	"icon": "welcome-widgets-menus",
+	"keywords": ["carousel", "slider"],
+	"textdomain": "sht",
+	"attributes": {
+		"focalPoint": {
+			"type": "object",
+			"default": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"text": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string"
+		},
+		"imageId": {
+			"type": "number"
+		}
+	},
+	"parent": ["sht/carousel"],
+	"supports": {
+		"multiple": true
+	},
+	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"style": ["file:./assets/dist/styles/shared/index.min.css"],
+	"render": "file:./render.php"
+}

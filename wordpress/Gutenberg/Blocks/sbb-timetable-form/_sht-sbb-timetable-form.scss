@@ -1,0 +1,39 @@
+.wp-block-sht-sbb-timetable-form {
+    &__checkboxes {
+        display: flex;
+        @extend .h-stack-row;
+    }
+
+    &__field {
+        @extend .h-stack--xsmall;
+    }
+
+    &__fieldset {
+        @extend .h-stack;
+        @include breakpoint(tablet) {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--unit-medium);
+
+            > * + * {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__form {
+        @extend .h-stack;
+    }
+
+    &__select {
+        display: block;
+        width: 100%;
+    }
+}
+
+@include context-edit {
+    .wp-block-sht-sbb-timetable-form__form {
+        pointer-events: none;
+        user-select: none;
+    }
+}

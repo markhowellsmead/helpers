@@ -1,0 +1,43 @@
+.wp-block-sht-post-featured-image {
+    &__figure {
+        border-radius: rem-calc(12px);
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+
+        &--empty {
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+}
+
+@include context-edit {
+    .wp-block-sht-post-featured-image {
+        &__figure {
+            &--empty {
+                border: 1px dashed gray;
+                background: linear-gradient(
+                        330.5deg,
+                        transparent 0,
+                        transparent calc(50% - 1px),
+                        gray calc(50%),
+                        transparent calc(50% + 1px),
+                        transparent 100%
+                    ),
+                    linear-gradient(
+                        -330.5deg,
+                        transparent 0,
+                        transparent calc(50% - 1px),
+                        gray calc(50%),
+                        transparent calc(50% + 1px),
+                        transparent 100%
+                    );
+            }
+        }
+    }
+}

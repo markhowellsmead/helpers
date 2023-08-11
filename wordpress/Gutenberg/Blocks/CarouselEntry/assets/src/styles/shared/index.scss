@@ -1,0 +1,99 @@
+@charset 'UTF-8';
+@use 'sass:math';
+
+%stack {
+	margin-block-start: 0;
+	margin-block-end: 0;
+
+	+ * {
+		margin-block-start: 1rem;
+	}
+}
+
+.wp-block-sht-carousel-entry {
+	// 4 times: one for each button, then add some space
+	--carousel-content-width: 100%;
+
+	@media screen and (min-width: 74.125rem) {
+		--carousel-content-width: 52.1875rem;
+	}
+
+	position: relative;
+	height: calc(100 * var(--vh) - var(--masthead--height, 0.01px)) !important;
+
+	:where(body.admin-bar) & {
+		@media screen and (min-width: 601px) {
+			height: calc(100 * var(--vh) - var(--wp-admin--admin-bar--height) - var(--masthead--height, 0.01px)) !important;
+		}
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--wp--preset--color--black);
+		opacity: 0.55;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	&__entry-content {
+		color: var(--wp--preset--color--white);
+		grid-column: 1/-1;
+		grid-row: 1/-1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		z-index: 2;
+		padding-left: var(--wp--custom--spacing-outer-gutter);
+		padding-right: var(--wp--custom--spacing-outer-gutter);
+
+		> * {
+			@extend %stack;
+			position: relative;
+			max-width: var(--carousel-content-width);
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: inherit !important;
+			font-weight: 600 !important;
+			font-size: clamp(3.125rem, 2.025rem + 4.695vw, 6.25rem) !important; // 50 to 100px
+		}
+
+		p {
+			color: inherit !important;
+			font-weight: 500;
+			font-size: clamp(1.438rem, 1.173rem + 1.127vw, 2.188rem); // 23-35px
+			line-height: 1.2;
+		}
+
+		.wp-block-buttons {
+			margin-top: 4em;
+		}
+	}
+
+	&__figure {
+		position: relative;
+		z-index: 0;
+	}
+
+	&__figure,
+	&__image {
+		max-width: none !important;
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: cover;
+	}
+}

@@ -1,0 +1,17 @@
+.wp-block-sht-menu {
+	&__container--primary {
+		.wp-block-sht-menu {
+			&__menu {
+				gap: var(--wp--preset--spacing--medium);
+			}
+		}
+
+		.current-menu-item {
+			text-decoration: underline;
+		}
+
+		a {
+			padding: 0;
+		}
+	}
+}

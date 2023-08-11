@@ -1,0 +1,100 @@
+/**
+ * Standardized for Say Hello Projects
+ * Insert to _____elements in a Theme based on Hello FSE
+ * 
+ * mark[at]sayhello.ch July 2022
+ */
+
+body {
+    // Variables for Gravity Forms. Comment in only if plugin in use.
+    --gf-ajaxspinner-borderoff-color: var(--wp--preset--color--gray-xlight);
+    --gf-ajaxspinner-borderon-color: var(--wp--preset--color--primary);
+    --gf-ajaxspinner-width: var(--unit-medium);
+    --gf-ajaxspinner-height: var(--unit-medium);
+}
+
+@keyframes gf_ajaxspinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.gform {
+    &_confirmation_message {
+        border: 1px solid var(--sht--color--success-border);
+        background-color: var(--sht--color--success-background);
+        color: var(--sht--color--success);
+        padding: var(--unit);
+    }
+
+    &_description:not(:empty) {
+        display: block;
+    }
+
+    &_fields {
+        margin: 0;
+    }
+
+    &_heading {
+        @extend .h-stack;
+    }
+
+    &_required_legend {
+        &::empty {
+            display: none;
+        }
+        .gfield_required {
+            color: inherit;
+        }
+    }
+
+    &_wrapper.gravity-theme {
+        .gform_fields {
+            grid-gap: var(--unit);
+        }
+
+        .gfield {
+            @extend .h-stack--xsmall;
+
+            &_checkbox {
+                @extend .h-stack--small;
+            }
+
+            &_description {
+                padding-top: var(--unit-xsmall);
+            }
+
+            &_radio {
+                @extend .h-stack--small;
+            }
+
+            &_required {
+                font-size: 1em;
+            }
+
+            &_validation_message.gfield_description {
+                padding: 0;
+                border: none;
+                background-color: transparent;
+            }
+        }
+
+        &.gravity-theme .ginput_complex label {
+            padding-top: var(--unit-xsmall);
+        }
+    }
+
+    &_ajax_spinner {
+        border: var(--unit-xsmall) solid var(--gf-ajaxspinner-borderoff-color);
+        border-left: var(--unit-xsmall) solid var(--gf-ajaxspinner-borderon-color);
+        animation: gf_ajaxspinner 1s infinite linear;
+        border-radius: 50%;
+        width: var(--gf-ajaxspinner-width);
+        height: var(--gf-ajaxspinner-height);
+        margin-left: var(--unit);
+        padding: 0;
+    }
+}

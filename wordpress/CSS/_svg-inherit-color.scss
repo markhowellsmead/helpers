@@ -1,0 +1,34 @@
+/**
+ * Use the CSS mask property to allow the background color
+ * to “shine through”, then set the background color to 
+ * the currentColor of the element. This will allow the 
+ * SVG to take on the color of the element and respect
+ * e.g. hover colors.
+ *
+ * https://caniuse.com/css-masks - make sure -webkit prefix is used.
+ *
+ * This version mark@sayhello.ch 24.3.2022
+ *
+ */
+
+.wp-block-button {
+    &.is-style-arrow {
+        .wp-block-button__link {
+            --pseudo-size: #{rem-calc(24px)};
+
+            display: inline-grid;
+            align-items: center;
+            grid-template-columns: 1fr var(--pseudo-size);
+            gap: calc(var(--pseudo-size) / 2);
+
+            &::after {
+                content: '';
+                mask: url('../img/icons/button-arrow.min.svg') center;
+                mask-size: var(--pseudo-size) var(--pseudo-size);
+                width: var(--pseudo-size);
+                height: var(--pseudo-size);
+                background: currentColor no-repeat center/cover;
+            }
+        }
+    }
+}

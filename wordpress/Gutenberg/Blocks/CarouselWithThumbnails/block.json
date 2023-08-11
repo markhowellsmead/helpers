@@ -1,0 +1,30 @@
+{
+	"apiVersion": 2,
+	"name": "sht/carousel-with-thumbnails",
+	"title": "Karussell mit Kleinbilder",
+	"category": "media",
+	"icon": "format-image",
+	"description": "",
+	"keywords": [],
+	"textdomain": "sha",
+	"supports": {
+		"align": false,
+		"html": false
+	},
+	"style": ["file:./dist/styles/view.min.css"],
+	"editorStyle": ["file:./dist/styles/editor.min.css"],
+	"editorScript": "file:./dist/scripts/editor.js",
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		},
+		"images": {
+			"type": "array",
+			"items": { "type": "integer" }
+		},
+		"updated": {
+			"type": "integer"
+		}
+	},
+	"render": "file:./render.php"
+}

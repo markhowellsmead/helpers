@@ -1,0 +1,37 @@
+:root {
+	--image-with-text-column-gap: var(--unit-medium);
+	--image-with-text-figure-width: 50%;
+	--image-with-text-content-width: 50%;
+	--image-with-text-content-bottom-offset: var(--unit-medium);
+
+	--image-with-text-figure-flex: calc(var(--image-with-text-content-width) - calc(var(--image-with-text-column-gap) / 2));
+	--image-with-text-content-flex: calc(var(--image-with-text-figure-width) - calc(var(--image-with-text-column-gap) / 2));
+}
+
+.wp-block-sht-image-with-text {
+
+	&__inner {
+		@extend %h-stack;
+
+		@include breakpoint(tablet) {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+	}
+
+	&__contentwrap {
+		@include breakpoint(tablet) {
+			flex: 0 0 var(--image-with-text-figure-flex);
+			max-width: var(--image-with-text-figure-flex);
+			padding-bottom: var(--image-with-text-content-bottom-offset);
+		}
+	}
+
+	&__figurewrap {
+		@include breakpoint(tablet) {
+			flex: 0 0 var(--image-with-text-content-flex);
+			max-width: var(--image-with-text-content-flex);
+		}
+	}
+}

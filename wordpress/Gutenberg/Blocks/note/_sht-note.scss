@@ -1,0 +1,9 @@
+.wp-block-sht-note {
+    padding: var(--unit);
+    background-color: #feff9c;
+    border: 1px solid darken(#feff9c, 35%);
+    font-style: italic;
+    &__text {
+        @extend .h-stack;
+    }
+}

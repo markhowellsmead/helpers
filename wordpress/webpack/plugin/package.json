@@ -1,0 +1,51 @@
+{
+    "name": "shp-soliswiss-registrations",
+    "description": "",
+    "main": "gulpfile.babel.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://bitbucket.org/sayhellogmbh/shp-soliswiss-registrations.git"
+    },
+    "homepage": "https://bitbucket.org/sayhellogmbh/shp-soliswiss-registrations",
+    "dependencies": {
+        "@babel/core": "^7.20.5",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/preset-react": "^7.18.6",
+        "@babel/register": "^7.18.9",
+        "@wordpress/dependency-extraction-webpack-plugin": "^4.5.0",
+        "babel-loader": "^9.1.0",
+        "chokidar": "^3.5.3",
+        "css-loader": "^6.7.2",
+        "fs": "^0.0.1-security",
+        "fsevents": "^2.3.2",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-editor-styles": "^1.0.1",
+        "gulp-filter": "^7.0.0",
+        "gulp-livereload": "^4.0.2",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^5.1.0",
+        "gulp-sass-import-json": "^1.0.2",
+        "gulp-sourcemaps": "^3.0.0",
+        "gulp-uglify": "^3.0.2",
+        "resolve-url": "^0.2.1",
+        "sass": "^1.56.1",
+        "style-loader": "^3.3.1",
+        "webpack-stream": "^7.0.0"
+    },
+    "author": "Say Hello GmbH - https://sayhello.ch",
+    "license": "GPL-3.0-or-later",
+    "scripts": {
+        "start": "gulp"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ]
+    },
+    "browserslist": [
+        "> 1%"
+    ]
+}

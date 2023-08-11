@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+@use 'sass:math';
+
+.wp-block-sht-carousel {
+	&__button-block-appender {
+		color: white;
+		background-color: black;
+	}
+}

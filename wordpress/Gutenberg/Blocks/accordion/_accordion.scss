@@ -1,0 +1,100 @@
+:root {
+	--accordion-trigger-line-width: #{rem-calc(18px)};
+	--accordion-trigger-line-height: #{rem-calc(3px)};
+	--accordion-trigger-line-color: currentColor;
+}
+
+.c-accordion {
+
+	&__header {
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding-top: var(--unit);
+		padding-bottom: var(--unit);
+		max-width: 100%;
+	}
+
+	&__inner {
+		@include transition;
+		overflow: hidden;
+
+		&[aria-hidden='true'] {
+			@media screen {
+				opacity: 0;
+				max-height: 0;
+				margin-top: 0;
+				margin-bottom: 0;
+				* {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__trigger {
+		display: none;
+		background: rgba(255, 255, 255, 0.01); // Ensures that the full button is clickable in older browsers
+		border: none;
+		-webkit-appearance: none;
+		cursor: pointer;
+
+		&[aria-expanded] {
+			display: block;
+			padding: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			&::after {
+				@media screen {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					left: 0;
+					top: 0;
+					background-color: rgba(255, 255, 255, 0.01);
+				}
+			}
+		}
+
+		&[aria-expanded='false'] {
+			& > .c-accordion__triggericon {
+				&::before {
+					@media screen {
+						transform: translateY(-50%) rotate(90deg);
+					}
+				}
+				&::after {
+					@media screen {
+						transform: translateY(-50%);
+					}
+				}
+			}
+		}
+
+	}
+
+	&__triggericon {
+		cursor: pointer;
+		display: block;
+		position: relative;
+		&::after,
+		&::before {
+			@media screen {
+				content: '';
+				display: block;
+				width: var(--accordion-trigger-line-width);
+				height: var(--accordion-trigger-line-height);
+				background-color: var(--accordion-trigger-line-color);
+				position: absolute;
+				top: 50%;
+				right: 0;
+				@include transition;
+			}
+		}
+	}
+
+}

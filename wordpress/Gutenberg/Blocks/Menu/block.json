@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "sht/menu",
+	"title": "Menü",
+	"category": "theme",
+	"icon": "menu",
+	"description": "",
+	"textdomain": "sha",
+	"keywords": ["menu", "navigation"],
+	"attributes": {
+		"menu": {
+			"type": "string",
+			"default": "primary"
+		}
+	},
+	"supports": {
+		"align": false,
+		"color": {
+			"text": true,
+			"link": true,
+			"background": false,
+			"gradients": false
+		},
+		"typography": { "fontSize": true },
+		"html": false,
+		"padding": false,
+		"margin": false
+	},
+	"style": "file:./dist/styles/view.min.css",
+	"editorScript": "file:./dist/scripts/editor.js",
+	"render": "file:./render.php"
+}
