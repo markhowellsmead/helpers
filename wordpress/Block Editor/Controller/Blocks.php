@@ -115,3 +115,32 @@ class Block
 		}
 	}
 }
+
+/**
+ * Plugin equivalent of get_template_part()
+ * Usage: $class_object->renderBlock(
+ *
+ * @param string $name
+ * @param array $args
+ * @return void
+ */
+public function renderBlock(string $name, array $args = []): void
+{
+	$dir = shp_propertyowner_banners_get_instance()->dir;
+	$render_path = "{$dir}/src/Blocks/{$name}/render.php";
+
+	if (!isset($args['classNameBase'])) {
+		$block_json = json_decode(file_get_contents("{$dir}/src/Blocks/{$name}/block.json"));
+
+		$key = preg_replace('/\//', '-', $block_json->name);
+		$key = "wp-block-{$key}";
+		$args['classNameBase'] = wp_get_block_default_classname($block_json->name);
+	}
+
+	if (!isset($args['manualRender'])) {
+		$args['manualRender'] = true;
+	}
+
+	// https://developer.wordpress.org/reference/functions/load_template/
+	@load_template($render_path, false, $args);
+}
