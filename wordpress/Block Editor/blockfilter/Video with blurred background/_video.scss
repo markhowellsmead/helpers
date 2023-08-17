@@ -1,0 +1,96 @@
+.wp-block-video {
+    position: relative;
+    vertical-align: middle;
+
+    &.is--vertical {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+
+        &::before {
+            z-index: 3;
+        }
+
+        &::after {
+            content: '';
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--wp--preset--color--white);
+            opacity: 0.5;
+        }
+
+        .wp-block-video {
+
+            &__video--clone,
+            &__video--original {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                height: 100%;
+            }
+
+            &__video--original {
+                z-index: 2;
+                width: auto;
+                transform: translateX(-50%);
+            }
+
+            &__video--clone {
+                object-fit: cover;
+                filter: blur(1rem);
+                opacity: 0.5;
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+    }
+
+    &.is--activated {
+        &::before {
+            transition: opacity 450ms ease-out;
+            display: block;
+            content: '';
+            @include flood;
+            background: url('../img/icons/video-play.min.svg') center no-repeat;
+            background-size: 100px;
+        }
+    }
+
+    &.is--playing {
+        &::before {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+@include context-edit {
+    .wp-block-video {
+        &.is--vertical {
+            >div {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+
+                video {
+                    width: auto;
+                    height: 100%;
+
+                    &[poster] {
+                        width: 100%;
+                        aspect-ratio: 16/9;
+                    }
+                }
+            }
+        }
+    }
+}
