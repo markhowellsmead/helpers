@@ -17,7 +17,7 @@ by the Block Editor. The Block Editor just saves the ID of the selected menu as 
 
 ## Example
 
-This version was coded for the Website of [Hotel Aare Thun](https.//www.hotelaarethun.ch/) in winter 2023/2024.
+This version was coded for the Website of [Hotel Aare Thun](https://www.hotelaarethun.ch/en/) in winter 2023/2024.
 
 ## Author
 
