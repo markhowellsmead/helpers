@@ -1,42 +1,33 @@
 <?php
 
-use SayHello\Theme\Controller\Block as BlockController;
-
+use SayHello\ShpHotelAareMu\Controller\Block as BlockController;
 
 if (empty($theme_location = $attributes['menu'] ?? '')) {
-	if (sht_theme()->Package->Gutenberg->isContextEdit()) {
-?>
-		<div class="c-editormessage c-editormessage--error"><?php _ex('Bitte wählen Sie eine vordefinierte Navigation aus.', 'Navigation block editor message', 'sha'); ?></div>
-<?php
-	}
 	return;
 }
+
+$mode = esc_html($attributes['mode'] ?? 'all');
 
 $block_controller = new BlockController;
 $block_controller->extend($block);
 
-$class_names = $block['sht']['class_names'];
-$classNameBase = $block['sht']['classNameBase'];
+$class_names = $block['shp']['class_names'];
+$classNameDefault = $block['shp']['classNameDefault'];
+
+$class_names .= " {$classNameDefault}--mode-{$mode}";
 
 ?>
 <div class="<?php echo $class_names; ?>">
 	<?php
-	$menu = wp_nav_menu(
+	wp_nav_menu(
 		[
-			'echo' => false,
 			'theme_location' => $theme_location,
 			'container' => 'nav',
-			'container_class' => "{$classNameBase}__container {$classNameBase}__container--{$theme_location}",
-			'menu_class' => "{$classNameBase}__menu {$classNameBase}__menu--{$theme_location} is-layout-flex",
+			'container_class' => "{$classNameDefault}__container {$classNameDefault}__container--{$theme_location} {$classNameDefault}__container--mode-{$mode}",
+			'menu_class' => "{$classNameDefault}__menu {$classNameDefault}__menu--{$theme_location} {$classNameDefault}__menu--mode-{$mode}",
+			'fallback_cb' => false,
+			'depth' => $mode === 'top-level' ? 1 : 2,
 		]
 	);
-
-	if (empty($menu) && sht_theme()->Package->Gutenberg->isContextEdit()) {
-	?>
-		<div class="c-editormessage c-editormessage--error"><?php _ex('Die ausgewählte Navigation is leer.', 'Navigation block editor message', 'sha'); ?></div>
-	<?php
-	}
-
-	echo $menu;
 	?>
 </div>

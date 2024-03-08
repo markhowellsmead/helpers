@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "sht/menu",
 	"title": "Menü",
 	"category": "theme",
@@ -12,10 +12,14 @@
 		"menu": {
 			"type": "string",
 			"default": "primary"
+		},
+		"mode": {
+			"type": "string",
+			"default": "all"
 		}
 	},
 	"supports": {
-		"align": false,
+		"align": ["wide", "full"],
 		"color": {
 			"text": true,
 			"link": true,
@@ -27,7 +31,8 @@
 		"padding": false,
 		"margin": false
 	},
-	"style": "file:./dist/styles/view.min.css",
-	"editorScript": "file:./dist/scripts/editor.js",
+	"style": "file:./assets/dist/styles/view/index.min.css",
+	"editorStyle": "file:./assets/dist/styles/editor/index.min.css",
+	"editorScript": "file:./assets/dist/scripts/editor.js",
 	"render": "file:./render.php"
 }

@@ -1,11 +1,12 @@
 <?php
 
-namespace SayHello\Theme\Blocks\Menu;
+namespace SayHello\ShpHotelAareMu\Blocks\Menu;
 
 use WP_REST_Response;
 
 class Block
 {
+
 	public function run()
 	{
 		add_action('init', [$this, 'register']);

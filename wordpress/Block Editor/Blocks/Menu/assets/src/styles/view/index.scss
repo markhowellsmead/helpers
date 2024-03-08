@@ -1,0 +1,91 @@
+.wp-block-sht-menu {
+	&__menu {
+
+		letter-spacing: .04em;
+
+		&--booking,
+		&--primary,
+		&--meta,
+		&--footer,
+		&--meta_secondary,
+		&--mobile {
+			a {
+				display: inline-block;
+				padding: 0;
+				text-decoration: none;
+
+				--shp--menulink--line-width: 0;
+				--shp--menulink--line-thickness: 1px;
+
+				@media (-webkit-min-device-pixel-ratio: 2),
+				(min-resolution: 192dpi) {
+					--shp--menulink--line-thickness: 1.4px;
+				}
+
+				&:hover {
+					--shp--menulink--line-width: 100%;
+				}
+
+				&::after {
+					transition: width .6s ease-in-out;
+					content: '';
+					display: block;
+					border-top: var(--shp--menulink--line-thickness) solid currentColor;
+					width: var(--shp--menulink--line-width);
+					margin-top: -.15em;
+
+				}
+			}
+
+			.current-menu-item>a,
+			.current-menu-ancestor>a {
+				--shp--menulink--line-width: 100%;
+			}
+
+			>li>a {
+				text-transform: uppercase;
+			}
+
+			.sub-menu {
+				font-size: .9625em;
+				letter-spacing: .02em;
+				display: grid;
+				gap: .25em;
+			}
+		}
+
+		&--booking,
+		&--primary,
+		&--meta,
+		&--footer,
+		&--meta_secondary {
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			gap: var(--wp--preset--spacing--40);
+
+			>* {
+				flex: 1 0 0;
+			}
+
+			.sub-menu {
+				margin-top: var(--wp--preset--spacing--24);
+			}
+		}
+
+		&--footer {
+			text-align: center;
+		}
+
+		&--meta_secondary {
+			flex-direction: column;
+			gap: .25em;
+		}
+
+		&--meta {
+			li {
+				white-space: nowrap;
+			}
+		}
+	}
+}
