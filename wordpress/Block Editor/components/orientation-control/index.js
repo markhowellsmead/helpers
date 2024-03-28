@@ -1,3 +1,10 @@
+/*
+ * Usual usage is to pass in a block attribute "orientation"
+ * with a setAttributes call as the onChange property.
+ *
+ * mark@sayhello.ch since 29.3.2024
+ */
+
 import {
     __experimentalToggleGroupControl as ToggleGroupControl,
     __experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
