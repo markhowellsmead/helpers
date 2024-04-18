@@ -1,6 +1,6 @@
 # WordPress Data Store
 
-*December 2020*
+*Updated April 2024*
 
 The code in these examples shows how to implement a custom data store in WordPress Gutenberg. The 
 basic principle is to register a REST API endpoint in PHP and then to register a custom data store 
