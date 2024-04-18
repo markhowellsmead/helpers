@@ -7,14 +7,12 @@ basic principle is to register a REST API endpoint in PHP and then to register a
 in the Gutenberg Editor to fetch data from (and send data to) that endpoint.
 
 The data can then be requested by means of regular functions in the `@wordpress/data` construct; 
-for example through a Higher Order Component.
+for example through a Higher Order Component or through the use of `useEffect`.
 
 ## Requirements
 
-- WordPress 5.6+
-- WordPress Theme built using [Hello Roots](https://github.com/SayHelloGmbH/hello-roots/)
+- WordPress 6.5+
 
 ## Authors
 
 - mark@sayhello.ch
-- joel@sayhello.ch
