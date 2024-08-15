@@ -1,0 +1,56 @@
+@charset 'UTF-8';
+
+.c-modal {
+
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+
+	&:has(.c-modal__inner[aria-hidden="false"])::after {
+		content: '';
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(0, 0, 0, .5);
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
+	}
+
+	&__inner {
+		position: fixed;
+		z-index: 2;
+		padding: 1rem;
+		background: #f0f0f0;
+		border: 1px solid #ccc;
+		width: 100%;
+		max-width: 800px;
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		&:not([aria-hidden="false"]) {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	&__toggle {
+		position: relative;
+		z-index: 2;
+
+		&-wrap {
+			display: flex;
+			justify-content: center;
+			position: relative;
+			grid-column: 1 / -1;
+			grid-row: 1 / -1;
+		}
+	}
+}

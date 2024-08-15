@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "sht/modal",
+	"title": "Modal",
+	"description": "",
+	"category": "theme",
+	"icon": "comment",
+	"keywords": ["modal", "popup", "sht"],
+	"textdomain": "sht",
+	"supports": {
+		"align": ["wide", "full"],
+		"multiple": true
+	},
+	"attributes": {
+		"blockId": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"script": "file:./assets/dist/scripts/view.js",
+	"style": ["file:./assets/dist/styles/view/index.min.css"],
+	"render": "file:./render.php"
+}
