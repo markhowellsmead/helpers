@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "shp-must-use/lead-with-buttons",
+	"title": "Lead with buttons",
+	"description": "Adds a lead text and optional buttons.",
+	"category": "theme",
+	"icon": "heading",
+	"keywords": ["lead"],
+	"textdomain": "shp-must-use",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"align": false,
+		"multiple": false
+	},
+	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"style": "file:./assets/dist/styles/view/index.min.css",
+	"render": "file:./render.php"
+}
