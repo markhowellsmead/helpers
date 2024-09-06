@@ -2,6 +2,6 @@
 
 Uses a combination of `InnerBlocks` and PHP rendering.
 
-## Author
+## Author
 
 mark@sayhello.ch 6.9.2024
