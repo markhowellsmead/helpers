@@ -1,109 +1,127 @@
-// https://dev.to/nicomartin/the-right-way-to-fetch-data-with-react-hooks-48gc
+/**
+ * Specifically for WordPress projects
+ * 
+ * Last update 11.9.2024
+ *
+ */
 
-import 'whatwg-fetch';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from '@wordpress/element';
+import apiStates from './_states.js';
 
-import apiStates from '../api-states';
+const apiGet = (url) => {
+	const [api_data, setAPIData] = useState({
+		state: apiStates.LOADING,
+		error: '',
+		data: [],
+		headers: {},
+	});
 
-export const getPosts = url => {
-    const [state, setState] = useState(apiStates.IDLE);
-    const [data, setData] = useState(null);
-    const [headers, setHeaders] = useState(null);
+	let header_total = null;
 
-    const doRequest = () => {
-        let header_total = null;
-        let header_totalpages = null;
+	const setPartData = (partialData) =>
+		setAPIData((prevData) => ({
+			...prevData,
+			...partialData,
+		}));
 
-        setState(apiStates.LOADING);
-        fetch(url, {
-            method: 'GET',
-        })
-            .then(response => {
-                if (!!response.status && response.status > 399) {
-                    throw Error({
-                        status: response.status,
-                        text: !!response.statusText ? response.statusText : '',
-                    });
-                }
-                header_total = response.headers.get('x-wp-total');
-                header_totalpages = response.headers.get('x-wp-totalpages');
-                return response;
-            })
-            .then(response => response.json())
-            .then(data => {
-                setState(apiStates.SUCCESS);
-                setData(data);
-                setHeaders({
-                    total: header_total,
-                    totalpages: header_totalpages,
-                });
-            })
-            .catch(() => {
-                setState(apiStates.ERROR);
-            });
-    };
+	useEffect(() => {
+		setPartData({
+			state: apiStates.LOADING,
+		});
 
-    return {
-        state,
-        data,
-        headers,
-        doRequest,
-        setState,
-        setData,
-        setHeaders,
-    };
+		// Using native fetch for getting both headers and JSON response
+		fetch(url)
+			.then((response) => {
+				// Check if the response is ok
+				if (!response.ok) {
+					throw new Error(`HTTP error! status: ${response.status}`);
+				}
+
+				// Extracting headers (e.g., X-WP-Total)
+				header_total = response.headers.get('X-WP-Total');
+
+				// Parsing the JSON data
+				return response.json();
+			})
+			.then((json) => {
+				// Set the data and the headers
+				setPartData({
+					state: apiStates.SUCCESS,
+					data: json,
+					headers: {
+						total: header_total,
+					},
+				});
+			})
+			.catch((error) => {
+				setPartData({
+					state: apiStates.ERROR,
+					error: error.message || 'fetch failed',
+				});
+			});
+	}, [url]);
+
+	return api_data;
 };
 
-export const apiGet = url => {
-    const [api_data, setAPIData] = useState({
-        state: apiStates.LOADING,
-        error: '',
-        data: [],
-        headers: {},
-    });
+const getPosts = (url) => {
+	const [state, setState] = useState(apiStates.IDLE);
+	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
 
-    let header_total = null;
+	const fetchData = async (page = 1, allData = []) => {
+		try {
+			const this_url = new URL(url);
+			this_url.searchParams.append('page', page);
+			const response = await fetch(this_url);
 
-    const setPartData = partialData => setAPIData({ ...api_data, ...partialData });
+			// Check if the response is ok
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
 
-    useEffect(() => {
-        setPartData({
-            state: apiStates.LOADING,
-        });
-        fetch(url, {
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'X-WP-Nonce': sht_wp_api.nonce,
-            },
-        })
-            .then(response => {
-                if (!!response.status && response.status > 399) {
-                    throw Error({
-                        status: response.status,
-                        text: !!response.statusText ? response.statusText : '',
-                    });
-                }
-                header_total = response.headers.get('X-WP-Total');
-                return response;
-            })
-            .then(response => response.json())
-            .then(json => {
-                setPartData({
-                    state: apiStates.SUCCESS,
-                    data: json,
-                    headers: {
-                        total: header_total,
-                    },
-                });
-            })
-            .catch(error => {
-                setPartData({
-                    state: apiStates.ERROR,
-                    error: !!error.statusText ? error.statusText : 'fetch failed',
-                });
-            });
-    }, []);
+			// Get the necessary headers
+			const totalPages = response.headers.get('X-WP-TotalPages');
 
-    return api_data;
+			// Parse the response JSON
+			const json = await response.json();
+
+			// Combine the current page data with all previous data
+			const updatedData = [...allData, ...json];
+
+			// If there are more pages, recursively fetch the next page
+			if (page < totalPages) {
+				return fetchData(page + 1, updatedData);
+			}
+
+			// If all pages are fetched, return the full data
+			return updatedData;
+		} catch (err) {
+			throw err;
+		}
+	};
+
+	const doRequest = async () => {
+		setState(apiStates.LOADING);
+
+		try {
+			const allPosts = await fetchData(); // Fetch all pages of data
+			setState(apiStates.SUCCESS);
+			setData(allPosts); // Set the combined data
+		} catch (err) {
+			setState(apiStates.ERROR);
+			setError(err.message || 'fetch failed');
+		}
+	};
+
+	return {
+		state,
+		data,
+		error,
+		doRequest,
+		setState,
+		setData,
+	};
 };
+
+export { apiStates, apiGet, getPosts };
