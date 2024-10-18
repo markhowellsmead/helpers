@@ -2,9 +2,13 @@
 
 namespace SayHello\Theme\Package;
 
-class DomDocument {
+use DOMDocument as GlobalDOMDocument;
+use DOMNode;
 
-   /**
+class DomDocument
+{
+
+	/**
 	 * Helper function to allow easy adding an
 	 * HTML string to the parent as a child node.
 	 *
@@ -14,7 +18,7 @@ class DomDocument {
 	 */
 	private function appendHTML(DOMNode $parent, string $source)
 	{
-		$tmpDoc = new DOMDocument();
+		$tmpDoc = new GlobalDOMDocument();
 		$tmpDoc->loadHTML($source);
 		foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $node) {
 			$node = $parent->ownerDocument->importNode($node, true);
@@ -24,13 +28,13 @@ class DomDocument {
 
 	/**
 	 * PHP 8.2-compatible string conversion.
-     * Formerly mb_convert_encoding($string, 'HTML-ENTITIES', 'UTF-8')
+	 * Formerly mb_convert_encoding($string, 'HTML-ENTITIES', 'UTF-8')
 	 *
 	 * @param string $string
 	 * @param string $convert_to
 	 * @return string
 	 */
-	private function convertStringEncoding(string $string, $convert_to = 'UTF-8')
+	public function convertStringEncoding(string $string, $convert_to = 'UTF-8')
 	{
 		return mb_encode_numericentity(
 			htmlspecialchars_decode(
