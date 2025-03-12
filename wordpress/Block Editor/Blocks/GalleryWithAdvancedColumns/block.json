@@ -1,0 +1,20 @@
+{
+	"apiVersion": 3,
+	"name": "sht/gallery-with-advnced-columns",
+	"title": "Image Gallery 3x2",
+	"description": "A gallery block with 3 images in a 3x2 grid.",
+	"category": "media",
+	"icon": "images-alt2",
+	"supports": {
+		"align": ["wide", "full"],
+		"html": false
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"render": "file:./render.php"
+}
