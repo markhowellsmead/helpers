@@ -58,4 +58,34 @@ class Assets
 			$script_asset['version']
 		);
 	}
+
+	/**
+	 * Load a script with dependencies
+	 *
+	 * @param string $filename
+	 * @param string $key
+	 * @return void
+	 * @since 20.3.2025
+	 */
+	public function loadScriptWithDependencies(string $filename, string $key): void
+	{
+		$directory = get_template_directory();
+		$directory_uri = get_template_directory_uri();
+		$prefix = sht_theme()->prefix;
+
+		$script_asset_path = "{$directory}/assets/scripts/{$filename}.asset.php";
+
+		if (!file_exists($script_asset_path)) {
+			wp_die("{$script_asset_path} does not exist", 500);
+		}
+
+		$script_asset = require($script_asset_path);
+
+		wp_enqueue_script(
+			"{$prefix}-{$key}",
+			"{$directory_uri}/assets/scripts/{$filename}.js",
+			$script_asset['dependencies'],
+			$script_asset['version']
+		);
+	}
 }
