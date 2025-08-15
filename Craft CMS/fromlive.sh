@@ -5,7 +5,7 @@
 set -e
 
 SSH_SERVER=""
-WEBROOT="t"
+WEBROOT=""
 DOMAIN_LIVE=""
 DOMAIN_DEV=""
 LOCAL_PATH=""
