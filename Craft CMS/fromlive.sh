@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# This version 15th August 2025 - mark@sayhello.ch
+# Assumes (requires) the use of ddev (Docker).
 set -e
 
 SSH_SERVER=""
@@ -32,7 +35,7 @@ DB_PASS=$(grep CRAFT_DB_PASSWORD .env | cut -d '=' -f2 | tr -d '\r')
 DB_HOST=$(grep CRAFT_DB_SERVER .env | cut -d '=' -f2 | tr -d '\r')
 DB_PORT=$(grep CRAFT_DB_PORT .env | cut -d '=' -f2 | tr -d '\r')
 
-# Remote DB backup
+# Remote DB backup to the storage/backups folder
 ssh $SSH_SERVER -A "cd $WEBROOT && $REMOTE_PHP craft db/backup --interactive=0 --zip >/dev/null 2>&1"
 
 # Download latest DB backup
