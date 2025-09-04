@@ -21,7 +21,6 @@ rsync -azP -e ssh \
   --exclude='storage/composer-backups/' \
   --exclude='storage/config-deltas/' \
   --exclude='storage/runtime/' \
-  --exclude='storage/logs/' \
   --exclude='web/cpresources/' \
   --exclude='.env' \
   --exclude='.env*' \
