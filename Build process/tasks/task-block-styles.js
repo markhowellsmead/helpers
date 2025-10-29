@@ -37,7 +37,7 @@ export const task = (config) => {
 			.pipe(dest('./'))
 			.on('error', config.errorLog)
 			// Minify
-			.pipe(postcss([cssnano()]))
+			.pipe(postcss([cssnano({ preset: ['default', { mergeLonghand: false }] })])) // 29.10.2025 - known issue with cssnano > 6 - mergeLonghand breaking some styles
 			.on('error', config.errorLog)
 			.pipe(rename({ suffix: '.min' }))
 			.pipe(dest('./'))
